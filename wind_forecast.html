@@ -3,292 +3,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Previsión de Viento</title>
+    <title>Viento Parapente · 72h</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
         :root {
-            --bg: #f0f4f8;
-            --card: #ffffff;
-            --header-bg: #1a365d;
-            --text: #2d3748;
-            --subtext: #718096;
-            --border: #e2e8f0;
-            --accent: #3182ce;
-            --accent-hover: #2c5282;
+            --bg:       #0f172a;
+            --surface:  #1e293b;
+            --surf2:    #263448;
+            --border:   #334155;
+            --text:     #e2e8f0;
+            --sub:      #94a3b8;
+            --accent:   #38bdf8;
+            --f0: #22c55e;
+            --f1: #eab308;
+            --f2: #f97316;
+            --f3: #ef4444;
         }
-
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
 
-        body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            min-height: 100vh;
-        }
-
+        /* ── Header ── */
         header {
-            background: var(--header-bg);
-            color: white;
-            padding: 1rem 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        header h1 { font-size: 1.4rem; font-weight: 600; }
-        header p  { font-size: 0.8rem; opacity: 0.7; margin-top: 0.15rem; }
-
-        /* Legend in header */
-        .header-legend {
-            display: flex;
-            gap: 0.6rem;
-            align-items: center;
-            flex-wrap: wrap;
-            font-size: 0.75rem;
-        }
-
-        .legend-chip {
-            padding: 0.2rem 0.55rem;
-            border-radius: 999px;
-            font-weight: 600;
-            font-size: 0.72rem;
-        }
-
-        .add-bar {
-            background: white;
+            background: #070d1a;
             border-bottom: 1px solid var(--border);
-            padding: 0.65rem 2rem;
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
+            padding: 0.85rem 1.5rem;
+            display: flex; align-items: center; justify-content: space-between;
+            position: sticky; top: 0; z-index: 100; gap: 1rem;
         }
+        .hdr-title h1 { font-size: 1.15rem; font-weight: 700; color: var(--accent); }
+        .hdr-title p  { font-size: 0.7rem; color: var(--sub); margin-top: 2px; }
+        .hdr-right { display: flex; gap: 0.5rem; align-items: center; }
+        .legend { display: flex; gap: 0.65rem; align-items: center; font-size: 0.7rem; color: var(--sub); flex-wrap: wrap; }
+        .lgi { display: flex; align-items: center; gap: 4px; }
+        .lgdot { width: 10px; height: 10px; border-radius: 3px; }
 
-        .search-wrap {
-            position: relative;
+        /* ── Add bar ── */
+        .add-bar {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 0.55rem 1.5rem;
+            display: flex; gap: 0.5rem; align-items: center;
         }
-
+        .search-wrap { position: relative; }
         .search-wrap input {
-            width: 260px;
-            padding: 0.45rem 0.75rem;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            font-size: 0.9rem;
-            outline: none;
+            width: 260px; padding: 0.38rem 0.75rem;
+            background: var(--bg); border: 1px solid var(--border);
+            border-radius: 6px; color: var(--text); font-size: 0.85rem; outline: none;
         }
-
-        .search-wrap input:focus {
-            border-color: var(--accent);
-            box-shadow: 0 0 0 2px rgba(49,130,206,0.2);
-        }
-
+        .search-wrap input:focus { border-color: var(--accent); }
         .dropdown {
-            position: absolute;
-            top: calc(100% + 4px);
-            left: 0;
-            width: 100%;
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-            z-index: 300;
-            overflow: hidden;
+            position: absolute; top: calc(100% + 4px); left: 0; width: 280px;
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.55);
+            z-index: 300; overflow: hidden;
         }
-
-        .dropdown div {
-            padding: 0.55rem 0.75rem;
-            cursor: pointer;
-            font-size: 0.88rem;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
+        .dropdown div { padding: 0.48rem 0.75rem; cursor: pointer; font-size: 0.83rem; border-bottom: 1px solid var(--border); }
         .dropdown div:last-child { border-bottom: none; }
-        .dropdown div:hover { background: #ebf8ff; }
+        .dropdown div:hover { background: var(--surf2); }
 
+        /* ── Buttons ── */
         .btn {
-            padding: 0.45rem 1rem;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.88rem;
-            font-weight: 500;
-            transition: background 0.15s, opacity 0.15s;
+            padding: 0.38rem 0.85rem; border: none; border-radius: 6px;
+            cursor: pointer; font-size: 0.82rem; font-weight: 500;
+            transition: opacity .15s;
         }
+        .btn:hover { opacity: 0.82; }
+        .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+        .btn-accent  { background: var(--accent); color: #070d1a; }
+        .btn-sm      { padding: 0.22rem 0.55rem; font-size: 0.72rem; }
+        .btn-ghost   { background: var(--surf2); color: var(--sub); border: 1px solid var(--border); }
+        .btn-danger  { background: transparent; border: 1px solid var(--f3); color: var(--f3); }
+        .btn-info    { background: transparent; border: 1px solid var(--accent); color: var(--accent); }
 
-        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
-        .btn-primary { background: var(--accent); color: white; }
-        .btn-primary:not(:disabled):hover { background: var(--accent-hover); }
-        .btn-sm { padding: 0.3rem 0.65rem; font-size: 0.78rem; }
-        .btn-danger { background: #e53e3e; color: white; }
-        .btn-danger:hover { background: #c53030; }
-        .btn-ghost { background: rgba(255,255,255,0.15); color: white; }
-        .btn-ghost:hover { background: rgba(255,255,255,0.25); }
+        /* ── Info panel ── */
+        .info-panel { background: #111827; border-bottom: 1px solid var(--border); overflow: hidden; max-height: 0; transition: max-height .35s ease; }
+        .info-panel.open { max-height: 600px; }
+        .info-inner { padding: 1rem 1.5rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 0.75rem; }
+        .info-card { background: var(--surface); border-left: 3px solid var(--accent); border-radius: 8px; padding: 0.75rem; }
+        .info-card h3 { font-size: 0.78rem; color: var(--accent); margin-bottom: 0.35rem; }
+        .info-card p, .info-card li { font-size: 0.73rem; color: var(--sub); line-height: 1.55; }
+        .info-card ul { padding-left: 1rem; }
 
-        main {
-            padding: 1.5rem 2rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+        /* ── Main ── */
+        main { padding: 1.25rem 1.5rem; display: flex; flex-direction: column; gap: 1.25rem; max-width: 1300px; margin: 0 auto; }
+        .empty-state { color: var(--sub); text-align: center; padding: 5rem 2rem; font-size: 0.9rem; }
 
-        .empty-state {
-            text-align: center;
-            color: var(--subtext);
-            padding: 4rem 2rem;
-            font-size: 1rem;
-        }
-
-        /* Location card */
-        .location-card {
-            background: var(--card);
-            border-radius: 10px;
-            box-shadow: 0 1px 5px rgba(0,0,0,0.09);
-            overflow: hidden;
-        }
-
+        /* ── Location card ── */
+        .loc-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
         .loc-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.85rem 1.25rem;
-            background: linear-gradient(135deg, #2b6cb0, #3182ce);
-            color: white;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0.75rem 1.25rem;
+            background: linear-gradient(135deg, #194068, #1d4d80);
+            border-bottom: 1px solid var(--border);
         }
+        .loc-header h2 { font-size: 1rem; font-weight: 700; }
+        .loc-header .coord { font-size: 0.68rem; color: rgba(255,255,255,0.55); margin-top: 2px; }
+        .loc-actions { display: flex; gap: 0.4rem; }
+        .loc-loading, .loc-error { padding: 2.5rem; text-align: center; color: var(--sub); }
+        .loc-error { color: var(--f3); }
 
-        .loc-header h2 { font-size: 1.05rem; font-weight: 600; }
-        .loc-header .coords { font-size: 0.73rem; opacity: 0.8; margin-top: 0.1rem; }
+        /* ── Chip summary ── */
+        .summary-bar { display: flex; gap: 0.5rem; padding: 0.6rem 1.25rem; border-bottom: 1px solid var(--border); flex-wrap: wrap; align-items: center; }
+        .chip { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.2rem 0.6rem; border-radius: 999px; font-size: 0.72rem; font-weight: 600; background: var(--surf2); }
+        .chip-dot { width: 6px; height: 6px; border-radius: 50%; }
 
-        .loc-actions { display: flex; gap: 0.5rem; align-items: center; }
+        /* ── Fly strip ── */
+        .fly-section { padding: 0.75rem 1.25rem 0.6rem; border-bottom: 1px solid var(--border); }
+        .section-label { font-size: 0.65rem; color: var(--sub); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 0.4rem; }
+        .fly-days-wrap { display: flex; gap: 4px; }
+        .fly-day-col { flex: 1; display: flex; flex-direction: column; gap: 3px; }
+        .fly-day-name { font-size: 0.65rem; color: var(--sub); text-align: center; font-weight: 600; }
+        .fly-hours { display: flex; gap: 1px; height: 32px; }
+        .fly-cell { flex: 1; border-radius: 2px; cursor: crosshair; transition: transform .1s; }
+        .fly-cell:hover { transform: scaleY(1.22); }
+        .f0 { background: var(--f0); }
+        .f1 { background: var(--f1); }
+        .f2 { background: var(--f2); }
+        .f3 { background: var(--f3); }
+        .fly-hour-labs { display: flex; justify-content: space-between; padding: 0 1px; margin-top: 2px; }
+        .fly-hour-labs span { font-size: 0.57rem; color: #475569; }
 
-        .loc-body { }
+        /* ── Speed chart ── */
+        .chart-section { padding: 0.75rem 1.25rem; border-bottom: 1px solid var(--border); }
+        .chart-wrap { position: relative; height: 210px; }
 
-        .loc-loading, .loc-error {
-            padding: 2rem;
-            text-align: center;
-            color: var(--subtext);
+        /* ── Direction row ── */
+        .dir-section { padding: 0.55rem 1.25rem 0.8rem; }
+        .dir-row { display: flex; justify-content: space-between; align-items: flex-end; }
+        .dir-item { display: flex; flex-direction: column; align-items: center; gap: 0; }
+        .da10  { font-size: 1.1rem; line-height: 1.2; color: #7dd3fc; }
+        .da120 { font-size: 0.72rem; line-height: 1.2; color: #c084fc; opacity: 0.75; }
+        .dir-time { font-size: 0.58rem; color: #475569; margin-top: 1px; }
+
+        /* ── Hover tooltip ── */
+        #flyTip {
+            position: fixed;
+            background: #070d1a;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            padding: 0.65rem 0.9rem;
+            font-size: 0.75rem;
+            pointer-events: none;
+            z-index: 1000;
+            display: none;
+            min-width: 195px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.65);
         }
+        #flyTip .tt-time { font-size: 0.85rem; font-weight: 700; color: var(--accent); margin-bottom: 0.45rem; }
+        #flyTip .tt-badge { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 5px; font-size: 0.7rem; font-weight: 700; margin-bottom: 0.4rem; }
+        #flyTip .tt-row { display: flex; justify-content: space-between; gap: 1.5rem; margin-top: 0.2rem; }
+        #flyTip .tt-key { color: var(--sub); }
+        #flyTip .tt-val { font-weight: 600; }
+        #flyTip .tt-warn { color: var(--f2); font-size: 0.68rem; margin-top: 0.4rem; }
 
-        .loc-error { color: #e53e3e; }
-
-        /* Table */
-        .table-scroll { overflow-x: auto; }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.81rem;
-            min-width: 700px;
+        /* ── Settings panel ── */
+        .settings-panel { background: #111827; border-bottom: 1px solid var(--border); overflow: hidden; max-height: 0; transition: max-height .35s ease; }
+        .settings-panel.open { max-height: 700px; }
+        .settings-inner { padding: 1rem 1.5rem; display: flex; flex-direction: column; gap: 0.9rem; }
+        .settings-inner h2 { font-size: 0.8rem; color: var(--accent); margin-bottom: 0.1rem; }
+        .settings-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.75rem 1.5rem; }
+        .settings-group { background: var(--surface); border-radius: 8px; padding: 0.8rem 1rem; border-left: 3px solid var(--border); }
+        .settings-group h3 { font-size: 0.73rem; color: var(--accent); margin-bottom: 0.6rem; font-weight: 700; }
+        .sf { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.45rem; gap: 0.5rem; }
+        .sf label { font-size: 0.72rem; color: var(--sub); flex: 1; }
+        .sf input[type=number] {
+            width: 72px; padding: 0.22rem 0.45rem;
+            background: var(--bg); border: 1px solid var(--border);
+            border-radius: 5px; color: var(--text); font-size: 0.82rem;
+            text-align: right; outline: none;
         }
+        .sf input[type=number]:focus { border-color: var(--accent); }
+        .sf .unit { font-size: 0.66rem; color: #475569; min-width: 28px; }
+        .settings-footer { display: flex; gap: 0.5rem; }
+        .btn-reset { background: transparent; border: 1px solid var(--border); color: var(--sub); }
 
-        thead th {
-            background: #edf2f7;
-            padding: 0.45rem 0.5rem;
-            text-align: center;
-            font-weight: 600;
-            color: var(--subtext);
-            border-bottom: 2px solid var(--border);
-            white-space: nowrap;
-        }
-
-        thead th.col-time {
-            text-align: left;
-            position: sticky;
-            left: 0;
-            background: #edf2f7;
-            z-index: 10;
-            min-width: 68px;
-        }
-
-        tbody tr { transition: background 0.1s; }
-        tbody tr:nth-child(even):not(.day-row) { background: #f7fafc; }
-        tbody tr:not(.day-row):hover { background: #ebf8ff; }
-
-        tbody td {
-            padding: 0.38rem 0.5rem;
-            text-align: center;
-            border-bottom: 1px solid #f0f0f0;
-            white-space: nowrap;
-        }
-
-        tbody td.col-time {
-            text-align: left;
-            position: sticky;
-            left: 0;
-            font-weight: 500;
-            background: white;
-            z-index: 5;
-        }
-
-        tbody tr:nth-child(even):not(.day-row) td.col-time { background: #f7fafc; }
-        tbody tr:not(.day-row):hover td.col-time { background: #ebf8ff; }
-
-        /* Day separator rows */
-        .day-row td {
-            background: #bee3f8 !important;
-            color: #2c5282;
-            font-weight: 700;
-            font-size: 0.78rem;
-            padding: 0.3rem 0.75rem;
-            letter-spacing: 0.02em;
-        }
-
-        /* Wind cell */
-        .wc {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.25rem;
-            justify-content: center;
-        }
-
-        .spd {
-            padding: 0.13rem 0.38rem;
-            border-radius: 4px;
-            font-weight: 700;
-            min-width: 34px;
-            display: inline-block;
-            text-align: center;
-        }
-
-        /* Speed color classes */
-        .s0 { background: #c6f6d5; color: #276749; }   /* < 10  */
-        .s1 { background: #fefcbf; color: #744210; }   /* 10–20 */
-        .s2 { background: #feebc8; color: #7b341e; }   /* 20–30 */
-        .s3 { background: #fed7d7; color: #742a2a; }   /* 30–40 */
-        .s4 { background: #9b2c2c; color: white;   }   /* ≥ 40  */
-
-        .arrow {
-            display: inline-block;
-            font-size: 1rem;
-            line-height: 1;
-        }
-
-        @media (max-width: 640px) {
-            header { padding: 0.75rem 1rem; }
-            .header-legend { display: none; }
-            main { padding: 0.75rem 1rem; }
-            .add-bar { padding: 0.5rem 1rem; }
+        @media (max-width: 680px) {
+            header { padding: 0.6rem 0.75rem; }
+            .legend { display: none; }
+            main { padding: 0.75rem; }
+            .add-bar { padding: 0.45rem 0.75rem; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <div>
-        <h1>🌬️ Previsión de Viento</h1>
-        <p>Próximas 72 horas · Open-Meteo</p>
+    <div class="hdr-title">
+        <h1>🪂 Viento Parapente</h1>
+        <p>Previsión 72h · Open-Meteo</p>
     </div>
-    <div class="header-legend">
-        <span style="opacity:.7">km/h:</span>
-        <span class="legend-chip s0">&lt;10</span>
-        <span class="legend-chip s1">10–20</span>
-        <span class="legend-chip s2">20–30</span>
-        <span class="legend-chip s3">30–40</span>
-        <span class="legend-chip s4">≥40</span>
-        <span style="opacity:.65;margin-left:.4rem">↑ dirección de destino del viento</span>
+    <div class="legend" id="legend"></div>
+    <div class="hdr-right">
+        <button class="btn btn-ghost btn-sm" onclick="toggleSettings()">⚙ Umbrales</button>
+        <button class="btn btn-info btn-sm" onclick="toggleInfo()">ℹ Guía</button>
     </div>
 </header>
 
@@ -297,171 +204,480 @@
         <input id="searchInput" type="text" placeholder="Añadir ubicación…" autocomplete="off">
         <div class="dropdown" id="dropdown" style="display:none"></div>
     </div>
-    <button class="btn btn-primary" id="searchBtn" onclick="handleSearch()">Buscar</button>
+    <button class="btn btn-accent" onclick="handleSearch()">Buscar</button>
+</div>
+
+<div class="info-panel" id="infoPanel">
+    <div class="info-inner">
+        <div class="info-card">
+            <h3>🌬️ Viento en superficie (10m)</h3>
+            <ul>
+                <li>&lt;15 km/h → Óptimo, despegue fácil</li>
+                <li>15–25 km/h → Manejable, requiere técnica</li>
+                <li>25–35 km/h → Fuerte, solo expertos</li>
+                <li>&gt;35 km/h → Peligroso, no volar</li>
+            </ul>
+        </div>
+        <div class="info-card">
+            <h3>📈 Viento en altitud (80–180m)</h3>
+            <p>Muestra las condiciones durante el vuelo. Fuertes vientos en altura generan turbulencia y pueden impedir el control. El gradiente entre capas indica estabilidad atmosférica.</p>
+        </div>
+        <div class="info-card">
+            <h3>💨 Factor de rachas</h3>
+            <p>Relación entre rachas y viento sostenido. &gt;1,5× indica turbulencia convectiva o mecánica. Condiciones suaves tienen factores cercanos a 1,0.</p>
+        </div>
+        <div class="info-card">
+            <h3>🧭 Cizalladura (flechas del strip)</h3>
+            <p>Si la dirección en 10m y 120m difieren &gt;40°, aparece ⚠ en el tooltip. Esto puede provocar colapsos al ganar altura. Flechas coherentes en ambas alturas = buena señal.</p>
+        </div>
+        <div class="info-card">
+            <h3>⏰ Ventanas de vuelo</h3>
+            <p>Las mejores condiciones suelen ser por la mañana temprano antes de que se activen las térmicas, o al atardecer. Evitar el mediodía en verano por turbulencia térmica fuerte.</p>
+        </div>
+        <div class="info-card">
+            <h3>🔵 Cómo leer el panel</h3>
+            <p>El <b>strip de colores</b> muestra las 72h de vistazo. Pasa el ratón sobre cada hora para ver todos los datos. El <b>gráfico</b> muestra la evolución de velocidades. Las <b>flechas</b> indican de dónde viene el viento (azul=10m, morado=120m).</p>
+        </div>
+    </div>
+</div>
+
+<div class="settings-panel" id="settingsPanel">
+    <div class="settings-inner">
+        <h2>⚙ Umbrales de seguridad — modifica los valores y pulsa Aplicar para recalcular</h2>
+        <div class="settings-grid">
+            <div class="settings-group">
+                <h3>🌬️ Velocidad viento 10m</h3>
+                <div class="sf"><label>Límite Óptimo / Moderado</label><input type="number" id="cfg-s1" min="1" max="100" step="1"><span class="unit">km/h</span></div>
+                <div class="sf"><label>Límite Moderado / Fuerte</label><input type="number" id="cfg-s2" min="1" max="100" step="1"><span class="unit">km/h</span></div>
+                <div class="sf"><label>Límite Fuerte / Peligroso</label><input type="number" id="cfg-s3" min="1" max="100" step="1"><span class="unit">km/h</span></div>
+            </div>
+            <div class="settings-group">
+                <h3>💨 Factor de rachas</h3>
+                <div class="sf"><label>Mínimo viento para evaluar</label><input type="number" id="cfg-gmin" min="0" max="20" step="0.5"><span class="unit">km/h</span></div>
+                <div class="sf"><label>Límite OK / Moderado</label><input type="number" id="cfg-gf1" min="1" max="3" step="0.05"><span class="unit">×</span></div>
+                <div class="sf"><label>Límite Moderado / Fuerte</label><input type="number" id="cfg-gf2" min="1" max="3" step="0.05"><span class="unit">×</span></div>
+            </div>
+            <div class="settings-group">
+                <h3>🧭 Cizalladura de dirección (10m vs 120m)</h3>
+                <div class="sf"><label>Límite OK / Moderado</label><input type="number" id="cfg-sh1" min="0" max="180" step="5"><span class="unit">°</span></div>
+                <div class="sf"><label>Límite Moderado / Fuerte</label><input type="number" id="cfg-sh2" min="0" max="180" step="5"><span class="unit">°</span></div>
+            </div>
+        </div>
+        <div class="settings-footer">
+            <button class="btn btn-accent btn-sm" onclick="applySettings()">✓ Aplicar y recalcular</button>
+            <button class="btn btn-reset btn-sm" onclick="resetSettings()">↺ Restaurar por defecto</button>
+        </div>
+    </div>
 </div>
 
 <main id="main"></main>
 
+<!-- Fly-strip hover tooltip -->
+<div id="flyTip">
+    <div class="tt-time" id="tt-time"></div>
+    <div class="tt-badge" id="tt-badge"></div>
+    <div class="tt-row"><span class="tt-key">Viento 10m</span><span class="tt-val" id="tt-ws10"></span></div>
+    <div class="tt-row"><span class="tt-key">Rachas 10m</span><span class="tt-val" id="tt-gust"></span></div>
+    <div class="tt-row"><span class="tt-key">Viento 80m</span><span class="tt-val" id="tt-ws80"></span></div>
+    <div class="tt-row"><span class="tt-key">Viento 120m</span><span class="tt-val" id="tt-ws120"></span></div>
+    <div class="tt-row"><span class="tt-key">Viento 180m</span><span class="tt-val" id="tt-ws180"></span></div>
+    <div class="tt-row"><span class="tt-key">Dirección 10m</span><span class="tt-val" id="tt-dir10"></span></div>
+    <div class="tt-warn" id="tt-warn"></div>
+</div>
+
 <script>
-const API   = 'https://api.open-meteo.com/v1/forecast';
-const GEO   = 'https://geocoding-api.open-meteo.com/v1/search';
-const PARAMS = 'wind_speed_10m,wind_speed_80m,wind_speed_120m,wind_speed_180m,wind_direction_10m,wind_direction_80m,wind_direction_120m,wind_direction_180m,wind_gusts_10m';
+/* ═══════════════════════════════════════════
+   Constants & state
+═══════════════════════════════════════════ */
+const API_WX  = 'https://api.open-meteo.com/v1/forecast';
+const API_GEO = 'https://geocoding-api.open-meteo.com/v1/search';
+const PARAMS  = 'wind_speed_10m,wind_speed_80m,wind_speed_120m,wind_speed_180m,wind_direction_10m,wind_direction_80m,wind_direction_120m,wind_direction_180m,wind_gusts_10m';
+
+/* ── Configurable safety thresholds ── */
+const CFG_DEFAULTS = {
+    speedOpt:   15,   // ws10 below this → Óptimo
+    speedMod:   25,   // ws10 below this → Moderado
+    speedStr:   35,   // ws10 below this → Fuerte, else Peligroso
+    gustMinWind: 5,   // minimum ws10 (km/h) before evaluating gust factor
+    gustOk:     2.00, // gust factor below this → OK
+    gustMod:    2.50, // gust factor below this → Moderado
+    shearOk:    25,   // shear below this → OK
+    shearMod:   50,   // shear below this → Moderado
+};
+
+let CFG = { ...CFG_DEFAULTS };
 
 const DEFAULT_LOCATIONS = [
-    { name: 'Lora del Río',    lat: 37.6551, lon: -5.5197 },
-    { name: 'Algodonales',     lat: 36.8934, lon: -5.4039 },
-    { name: 'Utrera',          lat: 37.1850, lon: -5.7836 },
-    { name: 'Matalascañas',    lat: 37.0086, lon: -6.5558 },
+    { name: 'Lora del Río',   lat: 37.6551, lon: -5.5197 },
+    { name: 'Utrera',         lat: 37.1850, lon: -5.7836 },
+    { name: 'Matalascañas',   lat: 37.0086, lon: -6.5558 },
+    { name: 'Algodonales',    lat: 36.8934, lon: -5.4039 },
 ];
 
-let locations = [...DEFAULT_LOCATIONS];
-const cache   = new Map();
-let geoTimer  = null;
+let locations      = [...DEFAULT_LOCATIONS];
+const wxCache      = new Map();   // "lat,lon" → data
+const weatherStore = new Map();   // idx       → data  (for tooltip access)
+const chartMap     = new Map();   // idx       → Chart instance
+let geoTimer       = null;
+let infoOpen       = false;
+let settingsOpen   = false;
 
-/* ── helpers ──────────────────────────────────────────────────── */
-
-function spdClass(v) {
-    if (v < 10) return 's0';
-    if (v < 20) return 's1';
-    if (v < 30) return 's2';
-    if (v < 40) return 's3';
-    return 's4';
+/* ═══════════════════════════════════════════
+   Flyability scoring
+═══════════════════════════════════════════ */
+function dirShear(a, b) {
+    let d = Math.abs(a - b) % 360;
+    return d > 180 ? 360 - d : d;
 }
 
-function arrowHtml(deg) {
-    const rot = (deg + 180) % 360;
-    return `<span class="arrow" style="transform:rotate(${rot}deg)">↑</span>`;
+/** Returns 0=optimal 1=moderate 2=strong 3=dangerous */
+function flyScore(ws10, gusts, dir10, dir120) {
+    const sSpeed = ws10 < CFG.speedOpt ? 0 : ws10 < CFG.speedMod ? 1 : ws10 < CFG.speedStr ? 2 : 3;
+    let sGust = 0;
+    if (ws10 > CFG.gustMinWind) {
+        const gf = gusts / ws10;
+        sGust = gf < CFG.gustOk ? 0 : gf < CFG.gustMod ? 1 : 2;
+    }
+    const shear = dirShear(dir10, dir120);
+    const sShear = shear < CFG.shearOk ? 0 : shear < CFG.shearMod ? 1 : 2;
+    return Math.max(sSpeed, sGust, sShear);
 }
 
-function windCell(speed, dir) {
-    return `<div class="wc"><span class="spd ${spdClass(speed)}">${speed.toFixed(1)}</span>${arrowHtml(dir)}</div>`;
+const FLY_LABELS  = ['Óptimo', 'Moderado', 'Fuerte', 'Peligroso'];
+const FLY_COLORS  = ['#22c55e', '#eab308', '#f97316', '#ef4444'];
+const FLY_CLASSES = ['f0', 'f1', 'f2', 'f3'];
+
+/* ═══════════════════════════════════════════
+   Helpers
+═══════════════════════════════════════════ */
+function escHtml(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-function gustCell(speed) {
-    return `<span class="spd ${spdClass(speed)}" style="font-style:italic">${speed.toFixed(1)}</span>`;
+function compassDir(deg) {
+    const dirs = ['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSO','SO','OSO','O','ONO','NO','NNO'];
+    return dirs[Math.round(deg / 22.5) % 16];
 }
 
-function isoTime(s) { return s.split('T')[1]; }   // "14:00"
+function dayLabel(isoDate) {
+    const [y, m, d] = isoDate.split('-').map(Number);
+    return new Date(y, m - 1, d).toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric' });
+}
 
-function isoDate(s) {
-    const [y, m, d] = s.split('T')[0].split('-').map(Number);
-    return new Date(y, m - 1, d).toLocaleDateString('es-ES', {
-        weekday: 'long', day: 'numeric', month: 'long'
+/* Find longest consecutive ≤score1 runs per day */
+function bestWindows(scores, times) {
+    const days = {};
+    times.forEach((t, i) => {
+        const day = t.split('T')[0];
+        (days[day] = days[day] || []).push({ i, t, s: scores[i] });
     });
+    return Object.entries(days).map(([date, hrs]) => {
+        let bestStart = null, bestLen = 0, cur = null, curLen = 0;
+        hrs.forEach(({ t, s }) => {
+            const hour = parseInt(t.split('T')[1].slice(0, 2), 10);
+            if (s === 0 && hour >= 6) {
+                if (!cur) cur = t;
+                curLen++;
+                if (curLen > bestLen) { bestStart = cur; bestLen = curLen; }
+            } else { cur = null; curLen = 0; }
+        });
+        return bestLen > 0
+            ? { label: dayLabel(date), start: bestStart.split('T')[1].slice(0, 5), hours: bestLen }
+            : null;
+    }).filter(Boolean);
 }
 
-/* ── API ──────────────────────────────────────────────────────── */
-
+/* ═══════════════════════════════════════════
+   API
+═══════════════════════════════════════════ */
 async function fetchWeather(loc) {
     const key = `${loc.lat},${loc.lon}`;
-    if (cache.has(key)) return cache.get(key);
-    const url = `${API}?latitude=${loc.lat}&longitude=${loc.lon}&hourly=${PARAMS}&timezone=auto&forecast_days=3`;
+    if (wxCache.has(key)) return wxCache.get(key);
+    const url = `${API_WX}?latitude=${loc.lat}&longitude=${loc.lon}&hourly=${PARAMS}&timezone=auto&forecast_days=3`;
     const r = await fetch(url);
     if (!r.ok) throw new Error(`HTTP ${r.status}`);
     const data = await r.json();
-    cache.set(key, data);
+    wxCache.set(key, data);
     return data;
 }
 
-/* ── build table ──────────────────────────────────────────────── */
-
-function buildTable(data) {
-    const h = data.hourly;
-    let html = `
-        <div class="table-scroll">
-        <table>
-            <thead>
-                <tr>
-                    <th class="col-time">Hora</th>
-                    <th>10 m</th>
-                    <th>80 m</th>
-                    <th>120 m</th>
-                    <th>180 m</th>
-                    <th>Rachas 10m</th>
-                </tr>
-            </thead>
-            <tbody>`;
-
-    let lastDay = '';
-    for (let i = 0; i < h.time.length; i++) {
-        const day = h.time[i].split('T')[0];
-        if (day !== lastDay) {
-            html += `<tr class="day-row"><td colspan="6">${isoDate(h.time[i])}</td></tr>`;
-            lastDay = day;
-        }
-        html += `<tr>
-            <td class="col-time">${isoTime(h.time[i])}</td>
-            <td>${windCell(h.wind_speed_10m[i],  h.wind_direction_10m[i])}</td>
-            <td>${windCell(h.wind_speed_80m[i],  h.wind_direction_80m[i])}</td>
-            <td>${windCell(h.wind_speed_120m[i], h.wind_direction_120m[i])}</td>
-            <td>${windCell(h.wind_speed_180m[i], h.wind_direction_180m[i])}</td>
-            <td>${gustCell(h.wind_gusts_10m[i])}</td>
-        </tr>`;
-    }
-
-    html += `</tbody></table></div>`;
-    return html;
+/* ═══════════════════════════════════════════
+   HTML builders
+═══════════════════════════════════════════ */
+function buildSummary(scores, times) {
+    const wins = bestWindows(scores, times);
+    if (!wins.length) return `<span class="chip"><span class="chip-dot" style="background:var(--f3)"></span>Sin ventanas favorables</span>`;
+    return wins.slice(0, 3).map(w =>
+        `<span class="chip"><span class="chip-dot" style="background:var(--f0)"></span>${escHtml(w.label)} · desde ${escHtml(w.start)} (${w.hours}h)</span>`
+    ).join('');
 }
 
-/* ── render ───────────────────────────────────────────────────── */
+function buildStrip(idx, scores, times) {
+    const days = {};
+    times.forEach((t, i) => {
+        const day = t.split('T')[0];
+        (days[day] = days[day] || []).push({ i, s: scores[i] });
+    });
+
+    return '<div class="fly-days-wrap">' +
+        Object.entries(days).map(([date, hrs]) => {
+            const cells = hrs.map(({ i, s }) =>
+                `<div class="fly-cell ${FLY_CLASSES[s]}" onmouseenter="showTip(event,${idx},${i})" onmouseleave="hideTip()"></div>`
+            ).join('');
+            return `<div class="fly-day-col">
+                <div class="fly-day-name">${escHtml(dayLabel(date))}</div>
+                <div class="fly-hours">${cells}</div>
+                <div class="fly-hour-labs"><span>00</span><span>06</span><span>12</span><span>18</span><span>23</span></div>
+            </div>`;
+        }).join('') +
+    '</div>';
+}
+
+function buildDirRow(h) {
+    let out = '<div class="dir-row">';
+    for (let i = 0; i < h.time.length; i += 3) {
+        const rot10  = h.wind_direction_10m[i];
+        const rot120 = h.wind_direction_120m[i];
+        const t = h.time[i].split('T')[1].slice(0, 5);
+        const showTime = (i % 6 === 0);
+        out += `<div class="dir-item">
+            <span class="da10"  style="display:inline-block;transform:rotate(${rot10}deg)">↑</span>
+            <span class="da120" style="display:inline-block;transform:rotate(${rot120}deg)">↑</span>
+            <span class="dir-time">${showTime ? t : ''}</span>
+        </div>`;
+    }
+    return out + '</div>';
+}
+
+/* ═══════════════════════════════════════════
+   Chart.js
+═══════════════════════════════════════════ */
+function buildChart(idx, data) {
+    if (chartMap.has(idx)) { chartMap.get(idx).destroy(); chartMap.delete(idx); }
+    const canvas = document.getElementById(`chart-${idx}`);
+    if (!canvas) return;
+
+    const h = data.hourly;
+    const cmn = { borderWidth: 2, pointRadius: 0, tension: 0.35, fill: false };
+
+    const chart = new Chart(canvas, {
+        type: 'line',
+        data: {
+            labels: h.time,
+            datasets: [
+                { label: '10 m',         data: h.wind_speed_10m,  borderColor: '#38bdf8', ...cmn, borderWidth: 2.5 },
+                { label: '80 m',         data: h.wind_speed_80m,  borderColor: '#34d399', ...cmn },
+                { label: '120 m',        data: h.wind_speed_120m, borderColor: '#fbbf24', ...cmn },
+                { label: '180 m',        data: h.wind_speed_180m, borderColor: '#f87171', ...cmn },
+                { label: 'Rachas 10m',   data: h.wind_gusts_10m,  borderColor: '#fb923c', ...cmn, borderDash: [5,3], borderWidth: 1.5 },
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            animation: false,
+            interaction: { mode: 'index', intersect: false },
+            plugins: {
+                legend: { labels: { color: '#94a3b8', boxWidth: 14, font: { size: 11 } } },
+                tooltip: {
+                    backgroundColor: '#070d1a',
+                    titleColor: '#38bdf8',
+                    bodyColor: '#e2e8f0',
+                    borderColor: '#334155',
+                    borderWidth: 1,
+                    callbacks: {
+                        title: items => h.time[items[0].dataIndex].replace('T', ' '),
+                        afterBody: items => {
+                            const i = items[0].dataIndex;
+                            const shear = dirShear(h.wind_direction_10m[i], h.wind_direction_120m[i]);
+                            return [
+                                `Dir 10m:  ${compassDir(h.wind_direction_10m[i])}  (${h.wind_direction_10m[i]}°)`,
+                                `Dir 120m: ${compassDir(h.wind_direction_120m[i])} (${h.wind_direction_120m[i]}°)`,
+                                shear > 40 ? `⚠ Cizalladura: ${shear.toFixed(0)}°` : `Cizalladura: ${shear.toFixed(0)}°`,
+                            ];
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    grid: { color: 'rgba(255,255,255,0.04)' },
+                    ticks: {
+                        color: '#64748b', maxRotation: 0, font: { size: 9 },
+                        callback: (_val, i) => {
+                            if (i >= h.time.length) return '';
+                            const t = h.time[i].split('T')[1].slice(0, 5);
+                            if (t === '00:00') return dayLabel(h.time[i].split('T')[0]);
+                            if (['06:00','12:00','18:00'].includes(t)) return t;
+                            return '';
+                        }
+                    }
+                },
+                y: {
+                    min: 0,
+                    grid: { color: 'rgba(255,255,255,0.04)' },
+                    ticks: { color: '#64748b', font: { size: 10 } },
+                    title: { display: true, text: 'km/h', color: '#475569', font: { size: 10 } }
+                }
+            }
+        }
+    });
+
+    chartMap.set(idx, chart);
+}
+
+/* ═══════════════════════════════════════════
+   Tooltip
+═══════════════════════════════════════════ */
+function showTip(e, locIdx, hourIdx) {
+    const data = weatherStore.get(locIdx);
+    if (!data) return;
+    const h    = data.hourly;
+    const ws10 = h.wind_speed_10m[hourIdx];
+    const gust = h.wind_gusts_10m[hourIdx];
+    const d10  = h.wind_direction_10m[hourIdx];
+    const d120 = h.wind_direction_120m[hourIdx];
+
+    // Compute each sub-score individually so we can explain every contributing factor
+    const sSpeed = ws10 < CFG.speedOpt ? 0 : ws10 < CFG.speedMod ? 1 : ws10 < CFG.speedStr ? 2 : 3;
+    const gfVal  = ws10 > 0 ? gust / ws10 : 0;
+    const gfStr  = ws10 > 0 ? gfVal.toFixed(2) : '—';
+    let sGust    = 0;
+    if (ws10 > CFG.gustMinWind) {
+        sGust = gfVal < CFG.gustOk ? 0 : gfVal < CFG.gustMod ? 1 : 2;
+    }
+    const shear  = dirShear(d10, d120);
+    const sShear = shear < CFG.shearOk ? 0 : shear < CFG.shearMod ? 1 : 2;
+    const s      = Math.max(sSpeed, sGust, sShear);
+
+    document.getElementById('tt-time').textContent  = h.time[hourIdx].replace('T', ' ').slice(0, 16);
+    const badge = document.getElementById('tt-badge');
+    badge.textContent      = FLY_LABELS[s];
+    badge.style.background = FLY_COLORS[s];
+    badge.style.color      = s === 1 ? '#000' : '#fff';
+
+    document.getElementById('tt-ws10').textContent  = `${ws10.toFixed(1)} km/h`;
+    document.getElementById('tt-gust').textContent  = `${gust.toFixed(1)} km/h (×${gfStr})`;
+    document.getElementById('tt-ws80').textContent  = `${h.wind_speed_80m[hourIdx].toFixed(1)} km/h`;
+    document.getElementById('tt-ws120').textContent = `${h.wind_speed_120m[hourIdx].toFixed(1)} km/h`;
+    document.getElementById('tt-ws180').textContent = `${h.wind_speed_180m[hourIdx].toFixed(1)} km/h`;
+    document.getElementById('tt-dir10').textContent = `${compassDir(d10)} (${d10}°)`;
+
+    const warnEl = document.getElementById('tt-warn');
+    const reasons = [];
+    if (sSpeed > 0) reasons.push(`Viento ${ws10.toFixed(1)} km/h › límite óptimo ${CFG.speedOpt} km/h`);
+    if (sGust  > 0) reasons.push(`Rachas ×${gfStr} › límite OK ×${CFG.gustOk}`);
+    if (sShear > 0) reasons.push(`Cizalladura ${shear.toFixed(0)}° (10m↔120m) › límite ${CFG.shearOk}°`);
+
+    if (reasons.length === 0) {
+        warnEl.innerHTML = '<span style="color:var(--f0)">✓ Condiciones óptimas</span>';
+    } else {
+        warnEl.innerHTML = reasons.map(r => `<span>⚠ ${escHtml(r)}</span>`).join('<br>');
+    }
+
+    const tip = document.getElementById('flyTip');
+    tip.style.display = 'block';
+    positionTip(e);
+}
+
+function hideTip() { document.getElementById('flyTip').style.display = 'none'; }
+
+function positionTip(e) {
+    const tip = document.getElementById('flyTip');
+    const x = Math.min(e.clientX + 14, window.innerWidth  - tip.offsetWidth  - 10);
+    const y = Math.min(e.clientY - 10,  window.innerHeight - tip.offsetHeight - 10);
+    tip.style.left = x + 'px';
+    tip.style.top  = y + 'px';
+}
+
+document.addEventListener('mousemove', e => {
+    if (document.getElementById('flyTip').style.display === 'block') positionTip(e);
+});
+
+/* ═══════════════════════════════════════════
+   Render
+═══════════════════════════════════════════ */
+function createCard(idx) {
+    const loc  = locations[idx];
+    const el   = document.createElement('div');
+    el.className = 'loc-card';
+    el.id = `card-${idx}`;
+    el.innerHTML = `
+        <div class="loc-header">
+            <div>
+                <h2>${escHtml(loc.name)}</h2>
+                <div class="coord">${loc.lat.toFixed(4)}°N · ${loc.lon.toFixed(4)}°E</div>
+            </div>
+            <div class="loc-actions">
+                <button class="btn btn-ghost btn-sm" onclick="refreshCard(${idx})">↻ Actualizar</button>
+                <button class="btn btn-danger btn-sm" onclick="removeLocation(${idx})">✕</button>
+            </div>
+        </div>
+        <div class="loc-body"></div>`;
+    return el;
+}
 
 async function renderLocation(idx) {
     const card = document.getElementById(`card-${idx}`);
     if (!card) return;
     const body = card.querySelector('.loc-body');
-    body.innerHTML = '<div class="loc-loading">Cargando datos…</div>';
+    body.innerHTML = '<div class="loc-loading">Cargando datos meteorológicos…</div>';
     try {
         const data = await fetchWeather(locations[idx]);
-        body.innerHTML = buildTable(data);
+        weatherStore.set(idx, data);
+        const h      = data.hourly;
+        const scores = h.time.map((_, i) =>
+            flyScore(h.wind_speed_10m[i], h.wind_gusts_10m[i], h.wind_direction_10m[i], h.wind_direction_120m[i])
+        );
+
+        body.innerHTML = `
+            <div class="summary-bar">${buildSummary(scores, h.time)}</div>
+            <div class="fly-section">
+                <div class="section-label">Condiciones hora a hora · próximas 72h · pasar el ratón para detalles</div>
+                ${buildStrip(idx, scores, h.time)}
+            </div>
+            <div class="chart-section">
+                <div class="section-label">Velocidad del viento por altitud (km/h)</div>
+                <div class="chart-wrap"><canvas id="chart-${idx}"></canvas></div>
+            </div>
+            <div class="dir-section">
+                <div class="section-label">Dirección cada 3h — <span style="color:#7dd3fc">↑ 10m</span> &nbsp;<span style="color:#c084fc">↑ 120m</span> &nbsp;(flecha apunta de dónde viene el viento)</div>
+                ${buildDirRow(h)}
+            </div>`;
+
+        buildChart(idx, data);
     } catch (e) {
-        body.innerHTML = `<div class="loc-error">Error al cargar datos: ${e.message}</div>`;
+        body.innerHTML = `<div class="loc-error">Error al obtener datos: ${escHtml(e.message)}</div>`;
     }
 }
 
-function createCard(idx) {
-    const loc  = locations[idx];
-    const card = document.createElement('div');
-    card.className = 'location-card';
-    card.id = `card-${idx}`;
-    card.innerHTML = `
-        <div class="loc-header">
-            <div>
-                <h2>${loc.name}</h2>
-                <div class="coords">${loc.lat.toFixed(4)}°N · ${loc.lon.toFixed(4)}°E</div>
-            </div>
-            <div class="loc-actions">
-                <button class="btn btn-ghost btn-sm" onclick="refreshCard(${idx})">↻ Actualizar</button>
-                <button class="btn btn-danger btn-sm" onclick="removeLocation(${idx})">✕ Eliminar</button>
-            </div>
-        </div>
-        <div class="loc-body"></div>`;
-    return card;
-}
-
 function renderAll() {
+    chartMap.forEach(c => c.destroy());
+    chartMap.clear();
+    weatherStore.clear();
     const main = document.getElementById('main');
     main.innerHTML = '';
-    if (locations.length === 0) {
+    if (!locations.length) {
         main.innerHTML = '<div class="empty-state">Sin ubicaciones. Añade una con el buscador.</div>';
         return;
     }
     locations.forEach((_, i) => {
-        const card = createCard(i);
-        main.appendChild(card);
+        main.appendChild(createCard(i));
         renderLocation(i);
     });
 }
 
 function removeLocation(idx) {
-    const key = `${locations[idx].lat},${locations[idx].lon}`;
-    cache.delete(key);
+    if (chartMap.has(idx)) { chartMap.get(idx).destroy(); chartMap.delete(idx); }
+    wxCache.delete(`${locations[idx].lat},${locations[idx].lon}`);
+    weatherStore.delete(idx);
     locations.splice(idx, 1);
     renderAll();
 }
 
 async function refreshCard(idx) {
-    const key = `${locations[idx].lat},${locations[idx].lon}`;
-    cache.delete(key);
+    wxCache.delete(`${locations[idx].lat},${locations[idx].lon}`);
+    weatherStore.delete(idx);
     await renderLocation(idx);
 }
 
@@ -469,17 +685,16 @@ function appendLocation(loc) {
     locations.push(loc);
     const idx  = locations.length - 1;
     const main = document.getElementById('main');
-    // remove empty state if present
-    const empty = main.querySelector('.empty-state');
-    if (empty) empty.remove();
+    main.querySelector('.empty-state')?.remove();
     const card = createCard(idx);
     main.appendChild(card);
     renderLocation(idx);
     card.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-/* ── geocoding search ─────────────────────────────────────────── */
-
+/* ═══════════════════════════════════════════
+   Geocoding search
+═══════════════════════════════════════════ */
 const searchInput = document.getElementById('searchInput');
 const dropdown    = document.getElementById('dropdown');
 
@@ -491,7 +706,7 @@ searchInput.addEventListener('input', () => {
 });
 
 searchInput.addEventListener('keydown', e => {
-    if (e.key === 'Enter') handleSearch();
+    if (e.key === 'Enter')  handleSearch();
     if (e.key === 'Escape') dropdown.style.display = 'none';
 });
 
@@ -499,40 +714,117 @@ document.addEventListener('click', e => {
     if (!e.target.closest('.search-wrap')) dropdown.style.display = 'none';
 });
 
-async function doGeoSearch(query) {
+async function doGeoSearch(q) {
     try {
-        const res  = await fetch(`${GEO}?name=${encodeURIComponent(query)}&count=6&language=es&format=json`);
-        const data = await res.json();
-        if (!data.results || data.results.length === 0) {
-            dropdown.innerHTML = '<div style="color:#718096;cursor:default">Sin resultados</div>';
+        const r  = await fetch(`${API_GEO}?name=${encodeURIComponent(q)}&count=6&language=es&format=json`);
+        const d  = await r.json();
+        if (!d.results?.length) {
+            dropdown.innerHTML = '<div style="color:var(--sub);cursor:default">Sin resultados</div>';
             dropdown.style.display = 'block';
             return;
         }
         dropdown.innerHTML = '';
-        data.results.forEach(r => {
-            const row   = document.createElement('div');
-            const parts = [r.name, r.admin1, r.country].filter(Boolean);
-            row.textContent = parts.join(', ');
+        d.results.forEach(res => {
+            const row = document.createElement('div');
+            row.textContent = [res.name, res.admin1, res.country].filter(Boolean).join(', ');
             row.onclick = () => {
                 dropdown.style.display = 'none';
                 searchInput.value = '';
-                appendLocation({ name: r.name, lat: r.latitude, lon: r.longitude });
+                appendLocation({ name: res.name, lat: res.latitude, lon: res.longitude });
             };
             dropdown.appendChild(row);
         });
         dropdown.style.display = 'block';
-    } catch (e) {
-        console.error('Geocoding error:', e);
-    }
+    } catch (e) { console.error('Geo error:', e); }
 }
 
 async function handleSearch() {
     const q = searchInput.value.trim();
-    if (!q) return;
-    await doGeoSearch(q);
+    if (q) await doGeoSearch(q);
 }
 
-/* ── init ─────────────────────────────────────────────────────── */
+/* ═══════════════════════════════════════════
+   Info panel
+═══════════════════════════════════════════ */
+function toggleInfo() {
+    infoOpen = !infoOpen;
+    document.getElementById('infoPanel').classList.toggle('open', infoOpen);
+}
+
+/* ═══════════════════════════════════════════
+   Settings panel
+═══════════════════════════════════════════ */
+function toggleSettings() {
+    settingsOpen = !settingsOpen;
+    if (settingsOpen) populateSettingsInputs();
+    document.getElementById('settingsPanel').classList.toggle('open', settingsOpen);
+}
+
+function populateSettingsInputs() {
+    document.getElementById('cfg-s1').value     = CFG.speedOpt;
+    document.getElementById('cfg-s2').value     = CFG.speedMod;
+    document.getElementById('cfg-s3').value     = CFG.speedStr;
+    document.getElementById('cfg-gmin').value   = CFG.gustMinWind;
+    document.getElementById('cfg-gf1').value = CFG.gustOk;
+    document.getElementById('cfg-gf2').value = CFG.gustMod;
+    document.getElementById('cfg-sh1').value = CFG.shearOk;
+    document.getElementById('cfg-sh2').value = CFG.shearMod;
+}
+
+function readSettingsInputs() {
+    const n = id => parseFloat(document.getElementById(id).value);
+    return {
+        speedOpt:    n('cfg-s1'),
+        speedMod:    n('cfg-s2'),
+        speedStr:    n('cfg-s3'),
+        gustMinWind: n('cfg-gmin'),
+        gustOk:  n('cfg-gf1'),
+        gustMod: n('cfg-gf2'),
+        shearOk: n('cfg-sh1'),
+        shearMod: n('cfg-sh2'),
+    };
+}
+
+function applySettings() {
+    const v = readSettingsInputs();
+    // basic sanity: each tier must be strictly ascending
+    if (v.speedOpt >= v.speedMod || v.speedMod >= v.speedStr) {
+        alert('Los límites de velocidad deben ser ascendentes (Óptimo < Moderado < Fuerte).');
+        return;
+    }
+    if (v.gustOk >= v.gustMod) {
+        alert('Los límites de factor de rachas deben ser ascendentes (OK < Moderado).');
+        return;
+    }
+    if (v.shearOk >= v.shearMod) {
+        alert('Los límites de cizalladura deben ser ascendentes (OK < Moderado).');
+        return;
+    }
+    CFG = v;
+    updateLegend();
+    renderAll();
+}
+
+function resetSettings() {
+    CFG = { ...CFG_DEFAULTS };
+    populateSettingsInputs();
+    updateLegend();
+    renderAll();
+}
+
+function updateLegend() {
+    document.getElementById('legend').innerHTML = `
+        <span class="lgi"><span class="lgdot" style="background:var(--f0)"></span>Óptimo &lt;${CFG.speedOpt} km/h</span>
+        <span class="lgi"><span class="lgdot" style="background:var(--f1)"></span>Moderado ${CFG.speedOpt}–${CFG.speedMod}</span>
+        <span class="lgi"><span class="lgdot" style="background:var(--f2)"></span>Fuerte ${CFG.speedMod}–${CFG.speedStr}</span>
+        <span class="lgi"><span class="lgdot" style="background:var(--f3)"></span>Peligroso &gt;${CFG.speedStr}</span>
+    `;
+}
+
+/* ═══════════════════════════════════════════
+   Init
+═══════════════════════════════════════════ */
+updateLegend();
 renderAll();
 </script>
 </body>
