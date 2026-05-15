@@ -177,6 +177,16 @@
         .settings-footer { display: flex; gap: 0.5rem; }
         .btn-reset { background: transparent; border: 1px solid var(--border); color: var(--sub); }
 
+        /* ── Model selector ── */
+        .model-select {
+            padding: 0.38rem 0.55rem;
+            background: var(--bg); border: 1px solid var(--border);
+            border-radius: 6px; color: var(--text); font-size: 0.82rem;
+            outline: none; cursor: pointer;
+        }
+        .model-select:focus { border-color: var(--accent); }
+        .model-label { font-size: 0.75rem; color: var(--sub); white-space: nowrap; }
+
         @media (max-width: 680px) {
             header { padding: 0.6rem 0.75rem; }
             .legend { display: none; }
@@ -205,6 +215,28 @@
         <div class="dropdown" id="dropdown" style="display:none"></div>
     </div>
     <button class="btn btn-accent" onclick="handleSearch()">Buscar</button>
+    <span class="model-label">Modelo:</span>
+    <select id="modelSelect" class="model-select" onchange="onModelChange()">
+        <option value="">Auto (mejor disponible)</option>
+        <option value="best_match">Best Match</option>
+        <option value="ecmwf_ifs025">ECMWF IFS 0.25°</option>
+        <option value="ecmwf_aifs025">ECMWF AIFS 0.25°</option>
+        <option value="gfs_seamless">GFS Seamless</option>
+        <option value="gfs_global">GFS Global</option>
+        <option value="icon_seamless">ICON Seamless</option>
+        <option value="icon_global">ICON Global</option>
+        <option value="icon_eu">ICON EU</option>
+        <option value="icon_d2">ICON D2</option>
+        <option value="meteofrance_seamless">Météo-France Seamless</option>
+        <option value="meteofrance_arpege_world">Arpège World</option>
+        <option value="meteofrance_arpege_europe">Arpège Europe</option>
+        <option value="meteofrance_arome_france">Arome France</option>
+        <option value="ukmo_seamless">UKMO Seamless</option>
+        <option value="ukmo_global_deterministic_10km">UKMO Global 10km</option>
+        <option value="gem_seamless">GEM Seamless</option>
+        <option value="arpae_cosmo_seamless">ARPAE COSMO</option>
+        <option value="metno_seamless">MET Norway</option>
+    </select>
 </div>
 
 <div class="info-panel" id="infoPanel">
@@ -223,8 +255,8 @@
             <p>Muestra las condiciones durante el vuelo. Fuertes vientos en altura generan turbulencia y pueden impedir el control. El gradiente entre capas indica estabilidad atmosférica.</p>
         </div>
         <div class="info-card">
-            <h3>💨 Factor de rachas</h3>
-            <p>Relación entre rachas y viento sostenido. &gt;1,5× indica turbulencia convectiva o mecánica. Condiciones suaves tienen factores cercanos a 1,0.</p>
+            <h3>💨 Límite numérico de rachas</h3>
+            <p>Velocidad absoluta de las rachas en km/h. Si las rachas superan el límite configurado, se penaliza la valoración. Permite evaluar el riesgo independientemente del viento sostenido.</p>
         </div>
         <div class="info-card">
             <h3>🧭 Cizalladura (flechas del strip)</h3>
@@ -252,10 +284,9 @@
                 <div class="sf"><label>Límite Fuerte / Peligroso</label><input type="number" id="cfg-s3" min="1" max="100" step="1"><span class="unit">km/h</span></div>
             </div>
             <div class="settings-group">
-                <h3>💨 Factor de rachas</h3>
-                <div class="sf"><label>Mínimo viento para evaluar</label><input type="number" id="cfg-gmin" min="0" max="20" step="0.5"><span class="unit">km/h</span></div>
-                <div class="sf"><label>Límite OK / Moderado</label><input type="number" id="cfg-gf1" min="1" max="3" step="0.05"><span class="unit">×</span></div>
-                <div class="sf"><label>Límite Moderado / Fuerte</label><input type="number" id="cfg-gf2" min="1" max="3" step="0.05"><span class="unit">×</span></div>
+                <h3>💨 Límite numérico de rachas</h3>
+                <div class="sf"><label>Límite OK / Moderado</label><input type="number" id="cfg-gf1" min="1" max="200" step="1"><span class="unit">km/h</span></div>
+                <div class="sf"><label>Límite Moderado / Fuerte</label><input type="number" id="cfg-gf2" min="1" max="200" step="1"><span class="unit">km/h</span></div>
             </div>
             <div class="settings-group">
                 <h3>🧭 Cizalladura de dirección (10m vs 120m)</h3>
@@ -298,9 +329,8 @@ const CFG_DEFAULTS = {
     speedOpt:   15,   // ws10 below this → Óptimo
     speedMod:   25,   // ws10 below this → Moderado
     speedStr:   35,   // ws10 below this → Fuerte, else Peligroso
-    gustMinWind: 5,   // minimum ws10 (km/h) before evaluating gust factor
-    gustOk:     2.00, // gust factor below this → OK
-    gustMod:    2.50, // gust factor below this → Moderado
+    gustOk:     20,   // gust speed (km/h) below this → OK
+    gustMod:    30,   // gust speed (km/h) below this → Moderado
     shearOk:    25,   // shear below this → OK
     shearMod:   50,   // shear below this → Moderado
 };
@@ -315,7 +345,8 @@ const DEFAULT_LOCATIONS = [
 ];
 
 let locations      = [...DEFAULT_LOCATIONS];
-const wxCache      = new Map();   // "lat,lon" → data
+let currentModel   = '';           // empty string = no models param (API default)
+const wxCache      = new Map();   // "lat,lon,model" → data
 const weatherStore = new Map();   // idx       → data  (for tooltip access)
 const chartMap     = new Map();   // idx       → Chart instance
 let geoTimer       = null;
@@ -333,11 +364,7 @@ function dirShear(a, b) {
 /** Returns 0=optimal 1=moderate 2=strong 3=dangerous */
 function flyScore(ws10, gusts, dir10, dir120) {
     const sSpeed = ws10 < CFG.speedOpt ? 0 : ws10 < CFG.speedMod ? 1 : ws10 < CFG.speedStr ? 2 : 3;
-    let sGust = 0;
-    if (ws10 > CFG.gustMinWind) {
-        const gf = gusts / ws10;
-        sGust = gf < CFG.gustOk ? 0 : gf < CFG.gustMod ? 1 : 2;
-    }
+    const sGust = gusts < CFG.gustOk ? 0 : gusts < CFG.gustMod ? 1 : 2;
     const shear = dirShear(dir10, dir120);
     const sShear = shear < CFG.shearOk ? 0 : shear < CFG.shearMod ? 1 : 2;
     return Math.max(sSpeed, sGust, sShear);
@@ -391,14 +418,22 @@ function bestWindows(scores, times) {
    API
 ═══════════════════════════════════════════ */
 async function fetchWeather(loc) {
-    const key = `${loc.lat},${loc.lon}`;
+    const key = `${loc.lat},${loc.lon},${currentModel}`;
     if (wxCache.has(key)) return wxCache.get(key);
-    const url = `${API_WX}?latitude=${loc.lat}&longitude=${loc.lon}&hourly=${PARAMS}&timezone=auto&forecast_days=3`;
+    const modelParam = currentModel ? `&models=${currentModel}` : '';
+    const url = `${API_WX}?latitude=${loc.lat}&longitude=${loc.lon}&hourly=${PARAMS}&timezone=auto&forecast_days=3${modelParam}`;
     const r = await fetch(url);
     if (!r.ok) throw new Error(`HTTP ${r.status}`);
     const data = await r.json();
     wxCache.set(key, data);
     return data;
+}
+
+function onModelChange() {
+    currentModel = document.getElementById('modelSelect').value;
+    wxCache.clear();
+    weatherStore.clear();
+    renderAll();
 }
 
 /* ═══════════════════════════════════════════
@@ -540,12 +575,7 @@ function showTip(e, locIdx, hourIdx) {
 
     // Compute each sub-score individually so we can explain every contributing factor
     const sSpeed = ws10 < CFG.speedOpt ? 0 : ws10 < CFG.speedMod ? 1 : ws10 < CFG.speedStr ? 2 : 3;
-    const gfVal  = ws10 > 0 ? gust / ws10 : 0;
-    const gfStr  = ws10 > 0 ? gfVal.toFixed(2) : '—';
-    let sGust    = 0;
-    if (ws10 > CFG.gustMinWind) {
-        sGust = gfVal < CFG.gustOk ? 0 : gfVal < CFG.gustMod ? 1 : 2;
-    }
+    const sGust  = gust < CFG.gustOk ? 0 : gust < CFG.gustMod ? 1 : 2;
     const shear  = dirShear(d10, d120);
     const sShear = shear < CFG.shearOk ? 0 : shear < CFG.shearMod ? 1 : 2;
     const s      = Math.max(sSpeed, sGust, sShear);
@@ -557,7 +587,7 @@ function showTip(e, locIdx, hourIdx) {
     badge.style.color      = s === 1 ? '#000' : '#fff';
 
     document.getElementById('tt-ws10').textContent  = `${ws10.toFixed(1)} km/h`;
-    document.getElementById('tt-gust').textContent  = `${gust.toFixed(1)} km/h (×${gfStr})`;
+    document.getElementById('tt-gust').textContent  = `${gust.toFixed(1)} km/h`;
     document.getElementById('tt-ws80').textContent  = `${h.wind_speed_80m[hourIdx].toFixed(1)} km/h`;
     document.getElementById('tt-ws120').textContent = `${h.wind_speed_120m[hourIdx].toFixed(1)} km/h`;
     document.getElementById('tt-ws180').textContent = `${h.wind_speed_180m[hourIdx].toFixed(1)} km/h`;
@@ -566,7 +596,7 @@ function showTip(e, locIdx, hourIdx) {
     const warnEl = document.getElementById('tt-warn');
     const reasons = [];
     if (sSpeed > 0) reasons.push(`Viento ${ws10.toFixed(1)} km/h › límite óptimo ${CFG.speedOpt} km/h`);
-    if (sGust  > 0) reasons.push(`Rachas ×${gfStr} › límite OK ×${CFG.gustOk}`);
+    if (sGust  > 0) reasons.push(`Rachas ${gust.toFixed(1)} km/h › límite ${CFG.gustOk} km/h`);
     if (sShear > 0) reasons.push(`Cizalladura ${shear.toFixed(0)}° (10m↔120m) › límite ${CFG.shearOk}°`);
 
     if (reasons.length === 0) {
@@ -764,7 +794,6 @@ function populateSettingsInputs() {
     document.getElementById('cfg-s1').value     = CFG.speedOpt;
     document.getElementById('cfg-s2').value     = CFG.speedMod;
     document.getElementById('cfg-s3').value     = CFG.speedStr;
-    document.getElementById('cfg-gmin').value   = CFG.gustMinWind;
     document.getElementById('cfg-gf1').value = CFG.gustOk;
     document.getElementById('cfg-gf2').value = CFG.gustMod;
     document.getElementById('cfg-sh1').value = CFG.shearOk;
@@ -774,14 +803,13 @@ function populateSettingsInputs() {
 function readSettingsInputs() {
     const n = id => parseFloat(document.getElementById(id).value);
     return {
-        speedOpt:    n('cfg-s1'),
-        speedMod:    n('cfg-s2'),
-        speedStr:    n('cfg-s3'),
-        gustMinWind: n('cfg-gmin'),
-        gustOk:  n('cfg-gf1'),
-        gustMod: n('cfg-gf2'),
-        shearOk: n('cfg-sh1'),
-        shearMod: n('cfg-sh2'),
+        speedOpt:  n('cfg-s1'),
+        speedMod:  n('cfg-s2'),
+        speedStr:  n('cfg-s3'),
+        gustOk:    n('cfg-gf1'),
+        gustMod:   n('cfg-gf2'),
+        shearOk:   n('cfg-sh1'),
+        shearMod:  n('cfg-sh2'),
     };
 }
 
@@ -793,7 +821,7 @@ function applySettings() {
         return;
     }
     if (v.gustOk >= v.gustMod) {
-        alert('Los límites de factor de rachas deben ser ascendentes (OK < Moderado).');
+        alert('Los límites de rachas deben ser ascendentes (OK < Moderado).');
         return;
     }
     if (v.shearOk >= v.shearMod) {
