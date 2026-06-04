@@ -120,6 +120,33 @@
         .f1 { background: var(--f1); }
         .f2 { background: var(--f2); }
         .f3 { background: var(--f3); }
+        .f-dir { background: #1e293b; border: 1px solid #2d3748; opacity: 0.45; }
+
+        /* ── Direction filter bar ── */
+        .dir-filter-bar {
+            display: flex; align-items: center; gap: 0.65rem;
+            padding: 0.38rem 1.25rem;
+            background: #131e2e; border-bottom: 1px solid var(--border);
+            font-size: 0.72rem; flex-wrap: wrap;
+        }
+        .df-label { color: var(--sub); white-space: nowrap; }
+        .df-input {
+            width: 58px; padding: 0.18rem 0.35rem;
+            background: var(--bg); border: 1px solid var(--border);
+            border-radius: 4px; color: var(--text); font-size: 0.78rem;
+            text-align: right; outline: none;
+        }
+        .df-input:focus { border-color: var(--accent); }
+        .df-select {
+            padding: 0.18rem 0.35rem;
+            background: var(--bg); border: 1px solid var(--border);
+            border-radius: 4px; color: var(--text); font-size: 0.82rem; font-weight: 600;
+            outline: none; cursor: pointer;
+        }
+        .df-select:focus { border-color: var(--accent); }
+        .df-toggle { display: flex; align-items: center; gap: 0.35rem; cursor: pointer; color: var(--sub); user-select: none; }
+        .df-toggle input { cursor: pointer; accent-color: var(--accent); }
+        .df-controls { display: flex; align-items: center; gap: 0.35rem; }
         .fly-hour-labs { display: flex; justify-content: space-between; padding: 0 1px; margin-top: 2px; }
         .fly-hour-labs span { font-size: 0.57rem; color: #475569; }
 
@@ -381,9 +408,39 @@ function escHtml(s) {
     return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
+const COMPASS_DIRS = [
+    { label: 'N',   deg: 0   },
+    { label: 'NNE', deg: 23  },
+    { label: 'NE',  deg: 45  },
+    { label: 'ENE', deg: 68  },
+    { label: 'E',   deg: 90  },
+    { label: 'ESE', deg: 113 },
+    { label: 'SE',  deg: 135 },
+    { label: 'SSE', deg: 158 },
+    { label: 'S',   deg: 180 },
+    { label: 'SSO', deg: 203 },
+    { label: 'SO',  deg: 225 },
+    { label: 'OSO', deg: 248 },
+    { label: 'O',   deg: 270 },
+    { label: 'ONO', deg: 293 },
+    { label: 'NO',  deg: 315 },
+    { label: 'NNO', deg: 338 },
+];
+
 function compassDir(deg) {
     const dirs = ['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSO','SO','OSO','O','ONO','NO','NNO'];
     return dirs[Math.round(deg / 22.5) % 16];
+}
+
+function buildDirOptions(selectedDeg) {
+    const closest = COMPASS_DIRS.reduce((a, b) => {
+        const da = Math.abs(((a.deg - selectedDeg) + 180) % 360 - 180);
+        const db = Math.abs(((b.deg - selectedDeg) + 180) % 360 - 180);
+        return da <= db ? a : b;
+    });
+    return COMPASS_DIRS.map(d =>
+        `<option value="${d.deg}"${d.deg === closest.deg ? ' selected' : ''}>${d.label}</option>`
+    ).join('');
 }
 
 function dayLabel(isoDate) {
@@ -447,7 +504,13 @@ function buildSummary(scores, times) {
     ).join('');
 }
 
-function buildStrip(idx, scores, times) {
+function dirMatchesFilter(windDeg, filterDeg, tol) {
+    const diff = Math.abs(((windDeg - filterDeg) + 180) % 360 - 180);
+    return diff <= tol;
+}
+
+function buildStrip(idx, scores, times, dirs10) {
+    const df = locations[idx]?.dirFilter;
     const days = {};
     times.forEach((t, i) => {
         const day = t.split('T')[0];
@@ -456,9 +519,11 @@ function buildStrip(idx, scores, times) {
 
     return '<div class="fly-days-wrap">' +
         Object.entries(days).map(([date, hrs]) => {
-            const cells = hrs.map(({ i, s }) =>
-                `<div class="fly-cell ${FLY_CLASSES[s]}" onmouseenter="showTip(event,${idx},${i})" onmouseleave="hideTip()"></div>`
-            ).join('');
+            const cells = hrs.map(({ i, s }) => {
+                const dirOk = !df?.enabled || dirMatchesFilter(dirs10[i], df.deg, df.tol);
+                const cls   = dirOk ? FLY_CLASSES[s] : 'f-dir';
+                return `<div class="fly-cell ${cls}" onmouseenter="showTip(event,${idx},${i})" onmouseleave="hideTip()"></div>`;
+            }).join('');
             return `<div class="fly-day-col">
                 <div class="fly-day-name">${escHtml(dayLabel(date))}</div>
                 <div class="fly-hours">${cells}</div>
@@ -555,7 +620,35 @@ function buildChart(idx, data) {
                     title: { display: true, text: 'km/h', color: '#475569', font: { size: 10 } }
                 }
             }
-        }
+        },
+        plugins: [{
+            id: 'alignSections',
+            afterRender(c) {
+                const card = document.getElementById(`card-${idx}`);
+                if (!card) return;
+
+                const cardRect   = card.getBoundingClientRect();
+                const canvasRect = c.canvas.getBoundingClientRect();
+                const plotLeftAbs  = canvasRect.left + c.chartArea.left;
+                const plotRightAbs = canvasRect.left + c.chartArea.right;
+
+                const applyPadding = (elSelector, sectionSelector) => {
+                    const el = card.querySelector(elSelector);
+                    if (!el) return;
+                    const section = el.closest(sectionSelector) || el.parentElement;
+                    const cs = getComputedStyle(section);
+                    const secPL = parseFloat(cs.paddingLeft)  || 0;
+                    const secPR = parseFloat(cs.paddingRight) || 0;
+                    const leftPad = Math.max(0, plotLeftAbs - cardRect.left - secPL);
+                    const rightPad = Math.max(0, cardRect.right - plotRightAbs - secPR);
+                    el.style.paddingLeft  = leftPad + 'px';
+                    el.style.paddingRight = rightPad + 'px';
+                };
+
+                applyPadding('.fly-days-wrap', '.fly-section');
+                applyPadding('.dir-row', '.dir-section');
+            }
+        }]
     });
 
     chartMap.set(idx, chart);
@@ -595,6 +688,10 @@ function showTip(e, locIdx, hourIdx) {
 
     const warnEl = document.getElementById('tt-warn');
     const reasons = [];
+    const df = locations[locIdx]?.dirFilter;
+    if (df?.enabled && !dirMatchesFilter(d10, df.deg, df.tol)) {
+        reasons.push(`Dirección ${compassDir(d10)} (${d10}°) fuera del filtro ${compassDir(df.deg)} ±${df.tol}°`);
+    }
     if (sSpeed > 0) reasons.push(`Viento ${ws10.toFixed(1)} km/h › límite óptimo ${CFG.speedOpt} km/h`);
     if (sGust  > 0) reasons.push(`Rachas ${gust.toFixed(1)} km/h › límite ${CFG.gustOk} km/h`);
     if (sShear > 0) reasons.push(`Cizalladura ${shear.toFixed(0)}° (10m↔120m) › límite ${CFG.shearOk}°`);
@@ -629,6 +726,8 @@ document.addEventListener('mousemove', e => {
 ═══════════════════════════════════════════ */
 function createCard(idx) {
     const loc  = locations[idx];
+    if (!loc.dirFilter) loc.dirFilter = { enabled: false, deg: 270, tol: 45 };
+    const df   = loc.dirFilter;
     const el   = document.createElement('div');
     el.className = 'loc-card';
     el.id = `card-${idx}`;
@@ -641,6 +740,19 @@ function createCard(idx) {
             <div class="loc-actions">
                 <button class="btn btn-ghost btn-sm" onclick="refreshCard(${idx})">↻ Actualizar</button>
                 <button class="btn btn-danger btn-sm" onclick="removeLocation(${idx})">✕</button>
+            </div>
+        </div>
+        <div class="dir-filter-bar">
+            <label class="df-toggle">
+                <input type="checkbox" id="df-on-${idx}" ${df.enabled ? 'checked' : ''} onchange="applyDirFilter(${idx})">
+                <span>Filtro dirección</span>
+            </label>
+            <div class="df-controls">
+                <span class="df-label">Desde</span>
+                <select id="df-deg-${idx}" class="df-select" onchange="updateDirFilter(${idx})">${buildDirOptions(df.deg)}</select>
+                <span class="df-label">±</span>
+                <input type="number" id="df-tol-${idx}" min="5" max="180" value="${df.tol}" class="df-input" oninput="updateDirFilter(${idx})">
+                <span class="df-label">°</span>
             </div>
         </div>
         <div class="loc-body"></div>`;
@@ -664,7 +776,7 @@ async function renderLocation(idx) {
             <div class="summary-bar">${buildSummary(scores, h.time)}</div>
             <div class="fly-section">
                 <div class="section-label">Condiciones hora a hora · próximas 72h · pasar el ratón para detalles</div>
-                ${buildStrip(idx, scores, h.time)}
+                ${buildStrip(idx, scores, h.time, h.wind_direction_10m)}
             </div>
             <div class="chart-section">
                 <div class="section-label">Velocidad del viento por altitud (km/h)</div>
@@ -720,6 +832,42 @@ function appendLocation(loc) {
     main.appendChild(card);
     renderLocation(idx);
     card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* ═══════════════════════════════════════════
+   Direction filter
+═══════════════════════════════════════════ */
+function applyDirFilter(idx) {
+    const df = locations[idx].dirFilter;
+    df.enabled = document.getElementById(`df-on-${idx}`).checked;
+    redrawStrip(idx);
+}
+
+function updateDirFilter(idx) {
+    const df     = locations[idx].dirFilter;
+    const degRaw = parseFloat(document.getElementById(`df-deg-${idx}`).value);
+    const tolRaw = parseFloat(document.getElementById(`df-tol-${idx}`).value);
+    df.deg = Number.isFinite(degRaw) ? degRaw : 270;
+    df.tol = Number.isFinite(tolRaw) ? Math.max(0, Math.min(180, tolRaw)) : 45;
+    if (df.enabled) redrawStrip(idx);
+}
+
+function redrawStrip(idx) {
+    const data = weatherStore.get(idx);
+    if (!data) return;
+    const h      = data.hourly;
+    const scores = h.time.map((_, i) =>
+        flyScore(h.wind_speed_10m[i], h.wind_gusts_10m[i], h.wind_direction_10m[i], h.wind_direction_120m[i])
+    );
+    const card = document.getElementById(`card-${idx}`);
+    if (!card) return;
+    const flySection = card.querySelector('.fly-section');
+    if (!flySection) return;
+    flySection.innerHTML = `
+        <div class="section-label">Condiciones hora a hora · próximas 72h · pasar el ratón para detalles</div>
+        ${buildStrip(idx, scores, h.time, h.wind_direction_10m)}`;
+    const chart = chartMap.get(idx);
+    if (chart) chart.update('none');
 }
 
 /* ═══════════════════════════════════════════
