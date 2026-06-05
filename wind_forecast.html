@@ -2,223 +2,311 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Viento Parapente · 72h</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
         :root {
-            --bg:       #0f172a;
-            --surface:  #1e293b;
-            --surf2:    #263448;
-            --border:   #334155;
-            --text:     #e2e8f0;
-            --sub:      #94a3b8;
-            --accent:   #38bdf8;
+            --bg:      #0f172a;
+            --surface: #1e293b;
+            --surf2:   #263448;
+            --border:  #334155;
+            --text:    #e2e8f0;
+            --sub:     #94a3b8;
+            --accent:  #38bdf8;
             --f0: #22c55e;
             --f1: #eab308;
             --f2: #f97316;
             --f3: #ef4444;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+        body {
+            font-family: -apple-system, 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            -webkit-tap-highlight-color: transparent;
+        }
 
-        /* ── Header ── */
+        /* == Header == */
         header {
             background: #070d1a;
             border-bottom: 1px solid var(--border);
-            padding: 0.85rem 1.5rem;
+            padding: 0.65rem 0.9rem;
             display: flex; align-items: center; justify-content: space-between;
-            position: sticky; top: 0; z-index: 100; gap: 1rem;
+            position: sticky; top: 0; z-index: 100; gap: 0.5rem;
         }
-        .hdr-title h1 { font-size: 1.15rem; font-weight: 700; color: var(--accent); }
-        .hdr-title p  { font-size: 0.7rem; color: var(--sub); margin-top: 2px; }
-        .hdr-right { display: flex; gap: 0.5rem; align-items: center; }
-        .legend { display: flex; gap: 0.65rem; align-items: center; font-size: 0.7rem; color: var(--sub); flex-wrap: wrap; }
-        .lgi { display: flex; align-items: center; gap: 4px; }
-        .lgdot { width: 10px; height: 10px; border-radius: 3px; }
+        .hdr-title h1 { font-size: 1rem; font-weight: 700; color: var(--accent); }
+        .hdr-title p  { font-size: 0.62rem; color: var(--sub); margin-top: 1px; }
+        .hdr-right { display: flex; gap: 0.4rem; align-items: center; }
 
-        /* ── Add bar ── */
+        /* == Add bar == */
         .add-bar {
             background: var(--surface);
             border-bottom: 1px solid var(--border);
-            padding: 0.55rem 1.5rem;
+            padding: 0.5rem 0.75rem;
             display: flex; gap: 0.5rem; align-items: center;
         }
-        .search-wrap { position: relative; }
+        .search-wrap { position: relative; flex: 1; }
         .search-wrap input {
-            width: 260px; padding: 0.38rem 0.75rem;
+            width: 100%; padding: 0.5rem 0.75rem;
             background: var(--bg); border: 1px solid var(--border);
-            border-radius: 6px; color: var(--text); font-size: 0.85rem; outline: none;
+            border-radius: 8px; color: var(--text); font-size: 0.9rem;
+            outline: none; -webkit-appearance: none;
         }
         .search-wrap input:focus { border-color: var(--accent); }
         .dropdown {
-            position: absolute; top: calc(100% + 4px); left: 0; width: 280px;
+            position: absolute; top: calc(100% + 4px); left: 0; right: 0;
             background: var(--surface); border: 1px solid var(--border);
             border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.55);
             z-index: 300; overflow: hidden;
         }
-        .dropdown div { padding: 0.48rem 0.75rem; cursor: pointer; font-size: 0.83rem; border-bottom: 1px solid var(--border); }
+        .dropdown div { padding: 0.6rem 0.75rem; cursor: pointer; font-size: 0.85rem; border-bottom: 1px solid var(--border); }
         .dropdown div:last-child { border-bottom: none; }
-        .dropdown div:hover { background: var(--surf2); }
+        .dropdown div:hover, .dropdown div:active { background: var(--surf2); }
 
-        /* ── Buttons ── */
-        .btn {
-            padding: 0.38rem 0.85rem; border: none; border-radius: 6px;
-            cursor: pointer; font-size: 0.82rem; font-weight: 500;
-            transition: opacity .15s;
-        }
-        .btn:hover { opacity: 0.82; }
-        .btn:disabled { opacity: 0.4; cursor: not-allowed; }
-        .btn-accent  { background: var(--accent); color: #070d1a; }
-        .btn-sm      { padding: 0.22rem 0.55rem; font-size: 0.72rem; }
-        .btn-ghost   { background: var(--surf2); color: var(--sub); border: 1px solid var(--border); }
-        .btn-danger  { background: transparent; border: 1px solid var(--f3); color: var(--f3); }
-        .btn-info    { background: transparent; border: 1px solid var(--accent); color: var(--accent); }
-
-        /* ── Info panel ── */
-        .info-panel { background: #111827; border-bottom: 1px solid var(--border); overflow: hidden; max-height: 0; transition: max-height .35s ease; }
-        .info-panel.open { max-height: 600px; }
-        .info-inner { padding: 1rem 1.5rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 0.75rem; }
-        .info-card { background: var(--surface); border-left: 3px solid var(--accent); border-radius: 8px; padding: 0.75rem; }
-        .info-card h3 { font-size: 0.78rem; color: var(--accent); margin-bottom: 0.35rem; }
-        .info-card p, .info-card li { font-size: 0.73rem; color: var(--sub); line-height: 1.55; }
-        .info-card ul { padding-left: 1rem; }
-
-        /* ── Main ── */
-        main { padding: 1.25rem 1.5rem; display: flex; flex-direction: column; gap: 1.25rem; max-width: 1300px; margin: 0 auto; }
-        .empty-state { color: var(--sub); text-align: center; padding: 5rem 2rem; font-size: 0.9rem; }
-
-        /* ── Location card ── */
-        .loc-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
-        .loc-header {
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 0.75rem 1.25rem;
-            background: linear-gradient(135deg, #194068, #1d4d80);
+        /* == Model bar == */
+        .model-bar {
+            background: #0c1525;
             border-bottom: 1px solid var(--border);
+            padding: 0.32rem 0.75rem;
+            display: flex; gap: 0.5rem; align-items: center;
         }
-        .loc-header h2 { font-size: 1rem; font-weight: 700; }
-        .loc-header .coord { font-size: 0.68rem; color: rgba(255,255,255,0.55); margin-top: 2px; }
-        .loc-actions { display: flex; gap: 0.4rem; }
-        .loc-loading, .loc-error { padding: 2.5rem; text-align: center; color: var(--sub); }
-        .loc-error { color: var(--f3); }
-
-        /* ── Chip summary ── */
-        .summary-bar { display: flex; gap: 0.5rem; padding: 0.6rem 1.25rem; border-bottom: 1px solid var(--border); flex-wrap: wrap; align-items: center; }
-        .chip { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.2rem 0.6rem; border-radius: 999px; font-size: 0.72rem; font-weight: 600; background: var(--surf2); }
-        .chip-dot { width: 6px; height: 6px; border-radius: 50%; }
-
-        /* ── Fly strip ── */
-        .fly-section { padding: 0.75rem 1.25rem 0.6rem; border-bottom: 1px solid var(--border); }
-        .section-label { font-size: 0.65rem; color: var(--sub); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 0.4rem; }
-        .fly-days-wrap { display: flex; gap: 4px; }
-        .fly-day-col { flex: 1; display: flex; flex-direction: column; gap: 3px; }
-        .fly-day-name { font-size: 0.65rem; color: var(--sub); text-align: center; font-weight: 600; }
-        .fly-hours { display: flex; gap: 1px; height: 32px; }
-        .fly-cell { flex: 1; border-radius: 2px; cursor: crosshair; transition: transform .1s; }
-        .fly-cell:hover { transform: scaleY(1.22); }
-        .f0 { background: var(--f0); }
-        .f1 { background: var(--f1); }
-        .f2 { background: var(--f2); }
-        .f3 { background: var(--f3); }
-        .f-dir { background: #1e293b; border: 1px solid #2d3748; opacity: 0.45; }
-
-        /* ── Direction filter bar ── */
-        .dir-filter-bar {
-            display: flex; align-items: center; gap: 0.65rem;
-            padding: 0.38rem 1.25rem;
-            background: #131e2e; border-bottom: 1px solid var(--border);
-            font-size: 0.72rem; flex-wrap: wrap;
-        }
-        .df-label { color: var(--sub); white-space: nowrap; }
-        .df-input {
-            width: 58px; padding: 0.18rem 0.35rem;
+        .model-label { font-size: 0.7rem; color: var(--sub); white-space: nowrap; }
+        .model-select {
+            flex: 1; min-width: 0;
+            padding: 0.28rem 0.45rem;
             background: var(--bg); border: 1px solid var(--border);
-            border-radius: 4px; color: var(--text); font-size: 0.78rem;
-            text-align: right; outline: none;
-        }
-        .df-input:focus { border-color: var(--accent); }
-        .df-select {
-            padding: 0.18rem 0.35rem;
-            background: var(--bg); border: 1px solid var(--border);
-            border-radius: 4px; color: var(--text); font-size: 0.82rem; font-weight: 600;
+            border-radius: 6px; color: var(--text); font-size: 0.78rem;
             outline: none; cursor: pointer;
         }
-        .df-select:focus { border-color: var(--accent); }
-        .df-toggle { display: flex; align-items: center; gap: 0.35rem; cursor: pointer; color: var(--sub); user-select: none; }
-        .df-toggle input { cursor: pointer; accent-color: var(--accent); }
-        .df-controls { display: flex; align-items: center; gap: 0.35rem; }
-        .fly-hour-labs { display: flex; justify-content: space-between; padding: 0 1px; margin-top: 2px; }
-        .fly-hour-labs span { font-size: 0.57rem; color: #475569; }
 
-        /* ── Speed chart ── */
-        .chart-section { padding: 0.75rem 1.25rem; border-bottom: 1px solid var(--border); }
-        .chart-wrap { position: relative; height: 210px; }
-
-        /* ── Direction row ── */
-        .dir-section { padding: 0.55rem 1.25rem 0.8rem; }
-        .dir-row { display: flex; justify-content: space-between; align-items: flex-end; }
-        .dir-item { display: flex; flex-direction: column; align-items: center; gap: 0; }
-        .da10  { font-size: 1.1rem; line-height: 1.2; color: #7dd3fc; }
-        .da120 { font-size: 0.72rem; line-height: 1.2; color: #c084fc; opacity: 0.75; }
-        .dir-time { font-size: 0.58rem; color: #475569; margin-top: 1px; }
-
-        /* ── Hover tooltip ── */
-        #flyTip {
-            position: fixed;
-            background: #070d1a;
-            border: 1px solid var(--border);
-            border-radius: 9px;
-            padding: 0.65rem 0.9rem;
-            font-size: 0.75rem;
-            pointer-events: none;
-            z-index: 1000;
-            display: none;
-            min-width: 195px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.65);
+        /* == Buttons == */
+        .btn {
+            padding: 0.45rem 0.8rem; border: none; border-radius: 8px;
+            cursor: pointer; font-size: 0.82rem; font-weight: 500;
+            transition: opacity .15s; white-space: nowrap;
         }
-        #flyTip .tt-time { font-size: 0.85rem; font-weight: 700; color: var(--accent); margin-bottom: 0.45rem; }
-        #flyTip .tt-badge { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 5px; font-size: 0.7rem; font-weight: 700; margin-bottom: 0.4rem; }
-        #flyTip .tt-row { display: flex; justify-content: space-between; gap: 1.5rem; margin-top: 0.2rem; }
-        #flyTip .tt-key { color: var(--sub); }
-        #flyTip .tt-val { font-weight: 600; }
-        #flyTip .tt-warn { color: var(--f2); font-size: 0.68rem; margin-top: 0.4rem; }
+        .btn:active { opacity: 0.65; }
+        .btn-accent { background: var(--accent); color: #070d1a; }
+        .btn-sm     { padding: 0.3rem 0.6rem; font-size: 0.72rem; border-radius: 6px; }
+        .btn-ghost  { background: var(--surf2); color: var(--sub); border: 1px solid var(--border); }
+        .btn-danger { background: transparent; border: 1px solid var(--f3); color: var(--f3); }
+        .btn-info   { background: transparent; border: 1px solid var(--accent); color: var(--accent); }
 
-        /* ── Settings panel ── */
-        .settings-panel { background: #111827; border-bottom: 1px solid var(--border); overflow: hidden; max-height: 0; transition: max-height .35s ease; }
-        .settings-panel.open { max-height: 700px; }
-        .settings-inner { padding: 1rem 1.5rem; display: flex; flex-direction: column; gap: 0.9rem; }
-        .settings-inner h2 { font-size: 0.8rem; color: var(--accent); margin-bottom: 0.1rem; }
-        .settings-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.75rem 1.5rem; }
-        .settings-group { background: var(--surface); border-radius: 8px; padding: 0.8rem 1rem; border-left: 3px solid var(--border); }
-        .settings-group h3 { font-size: 0.73rem; color: var(--accent); margin-bottom: 0.6rem; font-weight: 700; }
-        .sf { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.45rem; gap: 0.5rem; }
-        .sf label { font-size: 0.72rem; color: var(--sub); flex: 1; }
+        /* == Collapsible panels == */
+        .info-panel, .settings-panel {
+            background: #111827; border-bottom: 1px solid var(--border);
+            overflow: hidden; max-height: 0; transition: max-height .35s ease;
+        }
+        .info-panel.open     { max-height: 1200px; }
+        .settings-panel.open { max-height: 800px; }
+        .info-inner { padding: 0.85rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 0.6rem; }
+        .info-card { background: var(--surface); border-left: 3px solid var(--accent); border-radius: 8px; padding: 0.7rem; }
+        .info-card h3 { font-size: 0.76rem; color: var(--accent); margin-bottom: 0.3rem; }
+        .info-card p, .info-card li { font-size: 0.7rem; color: var(--sub); line-height: 1.55; }
+        .info-card ul { padding-left: 1rem; }
+        .settings-inner { padding: 0.85rem; display: flex; flex-direction: column; gap: 0.85rem; }
+        .settings-inner h2 { font-size: 0.76rem; color: var(--accent); }
+        .settings-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0.6rem; }
+        .settings-group { background: var(--surface); border-radius: 8px; padding: 0.75rem; border-left: 3px solid var(--border); }
+        .settings-group h3 { font-size: 0.7rem; color: var(--accent); margin-bottom: 0.5rem; font-weight: 700; }
+        .sf { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.38rem; gap: 0.4rem; }
+        .sf label { font-size: 0.7rem; color: var(--sub); flex: 1; }
         .sf input[type=number] {
-            width: 72px; padding: 0.22rem 0.45rem;
+            width: 66px; padding: 0.22rem 0.4rem;
             background: var(--bg); border: 1px solid var(--border);
-            border-radius: 5px; color: var(--text); font-size: 0.82rem;
+            border-radius: 5px; color: var(--text); font-size: 0.8rem;
             text-align: right; outline: none;
         }
         .sf input[type=number]:focus { border-color: var(--accent); }
-        .sf .unit { font-size: 0.66rem; color: #475569; min-width: 28px; }
-        .settings-footer { display: flex; gap: 0.5rem; }
-        .btn-reset { background: transparent; border: 1px solid var(--border); color: var(--sub); }
+        .sf .unit { font-size: 0.62rem; color: #475569; min-width: 22px; }
+        .settings-footer { display: flex; gap: 0.5rem; flex-wrap: wrap; }
 
-        /* ── Model selector ── */
-        .model-select {
-            padding: 0.38rem 0.55rem;
+        /* == Main == */
+        main { padding: 0.65rem; display: flex; flex-direction: column; gap: 0.65rem; max-width: 900px; margin: 0 auto; }
+        .empty-state { color: var(--sub); text-align: center; padding: 4rem 2rem; font-size: 0.9rem; }
+
+        /* == Location card == */
+        .loc-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+        .loc-header {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0.6rem 0.9rem;
+            background: linear-gradient(135deg, #194068, #1d4d80);
+            border-bottom: 1px solid var(--border); gap: 0.5rem;
+        }
+        .loc-header h2 { font-size: 0.95rem; font-weight: 700; }
+        .loc-header .coord { font-size: 0.6rem; color: rgba(255,255,255,0.5); margin-top: 2px; }
+        .loc-actions { display: flex; gap: 0.3rem; flex-shrink: 0; }
+        .loc-loading, .loc-error { padding: 2rem; text-align: center; color: var(--sub); font-size: 0.85rem; }
+        .loc-error { color: var(--f3); }
+
+        /* == Summary chips == */
+        .summary-bar {
+            display: flex; gap: 0.4rem; padding: 0.45rem 0.75rem;
+            border-bottom: 1px solid var(--border); flex-wrap: wrap;
+            background: #131e2e;
+        }
+        .chip { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.18rem 0.5rem; border-radius: 999px; font-size: 0.68rem; font-weight: 600; background: var(--surf2); }
+        .chip-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+
+        /* == Direction filter == */
+        .dir-filter-bar {
+            display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+            padding: 0.38rem 0.75rem;
+            background: #0f1a2e; border-bottom: 1px solid var(--border);
+            font-size: 0.72rem;
+        }
+        .df-label { color: var(--sub); white-space: nowrap; }
+        .df-input {
+            width: 52px; padding: 0.18rem 0.3rem;
             background: var(--bg); border: 1px solid var(--border);
-            border-radius: 6px; color: var(--text); font-size: 0.82rem;
+            border-radius: 4px; color: var(--text); font-size: 0.76rem;
+            text-align: right; outline: none;
+        }
+        .df-select {
+            padding: 0.2rem 0.3rem;
+            background: var(--bg); border: 1px solid var(--border);
+            border-radius: 4px; color: var(--text); font-size: 0.8rem; font-weight: 600;
             outline: none; cursor: pointer;
         }
-        .model-select:focus { border-color: var(--accent); }
-        .model-label { font-size: 0.75rem; color: var(--sub); white-space: nowrap; }
+        .df-toggle { display: flex; align-items: center; gap: 0.3rem; cursor: pointer; color: var(--sub); user-select: none; }
+        .df-toggle input { cursor: pointer; accent-color: var(--accent); width: 15px; height: 15px; }
+        .df-controls { display: flex; align-items: center; gap: 0.3rem; }
 
-        @media (max-width: 680px) {
-            header { padding: 0.6rem 0.75rem; }
-            .legend { display: none; }
-            main { padding: 0.75rem; }
-            .add-bar { padding: 0.45rem 0.75rem; }
+        /* == Day tabs == */
+        .day-tabs {
+            display: flex;
+            border-bottom: 2px solid var(--border);
+            background: #0c1525;
+        }
+        .day-tab {
+            flex: 1; padding: 0.5rem 0.4rem;
+            background: transparent; border: none;
+            font-size: 0.73rem; font-weight: 600; cursor: pointer;
+            border-bottom: 3px solid transparent; margin-bottom: -2px;
+            color: var(--sub); transition: color .15s, border-color .15s;
+            display: flex; flex-direction: column; align-items: center; gap: 4px;
+        }
+        .day-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+        .day-tab-dots { display: flex; gap: 2px; }
+        .day-tab-dot  { width: 7px; height: 7px; border-radius: 50%; opacity: 0.9; }
+
+        /* == Hourly scroll == */
+        .hourly-hint {
+            font-size: 0.6rem; color: #475569;
+            padding: 0.3rem 0.75rem 0;
+            text-align: right; letter-spacing: .03em;
+        }
+        .hourly-scroll {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x proximity;
+            -webkit-overflow-scrolling: touch;
+            gap: 5px;
+            padding: 0.55rem 0.75rem 0.6rem;
+            scrollbar-width: none;
+        }
+        .hourly-scroll::-webkit-scrollbar { display: none; }
+
+        /* == Hour card == */
+        .hour-card {
+            flex-shrink: 0;
+            width: 66px;
+            border-radius: 10px;
+            padding: 0.42rem 0.3rem 0.35rem;
+            display: flex; flex-direction: column; align-items: center; gap: 2px;
+            cursor: pointer;
+            scroll-snap-align: start;
+            border: 1.5px solid transparent;
+            background: var(--surf2);
+            user-select: none;
+        }
+        .hour-card:active { opacity: 0.72; }
+        .hour-card.score-0 { background: rgba(34,197,94,.13);  border-color: rgba(34,197,94,.38); }
+        .hour-card.score-1 { background: rgba(234,179,8,.11);  border-color: rgba(234,179,8,.3); }
+        .hour-card.score-2 { background: rgba(249,115,22,.11); border-color: rgba(249,115,22,.3); }
+        .hour-card.score-3 { background: rgba(239,68,68,.12);  border-color: rgba(239,68,68,.38); }
+        .hour-card.dir-filtered { opacity: 0.38; }
+        .hour-card.active-detail { box-shadow: 0 0 0 2px var(--accent) !important; border-color: var(--accent) !important; }
+
+        .hc-time  { font-size: 0.68rem; font-weight: 700; color: var(--text); line-height: 1; }
+        .hc-badge { font-size: 0.53rem; font-weight: 700; padding: 0.05rem 0.28rem; border-radius: 4px; white-space: nowrap; }
+        .hc-arrows {
+            display: flex; flex-direction: column; align-items: center;
+            gap: 0px; height: 44px; justify-content: center;
+        }
+        .hc-arr10  { font-size: 1.25rem; line-height: 1; color: #7dd3fc; display: inline-block; }
+        .hc-arr120 { font-size: 0.78rem; line-height: 1; color: #c084fc; display: inline-block; opacity: 0.85; }
+        .hc-spd    { font-size: 0.76rem; font-weight: 700; color: var(--text); line-height: 1; }
+        .hc-spd small { font-size: 0.52rem; color: var(--sub); font-weight: 400; }
+        .hc-gust   { font-size: 0.58rem; color: var(--sub); line-height: 1; }
+        .hc-gust.warn { color: var(--f2); font-weight: 700; }
+        .hc-shear  { font-size: 0.55rem; color: var(--f2); line-height: 1; }
+
+        /* CBL thermal bar inside card */
+        .hc-cbl { display: flex; flex-direction: column; align-items: center; gap: 1px; width: 100%; margin-top: 2px; }
+        .hc-cbl-bg {
+            width: 26px; height: 22px;
+            background: rgba(255,255,255,0.05); border-radius: 3px;
+            display: flex; align-items: flex-end; overflow: hidden;
+        }
+        .hc-cbl-fill { width: 100%; border-radius: 3px 3px 0 0; }
+        .hc-cbl-txt  { font-size: 0.54rem; color: var(--sub); line-height: 1; }
+
+        /* == Detail panel (tap to reveal) == */
+        .detail-panel {
+            display: none;
+            margin: 0 0.75rem 0.65rem;
+            background: #07111e;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 0.75rem 0.9rem;
+            font-size: 0.78rem;
+        }
+        .detail-panel.visible { display: block; }
+        .dp-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; }
+        .dp-time   { font-size: 0.95rem; font-weight: 700; color: var(--accent); }
+        .dp-badge  { display: inline-block; padding: 0.12rem 0.55rem; border-radius: 6px; font-size: 0.72rem; font-weight: 700; }
+        .dp-grid   { display: grid; grid-template-columns: 1fr 1fr; gap: 0.28rem 0.85rem; margin-bottom: 0.55rem; }
+        .dp-row    { display: flex; justify-content: space-between; align-items: baseline; gap: 0.3rem; }
+        .dp-key    { color: var(--sub); font-size: 0.7rem; }
+        .dp-val    { font-weight: 600; font-size: 0.78rem; }
+        .dp-val.warn   { color: var(--f2); }
+        .dp-val.danger { color: var(--f3); }
+
+        /* Direction arrows inside detail panel */
+        .dp-dirs {
+            display: flex; gap: 0.65rem; justify-content: space-evenly; align-items: flex-start;
+            padding: 0.55rem 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            margin: 0.4rem 0;
+        }
+        .dp-dir-item { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+        .dp-dir-arr  { font-size: 1.55rem; line-height: 1; display: inline-block; }
+        .dp-dir-name { font-size: 0.82rem; font-weight: 700; }
+        .dp-dir-alt  { font-size: 0.6rem; color: var(--sub); }
+
+        /* Warnings inside detail panel */
+        .dp-reasons { display: flex; flex-direction: column; gap: 2px; font-size: 0.7rem; }
+
+        /* == Legend inside card footer == */
+        .loc-legend {
+            display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;
+            padding: 0.38rem 0.75rem;
+            background: #0c1525; border-top: 1px solid var(--border);
+        }
+        .lgi    { display: flex; align-items: center; gap: 4px; font-size: 0.61rem; color: var(--sub); }
+        .lgdot  { width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0; }
+
+        @media (min-width: 500px) {
+            main { padding: 0.85rem; gap: 0.85rem; }
+            .hour-card { width: 72px; }
+        }
+        @media (min-width: 700px) {
+            main { padding: 1rem; gap: 1rem; }
+            .hour-card { width: 80px; }
+            .hc-arr10 { font-size: 1.4rem; }
         }
     </style>
 </head>
@@ -229,7 +317,6 @@
         <h1>🪂 Viento Parapente</h1>
         <p>Previsión 72h · Open-Meteo</p>
     </div>
-    <div class="legend" id="legend"></div>
     <div class="hdr-right">
         <button class="btn btn-ghost btn-sm" onclick="toggleSettings()">⚙ Umbrales</button>
         <button class="btn btn-info btn-sm" onclick="toggleInfo()">ℹ Guía</button>
@@ -242,21 +329,24 @@
         <div class="dropdown" id="dropdown" style="display:none"></div>
     </div>
     <button class="btn btn-accent" onclick="handleSearch()">Buscar</button>
+</div>
+
+<div class="model-bar">
     <span class="model-label">Modelo:</span>
     <select id="modelSelect" class="model-select" onchange="onModelChange()">
         <option value="">Auto (mejor disponible)</option>
         <option value="best_match">Best Match</option>
-        <option value="ecmwf_ifs025">ECMWF IFS 0.25°</option>
-        <option value="ecmwf_aifs025">ECMWF AIFS 0.25°</option>
+        <option value="ecmwf_ifs025">ECMWF IFS 0.25 deg</option>
+        <option value="ecmwf_aifs025">ECMWF AIFS 0.25 deg</option>
         <option value="gfs_seamless">GFS Seamless</option>
         <option value="gfs_global">GFS Global</option>
         <option value="icon_seamless">ICON Seamless</option>
         <option value="icon_global">ICON Global</option>
         <option value="icon_eu">ICON EU</option>
         <option value="icon_d2">ICON D2</option>
-        <option value="meteofrance_seamless">Météo-France Seamless</option>
-        <option value="meteofrance_arpege_world">Arpège World</option>
-        <option value="meteofrance_arpege_europe">Arpège Europe</option>
+        <option value="meteofrance_seamless">Meteo-France Seamless</option>
+        <option value="meteofrance_arpege_world">Arpege World</option>
+        <option value="meteofrance_arpege_europe">Arpege Europe</option>
         <option value="meteofrance_arome_france">Arome France</option>
         <option value="ukmo_seamless">UKMO Seamless</option>
         <option value="ukmo_global_deterministic_10km">UKMO Global 10km</option>
@@ -269,162 +359,135 @@
 <div class="info-panel" id="infoPanel">
     <div class="info-inner">
         <div class="info-card">
-            <h3>🌬️ Viento en superficie (10m)</h3>
+            <h3>🌬️ Viento superficie (10m)</h3>
             <ul>
-                <li>&lt;15 km/h → Óptimo, despegue fácil</li>
-                <li>15–25 km/h → Manejable, requiere técnica</li>
-                <li>25–35 km/h → Fuerte, solo expertos</li>
+                <li>&lt;15 km/h → Optimo, despegue facil</li>
+                <li>15-25 km/h → Manejable</li>
+                <li>25-35 km/h → Fuerte, solo expertos</li>
                 <li>&gt;35 km/h → Peligroso, no volar</li>
             </ul>
         </div>
         <div class="info-card">
-            <h3>📈 Viento en altitud (80–180m)</h3>
-            <p>Muestra las condiciones durante el vuelo. Fuertes vientos en altura generan turbulencia y pueden impedir el control. El gradiente entre capas indica estabilidad atmosférica.</p>
+            <h3>🧭 Flechas de direccion</h3>
+            <p>La flecha grande azul es la direccion a 10m. La flecha pequena morada es a 120m. La flecha apunta de donde viene el viento.</p>
         </div>
         <div class="info-card">
-            <h3>💨 Límite numérico de rachas</h3>
-            <p>Velocidad absoluta de las rachas en km/h. Si las rachas superan el límite configurado, se penaliza la valoración. Permite evaluar el riesgo independientemente del viento sostenido.</p>
+            <h3>⚡ Cizalladura</h3>
+            <p>Diferencia angular entre viento a 10m y 120m. El icono aparece cuando supera el umbral configurado. Puede provocar colapsos al ganar altura.</p>
         </div>
         <div class="info-card">
-            <h3>🧭 Cizalladura (flechas del strip)</h3>
-            <p>Si la dirección en 10m y 120m difieren &gt;40°, aparece ⚠ en el tooltip. Esto puede provocar colapsos al ganar altura. Flechas coherentes en ambas alturas = buena señal.</p>
+            <h3>☁️ Barra de termicas (CBL)</h3>
+            <p>Altura de la capa limite convectiva. Sin relleno = sin termicas. Azul = leves, verde = activas, naranja = fuertes, rojo = muy fuertes.</p>
         </div>
         <div class="info-card">
             <h3>⏰ Ventanas de vuelo</h3>
-            <p>Las mejores condiciones suelen ser por la mañana temprano antes de que se activen las térmicas, o al atardecer. Evitar el mediodía en verano por turbulencia térmica fuerte.</p>
+            <p>Las mejores condiciones son por la manana temprano o al atardecer. Evitar el mediodia en verano por turbulencia termica fuerte.</p>
         </div>
         <div class="info-card">
-            <h3>🔵 Cómo leer el panel</h3>
-            <p>El <b>strip de colores</b> muestra las 72h de vistazo. Pasa el ratón sobre cada hora para ver todos los datos. El <b>gráfico</b> muestra la evolución de velocidades. Las <b>flechas</b> indican de dónde viene el viento (azul=10m, morado=120m).</p>
+            <h3>📱 Como usar</h3>
+            <p>Desliza las tarjetas para navegar el dia. Toca una tarjeta para ver todos los detalles. Tocala de nuevo para cerrar. Usa las pestanas de dia para cambiar de jornada.</p>
         </div>
     </div>
 </div>
 
 <div class="settings-panel" id="settingsPanel">
     <div class="settings-inner">
-        <h2>⚙ Umbrales de seguridad — modifica los valores y pulsa Aplicar para recalcular</h2>
+        <h2>⚙ Umbrales de seguridad — modifica y pulsa Aplicar para recalcular</h2>
         <div class="settings-grid">
             <div class="settings-group">
                 <h3>🌬️ Velocidad viento 10m</h3>
-                <div class="sf"><label>Límite Óptimo / Moderado</label><input type="number" id="cfg-s1" min="1" max="100" step="1"><span class="unit">km/h</span></div>
-                <div class="sf"><label>Límite Moderado / Fuerte</label><input type="number" id="cfg-s2" min="1" max="100" step="1"><span class="unit">km/h</span></div>
-                <div class="sf"><label>Límite Fuerte / Peligroso</label><input type="number" id="cfg-s3" min="1" max="100" step="1"><span class="unit">km/h</span></div>
+                <div class="sf"><label>Limite Optimo / Moderado</label><input type="number" id="cfg-s1" min="1" max="100" step="1"><span class="unit">km/h</span></div>
+                <div class="sf"><label>Limite Moderado / Fuerte</label><input type="number" id="cfg-s2" min="1" max="100" step="1"><span class="unit">km/h</span></div>
+                <div class="sf"><label>Limite Fuerte / Peligroso</label><input type="number" id="cfg-s3" min="1" max="100" step="1"><span class="unit">km/h</span></div>
             </div>
             <div class="settings-group">
-                <h3>💨 Límite numérico de rachas</h3>
-                <div class="sf"><label>Límite OK / Moderado</label><input type="number" id="cfg-gf1" min="1" max="200" step="1"><span class="unit">km/h</span></div>
-                <div class="sf"><label>Límite Moderado / Fuerte</label><input type="number" id="cfg-gf2" min="1" max="200" step="1"><span class="unit">km/h</span></div>
+                <h3>💨 Limite de rachas</h3>
+                <div class="sf"><label>Limite OK / Moderado</label><input type="number" id="cfg-gf1" min="1" max="200" step="1"><span class="unit">km/h</span></div>
+                <div class="sf"><label>Limite Moderado / Fuerte</label><input type="number" id="cfg-gf2" min="1" max="200" step="1"><span class="unit">km/h</span></div>
             </div>
             <div class="settings-group">
-                <h3>🧭 Cizalladura de dirección (10m vs 120m)</h3>
-                <div class="sf"><label>Límite OK / Moderado</label><input type="number" id="cfg-sh1" min="0" max="180" step="5"><span class="unit">°</span></div>
-                <div class="sf"><label>Límite Moderado / Fuerte</label><input type="number" id="cfg-sh2" min="0" max="180" step="5"><span class="unit">°</span></div>
+                <h3>🧭 Cizalladura (10m vs 120m)</h3>
+                <div class="sf"><label>Limite OK / Moderado</label><input type="number" id="cfg-sh1" min="0" max="180" step="5"><span class="unit">°</span></div>
+                <div class="sf"><label>Limite Moderado / Fuerte</label><input type="number" id="cfg-sh2" min="0" max="180" step="5"><span class="unit">°</span></div>
             </div>
         </div>
         <div class="settings-footer">
             <button class="btn btn-accent btn-sm" onclick="applySettings()">✓ Aplicar y recalcular</button>
-            <button class="btn btn-reset btn-sm" onclick="resetSettings()">↺ Restaurar por defecto</button>
+            <button class="btn btn-ghost btn-sm" onclick="resetSettings()">↺ Restaurar por defecto</button>
         </div>
     </div>
 </div>
 
 <main id="main"></main>
 
-<!-- Fly-strip hover tooltip -->
-<div id="flyTip">
-    <div class="tt-time" id="tt-time"></div>
-    <div class="tt-badge" id="tt-badge"></div>
-    <div class="tt-row"><span class="tt-key">Viento 10m</span><span class="tt-val" id="tt-ws10"></span></div>
-    <div class="tt-row"><span class="tt-key">Rachas 10m</span><span class="tt-val" id="tt-gust"></span></div>
-    <div class="tt-row"><span class="tt-key">Viento 80m</span><span class="tt-val" id="tt-ws80"></span></div>
-    <div class="tt-row"><span class="tt-key">Viento 120m</span><span class="tt-val" id="tt-ws120"></span></div>
-    <div class="tt-row"><span class="tt-key">Viento 180m</span><span class="tt-val" id="tt-ws180"></span></div>
-    <div class="tt-row"><span class="tt-key">Dirección 10m</span><span class="tt-val" id="tt-dir10"></span></div>
-    <div class="tt-row"><span class="tt-key">Techo térmico (CBL)</span><span class="tt-val" id="tt-blh"></span></div>
-    <div class="tt-warn" id="tt-warn"></div>
-</div>
-
 <script>
-/* ═══════════════════════════════════════════
-   Constants & state
-═══════════════════════════════════════════ */
+/* ===========================================
+   Constants and state
+=========================================== */
 const API_WX  = 'https://api.open-meteo.com/v1/forecast';
 const API_GEO = 'https://geocoding-api.open-meteo.com/v1/search';
 const PARAMS  = 'wind_speed_10m,wind_speed_80m,wind_speed_120m,wind_speed_180m,wind_direction_10m,wind_direction_80m,wind_direction_120m,wind_direction_180m,wind_gusts_10m,boundary_layer_height';
 
-/* ── Configurable safety thresholds ── */
 const CFG_DEFAULTS = {
-    speedOpt:   15,   // ws10 below this → Óptimo
-    speedMod:   25,   // ws10 below this → Moderado
-    speedStr:   35,   // ws10 below this → Fuerte, else Peligroso
-    gustOk:     20,   // gust speed (km/h) below this → OK
-    gustMod:    30,   // gust speed (km/h) below this → Moderado
-    shearOk:    25,   // shear below this → OK
-    shearMod:   50,   // shear below this → Moderado
+    speedOpt: 15,
+    speedMod: 25,
+    speedStr: 35,
+    gustOk:   20,
+    gustMod:  30,
+    shearOk:  25,
+    shearMod: 50,
 };
-
 let CFG = { ...CFG_DEFAULTS };
 
 const DEFAULT_LOCATIONS = [
-    { name: 'Lora del Río',   lat: 37.6551, lon: -5.5197 },
-    { name: 'Utrera',         lat: 37.1850, lon: -5.7836 },
-    { name: 'Matalascañas',   lat: 37.0086, lon: -6.5558 },
-    { name: 'Algodonales',    lat: 36.8934, lon: -5.4039 },
+    { name: 'Lora del Rio',  lat: 37.6551, lon: -5.5197 },
+    { name: 'Utrera',        lat: 37.1850, lon: -5.7836 },
+    { name: 'Matalascanas',  lat: 37.0086, lon: -6.5558 },
+    { name: 'Algodonales',   lat: 36.8934, lon: -5.4039 },
 ];
 
-let locations      = [...DEFAULT_LOCATIONS];
-let currentModel   = '';           // empty string = no models param (API default)
-const wxCache      = new Map();   // "lat,lon,model" → data
-const weatherStore = new Map();   // idx       → data  (for tooltip access)
-const chartMap     = new Map();   // idx       → Chart instance
-let geoTimer       = null;
-let infoOpen       = false;
-let settingsOpen   = false;
+let locations    = [...DEFAULT_LOCATIONS];
+let currentModel = '';
 
-/* ═══════════════════════════════════════════
+const wxCache      = new Map();
+const weatherStore = new Map();
+
+let geoTimer     = null;
+let infoOpen     = false;
+let settingsOpen = false;
+
+/* ===========================================
    Flyability scoring
-═══════════════════════════════════════════ */
+=========================================== */
 function dirShear(a, b) {
-    let d = Math.abs(a - b) % 360;
+    const d = Math.abs(a - b) % 360;
     return d > 180 ? 360 - d : d;
 }
 
-/** Returns 0=optimal 1=moderate 2=strong 3=dangerous */
 function flyScore(ws10, gusts, dir10, dir120) {
     const sSpeed = ws10 < CFG.speedOpt ? 0 : ws10 < CFG.speedMod ? 1 : ws10 < CFG.speedStr ? 2 : 3;
-    const sGust = gusts < CFG.gustOk ? 0 : gusts < CFG.gustMod ? 1 : 2;
-    const shear = dirShear(dir10, dir120);
+    const sGust  = gusts < CFG.gustOk ? 0 : gusts < CFG.gustMod ? 1 : 2;
+    const shear  = dirShear(dir10, dir120);
     const sShear = shear < CFG.shearOk ? 0 : shear < CFG.shearMod ? 1 : 2;
     return Math.max(sSpeed, sGust, sShear);
 }
 
-const FLY_LABELS  = ['Óptimo', 'Moderado', 'Fuerte', 'Peligroso'];
+const FLY_LABELS  = ['Optimo', 'Moderado', 'Fuerte', 'Peligroso'];
 const FLY_COLORS  = ['#22c55e', '#eab308', '#f97316', '#ef4444'];
-const FLY_CLASSES = ['f0', 'f1', 'f2', 'f3'];
 
-/* ═══════════════════════════════════════════
+/* ===========================================
    Helpers
-═══════════════════════════════════════════ */
+=========================================== */
 function escHtml(s) {
     return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
 const COMPASS_DIRS = [
-    { label: 'N',   deg: 0   },
-    { label: 'NNE', deg: 23  },
-    { label: 'NE',  deg: 45  },
-    { label: 'ENE', deg: 68  },
-    { label: 'E',   deg: 90  },
-    { label: 'ESE', deg: 113 },
-    { label: 'SE',  deg: 135 },
-    { label: 'SSE', deg: 158 },
-    { label: 'S',   deg: 180 },
-    { label: 'SSO', deg: 203 },
-    { label: 'SO',  deg: 225 },
-    { label: 'OSO', deg: 248 },
-    { label: 'O',   deg: 270 },
-    { label: 'ONO', deg: 293 },
-    { label: 'NO',  deg: 315 },
+    { label: 'N', deg: 0 }, { label: 'NNE', deg: 23 }, { label: 'NE', deg: 45 },
+    { label: 'ENE', deg: 68 }, { label: 'E', deg: 90 }, { label: 'ESE', deg: 113 },
+    { label: 'SE', deg: 135 }, { label: 'SSE', deg: 158 }, { label: 'S', deg: 180 },
+    { label: 'SSO', deg: 203 }, { label: 'SO', deg: 225 }, { label: 'OSO', deg: 248 },
+    { label: 'O', deg: 270 }, { label: 'ONO', deg: 293 }, { label: 'NO', deg: 315 },
     { label: 'NNO', deg: 338 },
 ];
 
@@ -440,48 +503,86 @@ function buildDirOptions(selectedDeg) {
         return da <= db ? a : b;
     });
     return COMPASS_DIRS.map(d =>
-        `<option value="${d.deg}"${d.deg === closest.deg ? ' selected' : ''}>${d.label}</option>`
+        '<option value="' + d.deg + '"' + (d.deg === closest.deg ? ' selected' : '') + '>' + d.label + '</option>'
     ).join('');
 }
 
-function dayLabel(isoDate) {
-    const [y, m, d] = isoDate.split('-').map(Number);
-    return new Date(y, m - 1, d).toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric' });
+function dayLabelShort(isoDate) {
+    const parts = isoDate.split('-').map(Number);
+    return new Date(parts[0], parts[1] - 1, parts[2]).toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric' });
 }
 
-/* Find longest consecutive ≤score1 runs per day */
+function getDays(times) {
+    const days = [];
+    times.forEach(function(t) { const d = t.split('T')[0]; if (!days.includes(d)) days.push(d); });
+    return days;
+}
+
+function dirMatchesFilter(windDeg, filterDeg, tol) {
+    return Math.abs(((windDeg - filterDeg) + 180) % 360 - 180) <= tol;
+}
+
 function bestWindows(scores, times) {
     const days = {};
-    times.forEach((t, i) => {
+    times.forEach(function(t, i) {
         const day = t.split('T')[0];
-        (days[day] = days[day] || []).push({ i, t, s: scores[i] });
+        if (!days[day]) days[day] = [];
+        days[day].push({ t: t, s: scores[i] });
     });
-    return Object.entries(days).map(([date, hrs]) => {
+    return Object.entries(days).map(function(entry) {
+        const date = entry[0]; const hrs = entry[1];
         let bestStart = null, bestLen = 0, cur = null, curLen = 0;
-        hrs.forEach(({ t, s }) => {
-            const hour = parseInt(t.split('T')[1].slice(0, 2), 10);
-            if (s === 0 && hour >= 6) {
-                if (!cur) cur = t;
+        hrs.forEach(function(h) {
+            const hour = parseInt(h.t.split('T')[1].slice(0, 2), 10);
+            if (h.s === 0 && hour >= 6) {
+                if (!cur) cur = h.t;
                 curLen++;
                 if (curLen > bestLen) { bestStart = cur; bestLen = curLen; }
             } else { cur = null; curLen = 0; }
         });
         return bestLen > 0
-            ? { label: dayLabel(date), start: bestStart.split('T')[1].slice(0, 5), hours: bestLen }
+            ? { label: dayLabelShort(date), start: bestStart.split('T')[1].slice(0, 5), hours: bestLen }
             : null;
     }).filter(Boolean);
 }
 
-/* ═══════════════════════════════════════════
+/* ===========================================
+   CBL / Thermal colour helpers
+=========================================== */
+function cblColor(blh) {
+    if (blh == null || blh < 50) return '#374151';
+    if (blh < 300)  return '#4b5563';
+    if (blh < 700)  return '#0ea5e9';
+    if (blh < 1500) return '#22c55e';
+    if (blh < 2500) return '#f59e0b';
+    return '#ef4444';
+}
+
+function cblStrength(blh) {
+    if (blh == null || blh < 50) return '-';
+    if (blh < 300)  return 'Muy debil';
+    if (blh < 700)  return 'Debil';
+    if (blh < 1500) return 'Activas';
+    if (blh < 2500) return 'Fuertes';
+    return 'Muy fuertes';
+}
+
+function cblShortLabel(blh) {
+    if (blh == null) return '-';
+    if (blh < 1000) return Math.round(blh) + 'm';
+    return (blh / 1000).toFixed(1) + 'k';
+}
+
+/* ===========================================
    API
-═══════════════════════════════════════════ */
+=========================================== */
 async function fetchWeather(loc) {
-    const key = `${loc.lat},${loc.lon},${currentModel}`;
+    const key = loc.lat + ',' + loc.lon + ',' + currentModel;
     if (wxCache.has(key)) return wxCache.get(key);
-    const modelParam = currentModel ? `&models=${currentModel}` : '';
-    const url = `${API_WX}?latitude=${loc.lat}&longitude=${loc.lon}&hourly=${PARAMS}&timezone=auto&forecast_days=3${modelParam}`;
+    const modelParam = currentModel ? '&models=' + encodeURIComponent(currentModel) : '';
+    const url = API_WX + '?latitude=' + loc.lat + '&longitude=' + loc.lon + '&hourly=' + PARAMS + '&timezone=auto&forecast_days=3' + modelParam;
     const r = await fetch(url);
-    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    if (!r.ok) throw new Error('HTTP ' + r.status);
     const data = await r.json();
     wxCache.set(key, data);
     return data;
@@ -494,352 +595,284 @@ function onModelChange() {
     renderAll();
 }
 
-/* ═══════════════════════════════════════════
-   HTML builders
-═══════════════════════════════════════════ */
+/* ===========================================
+   Summary bar
+=========================================== */
 function buildSummary(scores, times) {
     const wins = bestWindows(scores, times);
-    if (!wins.length) return `<span class="chip"><span class="chip-dot" style="background:var(--f3)"></span>Sin ventanas favorables</span>`;
-    return wins.slice(0, 3).map(w =>
-        `<span class="chip"><span class="chip-dot" style="background:var(--f0)"></span>${escHtml(w.label)} · desde ${escHtml(w.start)} (${w.hours}h)</span>`
-    ).join('');
+    if (!wins.length) return '<span class="chip"><span class="chip-dot" style="background:var(--f3)"></span>Sin ventanas favorables</span>';
+    return wins.slice(0, 3).map(function(w) {
+        return '<span class="chip"><span class="chip-dot" style="background:var(--f0)"></span>' + escHtml(w.label) + ' · desde ' + escHtml(w.start) + ' (' + w.hours + 'h)</span>';
+    }).join('');
 }
 
-function dirMatchesFilter(windDeg, filterDeg, tol) {
-    const diff = Math.abs(((windDeg - filterDeg) + 180) % 360 - 180);
-    return diff <= tol;
+/* ===========================================
+   Day tabs
+=========================================== */
+function buildDayTabs(idx, days, scores, times, selDay) {
+    return days.map(function(d, i) {
+        const dayHourIndices = [];
+        times.forEach(function(t, hi) { if (t.startsWith(d)) dayHourIndices.push(hi); });
+        const step = Math.max(1, Math.floor(dayHourIndices.length / 6));
+        const sample = dayHourIndices.filter(function(_, j) { return j % step === 0; }).slice(0, 6);
+        const dots = sample.map(function(hi) {
+            return '<span class="day-tab-dot" style="background:' + FLY_COLORS[scores[hi]] + '"></span>';
+        }).join('');
+        return '<button class="day-tab ' + (i === selDay ? 'active' : '') + '" onclick="selectDay(' + idx + ', ' + i + ')">'
+            + '<span>' + dayLabelShort(d) + '</span>'
+            + '<div class="day-tab-dots">' + dots + '</div>'
+            + '</button>';
+    }).join('');
 }
 
-function buildStrip(idx, scores, times, dirs10) {
-    const df = locations[idx]?.dirFilter;
-    const days = {};
-    times.forEach((t, i) => {
-        const day = t.split('T')[0];
-        (days[day] = days[day] || []).push({ i, s: scores[i] });
-    });
+/* ===========================================
+   Hourly cards
+=========================================== */
+function buildHourCards(idx, h, scores, selDay) {
+    const df = locations[idx] && locations[idx].dirFilter;
+    const days = getDays(h.time);
+    const dayDate = days[selDay];
+    const maxBLH = 3000;
 
-    return '<div class="fly-days-wrap">' +
-        Object.entries(days).map(([date, hrs]) => {
-            const cells = hrs.map(({ i, s }) => {
-                const dirOk = !df?.enabled || dirMatchesFilter(dirs10[i], df.deg, df.tol);
-                const cls   = dirOk ? FLY_CLASSES[s] : 'f-dir';
-                return `<div class="fly-cell ${cls}" onmouseenter="showTip(event,${idx},${i})" onmouseleave="hideTip()"></div>`;
-            }).join('');
-            return `<div class="fly-day-col">
-                <div class="fly-day-name">${escHtml(dayLabel(date))}</div>
-                <div class="fly-hours">${cells}</div>
-                <div class="fly-hour-labs"><span>00</span><span>06</span><span>12</span><span>18</span><span>23</span></div>
-            </div>`;
-        }).join('') +
-    '</div>';
+    return h.time.map(function(t, i) {
+        if (!t.startsWith(dayDate)) return '';
+
+        const s      = scores[i];
+        const dir10  = h.wind_direction_10m[i];
+        const dir120 = h.wind_direction_120m[i];
+        const ws10   = h.wind_speed_10m[i];
+        const gust   = h.wind_gusts_10m[i];
+        const blh    = (h.boundary_layer_height && h.boundary_layer_height[i] != null) ? h.boundary_layer_height[i] : null;
+        const shear  = dirShear(dir10, dir120);
+
+        const dirOk = !df || !df.enabled || dirMatchesFilter(dir10, df.deg, df.tol);
+        const cls   = dirOk ? 'score-' + s : 'dir-filtered';
+
+        const timeStr   = t.split('T')[1].slice(0, 5).replace(':00', 'h');
+        const barH      = blh !== null ? Math.max(2, Math.round((Math.min(blh, maxBLH) / maxBLH) * 22)) : 2;
+        const barClr    = cblColor(blh);
+        const gustHigh  = gust > CFG.gustOk;
+        const shearWarn = shear > CFG.shearOk;
+
+        return '<div class="hour-card ' + cls + '" id="hc-' + idx + '-' + i + '" onclick="showDetail(' + idx + ', ' + i + ')">'
+            + '<div class="hc-time">' + timeStr + '</div>'
+            + '<div class="hc-badge" style="background:' + FLY_COLORS[s] + ';color:' + (s === 1 ? '#000' : '#fff') + '">' + FLY_LABELS[s].slice(0, 3) + '</div>'
+            + '<div class="hc-arrows">'
+            +   '<span class="hc-arr10"  style="display:inline-block;transform:rotate(' + dir10 + 'deg)">↑</span>'
+            +   '<span class="hc-arr120" style="display:inline-block;transform:rotate(' + dir120 + 'deg)">↑</span>'
+            + '</div>'
+            + '<div class="hc-spd">' + ws10.toFixed(0) + '<small>km/h</small></div>'
+            + '<div class="hc-gust' + (gustHigh ? ' warn' : '') + '">↗' + gust.toFixed(0) + '</div>'
+            + (shearWarn ? '<div class="hc-shear">⚡' + shear.toFixed(0) + '°</div>' : '')
+            + '<div class="hc-cbl">'
+            +   '<div class="hc-cbl-bg"><div class="hc-cbl-fill" style="height:' + barH + 'px;background:' + barClr + '"></div></div>'
+            +   '<div class="hc-cbl-txt">' + cblShortLabel(blh) + '</div>'
+            + '</div>'
+            + '</div>';
+    }).join('');
 }
 
-function buildDirRow(h) {
-    let out = '<div class="dir-row">';
-    for (let i = 0; i < h.time.length; i += 3) {
-        const rot10  = h.wind_direction_10m[i];
-        const rot120 = h.wind_direction_120m[i];
-        const t = h.time[i].split('T')[1].slice(0, 5);
-        const showTime = (i % 6 === 0);
-        out += `<div class="dir-item">
-            <span class="da10"  style="display:inline-block;transform:rotate(${rot10}deg)">↑</span>
-            <span class="da120" style="display:inline-block;transform:rotate(${rot120}deg)">↑</span>
-            <span class="dir-time">${showTime ? t : ''}</span>
-        </div>`;
-    }
-    return out + '</div>';
-}
+/* ===========================================
+   Detail panel
+=========================================== */
+function showDetail(idx, hourIdx) {
+    const card = document.getElementById('card-' + idx);
+    if (!card) return;
 
-/* ═══════════════════════════════════════════
-   Chart.js
-═══════════════════════════════════════════ */
-function buildChart(idx, data) {
-    if (chartMap.has(idx)) { chartMap.get(idx).destroy(); chartMap.delete(idx); }
-    const canvas = document.getElementById(`chart-${idx}`);
-    if (!canvas) return;
+    const wasActive = document.getElementById('hc-' + idx + '-' + hourIdx) &&
+                      document.getElementById('hc-' + idx + '-' + hourIdx).classList.contains('active-detail');
+    card.querySelectorAll('.hour-card.active-detail').forEach(function(c) { c.classList.remove('active-detail'); });
+    const dp = card.querySelector('.detail-panel');
+    if (wasActive) { dp.classList.remove('visible'); return; }
 
-    const h = data.hourly;
-    const cmn = { borderWidth: 2, pointRadius: 0, tension: 0.35, fill: false };
-    const showBLH = locations[idx]?.showBLH && Array.isArray(h.boundary_layer_height);
-    const windDatasets = [
-        { label: '10 m',         data: h.wind_speed_10m,  borderColor: '#38bdf8', ...cmn, borderWidth: 2.5 },
-        { label: '80 m',         data: h.wind_speed_80m,  borderColor: '#34d399', ...cmn },
-        { label: '120 m',        data: h.wind_speed_120m, borderColor: '#fbbf24', ...cmn },
-        { label: '180 m',        data: h.wind_speed_180m, borderColor: '#f87171', ...cmn },
-        { label: 'Rachas 10m',   data: h.wind_gusts_10m,  borderColor: '#fb923c', ...cmn, borderDash: [5,3], borderWidth: 1.5 },
-    ];
-    if (showBLH) {
-        windDatasets.push({ label: 'Techo CBL', data: h.boundary_layer_height, borderColor: '#a78bfa', ...cmn, borderDash: [4,2], yAxisID: 'y1' });
-    }
+    const hcEl = document.getElementById('hc-' + idx + '-' + hourIdx);
+    if (hcEl) hcEl.classList.add('active-detail');
 
-    const chart = new Chart(canvas, {
-        type: 'line',
-        data: {
-            labels: h.time,
-            datasets: windDatasets
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            animation: false,
-            interaction: { mode: 'index', intersect: false },
-            plugins: {
-                legend: { labels: { color: '#94a3b8', boxWidth: 14, font: { size: 11 } } },
-                tooltip: {
-                    backgroundColor: '#070d1a',
-                    titleColor: '#38bdf8',
-                    bodyColor: '#e2e8f0',
-                    borderColor: '#334155',
-                    borderWidth: 1,
-                    callbacks: {
-                        title: items => h.time[items[0].dataIndex].replace('T', ' '),
-                        afterBody: items => {
-                            const i = items[0].dataIndex;
-                            const shear = dirShear(h.wind_direction_10m[i], h.wind_direction_120m[i]);
-                            return [
-                                `Dir 10m:  ${compassDir(h.wind_direction_10m[i])}  (${h.wind_direction_10m[i]}°)`,
-                                `Dir 120m: ${compassDir(h.wind_direction_120m[i])} (${h.wind_direction_120m[i]}°)`,
-                                shear > 40 ? `⚠ Cizalladura: ${shear.toFixed(0)}°` : `Cizalladura: ${shear.toFixed(0)}°`,
-                            ];
-                        }
-                    }
-                }
-            },
-            scales: {
-                x: {
-                    grid: { color: 'rgba(255,255,255,0.04)' },
-                    ticks: {
-                        color: '#64748b', maxRotation: 0, font: { size: 9 },
-                        callback: (_val, i) => {
-                            if (i >= h.time.length) return '';
-                            const t = h.time[i].split('T')[1].slice(0, 5);
-                            if (t === '00:00') return dayLabel(h.time[i].split('T')[0]);
-                            if (['06:00','12:00','18:00'].includes(t)) return t;
-                            return '';
-                        }
-                    }
-                },
-                y: {
-                    min: 0,
-                    grid: { color: 'rgba(255,255,255,0.04)' },
-                    ticks: { color: '#64748b', font: { size: 10 } },
-                    title: { display: true, text: 'km/h', color: '#475569', font: { size: 10 } }
-                },
-                y1: {
-                    display: showBLH,
-                    position: 'right',
-                    min: 0,
-                    grid: { drawOnChartArea: false },
-                    ticks: { color: '#a78bfa', font: { size: 10 } },
-                    title: { display: true, text: 'm AGL', color: '#a78bfa', font: { size: 10 } }
-                }
-            }
-        },
-        plugins: [{
-            id: 'alignSections',
-            afterRender(c) {
-                const card = document.getElementById(`card-${idx}`);
-                if (!card) return;
-
-                const cardRect   = card.getBoundingClientRect();
-                const canvasRect = c.canvas.getBoundingClientRect();
-                const plotLeftAbs  = canvasRect.left + c.chartArea.left;
-                const plotRightAbs = canvasRect.left + c.chartArea.right;
-
-                const applyPadding = (elSelector, sectionSelector) => {
-                    const el = card.querySelector(elSelector);
-                    if (!el) return;
-                    const section = el.closest(sectionSelector) || el.parentElement;
-                    const cs = getComputedStyle(section);
-                    const secPL = parseFloat(cs.paddingLeft)  || 0;
-                    const secPR = parseFloat(cs.paddingRight) || 0;
-                    const leftPad = Math.max(0, plotLeftAbs - cardRect.left - secPL);
-                    const rightPad = Math.max(0, cardRect.right - plotRightAbs - secPR);
-                    el.style.paddingLeft  = leftPad + 'px';
-                    el.style.paddingRight = rightPad + 'px';
-                };
-
-                applyPadding('.fly-days-wrap', '.fly-section');
-                applyPadding('.dir-row', '.dir-section');
-            }
-        }]
-    });
-
-    chartMap.set(idx, chart);
-}
-
-/* ═══════════════════════════════════════════
-   Tooltip
-═══════════════════════════════════════════ */
-function showTip(e, locIdx, hourIdx) {
-    const data = weatherStore.get(locIdx);
+    const data = weatherStore.get(idx);
     if (!data) return;
-    const h    = data.hourly;
-    const ws10 = h.wind_speed_10m[hourIdx];
-    const gust = h.wind_gusts_10m[hourIdx];
-    const d10  = h.wind_direction_10m[hourIdx];
-    const d120 = h.wind_direction_120m[hourIdx];
+    const h = data.hourly;
 
-    // Compute each sub-score individually so we can explain every contributing factor
+    const ws10  = h.wind_speed_10m[hourIdx];
+    const gust  = h.wind_gusts_10m[hourIdx];
+    const ws80  = h.wind_speed_80m[hourIdx];
+    const ws120 = h.wind_speed_120m[hourIdx];
+    const ws180 = h.wind_speed_180m[hourIdx];
+    const d10   = h.wind_direction_10m[hourIdx];
+    const d80   = (h.wind_direction_80m  && h.wind_direction_80m[hourIdx]  != null) ? h.wind_direction_80m[hourIdx]  : d10;
+    const d120  = h.wind_direction_120m[hourIdx];
+    const d180  = (h.wind_direction_180m && h.wind_direction_180m[hourIdx] != null) ? h.wind_direction_180m[hourIdx] : d120;
+    const blh   = (h.boundary_layer_height && h.boundary_layer_height[hourIdx] != null) ? h.boundary_layer_height[hourIdx] : null;
+    const shear = dirShear(d10, d120);
+
     const sSpeed = ws10 < CFG.speedOpt ? 0 : ws10 < CFG.speedMod ? 1 : ws10 < CFG.speedStr ? 2 : 3;
     const sGust  = gust < CFG.gustOk ? 0 : gust < CFG.gustMod ? 1 : 2;
-    const shear  = dirShear(d10, d120);
     const sShear = shear < CFG.shearOk ? 0 : shear < CFG.shearMod ? 1 : 2;
-    const s      = Math.max(sSpeed, sGust, sShear);
+    const s = Math.max(sSpeed, sGust, sShear);
 
-    document.getElementById('tt-time').textContent  = h.time[hourIdx].replace('T', ' ').slice(0, 16);
-    const badge = document.getElementById('tt-badge');
-    badge.textContent      = FLY_LABELS[s];
-    badge.style.background = FLY_COLORS[s];
-    badge.style.color      = s === 1 ? '#000' : '#fff';
-
-    document.getElementById('tt-ws10').textContent  = `${ws10.toFixed(1)} km/h`;
-    document.getElementById('tt-gust').textContent  = `${gust.toFixed(1)} km/h`;
-    document.getElementById('tt-ws80').textContent  = `${h.wind_speed_80m[hourIdx].toFixed(1)} km/h`;
-    document.getElementById('tt-ws120').textContent = `${h.wind_speed_120m[hourIdx].toFixed(1)} km/h`;
-    document.getElementById('tt-ws180').textContent = `${h.wind_speed_180m[hourIdx].toFixed(1)} km/h`;
-    document.getElementById('tt-dir10').textContent = `${compassDir(d10)} (${d10}°)`;
-    const blh = h.boundary_layer_height?.[hourIdx];
-    document.getElementById('tt-blh').textContent = blh != null ? `${Math.round(blh)} m` : '—';
-
-    const warnEl = document.getElementById('tt-warn');
+    const timeStr = h.time[hourIdx].replace('T', ' ').slice(0, 16);
+    const df = locations[idx] && locations[idx].dirFilter;
     const reasons = [];
-    const df = locations[locIdx]?.dirFilter;
-    if (df?.enabled && !dirMatchesFilter(d10, df.deg, df.tol)) {
-        reasons.push(`Dirección ${compassDir(d10)} (${d10}°) fuera del filtro ${compassDir(df.deg)} ±${df.tol}°`);
-    }
-    if (sSpeed > 0) reasons.push(`Viento ${ws10.toFixed(1)} km/h › límite óptimo ${CFG.speedOpt} km/h`);
-    if (sGust  > 0) reasons.push(`Rachas ${gust.toFixed(1)} km/h › límite ${CFG.gustOk} km/h`);
-    if (sShear > 0) reasons.push(`Cizalladura ${shear.toFixed(0)}° (10m↔120m) › límite ${CFG.shearOk}°`);
+    if (df && df.enabled && !dirMatchesFilter(d10, df.deg, df.tol))
+        reasons.push('Dir ' + compassDir(d10) + ' (' + d10 + '°) fuera del filtro');
+    if (sSpeed > 0) reasons.push('Viento ' + ws10.toFixed(1) + ' km/h > limite ' + CFG.speedOpt + ' km/h');
+    if (sGust  > 0) reasons.push('Rachas ' + gust.toFixed(1) + ' km/h > limite ' + CFG.gustOk + ' km/h');
+    if (sShear > 0) reasons.push('Cizalladura ' + shear.toFixed(0) + '° > limite ' + CFG.shearOk + '°');
 
-    if (reasons.length === 0) {
-        warnEl.innerHTML = '<span style="color:var(--f0)">✓ Condiciones óptimas</span>';
-    } else {
-        warnEl.innerHTML = reasons.map(r => `<span>⚠ ${escHtml(r)}</span>`).join('<br>');
-    }
+    const cblTxt = blh !== null ? Math.round(blh) + ' m' : '-';
 
-    const tip = document.getElementById('flyTip');
-    tip.style.display = 'block';
-    positionTip(e);
+    dp.innerHTML = ''
+        + '<div class="dp-header">'
+        +   '<div class="dp-time">' + escHtml(timeStr) + '</div>'
+        +   '<span class="dp-badge" style="background:' + FLY_COLORS[s] + ';color:' + (s === 1 ? '#000' : '#fff') + '">' + FLY_LABELS[s] + '</span>'
+        + '</div>'
+        + '<div class="dp-grid">'
+        +   '<div class="dp-row"><span class="dp-key">Viento 10m</span><span class="dp-val ' + (sSpeed >= 3 ? 'danger' : sSpeed >= 1 ? 'warn' : '') + '">' + ws10.toFixed(1) + ' km/h</span></div>'
+        +   '<div class="dp-row"><span class="dp-key">Rachas</span><span class="dp-val ' + (sGust >= 1 ? 'warn' : '') + '">' + gust.toFixed(1) + ' km/h</span></div>'
+        +   '<div class="dp-row"><span class="dp-key">Viento 80m</span><span class="dp-val">' + ws80.toFixed(1) + ' km/h</span></div>'
+        +   '<div class="dp-row"><span class="dp-key">Viento 120m</span><span class="dp-val">' + ws120.toFixed(1) + ' km/h</span></div>'
+        +   '<div class="dp-row"><span class="dp-key">Viento 180m</span><span class="dp-val">' + ws180.toFixed(1) + ' km/h</span></div>'
+        +   '<div class="dp-row"><span class="dp-key">Cizalladura</span><span class="dp-val ' + (sShear >= 1 ? 'warn' : '') + '">' + shear.toFixed(0) + '°</span></div>'
+        +   '<div class="dp-row"><span class="dp-key">Techo CBL</span><span class="dp-val" style="color:' + cblColor(blh) + '">' + cblTxt + '</span></div>'
+        +   '<div class="dp-row"><span class="dp-key">Termicas</span><span class="dp-val" style="color:' + cblColor(blh) + '">' + cblStrength(blh) + '</span></div>'
+        + '</div>'
+        + '<div class="dp-dirs">'
+        +   '<div class="dp-dir-item"><span class="dp-dir-arr" style="color:#7dd3fc;display:inline-block;transform:rotate(' + d10 + 'deg)">↑</span><div class="dp-dir-name">' + compassDir(d10) + '</div><div class="dp-dir-alt">10m · ' + d10 + '°</div></div>'
+        +   '<div class="dp-dir-item"><span class="dp-dir-arr" style="color:#4ade80;display:inline-block;transform:rotate(' + d80 + 'deg)">↑</span><div class="dp-dir-name">' + compassDir(d80) + '</div><div class="dp-dir-alt">80m · ' + d80 + '°</div></div>'
+        +   '<div class="dp-dir-item"><span class="dp-dir-arr" style="color:#c084fc;display:inline-block;transform:rotate(' + d120 + 'deg)">↑</span><div class="dp-dir-name">' + compassDir(d120) + '</div><div class="dp-dir-alt">120m · ' + d120 + '°</div></div>'
+        +   '<div class="dp-dir-item"><span class="dp-dir-arr" style="color:#e879f9;display:inline-block;transform:rotate(' + d180 + 'deg)">↑</span><div class="dp-dir-name">' + compassDir(d180) + '</div><div class="dp-dir-alt">180m · ' + d180 + '°</div></div>'
+        + '</div>'
+        + '<div class="dp-reasons">'
+        + (reasons.length === 0
+            ? '<span style="color:var(--f0)">✓ Condiciones optimas</span>'
+            : reasons.map(function(r) { return '<span>⚠ ' + escHtml(r) + '</span>'; }).join(''))
+        + '</div>';
+
+    dp.classList.add('visible');
+    if (hcEl) hcEl.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
 }
 
-function hideTip() { document.getElementById('flyTip').style.display = 'none'; }
-
-function positionTip(e) {
-    const tip = document.getElementById('flyTip');
-    const x = Math.min(e.clientX + 14, window.innerWidth  - tip.offsetWidth  - 10);
-    const y = Math.min(e.clientY - 10,  window.innerHeight - tip.offsetHeight - 10);
-    tip.style.left = x + 'px';
-    tip.style.top  = y + 'px';
+/* ===========================================
+   Day selection
+=========================================== */
+function selectDay(idx, dayIdx) {
+    locations[idx].selectedDay = dayIdx;
+    const data = weatherStore.get(idx);
+    if (data) rebuildHourly(idx, data);
 }
 
-document.addEventListener('mousemove', e => {
-    if (document.getElementById('flyTip').style.display === 'block') positionTip(e);
-});
+function rebuildHourly(idx, data) {
+    const card = document.getElementById('card-' + idx);
+    if (!card) return;
+    const h = data.hourly;
+    const scores = h.time.map(function(_, i) {
+        return flyScore(h.wind_speed_10m[i], h.wind_gusts_10m[i], h.wind_direction_10m[i], h.wind_direction_120m[i]);
+    });
+    const selDay = locations[idx].selectedDay != null ? locations[idx].selectedDay : 0;
 
-/* ═══════════════════════════════════════════
+    card.querySelectorAll('.day-tab').forEach(function(tab, i) { tab.classList.toggle('active', i === selDay); });
+
+    const hs = card.querySelector('.hourly-section');
+    if (!hs) return;
+    hs.innerHTML = '<div class="hourly-hint">← desliza · toca para detalles</div>'
+        + '<div class="hourly-scroll">' + buildHourCards(idx, h, scores, selDay) + '</div>'
+        + '<div class="detail-panel"></div>';
+}
+
+/* ===========================================
    Render
-═══════════════════════════════════════════ */
+=========================================== */
 function createCard(idx) {
-    const loc  = locations[idx];
-    if (!loc.dirFilter) loc.dirFilter = { enabled: false, deg: 270, tol: 45 };
-    if (loc.showBLH === undefined) loc.showBLH = false;
-    const df   = loc.dirFilter;
-    const el   = document.createElement('div');
+    const loc = locations[idx];
+    if (!loc.dirFilter)            loc.dirFilter   = { enabled: false, deg: 270, tol: 45 };
+    if (loc.selectedDay == null)   loc.selectedDay = 0;
+    const df = loc.dirFilter;
+    const el = document.createElement('div');
     el.className = 'loc-card';
-    el.id = `card-${idx}`;
-    el.innerHTML = `
-        <div class="loc-header">
-            <div>
-                <h2>${escHtml(loc.name)}</h2>
-                <div class="coord">${loc.lat.toFixed(4)}°N · ${loc.lon.toFixed(4)}°E</div>
-            </div>
-            <div class="loc-actions">
-                <button class="btn btn-ghost btn-sm" onclick="refreshCard(${idx})">↻ Actualizar</button>
-                <button class="btn btn-danger btn-sm" onclick="removeLocation(${idx})">✕</button>
-            </div>
-        </div>
-        <div class="dir-filter-bar">
-            <label class="df-toggle">
-                <input type="checkbox" id="df-on-${idx}" ${df.enabled ? 'checked' : ''} onchange="applyDirFilter(${idx})">
-                <span>Filtro dirección</span>
-            </label>
-            <div class="df-controls">
-                <span class="df-label">Desde</span>
-                <select id="df-deg-${idx}" class="df-select" onchange="updateDirFilter(${idx})">${buildDirOptions(df.deg)}</select>
-                <span class="df-label">±</span>
-                <input type="number" id="df-tol-${idx}" min="5" max="180" value="${df.tol}" class="df-input" oninput="updateDirFilter(${idx})">
-                <span class="df-label">°</span>
-            </div>
-            <label class="df-toggle" style="margin-left:auto">
-                <input type="checkbox" id="blh-on-${idx}" ${loc.showBLH ? 'checked' : ''} onchange="toggleBLH(${idx})">
-                <span>Techo térmico (CBL)</span>
-            </label>
-        </div>
-        <div class="loc-body"></div>`;
+    el.id = 'card-' + idx;
+    el.innerHTML = ''
+        + '<div class="loc-header">'
+        +   '<div><h2>' + escHtml(loc.name) + '</h2><div class="coord">' + loc.lat.toFixed(4) + '°N · ' + loc.lon.toFixed(4) + '°E</div></div>'
+        +   '<div class="loc-actions">'
+        +     '<button class="btn btn-ghost btn-sm" onclick="refreshCard(' + idx + ')">↻</button>'
+        +     '<button class="btn btn-danger btn-sm" onclick="removeLocation(' + idx + ')">✕</button>'
+        +   '</div>'
+        + '</div>'
+        + '<div class="dir-filter-bar">'
+        +   '<label class="df-toggle"><input type="checkbox" id="df-on-' + idx + '" ' + (df.enabled ? 'checked' : '') + ' onchange="applyDirFilter(' + idx + ')"><span>Filtro direccion</span></label>'
+        +   '<div class="df-controls">'
+        +     '<span class="df-label">Desde</span>'
+        +     '<select id="df-deg-' + idx + '" class="df-select" onchange="updateDirFilter(' + idx + ')">' + buildDirOptions(df.deg) + '</select>'
+        +     '<span class="df-label">±</span>'
+        +     '<input type="number" id="df-tol-' + idx + '" min="5" max="180" value="' + df.tol + '" class="df-input" oninput="updateDirFilter(' + idx + ')">'
+        +     '<span class="df-label">°</span>'
+        +   '</div>'
+        + '</div>'
+        + '<div class="loc-body"></div>';
     return el;
 }
 
 async function renderLocation(idx) {
-    const card = document.getElementById(`card-${idx}`);
+    const card = document.getElementById('card-' + idx);
     if (!card) return;
     const body = card.querySelector('.loc-body');
-    body.innerHTML = '<div class="loc-loading">Cargando datos meteorológicos…</div>';
+    body.innerHTML = '<div class="loc-loading">Cargando datos…</div>';
     try {
         const data = await fetchWeather(locations[idx]);
         weatherStore.set(idx, data);
         const h      = data.hourly;
-        const scores = h.time.map((_, i) =>
-            flyScore(h.wind_speed_10m[i], h.wind_gusts_10m[i], h.wind_direction_10m[i], h.wind_direction_120m[i])
-        );
+        const scores = h.time.map(function(_, i) {
+            return flyScore(h.wind_speed_10m[i], h.wind_gusts_10m[i], h.wind_direction_10m[i], h.wind_direction_120m[i]);
+        });
+        const days   = getDays(h.time);
+        const selDay = locations[idx].selectedDay != null ? locations[idx].selectedDay : 0;
 
-        body.innerHTML = `
-            <div class="summary-bar">${buildSummary(scores, h.time)}</div>
-            <div class="fly-section">
-                <div class="section-label">Condiciones hora a hora · próximas 72h · pasar el ratón para detalles</div>
-                ${buildStrip(idx, scores, h.time, h.wind_direction_10m)}
-            </div>
-            <div class="chart-section">
-                <div class="section-label">Velocidad del viento por altitud (km/h)</div>
-                <div class="chart-wrap"><canvas id="chart-${idx}"></canvas></div>
-            </div>
-            <div class="dir-section">
-                <div class="section-label">Dirección cada 3h — <span style="color:#7dd3fc">↑ 10m</span> &nbsp;<span style="color:#c084fc">↑ 120m</span> &nbsp;(flecha apunta de dónde viene el viento)</div>
-                ${buildDirRow(h)}
-            </div>`;
-
-        buildChart(idx, data);
+        body.innerHTML = ''
+            + '<div class="summary-bar">' + buildSummary(scores, h.time) + '</div>'
+            + '<div class="day-tabs">' + buildDayTabs(idx, days, scores, h.time, selDay) + '</div>'
+            + '<div class="hourly-section">'
+            +   '<div class="hourly-hint">← desliza · toca para detalles</div>'
+            +   '<div class="hourly-scroll">' + buildHourCards(idx, h, scores, selDay) + '</div>'
+            +   '<div class="detail-panel"></div>'
+            + '</div>'
+            + '<div class="loc-legend">'
+            +   '<span class="lgi"><span class="lgdot" style="background:var(--f0)"></span>Optimo &lt;' + CFG.speedOpt + 'km/h</span>'
+            +   '<span class="lgi"><span class="lgdot" style="background:var(--f1)"></span>Moderado</span>'
+            +   '<span class="lgi"><span class="lgdot" style="background:var(--f2)"></span>Fuerte</span>'
+            +   '<span class="lgi"><span class="lgdot" style="background:var(--f3)"></span>Peligroso</span>'
+            +   '<span class="lgi"><span class="lgdot" style="background:#0ea5e9"></span>Term. leves</span>'
+            +   '<span class="lgi"><span class="lgdot" style="background:#22c55e"></span>Term. activas</span>'
+            +   '<span class="lgi"><span class="lgdot" style="background:#f59e0b"></span>Term. fuertes</span>'
+            + '</div>';
     } catch (e) {
-        body.innerHTML = `<div class="loc-error">Error al obtener datos: ${escHtml(e.message)}</div>`;
+        body.innerHTML = '<div class="loc-error">Error al obtener datos: ' + escHtml(e.message) + '</div>';
     }
 }
 
 function renderAll() {
-    chartMap.forEach(c => c.destroy());
-    chartMap.clear();
     weatherStore.clear();
     const main = document.getElementById('main');
     main.innerHTML = '';
     if (!locations.length) {
-        main.innerHTML = '<div class="empty-state">Sin ubicaciones. Añade una con el buscador.</div>';
+        main.innerHTML = '<div class="empty-state">Sin ubicaciones. Anade una con el buscador.</div>';
         return;
     }
-    locations.forEach((_, i) => {
+    locations.forEach(function(_, i) {
         main.appendChild(createCard(i));
         renderLocation(i);
     });
 }
 
 function removeLocation(idx) {
-    if (chartMap.has(idx)) { chartMap.get(idx).destroy(); chartMap.delete(idx); }
-    wxCache.delete(`${locations[idx].lat},${locations[idx].lon}`);
+    const key = locations[idx].lat + ',' + locations[idx].lon + ',' + currentModel;
+    wxCache.delete(key);
     weatherStore.delete(idx);
     locations.splice(idx, 1);
     renderAll();
 }
 
 async function refreshCard(idx) {
-    wxCache.delete(`${locations[idx].lat},${locations[idx].lon}`);
+    const key = locations[idx].lat + ',' + locations[idx].lon + ',' + currentModel;
+    wxCache.delete(key);
     weatherStore.delete(idx);
     await renderLocation(idx);
 }
@@ -848,91 +881,68 @@ function appendLocation(loc) {
     locations.push(loc);
     const idx  = locations.length - 1;
     const main = document.getElementById('main');
-    main.querySelector('.empty-state')?.remove();
+    const emptyEl = main.querySelector('.empty-state');
+    if (emptyEl) emptyEl.remove();
     const card = createCard(idx);
     main.appendChild(card);
     renderLocation(idx);
     card.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-/* ═══════════════════════════════════════════
+/* ===========================================
    Direction filter
-═══════════════════════════════════════════ */
+=========================================== */
 function applyDirFilter(idx) {
-    const df = locations[idx].dirFilter;
-    df.enabled = document.getElementById(`df-on-${idx}`).checked;
-    redrawStrip(idx);
+    locations[idx].dirFilter.enabled = document.getElementById('df-on-' + idx).checked;
+    const data = weatherStore.get(idx);
+    if (data) rebuildHourly(idx, data);
 }
 
 function updateDirFilter(idx) {
     const df     = locations[idx].dirFilter;
-    const degRaw = parseFloat(document.getElementById(`df-deg-${idx}`).value);
-    const tolRaw = parseFloat(document.getElementById(`df-tol-${idx}`).value);
+    const degRaw = parseFloat(document.getElementById('df-deg-' + idx).value);
+    const tolRaw = parseFloat(document.getElementById('df-tol-' + idx).value);
     df.deg = Number.isFinite(degRaw) ? degRaw : 270;
     df.tol = Number.isFinite(tolRaw) ? Math.max(0, Math.min(180, tolRaw)) : 45;
-    if (df.enabled) redrawStrip(idx);
+    if (df.enabled) { const data = weatherStore.get(idx); if (data) rebuildHourly(idx, data); }
 }
 
-function toggleBLH(idx) {
-    locations[idx].showBLH = document.getElementById(`blh-on-${idx}`).checked;
-    const data = weatherStore.get(idx);
-    if (data) buildChart(idx, data);
-}
-
-function redrawStrip(idx) {
-    const data = weatherStore.get(idx);
-    if (!data) return;
-    const h      = data.hourly;
-    const scores = h.time.map((_, i) =>
-        flyScore(h.wind_speed_10m[i], h.wind_gusts_10m[i], h.wind_direction_10m[i], h.wind_direction_120m[i])
-    );
-    const card = document.getElementById(`card-${idx}`);
-    if (!card) return;
-    const flySection = card.querySelector('.fly-section');
-    if (!flySection) return;
-    flySection.innerHTML = `
-        <div class="section-label">Condiciones hora a hora · próximas 72h · pasar el ratón para detalles</div>
-        ${buildStrip(idx, scores, h.time, h.wind_direction_10m)}`;
-    const chart = chartMap.get(idx);
-    if (chart) chart.update('none');
-}
-
-/* ═══════════════════════════════════════════
+/* ===========================================
    Geocoding search
-═══════════════════════════════════════════ */
+=========================================== */
 const searchInput = document.getElementById('searchInput');
 const dropdown    = document.getElementById('dropdown');
 
-searchInput.addEventListener('input', () => {
+searchInput.addEventListener('input', function() {
     clearTimeout(geoTimer);
     const q = searchInput.value.trim();
     if (q.length < 2) { dropdown.style.display = 'none'; return; }
-    geoTimer = setTimeout(() => doGeoSearch(q), 380);
+    geoTimer = setTimeout(function() { doGeoSearch(q); }, 380);
 });
 
-searchInput.addEventListener('keydown', e => {
+searchInput.addEventListener('keydown', function(e) {
     if (e.key === 'Enter')  handleSearch();
     if (e.key === 'Escape') dropdown.style.display = 'none';
 });
 
-document.addEventListener('click', e => {
+document.addEventListener('click', function(e) {
     if (!e.target.closest('.search-wrap')) dropdown.style.display = 'none';
 });
 
 async function doGeoSearch(q) {
     try {
-        const r  = await fetch(`${API_GEO}?name=${encodeURIComponent(q)}&count=6&language=es&format=json`);
-        const d  = await r.json();
-        if (!d.results?.length) {
+        const r = await fetch(API_GEO + '?name=' + encodeURIComponent(q) + '&count=6&language=es&format=json');
+        const d = await r.json();
+        if (!d.results || !d.results.length) {
             dropdown.innerHTML = '<div style="color:var(--sub);cursor:default">Sin resultados</div>';
             dropdown.style.display = 'block';
             return;
         }
         dropdown.innerHTML = '';
-        d.results.forEach(res => {
+        d.results.forEach(function(res) {
             const row = document.createElement('div');
             row.textContent = [res.name, res.admin1, res.country].filter(Boolean).join(', ');
-            row.onclick = () => {
+            row.onclick = function() {
                 dropdown.style.display = 'none';
                 searchInput.value = '';
                 appendLocation({ name: res.name, lat: res.latitude, lon: res.longitude });
@@ -940,7 +950,7 @@ async function doGeoSearch(q) {
             dropdown.appendChild(row);
         });
         dropdown.style.display = 'block';
-    } catch (e) { console.error('Geo error:', e); }
+    } catch (e) { console.error('Geo:', e); }
 }
 
 async function handleSearch() {
@@ -948,17 +958,14 @@ async function handleSearch() {
     if (q) await doGeoSearch(q);
 }
 
-/* ═══════════════════════════════════════════
-   Info panel
-═══════════════════════════════════════════ */
+/* ===========================================
+   Info / Settings panels
+=========================================== */
 function toggleInfo() {
     infoOpen = !infoOpen;
     document.getElementById('infoPanel').classList.toggle('open', infoOpen);
 }
 
-/* ═══════════════════════════════════════════
-   Settings panel
-═══════════════════════════════════════════ */
 function toggleSettings() {
     settingsOpen = !settingsOpen;
     if (settingsOpen) populateSettingsInputs();
@@ -966,9 +973,9 @@ function toggleSettings() {
 }
 
 function populateSettingsInputs() {
-    document.getElementById('cfg-s1').value     = CFG.speedOpt;
-    document.getElementById('cfg-s2').value     = CFG.speedMod;
-    document.getElementById('cfg-s3').value     = CFG.speedStr;
+    document.getElementById('cfg-s1').value  = CFG.speedOpt;
+    document.getElementById('cfg-s2').value  = CFG.speedMod;
+    document.getElementById('cfg-s3').value  = CFG.speedStr;
     document.getElementById('cfg-gf1').value = CFG.gustOk;
     document.getElementById('cfg-gf2').value = CFG.gustMod;
     document.getElementById('cfg-sh1').value = CFG.shearOk;
@@ -976,58 +983,35 @@ function populateSettingsInputs() {
 }
 
 function readSettingsInputs() {
-    const n = id => parseFloat(document.getElementById(id).value);
+    const n = function(id) { return parseFloat(document.getElementById(id).value); };
     return {
-        speedOpt:  n('cfg-s1'),
-        speedMod:  n('cfg-s2'),
-        speedStr:  n('cfg-s3'),
-        gustOk:    n('cfg-gf1'),
-        gustMod:   n('cfg-gf2'),
-        shearOk:   n('cfg-sh1'),
-        shearMod:  n('cfg-sh2'),
+        speedOpt: n('cfg-s1'), speedMod: n('cfg-s2'), speedStr: n('cfg-s3'),
+        gustOk: n('cfg-gf1'), gustMod: n('cfg-gf2'),
+        shearOk: n('cfg-sh1'), shearMod: n('cfg-sh2'),
     };
 }
 
 function applySettings() {
     const v = readSettingsInputs();
-    // basic sanity: each tier must be strictly ascending
     if (v.speedOpt >= v.speedMod || v.speedMod >= v.speedStr) {
-        alert('Los límites de velocidad deben ser ascendentes (Óptimo < Moderado < Fuerte).');
+        alert('Los limites de velocidad deben ser ascendentes (Optimo < Moderado < Fuerte).');
         return;
     }
-    if (v.gustOk >= v.gustMod) {
-        alert('Los límites de rachas deben ser ascendentes (OK < Moderado).');
-        return;
-    }
-    if (v.shearOk >= v.shearMod) {
-        alert('Los límites de cizalladura deben ser ascendentes (OK < Moderado).');
-        return;
-    }
+    if (v.gustOk >= v.gustMod) { alert('Los limites de rachas deben ser ascendentes.'); return; }
+    if (v.shearOk >= v.shearMod) { alert('Los limites de cizalladura deben ser ascendentes.'); return; }
     CFG = v;
-    updateLegend();
     renderAll();
 }
 
 function resetSettings() {
     CFG = { ...CFG_DEFAULTS };
     populateSettingsInputs();
-    updateLegend();
     renderAll();
 }
 
-function updateLegend() {
-    document.getElementById('legend').innerHTML = `
-        <span class="lgi"><span class="lgdot" style="background:var(--f0)"></span>Óptimo &lt;${CFG.speedOpt} km/h</span>
-        <span class="lgi"><span class="lgdot" style="background:var(--f1)"></span>Moderado ${CFG.speedOpt}–${CFG.speedMod}</span>
-        <span class="lgi"><span class="lgdot" style="background:var(--f2)"></span>Fuerte ${CFG.speedMod}–${CFG.speedStr}</span>
-        <span class="lgi"><span class="lgdot" style="background:var(--f3)"></span>Peligroso &gt;${CFG.speedStr}</span>
-    `;
-}
-
-/* ═══════════════════════════════════════════
+/* ===========================================
    Init
-═══════════════════════════════════════════ */
-updateLegend();
+=========================================== */
 renderAll();
 </script>
 </body>
