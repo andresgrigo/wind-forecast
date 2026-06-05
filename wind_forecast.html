@@ -340,6 +340,7 @@
     <div class="tt-row"><span class="tt-key">Viento 120m</span><span class="tt-val" id="tt-ws120"></span></div>
     <div class="tt-row"><span class="tt-key">Viento 180m</span><span class="tt-val" id="tt-ws180"></span></div>
     <div class="tt-row"><span class="tt-key">Dirección 10m</span><span class="tt-val" id="tt-dir10"></span></div>
+    <div class="tt-row"><span class="tt-key">Techo térmico (CBL)</span><span class="tt-val" id="tt-blh"></span></div>
     <div class="tt-warn" id="tt-warn"></div>
 </div>
 
@@ -349,7 +350,7 @@
 ═══════════════════════════════════════════ */
 const API_WX  = 'https://api.open-meteo.com/v1/forecast';
 const API_GEO = 'https://geocoding-api.open-meteo.com/v1/search';
-const PARAMS  = 'wind_speed_10m,wind_speed_80m,wind_speed_120m,wind_speed_180m,wind_direction_10m,wind_direction_80m,wind_direction_120m,wind_direction_180m,wind_gusts_10m';
+const PARAMS  = 'wind_speed_10m,wind_speed_80m,wind_speed_120m,wind_speed_180m,wind_direction_10m,wind_direction_80m,wind_direction_120m,wind_direction_180m,wind_gusts_10m,boundary_layer_height';
 
 /* ── Configurable safety thresholds ── */
 const CFG_DEFAULTS = {
@@ -559,18 +560,23 @@ function buildChart(idx, data) {
 
     const h = data.hourly;
     const cmn = { borderWidth: 2, pointRadius: 0, tension: 0.35, fill: false };
+    const showBLH = locations[idx]?.showBLH && Array.isArray(h.boundary_layer_height);
+    const windDatasets = [
+        { label: '10 m',         data: h.wind_speed_10m,  borderColor: '#38bdf8', ...cmn, borderWidth: 2.5 },
+        { label: '80 m',         data: h.wind_speed_80m,  borderColor: '#34d399', ...cmn },
+        { label: '120 m',        data: h.wind_speed_120m, borderColor: '#fbbf24', ...cmn },
+        { label: '180 m',        data: h.wind_speed_180m, borderColor: '#f87171', ...cmn },
+        { label: 'Rachas 10m',   data: h.wind_gusts_10m,  borderColor: '#fb923c', ...cmn, borderDash: [5,3], borderWidth: 1.5 },
+    ];
+    if (showBLH) {
+        windDatasets.push({ label: 'Techo CBL', data: h.boundary_layer_height, borderColor: '#a78bfa', ...cmn, borderDash: [4,2], yAxisID: 'y1' });
+    }
 
     const chart = new Chart(canvas, {
         type: 'line',
         data: {
             labels: h.time,
-            datasets: [
-                { label: '10 m',         data: h.wind_speed_10m,  borderColor: '#38bdf8', ...cmn, borderWidth: 2.5 },
-                { label: '80 m',         data: h.wind_speed_80m,  borderColor: '#34d399', ...cmn },
-                { label: '120 m',        data: h.wind_speed_120m, borderColor: '#fbbf24', ...cmn },
-                { label: '180 m',        data: h.wind_speed_180m, borderColor: '#f87171', ...cmn },
-                { label: 'Rachas 10m',   data: h.wind_gusts_10m,  borderColor: '#fb923c', ...cmn, borderDash: [5,3], borderWidth: 1.5 },
-            ]
+            datasets: windDatasets
         },
         options: {
             responsive: true,
@@ -618,6 +624,14 @@ function buildChart(idx, data) {
                     grid: { color: 'rgba(255,255,255,0.04)' },
                     ticks: { color: '#64748b', font: { size: 10 } },
                     title: { display: true, text: 'km/h', color: '#475569', font: { size: 10 } }
+                },
+                y1: {
+                    display: showBLH,
+                    position: 'right',
+                    min: 0,
+                    grid: { drawOnChartArea: false },
+                    ticks: { color: '#a78bfa', font: { size: 10 } },
+                    title: { display: true, text: 'm AGL', color: '#a78bfa', font: { size: 10 } }
                 }
             }
         },
@@ -685,6 +699,8 @@ function showTip(e, locIdx, hourIdx) {
     document.getElementById('tt-ws120').textContent = `${h.wind_speed_120m[hourIdx].toFixed(1)} km/h`;
     document.getElementById('tt-ws180').textContent = `${h.wind_speed_180m[hourIdx].toFixed(1)} km/h`;
     document.getElementById('tt-dir10').textContent = `${compassDir(d10)} (${d10}°)`;
+    const blh = h.boundary_layer_height?.[hourIdx];
+    document.getElementById('tt-blh').textContent = blh != null ? `${Math.round(blh)} m` : '—';
 
     const warnEl = document.getElementById('tt-warn');
     const reasons = [];
@@ -727,6 +743,7 @@ document.addEventListener('mousemove', e => {
 function createCard(idx) {
     const loc  = locations[idx];
     if (!loc.dirFilter) loc.dirFilter = { enabled: false, deg: 270, tol: 45 };
+    if (loc.showBLH === undefined) loc.showBLH = false;
     const df   = loc.dirFilter;
     const el   = document.createElement('div');
     el.className = 'loc-card';
@@ -754,6 +771,10 @@ function createCard(idx) {
                 <input type="number" id="df-tol-${idx}" min="5" max="180" value="${df.tol}" class="df-input" oninput="updateDirFilter(${idx})">
                 <span class="df-label">°</span>
             </div>
+            <label class="df-toggle" style="margin-left:auto">
+                <input type="checkbox" id="blh-on-${idx}" ${loc.showBLH ? 'checked' : ''} onchange="toggleBLH(${idx})">
+                <span>Techo térmico (CBL)</span>
+            </label>
         </div>
         <div class="loc-body"></div>`;
     return el;
@@ -850,6 +871,12 @@ function updateDirFilter(idx) {
     df.deg = Number.isFinite(degRaw) ? degRaw : 270;
     df.tol = Number.isFinite(tolRaw) ? Math.max(0, Math.min(180, tolRaw)) : 45;
     if (df.enabled) redrawStrip(idx);
+}
+
+function toggleBLH(idx) {
+    locations[idx].showBLH = document.getElementById(`blh-on-${idx}`).checked;
+    const data = weatherStore.get(idx);
+    if (data) buildChart(idx, data);
 }
 
 function redrawStrip(idx) {
