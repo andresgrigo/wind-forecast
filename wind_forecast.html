@@ -203,10 +203,25 @@
             scroll-snap-type: x proximity;
             -webkit-overflow-scrolling: touch;
             gap: 5px;
-            padding: 0.55rem 0.75rem 0.6rem;
-            scrollbar-width: none;
+            padding: 0.55rem 0.75rem 0.5rem;
+            scrollbar-width: thin;
+            scrollbar-color: #334155 transparent;
+            padding-bottom: 0.3rem;
         }
-        .hourly-scroll::-webkit-scrollbar { display: none; }
+        .hourly-scroll::-webkit-scrollbar {
+            height: 5px;
+        }
+        .hourly-scroll::-webkit-scrollbar-track {
+            background: transparent;
+            margin: 0 0.75rem;
+        }
+        .hourly-scroll::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 99px;
+        }
+        .hourly-scroll::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
 
         /* == Hour card == */
         .hour-card {
