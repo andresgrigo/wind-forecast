@@ -455,10 +455,9 @@ const CFG_DEFAULTS = {
 let CFG = { ...CFG_DEFAULTS };
 
 const DEFAULT_LOCATIONS = [
-    { name: 'Lora del Rio',  lat: 37.6551, lon: -5.5197 },
-    { name: 'Utrera',        lat: 37.1850, lon: -5.7836 },
-    { name: 'Matalascanas',  lat: 37.0086, lon: -6.5558 },
-    { name: 'Algodonales',   lat: 36.8934, lon: -5.4039 },
+    { name: 'Algodonales',   lat: 36.8976, lon: -5.3935, dirFilter: { enabled: true, deg: 90, tol: 15 } },
+    { name: 'El Bosque',     lat: 36.7541, lon: -5.4891, dirFilter: { enabled: true, deg: 270, tol: 15 } },
+    { name: 'Matalascañas',  lat: 37.0104, lon: -6.5731, dirFilter: { enabled: true, deg: 225, tol: 15 } },
 ];
 
 let locations    = [...DEFAULT_LOCATIONS];
@@ -537,19 +536,21 @@ function dirMatchesFilter(windDeg, filterDeg, tol) {
     return Math.abs(((windDeg - filterDeg) + 180) % 360 - 180) <= tol;
 }
 
-function bestWindows(scores, times) {
+function bestWindows(idx, scores, times, dirs) {
+    const df = locations[idx] && locations[idx].dirFilter;
     const days = {};
     times.forEach(function(t, i) {
         const day = t.split('T')[0];
         if (!days[day]) days[day] = [];
-        days[day].push({ t: t, s: scores[i] });
+        const dirOk = !df || !df.enabled || dirMatchesFilter(dirs[i], df.deg, df.tol);
+        days[day].push({ t: t, s: scores[i], dirOk: dirOk });
     });
     return Object.entries(days).map(function(entry) {
         const date = entry[0]; const hrs = entry[1];
         let bestStart = null, bestLen = 0, cur = null, curLen = 0;
         hrs.forEach(function(h) {
             const hour = parseInt(h.t.split('T')[1].slice(0, 2), 10);
-            if (h.s === 0 && hour >= 6) {
+            if (h.s === 0 && h.dirOk && hour >= 6) {
                 if (!cur) cur = h.t;
                 curLen++;
                 if (curLen > bestLen) { bestStart = cur; bestLen = curLen; }
@@ -613,8 +614,8 @@ function onModelChange() {
 /* ===========================================
    Summary bar
 =========================================== */
-function buildSummary(scores, times) {
-    const wins = bestWindows(scores, times);
+function buildSummary(idx, scores, times, dirs) {
+    const wins = bestWindows(idx, scores, times, dirs);
     if (!wins.length) return '<span class="chip"><span class="chip-dot" style="background:var(--f3)"></span>Sin ventanas favorables</span>';
     return wins.slice(0, 3).map(function(w) {
         return '<span class="chip"><span class="chip-dot" style="background:var(--f0)"></span>' + escHtml(w.label) + ' · desde ' + escHtml(w.start) + ' (' + w.hours + 'h)</span>';
@@ -842,7 +843,7 @@ async function renderLocation(idx) {
         const selDay = locations[idx].selectedDay != null ? locations[idx].selectedDay : 0;
 
         body.innerHTML = ''
-            + '<div class="summary-bar">' + buildSummary(scores, h.time) + '</div>'
+            + '<div class="summary-bar">' + buildSummary(idx, scores, h.time, h.wind_direction_10m) + '</div>'
             + '<div class="day-tabs">' + buildDayTabs(idx, days, scores, h.time, selDay) + '</div>'
             + '<div class="hourly-section">'
             +   '<div class="hourly-hint">← desliza · toca para detalles</div>'
