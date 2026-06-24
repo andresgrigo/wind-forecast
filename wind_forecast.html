@@ -486,6 +486,11 @@ function flyScore(ws10, gusts, dir10, dir120) {
     return Math.max(sSpeed, sGust, sShear);
 }
 
+function arrowRotationDeg(deg) {
+    const base = Number(deg) || 0;
+    return (base + 180) % 360;
+}
+
 const FLY_LABELS  = ['Optimo', 'Moderado', 'Fuerte', 'Peligroso'];
 const FLY_COLORS  = ['#22c55e', '#eab308', '#f97316', '#ef4444'];
 
@@ -547,17 +552,33 @@ function bestWindows(idx, scores, times, dirs) {
     });
     return Object.entries(days).map(function(entry) {
         const date = entry[0]; const hrs = entry[1];
-        let bestStart = null, bestLen = 0, cur = null, curLen = 0;
+        let bestStart = null, bestEnd = null, bestLen = 0;
+        let curStart = null, curEnd = null, curLen = 0;
         hrs.forEach(function(h) {
             const hour = parseInt(h.t.split('T')[1].slice(0, 2), 10);
-            if (h.s === 0 && h.dirOk && hour >= 6) {
-                if (!cur) cur = h.t;
+            const favorable = h.s <= 2 && h.dirOk && hour >= 6;
+            if (favorable) {
+                if (!curStart) curStart = h.t;
+                curEnd = h.t;
                 curLen++;
-                if (curLen > bestLen) { bestStart = cur; bestLen = curLen; }
-            } else { cur = null; curLen = 0; }
+                if (curLen > bestLen) {
+                    bestStart = curStart;
+                    bestEnd = curEnd;
+                    bestLen = curLen;
+                }
+            } else {
+                curStart = null;
+                curEnd = null;
+                curLen = 0;
+            }
         });
         return bestLen > 0
-            ? { label: dayLabelShort(date), start: bestStart.split('T')[1].slice(0, 5), hours: bestLen }
+            ? {
+                label: dayLabelShort(date),
+                start: bestStart.split('T')[1].slice(0, 5),
+                end: bestEnd.split('T')[1].slice(0, 5),
+                hours: bestLen
+            }
             : null;
     }).filter(Boolean);
 }
@@ -618,7 +639,7 @@ function buildSummary(idx, scores, times, dirs) {
     const wins = bestWindows(idx, scores, times, dirs);
     if (!wins.length) return '<span class="chip"><span class="chip-dot" style="background:var(--f3)"></span>Sin ventanas favorables</span>';
     return wins.slice(0, 3).map(function(w) {
-        return '<span class="chip"><span class="chip-dot" style="background:var(--f0)"></span>' + escHtml(w.label) + ' · desde ' + escHtml(w.start) + ' (' + w.hours + 'h)</span>';
+        return '<span class="chip"><span class="chip-dot" style="background:var(--f0)"></span>' + escHtml(w.label) + ' · ' + escHtml(w.start) + '–' + escHtml(w.end) + ' (' + w.hours + 'h)</span>';
     }).join('');
 }
 
@@ -674,8 +695,8 @@ function buildHourCards(idx, h, scores, selDay) {
             + '<div class="hc-time">' + timeStr + '</div>'
             + '<div class="hc-badge" style="background:' + FLY_COLORS[s] + ';color:' + (s === 1 ? '#000' : '#fff') + '">' + FLY_LABELS[s].slice(0, 3) + '</div>'
             + '<div class="hc-arrows">'
-            +   '<span class="hc-arr10"  style="display:inline-block;transform:rotate(' + dir10 + 'deg)">↑</span>'
-            +   '<span class="hc-arr120" style="display:inline-block;transform:rotate(' + dir120 + 'deg)">↑</span>'
+            +   '<span class="hc-arr10"  style="display:inline-block;transform:rotate(' + arrowRotationDeg(dir10) + 'deg)">↑</span>'
+            +   '<span class="hc-arr120" style="display:inline-block;transform:rotate(' + arrowRotationDeg(dir120) + 'deg)">↑</span>'
             + '</div>'
             + '<div class="hc-spd">' + ws10.toFixed(0) + '<small>km/h</small></div>'
             + '<div class="hc-gust' + (gustHigh ? ' warn' : '') + '">↗' + gust.toFixed(0) + '</div>'
@@ -752,10 +773,10 @@ function showDetail(idx, hourIdx) {
         +   '<div class="dp-row"><span class="dp-key">Termicas</span><span class="dp-val" style="color:' + cblColor(blh) + '">' + cblStrength(blh) + '</span></div>'
         + '</div>'
         + '<div class="dp-dirs">'
-        +   '<div class="dp-dir-item"><span class="dp-dir-arr" style="color:#7dd3fc;display:inline-block;transform:rotate(' + d10 + 'deg)">↑</span><div class="dp-dir-name">' + compassDir(d10) + '</div><div class="dp-dir-alt">10m · ' + d10 + '°</div></div>'
-        +   '<div class="dp-dir-item"><span class="dp-dir-arr" style="color:#4ade80;display:inline-block;transform:rotate(' + d80 + 'deg)">↑</span><div class="dp-dir-name">' + compassDir(d80) + '</div><div class="dp-dir-alt">80m · ' + d80 + '°</div></div>'
-        +   '<div class="dp-dir-item"><span class="dp-dir-arr" style="color:#c084fc;display:inline-block;transform:rotate(' + d120 + 'deg)">↑</span><div class="dp-dir-name">' + compassDir(d120) + '</div><div class="dp-dir-alt">120m · ' + d120 + '°</div></div>'
-        +   '<div class="dp-dir-item"><span class="dp-dir-arr" style="color:#e879f9;display:inline-block;transform:rotate(' + d180 + 'deg)">↑</span><div class="dp-dir-name">' + compassDir(d180) + '</div><div class="dp-dir-alt">180m · ' + d180 + '°</div></div>'
+        +   '<div class="dp-dir-item"><span class="dp-dir-arr" style="color:#7dd3fc;display:inline-block;transform:rotate(' + arrowRotationDeg(d10) + 'deg)">↑</span><div class="dp-dir-name">' + compassDir(d10) + '</div><div class="dp-dir-alt">10m · ' + d10 + '°</div></div>'
+        +   '<div class="dp-dir-item"><span class="dp-dir-arr" style="color:#4ade80;display:inline-block;transform:rotate(' + arrowRotationDeg(d80) + 'deg)">↑</span><div class="dp-dir-name">' + compassDir(d80) + '</div><div class="dp-dir-alt">80m · ' + d80 + '°</div></div>'
+        +   '<div class="dp-dir-item"><span class="dp-dir-arr" style="color:#c084fc;display:inline-block;transform:rotate(' + arrowRotationDeg(d120) + 'deg)">↑</span><div class="dp-dir-name">' + compassDir(d120) + '</div><div class="dp-dir-alt">120m · ' + d120 + '°</div></div>'
+        +   '<div class="dp-dir-item"><span class="dp-dir-arr" style="color:#e879f9;display:inline-block;transform:rotate(' + arrowRotationDeg(d180) + 'deg)">↑</span><div class="dp-dir-name">' + compassDir(d180) + '</div><div class="dp-dir-alt">180m · ' + d180 + '°</div></div>'
         + '</div>'
         + '<div class="dp-reasons">'
         + (reasons.length === 0
