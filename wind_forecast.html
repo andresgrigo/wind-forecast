@@ -800,19 +800,34 @@ function selectDay(idx, dayIdx) {
 function rebuildHourly(idx, data) {
     const card = document.getElementById('card-' + idx);
     if (!card) return;
+
+    const body = card.querySelector('.loc-body');
+    if (!body) return;
+
     const h = data.hourly;
     const scores = h.time.map(function(_, i) {
         return flyScore(h.wind_speed_10m[i], h.wind_gusts_10m[i], h.wind_direction_10m[i], h.wind_direction_120m[i]);
     });
+    const days = getDays(h.time);
     const selDay = locations[idx].selectedDay != null ? locations[idx].selectedDay : 0;
 
-    card.querySelectorAll('.day-tab').forEach(function(tab, i) { tab.classList.toggle('active', i === selDay); });
-
-    const hs = card.querySelector('.hourly-section');
-    if (!hs) return;
-    hs.innerHTML = '<div class="hourly-hint">← desliza · toca para detalles</div>'
-        + '<div class="hourly-scroll">' + buildHourCards(idx, h, scores, selDay) + '</div>'
-        + '<div class="detail-panel"></div>';
+    body.innerHTML = ''
+        + '<div class="summary-bar">' + buildSummary(idx, scores, h.time, h.wind_direction_10m) + '</div>'
+        + '<div class="day-tabs">' + buildDayTabs(idx, days, scores, h.time, selDay) + '</div>'
+        + '<div class="hourly-section">'
+        +   '<div class="hourly-hint">← desliza · toca para detalles</div>'
+        +   '<div class="hourly-scroll">' + buildHourCards(idx, h, scores, selDay) + '</div>'
+        +   '<div class="detail-panel"></div>'
+        + '</div>'
+        + '<div class="loc-legend">'
+        +   '<span class="lgi"><span class="lgdot" style="background:var(--f0)"></span>Optimo &lt;' + CFG.speedOpt + 'km/h</span>'
+        +   '<span class="lgi"><span class="lgdot" style="background:var(--f1)"></span>Moderado</span>'
+        +   '<span class="lgi"><span class="lgdot" style="background:var(--f2)"></span>Fuerte</span>'
+        +   '<span class="lgi"><span class="lgdot" style="background:var(--f3)"></span>Peligroso</span>'
+        +   '<span class="lgi"><span class="lgdot" style="background:#0ea5e9"></span>Term. leves</span>'
+        +   '<span class="lgi"><span class="lgdot" style="background:#22c55e"></span>Term. activas</span>'
+        +   '<span class="lgi"><span class="lgdot" style="background:#f59e0b"></span>Term. fuertes</span>'
+        + '</div>';
 }
 
 /* ===========================================
@@ -863,23 +878,7 @@ async function renderLocation(idx) {
         const days   = getDays(h.time);
         const selDay = locations[idx].selectedDay != null ? locations[idx].selectedDay : 0;
 
-        body.innerHTML = ''
-            + '<div class="summary-bar">' + buildSummary(idx, scores, h.time, h.wind_direction_10m) + '</div>'
-            + '<div class="day-tabs">' + buildDayTabs(idx, days, scores, h.time, selDay) + '</div>'
-            + '<div class="hourly-section">'
-            +   '<div class="hourly-hint">← desliza · toca para detalles</div>'
-            +   '<div class="hourly-scroll">' + buildHourCards(idx, h, scores, selDay) + '</div>'
-            +   '<div class="detail-panel"></div>'
-            + '</div>'
-            + '<div class="loc-legend">'
-            +   '<span class="lgi"><span class="lgdot" style="background:var(--f0)"></span>Optimo &lt;' + CFG.speedOpt + 'km/h</span>'
-            +   '<span class="lgi"><span class="lgdot" style="background:var(--f1)"></span>Moderado</span>'
-            +   '<span class="lgi"><span class="lgdot" style="background:var(--f2)"></span>Fuerte</span>'
-            +   '<span class="lgi"><span class="lgdot" style="background:var(--f3)"></span>Peligroso</span>'
-            +   '<span class="lgi"><span class="lgdot" style="background:#0ea5e9"></span>Term. leves</span>'
-            +   '<span class="lgi"><span class="lgdot" style="background:#22c55e"></span>Term. activas</span>'
-            +   '<span class="lgi"><span class="lgdot" style="background:#f59e0b"></span>Term. fuertes</span>'
-            + '</div>';
+        rebuildHourly(idx, data);
     } catch (e) {
         body.innerHTML = '<div class="loc-error">Error al obtener datos: ' + escHtml(e.message) + '</div>';
     }
@@ -941,7 +940,8 @@ function updateDirFilter(idx) {
     const tolRaw = parseFloat(document.getElementById('df-tol-' + idx).value);
     df.deg = Number.isFinite(degRaw) ? degRaw : 270;
     df.tol = Number.isFinite(tolRaw) ? Math.max(0, Math.min(180, tolRaw)) : 45;
-    if (df.enabled) { const data = weatherStore.get(idx); if (data) rebuildHourly(idx, data); }
+    const data = weatherStore.get(idx);
+    if (data) rebuildHourly(idx, data);
 }
 
 /* ===========================================
