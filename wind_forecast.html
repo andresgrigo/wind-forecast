@@ -80,6 +80,26 @@
             outline: none; cursor: pointer;
         }
 
+        .site-tabs {
+            background: #0c1525;
+            border-bottom: 1px solid var(--border);
+            padding: 0.42rem 0.75rem 0.32rem;
+            display: flex; gap: 0.4rem;
+        }
+        .site-tab {
+            flex: 1; min-width: 0; padding: 0.42rem 0.5rem;
+            background: transparent; border: 1px solid var(--border);
+            border-radius: 8px 8px 0 0; color: var(--sub);
+            font-size: 0.72rem; font-weight: 700; cursor: pointer;
+            transition: all .15s ease;
+        }
+        .site-tab.active {
+            background: rgba(56, 189, 248, 0.08);
+            color: var(--accent);
+            border-color: var(--accent);
+            box-shadow: inset 0 -2px 0 var(--accent);
+        }
+
         /* == Buttons == */
         .btn {
             padding: 0.45rem 0.8rem; border: none; border-radius: 8px;
@@ -371,6 +391,11 @@
     </select>
 </div>
 
+<div class="site-tabs" id="siteTabs">
+    <button class="site-tab active" type="button" data-group="andalusia" onclick="switchSiteGroup('andalusia')">Andalucía</button>
+    <button class="site-tab" type="button" data-group="portugal" onclick="switchSiteGroup('portugal')">Portugal</button>
+</div>
+
 <div class="info-panel" id="infoPanel">
     <div class="info-inner">
         <div class="info-card">
@@ -454,13 +479,22 @@ const CFG_DEFAULTS = {
 };
 let CFG = { ...CFG_DEFAULTS };
 
-const DEFAULT_LOCATIONS = [
-    { name: 'Algodonales',   lat: 36.8976, lon: -5.3935, dirFilter: { enabled: true, deg: 90, tol: 15 } },
-    { name: 'El Bosque',     lat: 36.7541, lon: -5.4891, dirFilter: { enabled: true, deg: 270, tol: 15 } },
-    { name: 'Matalascañas',  lat: 37.0104, lon: -6.5731, dirFilter: { enabled: true, deg: 225, tol: 15 } },
-];
+const SITE_GROUPS = {
+    andalusia: [
+        { name: 'Algodonales',  lat: 36.8976, lon: -5.3935, dirFilter: { enabled: true, deg: 90, tol: 15 } },
+        { name: 'El Bosque',    lat: 36.7541, lon: -5.4891, dirFilter: { enabled: true, deg: 270, tol: 15 } },
+        { name: 'Matalascañas', lat: 37.0104, lon: -6.5731, dirFilter: { enabled: true, deg: 225, tol: 15 } },
+    ],
+    portugal: [
+        { name: 'Porto de Mós',    lat: 37.0853, lon: -8.6837, dirFilter: { enabled: true, deg: 157.5, tol: 35 } },
+        { name: 'Praia da Cordoama', lat: 37.110035, lon: -8.936134, dirFilter: { enabled: true, deg: 292.5, tol: 35 } },
+    ],
+};
 
-let locations    = [...DEFAULT_LOCATIONS];
+let activeSiteGroup = 'andalusia';
+let locations = SITE_GROUPS[activeSiteGroup].map(function(loc) {
+    return { ...loc, dirFilter: { ...loc.dirFilter }, selectedDay: 0 };
+});
 let currentModel = '';
 
 const wxCache      = new Map();
@@ -499,6 +533,12 @@ const FLY_COLORS  = ['#22c55e', '#eab308', '#f97316', '#ef4444'];
 =========================================== */
 function escHtml(s) {
     return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function formatCoordinateLabel(lat, lon) {
+    const latLabel = lat >= 0 ? 'N' : 'S';
+    const lonLabel = lon >= 0 ? 'E' : 'W';
+    return Math.abs(lat).toFixed(4) + '°' + latLabel + ' · ' + Math.abs(lon).toFixed(4) + '°' + lonLabel;
 }
 
 const COMPASS_DIRS = [
@@ -843,7 +883,7 @@ function createCard(idx) {
     el.id = 'card-' + idx;
     el.innerHTML = ''
         + '<div class="loc-header">'
-        +   '<div><h2>' + escHtml(loc.name) + '</h2><div class="coord">' + loc.lat.toFixed(4) + '°N · ' + loc.lon.toFixed(4) + '°E</div></div>'
+        +   '<div><h2>' + escHtml(loc.name) + '</h2><div class="coord">' + formatCoordinateLabel(loc.lat, loc.lon) + '</div></div>'
         +   '<div class="loc-actions">'
         +     '<button class="btn btn-ghost btn-sm" onclick="refreshCard(' + idx + ')">↻</button>'
         +     '<button class="btn btn-danger btn-sm" onclick="removeLocation(' + idx + ')">✕</button>'
@@ -882,6 +922,24 @@ async function renderLocation(idx) {
     } catch (e) {
         body.innerHTML = '<div class="loc-error">Error al obtener datos: ' + escHtml(e.message) + '</div>';
     }
+}
+
+function switchSiteGroup(groupKey) {
+    const key = groupKey || 'andalusia';
+    if (!SITE_GROUPS[key]) return;
+
+    activeSiteGroup = key;
+    locations = SITE_GROUPS[key].map(function(loc) {
+        return { ...loc, dirFilter: { ...loc.dirFilter }, selectedDay: 0 };
+    });
+    wxCache.clear();
+    weatherStore.clear();
+
+    document.querySelectorAll('.site-tab').forEach(function(tab) {
+        tab.classList.toggle('active', tab.dataset.group === key);
+    });
+
+    renderAll();
 }
 
 function renderAll() {
