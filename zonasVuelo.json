@@ -1,0 +1,5091 @@
+[
+  {
+    "Zona": "La Rabassa",
+    "País": "ANDORRA",
+    "Comunidad/Región": "",
+    "Provincia": "",
+    "Localidad": "Sant Julià de Lòria"
+  },
+  {
+    "Zona": "Grau Roig",
+    "País": "ANDORRA",
+    "Comunidad/Región": "",
+    "Provincia": "",
+    "Localidad": "Grau Roig"
+  },
+  {
+    "Zona": "Pic del Carroy",
+    "País": "ANDORRA",
+    "Comunidad/Región": "",
+    "Provincia": "Andorra",
+    "Localidad": "Andorra la Vella"
+  },
+  {
+    "Zona": "Coma Pedrosa",
+    "País": "ANDORRA",
+    "Comunidad/Región": "",
+    "Provincia": "Andorra",
+    "Localidad": "Arinsal"
+  },
+  {
+    "Zona": "Pic de Besali",
+    "País": "ANDORRA",
+    "Comunidad/Región": "",
+    "Provincia": "Andorra",
+    "Localidad": "Ordino"
+  },
+  {
+    "Zona": "Pic de Casamanya",
+    "País": "ANDORRA",
+    "Comunidad/Región": "",
+    "Provincia": "Andorra",
+    "Localidad": "Ordino"
+  },
+  {
+    "Zona": "Coll de la Botella",
+    "País": "ANDORRA",
+    "Comunidad/Región": "",
+    "Provincia": "Andorra",
+    "Localidad": "Pal"
+  },
+  {
+    "Zona": "sierra de los padres",
+    "País": "AREGENTINA",
+    "Comunidad/Región": "",
+    "Provincia": "buenos aires",
+    "Localidad": "mar del plata"
+  },
+  {
+    "Zona": "Cuchi Corral",
+    "País": "ARGENTINA",
+    "Comunidad/Región": "",
+    "Provincia": "Cordoba",
+    "Localidad": "La Cumbre"
+  },
+  {
+    "Zona": "La Rioja",
+    "País": "ARGENTINA",
+    "Comunidad/Región": "",
+    "Provincia": "La Rioja",
+    "Localidad": "Capital La Rioja"
+  },
+  {
+    "Zona": "Cerro Piltriquitron",
+    "País": "ARGENTINA",
+    "Comunidad/Región": "",
+    "Provincia": "rio negro",
+    "Localidad": "El Bolson"
+  },
+  {
+    "Zona": "Loma Bola",
+    "País": "ARGENTINA",
+    "Comunidad/Región": "",
+    "Provincia": "Tucuman",
+    "Localidad": "San Miguel de Tucuman"
+  },
+  {
+    "Zona": "gotce delchev",
+    "País": "BULGARIA",
+    "Comunidad/Región": "",
+    "Provincia": "blagoebgrad",
+    "Localidad": "gotce delchev"
+  },
+  {
+    "Zona": "Cerro Maria Luisa",
+    "País": "CHILE",
+    "Comunidad/Región": "",
+    "Provincia": "Cautin, IX region",
+    "Localidad": "Temuco"
+  },
+  {
+    "Zona": "parapente chicamocha",
+    "País": "COLOMBIA",
+    "Comunidad/Región": "",
+    "Provincia": "",
+    "Localidad": "sangil"
+  },
+  {
+    "Zona": "Damasco",
+    "País": "COLOMBIA",
+    "Comunidad/Región": "",
+    "Provincia": "Antioquia",
+    "Localidad": "Santa Barbara"
+  },
+  {
+    "Zona": "VOLADERO PARAPENTE JARDIN ANTIOQUIA",
+    "País": "COLOMBIA",
+    "Comunidad/Región": "",
+    "Provincia": "jardin",
+    "Localidad": "ANTIOQUIA"
+  },
+  {
+    "Zona": "El Fraile",
+    "País": "CUBA",
+    "Comunidad/Región": "",
+    "Provincia": "Ciudad de la Habana",
+    "Localidad": "El Fraile"
+  },
+  {
+    "Zona": "Parque Nacional Viñales Cuba",
+    "País": "CUBA",
+    "Comunidad/Región": "",
+    "Provincia": "Piñar del Rio",
+    "Localidad": "Viñales"
+  },
+  {
+    "Zona": "COCHANCAY-ECUADOR",
+    "País": "ECUADOR",
+    "Comunidad/Región": "",
+    "Provincia": "CAÑAR",
+    "Localidad": "LA TRONCAL"
+  },
+  {
+    "Zona": "Loma de Puengasi",
+    "País": "ECUADOR",
+    "Comunidad/Región": "",
+    "Provincia": "Pichincha",
+    "Localidad": "Quito"
+  },
+  {
+    "Zona": "El Yelmo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "",
+    "Provincia": "",
+    "Localidad": ""
+  },
+  {
+    "Zona": "Planpraz (Le Brévent)",
+    "País": "FRANCIA",
+    "Comunidad/Región": "",
+    "Provincia": "Haute-Savoie",
+    "Localidad": "Chamonix"
+  },
+  {
+    "Zona": "Tizi n’Test",
+    "País": "MARRUECOS",
+    "Comunidad/Región": "",
+    "Provincia": "",
+    "Localidad": "Col de Tizi n’Test"
+  },
+  {
+    "Zona": "Playa de las Naciones",
+    "País": "MARRUECOS",
+    "Comunidad/Región": "",
+    "Provincia": "Rabat",
+    "Localidad": "Rabat"
+  },
+  {
+    "Zona": "Malinalco",
+    "País": "MEXICO",
+    "Comunidad/Región": "",
+    "Provincia": "Estado de Mexico",
+    "Localidad": "Malinalco (El Picacho)"
+  },
+  {
+    "Zona": "Fortin - Chicahuaxtla",
+    "País": "MEXICO",
+    "Comunidad/Región": "",
+    "Provincia": "Veracruz",
+    "Localidad": "Fortin de la Flores"
+  },
+  {
+    "Zona": "Nueva Zelanda",
+    "País": "NUEVA ZELANDA",
+    "Comunidad/Región": "",
+    "Provincia": "",
+    "Localidad": ""
+  },
+  {
+    "Zona": "Coronet Peak",
+    "País": "NUEVA ZELANDA",
+    "Comunidad/Región": "",
+    "Provincia": "Queenstown",
+    "Localidad": "Coronet Peak"
+  },
+  {
+    "Zona": "San Bernardino",
+    "País": "PARAGUAY",
+    "Comunidad/Región": "",
+    "Provincia": "Cordillera",
+    "Localidad": "San Bernardino"
+  },
+  {
+    "Zona": "Sapucai",
+    "País": "PARAGUAY",
+    "Comunidad/Región": "",
+    "Provincia": "Paraguari",
+    "Localidad": "Sapucai"
+  },
+  {
+    "Zona": "Cerro León",
+    "País": "PARAGUAY",
+    "Comunidad/Región": "",
+    "Provincia": "Paraguari",
+    "Localidad": "Pirayú"
+  },
+  {
+    "Zona": "Porto de Mós (Lagos)",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "",
+    "Localidad": "Algarve"
+  },
+  {
+    "Zona": "Praia da Cordoama",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "",
+    "Localidad": "Algarve"
+  },
+  {
+    "Zona": "Figueira da Foz",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "",
+    "Localidad": "Beiras"
+  },
+  {
+    "Zona": "Linhares da Beira",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "",
+    "Localidad": "Beiras"
+  },
+  {
+    "Zona": "Póvoa de Pegas",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "",
+    "Localidad": "Beiras"
+  },
+  {
+    "Zona": "Praia dos Salgados",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "",
+    "Localidad": "Beiras"
+  },
+  {
+    "Zona": "Serra dos Candeeiros - Costa de Alvados",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "",
+    "Localidad": "Beiras"
+  },
+  {
+    "Zona": "Arruda dos Vinhos",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "",
+    "Localidad": "Estremadura e Alentejo"
+  },
+  {
+    "Zona": "Ericeira (Vila)",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "",
+    "Localidad": "Estremadura e Alentejo"
+  },
+  {
+    "Zona": "Foz do Lizandro",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "",
+    "Localidad": "Estremadura e Alentejo"
+  },
+  {
+    "Zona": "Praia da Aguda",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "",
+    "Localidad": "Estremadura e Alentejo"
+  },
+  {
+    "Zona": "Praia Grande",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "",
+    "Localidad": "Estremadura e Alentejo"
+  },
+  {
+    "Zona": "Serra da Arrábida o Norte vs Sul",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "",
+    "Localidad": "Estremadura e Alentejo"
+  },
+  {
+    "Zona": "Arcos de Valdevez",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "",
+    "Localidad": "Minho e Douro"
+  },
+  {
+    "Zona": "Caldelas",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "",
+    "Localidad": "Minho e Douro"
+  },
+  {
+    "Zona": "Gerez - Pedra Bela",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "",
+    "Localidad": "Minho e Douro"
+  },
+  {
+    "Zona": "Murgido",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "",
+    "Localidad": "Minho e Douro"
+  },
+  {
+    "Zona": "Ponte de Lima",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "",
+    "Localidad": "Minho e Douro"
+  },
+  {
+    "Zona": "Alcaria Ruiva",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "",
+    "Localidad": "Reião do Alentejo"
+  },
+  {
+    "Zona": "Melides",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "",
+    "Localidad": "Reião do Alentejo"
+  },
+  {
+    "Zona": "Porto Côvo",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "",
+    "Localidad": "Reião do Alentejo"
+  },
+  {
+    "Zona": "Serra de Bornes",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "",
+    "Localidad": "Trás-os-Montes"
+  },
+  {
+    "Zona": "Puerto Espada",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "",
+    "Localidad": ""
+  },
+  {
+    "Zona": "Cabouco",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "Acores",
+    "Localidad": "Ilha do Faial"
+  },
+  {
+    "Zona": "Caldeira",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "Acores",
+    "Localidad": "Ilha do Faial"
+  },
+  {
+    "Zona": "Espalamaca",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "Acores",
+    "Localidad": "Ilha do Faial"
+  },
+  {
+    "Zona": "Facho",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "Acores",
+    "Localidad": "Ilha do Faial"
+  },
+  {
+    "Zona": "Falesia da praia do Norte",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "Acores",
+    "Localidad": "Ilha do Faial"
+  },
+  {
+    "Zona": "Falesia do Capelo",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "Acores",
+    "Localidad": "Ilha do Faial"
+  },
+  {
+    "Zona": "Falesia do Farol",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "Acores",
+    "Localidad": "Ilha do Faial"
+  },
+  {
+    "Zona": "Falesia do Morro",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "Acores",
+    "Localidad": "Ilha do Faial"
+  },
+  {
+    "Zona": "Falesia do Vulcão",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "Acores",
+    "Localidad": "Ilha do Faial"
+  },
+  {
+    "Zona": "Flamengos",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "Acores",
+    "Localidad": "Ilha do Faial"
+  },
+  {
+    "Zona": "Lombadafeteira",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "Acores",
+    "Localidad": "Ilha do Faial"
+  },
+  {
+    "Zona": "Monte Carneiro",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "Acores",
+    "Localidad": "Ilha do Faial"
+  },
+  {
+    "Zona": "Monte Gordo",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "Acores",
+    "Localidad": "Ilha do Faial"
+  },
+  {
+    "Zona": "Monte Queimado",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "Acores",
+    "Localidad": "Ilha do Faial"
+  },
+  {
+    "Zona": "Ribeirinha",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "Acores",
+    "Localidad": "Ilha do Faial"
+  },
+  {
+    "Zona": "Tamboroso",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "Acores",
+    "Localidad": "Ilha do Faial"
+  },
+  {
+    "Zona": "Pico Areeiro",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "Madeira",
+    "Localidad": "Funchal"
+  },
+  {
+    "Zona": "Gralhas",
+    "País": "PORTUGAL",
+    "Comunidad/Región": "",
+    "Provincia": "montealegre",
+    "Localidad": "Gralhas-Montealegre"
+  },
+  {
+    "Zona": "Postavarul",
+    "País": "RUMANIA",
+    "Comunidad/Región": "",
+    "Provincia": "Brasov",
+    "Localidad": "Brasov/Poiana Brasov"
+  },
+  {
+    "Zona": "Ölüdeniz Babadag",
+    "País": "TURQUIA",
+    "Comunidad/Región": "",
+    "Provincia": "",
+    "Localidad": "Mugla"
+  },
+  {
+    "Zona": "placivel",
+    "País": "VENEZUELA",
+    "Comunidad/Región": "",
+    "Provincia": "estado aragua",
+    "Localidad": "La Victoria"
+  },
+  {
+    "Zona": "Chimire",
+    "País": "VENEZUELA",
+    "Comunidad/Región": "",
+    "Provincia": "Guárico",
+    "Localidad": "Parmana"
+  },
+  {
+    "Zona": "La Cimarronera",
+    "País": "VENEZUELA",
+    "Comunidad/Región": "",
+    "Provincia": "Maturin",
+    "Localidad": "Aragua de Maturin"
+  },
+  {
+    "Zona": "loma de los angeles",
+    "País": "VENEZUELA",
+    "Comunidad/Región": "",
+    "Provincia": "merida",
+    "Localidad": "loma de los angeles"
+  },
+  {
+    "Zona": "El Olimpo",
+    "País": "VENEZUELA",
+    "Comunidad/Región": "",
+    "Provincia": "Trujillo",
+    "Localidad": "San Isidro"
+  },
+  {
+    "Zona": "Turen",
+    "País": "VENEZUELA",
+    "Comunidad/Región": "",
+    "Provincia": "Turen",
+    "Localidad": "Villa Bruzual"
+  },
+  {
+    "Zona": "Chalvet",
+    "País": "FRANCIA",
+    "Comunidad/Región": "Alpes Cote D'Azur",
+    "Provincia": "Alpes de Hautes",
+    "Localidad": "St Andre"
+  },
+  {
+    "Zona": "Breitenbach",
+    "País": "FRANCIA",
+    "Comunidad/Región": "Alsace",
+    "Provincia": "Bas-Rhin",
+    "Localidad": ""
+  },
+  {
+    "Zona": "Trabuco",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucia",
+    "Provincia": "Málaga",
+    "Localidad": "Villanueva Del Trabuco"
+  },
+  {
+    "Zona": "Despegue alto calaceite",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucia",
+    "Provincia": "Málaga",
+    "Localidad": "Torrox"
+  },
+  {
+    "Zona": "Carmona",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucia",
+    "Provincia": "Sevilla",
+    "Localidad": "Carmona"
+  },
+  {
+    "Zona": "JABALCON",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "ANDALUCIA",
+    "Provincia": "granada",
+    "Localidad": "ZUJAR"
+  },
+  {
+    "Zona": "MARMOLANCE",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "ANDALUCIA",
+    "Provincia": "GRANADA",
+    "Localidad": "HUESCAR"
+  },
+  {
+    "Zona": "LA ENCANTADA",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "ANDALUCIA",
+    "Provincia": "GRANADA",
+    "Localidad": "HUESCAR"
+  },
+  {
+    "Zona": "Los Baños de Alhamilla",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Almería",
+    "Localidad": "Pechina (Sierra Alhamilla)"
+  },
+  {
+    "Zona": "Uleilla del Campo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Almería",
+    "Localidad": "Uleilla del Campo"
+  },
+  {
+    "Zona": "Collado García",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Almería",
+    "Localidad": "Rambla del Marqués"
+  },
+  {
+    "Zona": "Alicun",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Almería",
+    "Localidad": "Alicun (Sierra de Gador)"
+  },
+  {
+    "Zona": "Guainos Bajo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Almería",
+    "Localidad": "Adra"
+  },
+  {
+    "Zona": "Pecho Cuchillo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Almería",
+    "Localidad": "Dalias (Sierra de Gador)"
+  },
+  {
+    "Zona": "Huecija",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Almería",
+    "Localidad": "Huecija - Bentarique"
+  },
+  {
+    "Zona": "Castala",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Almería",
+    "Localidad": "Berja (Sierra de Gador)"
+  },
+  {
+    "Zona": "Alhamilla",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Almería",
+    "Localidad": "Los Baños de Sierra - Alhamilla (Pechina)"
+  },
+  {
+    "Zona": "Aguadulce",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Almería",
+    "Localidad": "Roquetas del Mar"
+  },
+  {
+    "Zona": "Sierra de Líjar",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Cádiz",
+    "Localidad": "Algodonales"
+  },
+  {
+    "Zona": "Conil",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Cádiz",
+    "Localidad": "Conil"
+  },
+  {
+    "Zona": "El Bosque",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Cádiz",
+    "Localidad": "El Bosque (Sierra de Grazalema)"
+  },
+  {
+    "Zona": "Vejer de la Frontera",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Cádiz",
+    "Localidad": "Vejer de la Frontera"
+  },
+  {
+    "Zona": "Ermita de Lucena",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Córdoba",
+    "Localidad": "Lucena"
+  },
+  {
+    "Zona": "Lucena",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Córdoba",
+    "Localidad": "Lucena"
+  },
+  {
+    "Zona": "Las Cruces",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Córdoba",
+    "Localidad": "Rute (Sierra de Rute)"
+  },
+  {
+    "Zona": "marmolance",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Huescar"
+  },
+  {
+    "Zona": "Mencal",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Pedro Martinez"
+  },
+  {
+    "Zona": "Estacion de Vuelo Libre de Loja",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Loja"
+  },
+  {
+    "Zona": "Alfacar",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Alfacar"
+  },
+  {
+    "Zona": "El Purche",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Sierra Nevada"
+  },
+  {
+    "Zona": "Cauchiles",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Sierra Nevada"
+  },
+  {
+    "Zona": "Dornajo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Sierra Nevada"
+  },
+  {
+    "Zona": "Monte el Cabello",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Sierra Nevada"
+  },
+  {
+    "Zona": "Mulhacen",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Sierra Nevada"
+  },
+  {
+    "Zona": "Pico Veleta",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Sierra Nevada"
+  },
+  {
+    "Zona": "Sierra Gorda",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Loja"
+  },
+  {
+    "Zona": "Cañas",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Soportujar"
+  },
+  {
+    "Zona": "Los Tablones",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Orgiva"
+  },
+  {
+    "Zona": "Padre Eterno",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Orgiva"
+  },
+  {
+    "Zona": "Iznalloz",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Iznalloz (Sierra Hanara)"
+  },
+  {
+    "Zona": "Carchuna",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Carchuna"
+  },
+  {
+    "Zona": "El Colorao",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Motril"
+  },
+  {
+    "Zona": "Forestal (Puntalon)",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Motril"
+  },
+  {
+    "Zona": "Monte Guindalera",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Molvizar"
+  },
+  {
+    "Zona": "Sierra de Lujar",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Lujar"
+  },
+  {
+    "Zona": "La Silleta, Padul",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Padul"
+  },
+  {
+    "Zona": "Sierra del Manar",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Padul"
+  },
+  {
+    "Zona": "Cerro del Caballo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Niguelas"
+  },
+  {
+    "Zona": "Alfamar",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Almuñecar"
+  },
+  {
+    "Zona": "La Herradura",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Almuñecar"
+  },
+  {
+    "Zona": "Loma de Cabria",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Almuñecar"
+  },
+  {
+    "Zona": "Loma de la Cera",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Almuñecar"
+  },
+  {
+    "Zona": "Loma del Gato",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Almuñecar"
+  },
+  {
+    "Zona": "Loma los Pinos de Velilla",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Almuñecar"
+  },
+  {
+    "Zona": "Playa del Eucalipto",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Almuñecar"
+  },
+  {
+    "Zona": "Puerto Deportivo Marina del Este, La Herradura",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Almuñecar"
+  },
+  {
+    "Zona": "Torre de Cabria",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Almuñecar"
+  },
+  {
+    "Zona": "Antenas TV de Otivar",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Lenteji - Otivar"
+  },
+  {
+    "Zona": "Cerro de Itrabo, Cerro del Aguila",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Jete"
+  },
+  {
+    "Zona": "Castell de Ferro",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Castell de Ferro"
+  },
+  {
+    "Zona": "Cerro Jabalcon",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Zujar"
+  },
+  {
+    "Zona": "Peña Escrita",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Almuñecar"
+  },
+  {
+    "Zona": "Cenes de la Vega / Las Rozas",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Granada",
+    "Localidad": "Sierra Nevada"
+  },
+  {
+    "Zona": "Mazagon",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Huelva",
+    "Localidad": "Mazagon"
+  },
+  {
+    "Zona": "Sierra la Grana",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Jaén",
+    "Localidad": "Martos"
+  },
+  {
+    "Zona": "7 Pilillas",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Jaén",
+    "Localidad": "Pegalajar"
+  },
+  {
+    "Zona": "Chiclana de segura",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Jaén",
+    "Localidad": "Chiclana de Segura"
+  },
+  {
+    "Zona": "Ladera de Santo Tomé",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Jaén",
+    "Localidad": "Santo Tomé"
+  },
+  {
+    "Zona": "Cerro del Pico",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Jaén",
+    "Localidad": "Sabiote"
+  },
+  {
+    "Zona": "Cortijo el Madronial",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Jaén",
+    "Localidad": "Sabiote"
+  },
+  {
+    "Zona": "Pico del Almaden",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Jaén",
+    "Localidad": "Mancha Real (Sierra Magina)"
+  },
+  {
+    "Zona": "Peña del Aguila",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Jaén",
+    "Localidad": "Mancha Real (Sierra Magina)"
+  },
+  {
+    "Zona": "Siete Pilillas",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Jaén",
+    "Localidad": "Pegalajar (Sierra Magina)"
+  },
+  {
+    "Zona": "La Pandera",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Jaén",
+    "Localidad": "Valdepeñas de Jaen (Sierra de la Pandera)"
+  },
+  {
+    "Zona": "El Yelmo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Jaén",
+    "Localidad": "Cortijos Nuevos (Cazorla, Segura y las Villas)"
+  },
+  {
+    "Zona": "Morrón",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Jaén",
+    "Localidad": "Morrón"
+  },
+  {
+    "Zona": "SIERRA_MAGINA",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Jaén",
+    "Localidad": "Belmez_de_la_Moraleda"
+  },
+  {
+    "Zona": "Alcaudete",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Jaén",
+    "Localidad": "Alcaudete"
+  },
+  {
+    "Zona": "El hacho",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Malaga",
+    "Localidad": "Alora"
+  },
+  {
+    "Zona": "Valle de Abdalajís",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Málaga",
+    "Localidad": "Valle de Abdalajís"
+  },
+  {
+    "Zona": "Abdalajis",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Málaga",
+    "Localidad": "Abdalajis"
+  },
+  {
+    "Zona": "Valle de abdalajis",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Málaga",
+    "Localidad": ""
+  },
+  {
+    "Zona": "Ronda",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Málaga",
+    "Localidad": "Ronda"
+  },
+  {
+    "Zona": "Ronda la vieja",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Málaga",
+    "Localidad": "Ronda"
+  },
+  {
+    "Zona": "Montellano",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Sevilla",
+    "Localidad": "Montellano"
+  },
+  {
+    "Zona": "Guadalcanal",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Sevilla",
+    "Localidad": "Guadalcanal"
+  },
+  {
+    "Zona": "Carmona",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Andalucía",
+    "Provincia": "Sevilla",
+    "Localidad": "Carmona"
+  },
+  {
+    "Zona": "Duna de Pyla",
+    "País": "FRANCIA",
+    "Comunidad/Región": "Aquitaine",
+    "Provincia": "Gironde",
+    "Localidad": "Arcachon - La Teste de Buch"
+  },
+  {
+    "Zona": "Pic de la Sagette",
+    "País": "FRANCIA",
+    "Comunidad/Región": "Aquitaine",
+    "Provincia": "Pyrénées-Atlantiques",
+    "Localidad": "Valle de Ossau"
+  },
+  {
+    "Zona": "Bergout",
+    "País": "FRANCIA",
+    "Comunidad/Región": "Aquitaine",
+    "Provincia": "Pyrénées-Atlantiques",
+    "Localidad": "Aspe"
+  },
+  {
+    "Zona": "Pic d'Ansabere",
+    "País": "FRANCIA",
+    "Comunidad/Región": "Aquitaine",
+    "Provincia": "Pyrénées-Atlantiques",
+    "Localidad": "Aspe"
+  },
+  {
+    "Zona": "La Madeleine",
+    "País": "FRANCIA",
+    "Comunidad/Región": "Aquitaine",
+    "Provincia": "Pyrénées-Atlantiques",
+    "Localidad": "Tardets"
+  },
+  {
+    "Zona": "Montagne Verte",
+    "País": "FRANCIA",
+    "Comunidad/Región": "Aquitaine",
+    "Provincia": "Pyrénées-Atlantiques",
+    "Localidad": "Valle de Ossau"
+  },
+  {
+    "Zona": "alto del pantano",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "aragon",
+    "Provincia": "zaragoza",
+    "Localidad": "abanto"
+  },
+  {
+    "Zona": "Tierz",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "Tierz"
+  },
+  {
+    "Zona": "El Grado",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "Pre- Pireneos / Graus"
+  },
+  {
+    "Zona": "Secastilla",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "Secastilla"
+  },
+  {
+    "Zona": "Castellonroi",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "Castellonroi"
+  },
+  {
+    "Zona": "Betes-Burcambalo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "Biescas"
+  },
+  {
+    "Zona": "Mirador de Benasque",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "Benasque"
+  },
+  {
+    "Zona": "Cervin",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "Campó"
+  },
+  {
+    "Zona": "Abedules",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "Castejon de Sos"
+  },
+  {
+    "Zona": "Bordas",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "Castejon de Sos"
+  },
+  {
+    "Zona": "Chin-Chuan",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "Castejon de Sos"
+  },
+  {
+    "Zona": "Cogulla",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "Castejon de Sos"
+  },
+  {
+    "Zona": "Gallinero",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "Castejon de Sos"
+  },
+  {
+    "Zona": "Liri",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "Castejon de Sos"
+  },
+  {
+    "Zona": "Pantallas",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "Castejon de Sos"
+  },
+  {
+    "Zona": "Piedras Blancas",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "Castejon de Sos"
+  },
+  {
+    "Zona": "Llisat",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "Castejon de Sos"
+  },
+  {
+    "Zona": "Reyes Magos",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "Castejon de Sos"
+  },
+  {
+    "Zona": "Rials",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "Castejon de Sos"
+  },
+  {
+    "Zona": "Solano",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "Castejon de Sos"
+  },
+  {
+    "Zona": "Viñas",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "Castejon de Sos"
+  },
+  {
+    "Zona": "La Mina",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "Sallent de Gallegos"
+  },
+  {
+    "Zona": "Mallos de Riglos, La Visera",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "Riglos"
+  },
+  {
+    "Zona": "Monte Tobazo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "Candanchu"
+  },
+  {
+    "Zona": "La Raca",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "Somport"
+  },
+  {
+    "Zona": "Pico del Aguila-Arguis",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "Sierra del Aguila"
+  },
+  {
+    "Zona": "El Turmo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "Benasque"
+  },
+  {
+    "Zona": "Peña Montañesa",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "Sierra Ferrera"
+  },
+  {
+    "Zona": "Santa Orosia",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "Sabiñanigo"
+  },
+  {
+    "Zona": "Val d'Echo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "Echo"
+  },
+  {
+    "Zona": "Blancas",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "Valle de Canfran"
+  },
+  {
+    "Zona": "Tiacuto",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "Sabiñanigo Nueno Sabayes Sta Eulalia de la Peña"
+  },
+  {
+    "Zona": "Peña de Oroel",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "Jaca / Puerto de Oroel"
+  },
+  {
+    "Zona": "Loarre",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "Loarre"
+  },
+  {
+    "Zona": "San Juan de la Peña",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "Sierra de S. Juan de la Peña"
+  },
+  {
+    "Zona": "Castejon de Sos",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "Castejon de Sos"
+  },
+  {
+    "Zona": "Panticosa",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Huesca",
+    "Localidad": "panticosa"
+  },
+  {
+    "Zona": "Javalambre",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Teruel",
+    "Localidad": "Torrijas"
+  },
+  {
+    "Zona": "San Just",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Teruel",
+    "Localidad": "Sierra de San Just"
+  },
+  {
+    "Zona": "El Balcón del Buste",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Zaragoza",
+    "Localidad": "El Buste"
+  },
+  {
+    "Zona": "La ladera desconocida",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Zaragoza",
+    "Localidad": "Calatayud"
+  },
+  {
+    "Zona": "Monlora",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Aragón",
+    "Provincia": "Zaragoza",
+    "Localidad": "Luna"
+  },
+  {
+    "Zona": "São Luiz do Purunã",
+    "País": "BRASIL",
+    "Comunidad/Región": "Balsa Nova",
+    "Provincia": "Paraná",
+    "Localidad": "Balsa Nova"
+  },
+  {
+    "Zona": "Morro do Anhangava",
+    "País": "BRASIL",
+    "Comunidad/Región": "Borda do Campo",
+    "Provincia": "Paraná",
+    "Localidad": "Quatro Barras"
+  },
+  {
+    "Zona": "Morro do Boi",
+    "País": "BRASIL",
+    "Comunidad/Región": "Caiobá",
+    "Provincia": "Paraná",
+    "Localidad": "Caiobá"
+  },
+  {
+    "Zona": "Candido de Abreu",
+    "País": "BRASIL",
+    "Comunidad/Región": "Candido de Abreu",
+    "Provincia": "Paraná",
+    "Localidad": "Candido de Abreu"
+  },
+  {
+    "Zona": "Cruz de la Viorna",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Cantabria",
+    "Provincia": "Cantabria",
+    "Localidad": "Potes"
+  },
+  {
+    "Zona": "Montes Mijedo \"La Ventana\"",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Cantabria",
+    "Provincia": "Cantabria",
+    "Localidad": "Helgueras - Noja"
+  },
+  {
+    "Zona": "Usgo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Cantabria",
+    "Provincia": "Cantabria",
+    "Localidad": "Playa de Usgo - Miengo"
+  },
+  {
+    "Zona": "Playa de los locos",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Cantabria",
+    "Provincia": "Cantabria",
+    "Localidad": "Suances"
+  },
+  {
+    "Zona": "San Glorio, Oso",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Cantabria",
+    "Provincia": "Cantabria",
+    "Localidad": "Puerto de San Glorio (Monumento Oso) - Potes"
+  },
+  {
+    "Zona": "El Aguila",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Cantabria",
+    "Provincia": "Cantabria",
+    "Localidad": "Berria - Santoña"
+  },
+  {
+    "Zona": "El Brusco",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Cantabria",
+    "Provincia": "Cantabria",
+    "Localidad": "Berria - Santoña"
+  },
+  {
+    "Zona": "El Buciero",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Cantabria",
+    "Provincia": "Cantabria",
+    "Localidad": "Berria - Santoña"
+  },
+  {
+    "Zona": "Los Tornos",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Cantabria",
+    "Provincia": "Cantabria",
+    "Localidad": "Puerto de los Tornos - Colindres"
+  },
+  {
+    "Zona": "La Atalaya",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Cantabria",
+    "Provincia": "Cantabria",
+    "Localidad": "Laredo"
+  },
+  {
+    "Zona": "Valverde",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Cantabria",
+    "Provincia": "Cantabria",
+    "Localidad": "Laredo"
+  },
+  {
+    "Zona": "Playa de San Julian",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Cantabria",
+    "Provincia": "Cantabria",
+    "Localidad": "Laredo"
+  },
+  {
+    "Zona": "Puerto de La Sia",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Cantabria",
+    "Provincia": "Cantabria",
+    "Localidad": "Arredondo"
+  },
+  {
+    "Zona": "Monte Candiano",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Cantabria",
+    "Provincia": "Cantabria",
+    "Localidad": "Candiano - Limpias"
+  },
+  {
+    "Zona": "El Mañon-Trucios",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Cantabria",
+    "Provincia": "Cantabria",
+    "Localidad": "Valmaseda - Santander"
+  },
+  {
+    "Zona": "Fuente De",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Cantabria",
+    "Provincia": "Cantabria",
+    "Localidad": "Fuente De - Potes"
+  },
+  {
+    "Zona": "Peña Cabarga",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Cantabria",
+    "Provincia": "Cantabria",
+    "Localidad": "Sierra de Gandara - Heras"
+  },
+  {
+    "Zona": "Islares- Castro Urdiales",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Cantabria",
+    "Provincia": "Cantabria",
+    "Localidad": "Castro Urdiales"
+  },
+  {
+    "Zona": "martin",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Cantabria",
+    "Provincia": "Huesca",
+    "Localidad": "jaca"
+  },
+  {
+    "Zona": "Carpinteria",
+    "País": "ARGENTINA",
+    "Comunidad/Región": "carpintería",
+    "Provincia": "San Luis",
+    "Localidad": "Carpintería"
+  },
+  {
+    "Zona": "Ontur",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla-La Mancha",
+    "Provincia": "Albacete",
+    "Localidad": "Ontur"
+  },
+  {
+    "Zona": "Chinchilla",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla-La Mancha",
+    "Provincia": "Albacete",
+    "Localidad": "Chinchilla de Monte Aragón"
+  },
+  {
+    "Zona": "El Cujón",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla-La Mancha",
+    "Provincia": "Albacete",
+    "Localidad": "Albacete"
+  },
+  {
+    "Zona": "Alcaraz",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla-La Mancha",
+    "Provincia": "Albacete",
+    "Localidad": "Albacete"
+  },
+  {
+    "Zona": "Alpera",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla-La Mancha",
+    "Provincia": "Albacete",
+    "Localidad": "Albacete"
+  },
+  {
+    "Zona": "Carcelén",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla-La Mancha",
+    "Provincia": "Albacete",
+    "Localidad": "Albacete"
+  },
+  {
+    "Zona": "Caudete",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla-La Mancha",
+    "Provincia": "Albacete",
+    "Localidad": "Sierra de la Oliva"
+  },
+  {
+    "Zona": "El Roble",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla-La Mancha",
+    "Provincia": "Albacete",
+    "Localidad": "Albacete"
+  },
+  {
+    "Zona": "Moral de calatrava",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla-La Mancha",
+    "Provincia": "Ciudad Real",
+    "Localidad": "Moral de calatrava"
+  },
+  {
+    "Zona": "ermita alarcos",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla-La Mancha",
+    "Provincia": "Ciudad Real",
+    "Localidad": "Ciudad real"
+  },
+  {
+    "Zona": "El Bonal",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla-La Mancha",
+    "Provincia": "Ciudad Real",
+    "Localidad": "El bonal (el trincheto)"
+  },
+  {
+    "Zona": "Sierra de Malagon",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla-La Mancha",
+    "Provincia": "Ciudad Real",
+    "Localidad": "Malagon"
+  },
+  {
+    "Zona": "Arroba de los montes",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla-La Mancha",
+    "Provincia": "Ciudad Real",
+    "Localidad": "Arroba de los montes"
+  },
+  {
+    "Zona": "Valdemeca",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla-La Mancha",
+    "Provincia": "Cuenca",
+    "Localidad": "Valdemeca"
+  },
+  {
+    "Zona": "Cerro del Olivar",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla-La Mancha",
+    "Provincia": "Cuenca",
+    "Localidad": "Caracenilla"
+  },
+  {
+    "Zona": "Los Barrancos",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla-La Mancha",
+    "Provincia": "Cuenca",
+    "Localidad": "Caracenilla"
+  },
+  {
+    "Zona": "La Degollada",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla-La Mancha",
+    "Provincia": "Cuenca",
+    "Localidad": "Priego"
+  },
+  {
+    "Zona": "Priego",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla-La Mancha",
+    "Provincia": "Cuenca",
+    "Localidad": "Priego"
+  },
+  {
+    "Zona": "La Melgosa",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla-La Mancha",
+    "Provincia": "Cuenca",
+    "Localidad": "La Melgosa"
+  },
+  {
+    "Zona": "La Muela",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla-La Mancha",
+    "Provincia": "Guadalajara",
+    "Localidad": "Alarilla"
+  },
+  {
+    "Zona": "Iriepal",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla-La Mancha",
+    "Provincia": "Guadalajara",
+    "Localidad": "Iriepal"
+  },
+  {
+    "Zona": "Trijueque",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla-La Mancha",
+    "Provincia": "Guadalajara",
+    "Localidad": "Trijueque"
+  },
+  {
+    "Zona": "Valdenoches",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla-La Mancha",
+    "Provincia": "Guadalajara",
+    "Localidad": "Valdenoches"
+  },
+  {
+    "Zona": "Ocejon",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla-La Mancha",
+    "Provincia": "Guadalajara",
+    "Localidad": "Majaelrayo"
+  },
+  {
+    "Zona": "Alto Rey",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla-La Mancha",
+    "Provincia": "Guadalajara",
+    "Localidad": "Bustares"
+  },
+  {
+    "Zona": "Miralrio",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla-La Mancha",
+    "Provincia": "Guadalajara",
+    "Localidad": "Miralrio"
+  },
+  {
+    "Zona": "San Pablo de los Montes",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla-La Mancha",
+    "Provincia": "Toledo",
+    "Localidad": "San Pablo de los Montes"
+  },
+  {
+    "Zona": "Noez",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla-La Mancha",
+    "Provincia": "Toledo",
+    "Localidad": "Montes de Toledo"
+  },
+  {
+    "Zona": "Cerro del Aguila",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla-La Mancha",
+    "Provincia": "Toledo",
+    "Localidad": "Magan"
+  },
+  {
+    "Zona": "El Piélago",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla-La Mancha",
+    "Provincia": "Toledo",
+    "Localidad": "El Real de San Vicente"
+  },
+  {
+    "Zona": "Cerro de la Nava",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla-La Mancha",
+    "Provincia": "Toledo",
+    "Localidad": "La Nava de Ricomalillo"
+  },
+  {
+    "Zona": "Piedralaves",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Avila",
+    "Localidad": "Piedralaves"
+  },
+  {
+    "Zona": "Cebreros/Arrebatacapas",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Avila",
+    "Localidad": "Cebreros"
+  },
+  {
+    "Zona": "Peña Negra",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Avila",
+    "Localidad": "Piedrahita"
+  },
+  {
+    "Zona": "El Risco",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Ávila",
+    "Localidad": "Pedro Bernardo"
+  },
+  {
+    "Zona": "La Abantera",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Ávila",
+    "Localidad": "Lanzahita"
+  },
+  {
+    "Zona": "Cabeza Pelada",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Ávila",
+    "Localidad": "Lastra del Cano"
+  },
+  {
+    "Zona": "Chia",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Ávila",
+    "Localidad": "Navacepedilla de Corneja"
+  },
+  {
+    "Zona": "La Serrota",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Ávila",
+    "Localidad": "Villatoro"
+  },
+  {
+    "Zona": "Lanzahita",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Ávila",
+    "Localidad": "Lanzahita"
+  },
+  {
+    "Zona": "El Nogal",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Ávila",
+    "Localidad": "Candeleda"
+  },
+  {
+    "Zona": "Puerto del Pico",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Ávila",
+    "Localidad": "Cuevas del Valle"
+  },
+  {
+    "Zona": "Cabeza de la Parra",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Ávila",
+    "Localidad": "El Tiemblo"
+  },
+  {
+    "Zona": "Arrebatacapas",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Ávila",
+    "Localidad": "Cebreros"
+  },
+  {
+    "Zona": "Aldea del Rey Niño",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Ávila",
+    "Localidad": "Aldea del Rey Niño"
+  },
+  {
+    "Zona": "Puerto de Menga",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Ávila",
+    "Localidad": "Menga Muñoz"
+  },
+  {
+    "Zona": "Sierra Paramera",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Ávila",
+    "Localidad": "Navalacruz"
+  },
+  {
+    "Zona": "Serranillos",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Ávila",
+    "Localidad": "San Esteban del Valle"
+  },
+  {
+    "Zona": "Cabrera",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Ávila",
+    "Localidad": "El Barranco"
+  },
+  {
+    "Zona": "Castracuño",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Burgos",
+    "Localidad": "Cubo de Bureba Miraveche"
+  },
+  {
+    "Zona": "Galdampio",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Burgos",
+    "Localidad": "Cubo de Bureba Miraveche"
+  },
+  {
+    "Zona": "El Humion",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Burgos",
+    "Localidad": "Frias"
+  },
+  {
+    "Zona": "Sierra de Oña",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Burgos",
+    "Localidad": "Miraveche"
+  },
+  {
+    "Zona": "Mencilla",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Burgos",
+    "Localidad": "Pineda de la Sierra"
+  },
+  {
+    "Zona": "Barcina de los Montes",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Burgos",
+    "Localidad": "Barcina de los Montes"
+  },
+  {
+    "Zona": "Muela",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Burgos",
+    "Localidad": "Quintanamanvirgo"
+  },
+  {
+    "Zona": "Crispalao",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Burgos",
+    "Localidad": "Barcina de los Montes / Oña"
+  },
+  {
+    "Zona": "Peñalara",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Burgos",
+    "Localidad": "Quintanilla de las Viñas"
+  },
+  {
+    "Zona": "Bedon",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Burgos",
+    "Localidad": "Cuestahedo"
+  },
+  {
+    "Zona": "la Mazorra",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Burgos",
+    "Localidad": "Valdivielso"
+  },
+  {
+    "Zona": "La laderona",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Leon",
+    "Localidad": "Piedrafita de Babia"
+  },
+  {
+    "Zona": "Casares",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "León",
+    "Localidad": "Casares de Arbas"
+  },
+  {
+    "Zona": "Casares",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "León",
+    "Localidad": "Cucillas de Arbas"
+  },
+  {
+    "Zona": "Acebedo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "León",
+    "Localidad": "Acebedo"
+  },
+  {
+    "Zona": "Balouta",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "León",
+    "Localidad": "Balouta, Los Ancares, El Bierzo"
+  },
+  {
+    "Zona": "El Cervatín",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "León",
+    "Localidad": "Noceda del Bierzo"
+  },
+  {
+    "Zona": "San Pedro de Trones",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "León",
+    "Localidad": "San Pedro de Trones, El Bierzo"
+  },
+  {
+    "Zona": "Almagarinos",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "León",
+    "Localidad": "Almagarinos, el Bierzo"
+  },
+  {
+    "Zona": "El Pajariel",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "León",
+    "Localidad": "Ponferrada, el Bierzo"
+  },
+  {
+    "Zona": "Sierra de Gistredo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "León",
+    "Localidad": "Robledo de las Traviesas, Noceda del Bierzo"
+  },
+  {
+    "Zona": "Pico Guiana",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "León",
+    "Localidad": "El Bierzo"
+  },
+  {
+    "Zona": "Cuerno Mora",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "León",
+    "Localidad": "Piedrafrita Santuario N. S. de Carrasconte"
+  },
+  {
+    "Zona": "Campo de la Mora",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "León",
+    "Localidad": "Quintanilla de Babia"
+  },
+  {
+    "Zona": "El Pando",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "León",
+    "Localidad": "Quintanilla de Babia"
+  },
+  {
+    "Zona": "Cueto Nidio",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "León",
+    "Localidad": "Villablino"
+  },
+  {
+    "Zona": "Cereisaleo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "León",
+    "Localidad": "Palacios del Sil"
+  },
+  {
+    "Zona": "Sierra de Ancares",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "León",
+    "Localidad": "Candin"
+  },
+  {
+    "Zona": "Sotillos de Sabero",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "León",
+    "Localidad": "Sotillos de Sabero"
+  },
+  {
+    "Zona": "La Devesa de Boñar",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "León",
+    "Localidad": "Boñar"
+  },
+  {
+    "Zona": "Cerezales del Condado",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "León",
+    "Localidad": "Cerezales del Condado"
+  },
+  {
+    "Zona": "Rodiezmo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "León",
+    "Localidad": "Rodiezmo"
+  },
+  {
+    "Zona": "Corullón",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "León",
+    "Localidad": "Corullón, el Bierzo"
+  },
+  {
+    "Zona": "Gistredo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "León",
+    "Localidad": "Robledo de las Traviesas, el Bierzo"
+  },
+  {
+    "Zona": "San Sadornin",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "León",
+    "Localidad": "Corullon"
+  },
+  {
+    "Zona": "San Cristóbal",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "León",
+    "Localidad": "San Cristobal de la Valdueza, el Bierzo"
+  },
+  {
+    "Zona": "Cerro del Valle de Mansilla",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "León",
+    "Localidad": "Valle de Mansilla"
+  },
+  {
+    "Zona": "Pico Muelas - Boñar",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "León",
+    "Localidad": "La Mata de La Riba (Boñar)"
+  },
+  {
+    "Zona": "Curavacas",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Palencia",
+    "Localidad": "valle de Vidirieros"
+  },
+  {
+    "Zona": "Cocoto",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Palencia",
+    "Localidad": "Barruelo de Santullan"
+  },
+  {
+    "Zona": "Peña Pico",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Palencia",
+    "Localidad": "Pradanos de Ojeda"
+  },
+  {
+    "Zona": "Valderredible",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Palencia",
+    "Localidad": "Respenda de Aguilar"
+  },
+  {
+    "Zona": "Cotejon",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Palencia",
+    "Localidad": "Barruelo de Santullan"
+  },
+  {
+    "Zona": "Valdecebollas",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Palencia",
+    "Localidad": "Barruelo de Santullan"
+  },
+  {
+    "Zona": "Peña Rubia",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Palencia",
+    "Localidad": "Brañosera"
+  },
+  {
+    "Zona": "Almonga",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Palencia",
+    "Localidad": "Cervera de Pisuerga"
+  },
+  {
+    "Zona": "Peña Redonda",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Palencia",
+    "Localidad": "Castrejón de la Peña"
+  },
+  {
+    "Zona": "Espiguete",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Palencia",
+    "Localidad": "Valle de Cardaño de Abajo"
+  },
+  {
+    "Zona": "Sierra del Golovar",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Palencia",
+    "Localidad": "estación de Esquí del Golovar"
+  },
+  {
+    "Zona": "La Plataforma",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Salamanca",
+    "Localidad": "Bejar"
+  },
+  {
+    "Zona": "Carpio",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Salamanca",
+    "Localidad": "Carpio"
+  },
+  {
+    "Zona": "Somosierra",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Segovia",
+    "Localidad": "Somosierra"
+  },
+  {
+    "Zona": "Atalaya",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Segovia",
+    "Localidad": "La Granja de San Ildefonso"
+  },
+  {
+    "Zona": "Arcones",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Segovia",
+    "Localidad": "Sierra de Guadarrama"
+  },
+  {
+    "Zona": "Antenas Repetidor Ribera Duero",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Segovia",
+    "Localidad": "Pradales cerca Aranda de Duero"
+  },
+  {
+    "Zona": "Pico Judío",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Segovia",
+    "Localidad": "La Granja de San Ildefonso"
+  },
+  {
+    "Zona": "La Calvilla",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Soria",
+    "Localidad": "Hinojosa de la Sierra"
+  },
+  {
+    "Zona": "Cerro de San Juan",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Soria",
+    "Localidad": "La Rubia / Matute"
+  },
+  {
+    "Zona": "Puerto de Piqueras",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Soria",
+    "Localidad": "La Poveda de Soria"
+  },
+  {
+    "Zona": "Valle del rio Cidacos",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Soria",
+    "Localidad": "Villar del Rio"
+  },
+  {
+    "Zona": "El Ayedo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Soria",
+    "Localidad": "Taniñe"
+  },
+  {
+    "Zona": "La Cerrezuela",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Soria",
+    "Localidad": "Villar de Maya"
+  },
+  {
+    "Zona": "Cucurucho",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Soria",
+    "Localidad": "Villar de Maya / Diustes"
+  },
+  {
+    "Zona": "Alto del Moncayo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Soria",
+    "Localidad": "Beraton"
+  },
+  {
+    "Zona": "Peña Lobera",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Soria",
+    "Localidad": "Beraton"
+  },
+  {
+    "Zona": "Peña Negrilla",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Soria",
+    "Localidad": "Aldehuela de Agrada"
+  },
+  {
+    "Zona": "El Tablado",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Soria",
+    "Localidad": "Borobia"
+  },
+  {
+    "Zona": "Alto de Cordondonera",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Soria",
+    "Localidad": "Hinojosa de la Sierra"
+  },
+  {
+    "Zona": "Sierra de Cabrejas",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Soria",
+    "Localidad": "Ocenilla"
+  },
+  {
+    "Zona": "Cuesta Alta",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Valladolid",
+    "Localidad": "Cabezon de Pisuerga"
+  },
+  {
+    "Zona": "San Martín de Valveni",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Valladolid",
+    "Localidad": "San Martín de Valveni"
+  },
+  {
+    "Zona": "Las Peñas",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Valladolid",
+    "Localidad": "Villabañez"
+  },
+  {
+    "Zona": "Valle de Hito",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Valladolid",
+    "Localidad": "Villabañez"
+  },
+  {
+    "Zona": "Pico de Llanillo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Valladolid",
+    "Localidad": "Santibañez de Valcorba"
+  },
+  {
+    "Zona": "Tiedra",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Valladolid",
+    "Localidad": "Tiedra"
+  },
+  {
+    "Zona": "valoria la buena",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Valladolid",
+    "Localidad": "valoria la buena"
+  },
+  {
+    "Zona": "Las Contiendas",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Zamora",
+    "Localidad": "Villalazan"
+  },
+  {
+    "Zona": "Parva de Avedillo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Zamora",
+    "Localidad": "Santa Clara de Avedillo"
+  },
+  {
+    "Zona": "Jeroma",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Zamora",
+    "Localidad": "Fresno de la Ribera"
+  },
+  {
+    "Zona": "Muela de torres",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Zamora",
+    "Localidad": "Torres del Carrizal"
+  },
+  {
+    "Zona": "El Viso",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Zamora",
+    "Localidad": "Gema del Vino"
+  },
+  {
+    "Zona": "El Risco",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Castilla y León",
+    "Provincia": "Zamora",
+    "Localidad": "Villabuena del Puente"
+  },
+  {
+    "Zona": "Pedraforca",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Barcelona",
+    "Localidad": "Saldes"
+  },
+  {
+    "Zona": "Comabona",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Barcelona",
+    "Localidad": "Saldes"
+  },
+  {
+    "Zona": "Avià/Berga",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Barcelona",
+    "Localidad": "Avià"
+  },
+  {
+    "Zona": "Puig Sa Gordi",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Barcelona",
+    "Localidad": "Centelles"
+  },
+  {
+    "Zona": "Rasos de Peguera",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Barcelona",
+    "Localidad": "Castellar del Riu"
+  },
+  {
+    "Zona": "Cingles de Bertí",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Barcelona",
+    "Localidad": "Sant Feliu de Codines"
+  },
+  {
+    "Zona": "Argentona",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Barcelona",
+    "Localidad": "Mataró"
+  },
+  {
+    "Zona": "Queralt",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Barcelona",
+    "Localidad": "Berga"
+  },
+  {
+    "Zona": "Sant Feliu de Codines",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Barcelona",
+    "Localidad": "Sant Feliu de Codines"
+  },
+  {
+    "Zona": "Bellmunt",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Barcelona",
+    "Localidad": "Sant Pere de Torelló"
+  },
+  {
+    "Zona": "Les Malloles",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Barcelona",
+    "Localidad": "Igualada"
+  },
+  {
+    "Zona": "Teià",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Barcelona",
+    "Localidad": "Teià (El Maresme)"
+  },
+  {
+    "Zona": "Primera Maria",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Barcelona",
+    "Localidad": "Avià"
+  },
+  {
+    "Zona": "Puig Llançada",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Barcelona",
+    "Localidad": "Bagà"
+  },
+  {
+    "Zona": "Ensitja",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Barcelona",
+    "Localidad": "Sant Corneli"
+  },
+  {
+    "Zona": "Sant Miquel del Fai",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Barcelona",
+    "Localidad": "Sant Feliu de Codines"
+  },
+  {
+    "Zona": "Pineda de Mar",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Barcelona",
+    "Localidad": "Turó de la Guardia"
+  },
+  {
+    "Zona": "la Figuerassa",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Barcelona",
+    "Localidad": "Cercs"
+  },
+  {
+    "Zona": "Montgrós",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Barcelona",
+    "Localidad": "el Bruc"
+  },
+  {
+    "Zona": "Turó de l'Home",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Barcelona",
+    "Localidad": "Sant Celoni - Massís del Montseny"
+  },
+  {
+    "Zona": "Segona Maria",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Barcelona",
+    "Localidad": "Avià"
+  },
+  {
+    "Zona": "Olesa de Montserrat",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Barcelona",
+    "Localidad": "Olesa de Montserrat"
+  },
+  {
+    "Zona": "Santa Brígida",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Girona",
+    "Localidad": "Amer"
+  },
+  {
+    "Zona": "La Cellera (Puig D'Afrou)",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Girona",
+    "Localidad": "La Selva"
+  },
+  {
+    "Zona": "Ogassa, Sant Joan de les Abadesses",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Girona",
+    "Localidad": "Garrotxa / El Ripollès"
+  },
+  {
+    "Zona": "Tregura",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Girona",
+    "Localidad": "Garrotxa / El Ripollès"
+  },
+  {
+    "Zona": "Celveris",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Girona",
+    "Localidad": "Garrotxa / El Ripollès"
+  },
+  {
+    "Zona": "Sant Pere de Roda",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Girona",
+    "Localidad": "Cap de Creus / Roses"
+  },
+  {
+    "Zona": "Roses",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Girona",
+    "Localidad": "Cap de Creus"
+  },
+  {
+    "Zona": "Malniu",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Girona",
+    "Localidad": "Puig Pedrós - La Cerdanya"
+  },
+  {
+    "Zona": "Fontalba",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Girona",
+    "Localidad": "Queralbs"
+  },
+  {
+    "Zona": "Puig Neulós",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Girona",
+    "Localidad": "Empordà"
+  },
+  {
+    "Zona": "Sant Julià de Ramis",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Girona",
+    "Localidad": "La Selva"
+  },
+  {
+    "Zona": "Arròs de Cardós",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Lleida",
+    "Localidad": "Boldís Sobirà"
+  },
+  {
+    "Zona": "Os de Balaguer",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Lleida",
+    "Localidad": "Els Picons"
+  },
+  {
+    "Zona": "Montcorbisson",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Lleida",
+    "Localidad": "Val d'Aran"
+  },
+  {
+    "Zona": "el Cogulló",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Lleida",
+    "Localidad": "Vilanova de Meià"
+  },
+  {
+    "Zona": "Trona d'Arres",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Lleida",
+    "Localidad": "Val d'Aran"
+  },
+  {
+    "Zona": "Àger",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Lleida",
+    "Localidad": "Àger"
+  },
+  {
+    "Zona": "Rubies",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Lleida",
+    "Localidad": "Vilanova de Meià"
+  },
+  {
+    "Zona": "Llessui-Torena",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Lleida",
+    "Localidad": "Sort, Pallars Sobirà"
+  },
+  {
+    "Zona": "Surp",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Lleida",
+    "Localidad": "Sort, Pallars Sobirà"
+  },
+  {
+    "Zona": "Morreres",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Lleida",
+    "Localidad": "Port del Compte, El Solsonès"
+  },
+  {
+    "Zona": "Pallars Jussà",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Lleida",
+    "Localidad": "Senterada"
+  },
+  {
+    "Zona": "Monteixo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Lleida",
+    "Localidad": "Vall Ferrera, Pallars Sobirà"
+  },
+  {
+    "Zona": "Sant Alís",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Lleida",
+    "Localidad": "Àger"
+  },
+  {
+    "Zona": "Organyà",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Lleida",
+    "Localidad": "Serra de Prada, Alt Urgell"
+  },
+  {
+    "Zona": "Castillejos- La Mussarra",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Tarragona",
+    "Localidad": "Arbolí"
+  },
+  {
+    "Zona": "Belltall",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Tarragona",
+    "Localidad": "Belltall"
+  },
+  {
+    "Zona": "Montsant",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Tarragona",
+    "Localidad": "Cornudella de Montsant"
+  },
+  {
+    "Zona": "Coll de Lilla",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Tarragona",
+    "Localidad": "Lilla"
+  },
+  {
+    "Zona": "La Sènia",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Tarragona",
+    "Localidad": "La Sènia"
+  },
+  {
+    "Zona": "El Torn",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Catalunya",
+    "Provincia": "Tarragona",
+    "Localidad": "L´Hospitalet de l'Infant"
+  },
+  {
+    "Zona": "Torre de Mir",
+    "País": "FRANCIA",
+    "Comunidad/Región": "Catalunya Nord",
+    "Provincia": "Catalunya Nord",
+    "Localidad": "Prats de Molló"
+  },
+  {
+    "Zona": "Mirador de los Condores",
+    "País": "ARGENTINA",
+    "Comunidad/Región": "Centro",
+    "Provincia": "San Luis",
+    "Localidad": "Carpinteria (Merlo)"
+  },
+  {
+    "Zona": "Cerro Arco Mendoza",
+    "País": "ARGENTINA",
+    "Comunidad/Región": "Cerro arco",
+    "Provincia": "Mendoza",
+    "Localidad": "El Challao"
+  },
+  {
+    "Zona": "Cordilheira do Santana",
+    "País": "BRASIL",
+    "Comunidad/Región": "Clube da Cordilheira",
+    "Provincia": "Paraná",
+    "Localidad": "Santana"
+  },
+  {
+    "Zona": "Peñalara",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad de Madrid",
+    "Provincia": "Madrid",
+    "Localidad": "Puerto de los Cotos"
+  },
+  {
+    "Zona": "Cerro del Telégrafo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad de Madrid",
+    "Provincia": "Madrid",
+    "Localidad": "Collado Mediano"
+  },
+  {
+    "Zona": "Peña de la Cabra",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad de Madrid",
+    "Provincia": "Madrid",
+    "Localidad": "Puebla le la Sierra"
+  },
+  {
+    "Zona": "Abantos",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad de Madrid",
+    "Provincia": "Madrid",
+    "Localidad": "San Lorenzo del Escorial"
+  },
+  {
+    "Zona": "El Picazo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad de Madrid",
+    "Provincia": "Madrid",
+    "Localidad": "Berzosa del Lozoya"
+  },
+  {
+    "Zona": "Cabeza de Hierro",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad de Madrid",
+    "Provincia": "Madrid",
+    "Localidad": "Manzanares el Real"
+  },
+  {
+    "Zona": "La Maliciosa",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad de Madrid",
+    "Provincia": "Madrid",
+    "Localidad": "Navacerrada"
+  },
+  {
+    "Zona": "Bola del Mundo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad de Madrid",
+    "Provincia": "Madrid",
+    "Localidad": "Puerto Navacerrada"
+  },
+  {
+    "Zona": "El Nevero",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad de Madrid",
+    "Provincia": "Madrid",
+    "Localidad": "Lozoya"
+  },
+  {
+    "Zona": "Puerto de Navafria",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad de Madrid",
+    "Provincia": "Madrid",
+    "Localidad": "Lozoya"
+  },
+  {
+    "Zona": "La Najarra",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad de Madrid",
+    "Provincia": "Madrid",
+    "Localidad": "Miraflores"
+  },
+  {
+    "Zona": "Puerto de la Morcuera",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad de Madrid",
+    "Provincia": "Madrid",
+    "Localidad": "Miraflores"
+  },
+  {
+    "Zona": "Cerro de San Pedro",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad de Madrid",
+    "Provincia": "Madrid",
+    "Localidad": "Colmenar viejo"
+  },
+  {
+    "Zona": "Los Santos de la Humosa",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad de Madrid",
+    "Provincia": "Madrid",
+    "Localidad": "Los Santos de la Humosa"
+  },
+  {
+    "Zona": "Perdiguera",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad de Madrid",
+    "Provincia": "Madrid",
+    "Localidad": "Puerto Canencia"
+  },
+  {
+    "Zona": "Tres provincias",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad de Madrid",
+    "Provincia": "Madrid",
+    "Localidad": "Somosierra"
+  },
+  {
+    "Zona": "Torrelaguna Uceda (Gu)",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad de Madrid",
+    "Provincia": "Madrid",
+    "Localidad": "Torrelaguna Uceda (Gu)"
+  },
+  {
+    "Zona": "Santa María de la Alameda",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad de Madrid",
+    "Provincia": "Madrid",
+    "Localidad": "Santa Maria de la Alameda"
+  },
+  {
+    "Zona": "Berzosa",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad de Madrid",
+    "Provincia": "Madrid",
+    "Localidad": "Berzosa de la Sierra"
+  },
+  {
+    "Zona": "Mondalindo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad de Madrid",
+    "Provincia": "Madrid",
+    "Localidad": "Bustarviejo"
+  },
+  {
+    "Zona": "Pico de la Cruz",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad de Madrid",
+    "Provincia": "Madrid",
+    "Localidad": "Gargantilla de Lozoya"
+  },
+  {
+    "Zona": "San Benito",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad de Madrid",
+    "Provincia": "Madrid",
+    "Localidad": "San Lorenzo del Escorial (Pto Cruz Verde)"
+  },
+  {
+    "Zona": "La Hoya",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad de Madrid",
+    "Provincia": "Madrid",
+    "Localidad": "Pto Cruz Verde"
+  },
+  {
+    "Zona": "San Miguel De Aralar",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Foral de Navarra",
+    "Provincia": "Navarra",
+    "Localidad": "Huarte-Araquil"
+  },
+  {
+    "Zona": "Arangoiti",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Foral de Navarra",
+    "Provincia": "Navarra",
+    "Localidad": "Lumbier"
+  },
+  {
+    "Zona": "Beriain",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Foral de Navarra",
+    "Provincia": "Navarra",
+    "Localidad": "Beriain"
+  },
+  {
+    "Zona": "Guerendiain",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Foral de Navarra",
+    "Provincia": "Navarra",
+    "Localidad": "Guerendiain"
+  },
+  {
+    "Zona": "Belagua",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Foral de Navarra",
+    "Provincia": "Navarra",
+    "Localidad": "Isaba"
+  },
+  {
+    "Zona": "Lakora",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Foral de Navarra",
+    "Provincia": "Navarra",
+    "Localidad": "Isaba"
+  },
+  {
+    "Zona": "Santa Marina",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Foral de Navarra",
+    "Provincia": "Navarra",
+    "Localidad": "Iturmendi"
+  },
+  {
+    "Zona": "Higa de Monreal",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Foral de Navarra",
+    "Provincia": "Navarra",
+    "Localidad": "Monreal"
+  },
+  {
+    "Zona": "El Perdon",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Foral de Navarra",
+    "Provincia": "Navarra",
+    "Localidad": "Puerto del Perdon"
+  },
+  {
+    "Zona": "Tajonar",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Foral de Navarra",
+    "Provincia": "Navarra",
+    "Localidad": "Tajonar"
+  },
+  {
+    "Zona": "Monhoa",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Foral de Navarra",
+    "Provincia": "Navarra",
+    "Localidad": "Monhoa"
+  },
+  {
+    "Zona": "Biscoi",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Valenciana",
+    "Provincia": "Alicante",
+    "Localidad": "Ibi"
+  },
+  {
+    "Zona": "Agres",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Valenciana",
+    "Provincia": "Alicante",
+    "Localidad": "Agres"
+  },
+  {
+    "Zona": "La Mola",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Valenciana",
+    "Provincia": "Alicante",
+    "Localidad": "Novelda"
+  },
+  {
+    "Zona": "San Cristobal, Orihuela",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Valenciana",
+    "Provincia": "Alicante",
+    "Localidad": "Orihuela"
+  },
+  {
+    "Zona": "Santa Pola/Gran Alacant",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Valenciana",
+    "Provincia": "Alicante",
+    "Localidad": "Santa Pola"
+  },
+  {
+    "Zona": "El Cid",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Valenciana",
+    "Provincia": "Alicante",
+    "Localidad": "Petrer"
+  },
+  {
+    "Zona": "El Cid",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Valenciana",
+    "Provincia": "Alicante",
+    "Localidad": "Petrer"
+  },
+  {
+    "Zona": "Carrasqueta",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Valenciana",
+    "Provincia": "Alicante",
+    "Localidad": "Alcoy"
+  },
+  {
+    "Zona": "San Antoni",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Valenciana",
+    "Provincia": "Alicante",
+    "Localidad": "Alcoy"
+  },
+  {
+    "Zona": "San Jaime",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Valenciana",
+    "Provincia": "Alicante",
+    "Localidad": "Alcoy"
+  },
+  {
+    "Zona": "Almudaina",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Valenciana",
+    "Provincia": "Alicante",
+    "Localidad": "Alcoy"
+  },
+  {
+    "Zona": "Reconco",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Valenciana",
+    "Provincia": "Alicante",
+    "Localidad": "Biar"
+  },
+  {
+    "Zona": "El Maigmó",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Valenciana",
+    "Provincia": "Alicante",
+    "Localidad": "Castalla"
+  },
+  {
+    "Zona": "Monte Casino",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Valenciana",
+    "Provincia": "Alicante",
+    "Localidad": "Villajoyosa"
+  },
+  {
+    "Zona": "Alt de Sella",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Valenciana",
+    "Provincia": "Alicante",
+    "Localidad": "Sella"
+  },
+  {
+    "Zona": "Altea Hills",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Valenciana",
+    "Provincia": "Alicante",
+    "Localidad": "Altea"
+  },
+  {
+    "Zona": "Bolón",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Valenciana",
+    "Provincia": "Alicante",
+    "Localidad": "Elda"
+  },
+  {
+    "Zona": "Montcabrer",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Valenciana",
+    "Provincia": "Alicante",
+    "Localidad": "Cocentaina"
+  },
+  {
+    "Zona": "Morro de Toix",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Valenciana",
+    "Provincia": "Alicante",
+    "Localidad": "Calpe"
+  },
+  {
+    "Zona": "Coll de Rates",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Valenciana",
+    "Provincia": "Alicante",
+    "Localidad": "Parcent"
+  },
+  {
+    "Zona": "La Villa - La Solana",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Valenciana",
+    "Provincia": "Alicante",
+    "Localidad": "Villena"
+  },
+  {
+    "Zona": "Peña Rubia",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Valenciana",
+    "Provincia": "Alicante",
+    "Localidad": "Villena"
+  },
+  {
+    "Zona": "Santa Pola",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Valenciana",
+    "Provincia": "Alicante",
+    "Localidad": "Santa Pola"
+  },
+  {
+    "Zona": "El Palomaret",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Valenciana",
+    "Provincia": "Alicante",
+    "Localidad": "Agost"
+  },
+  {
+    "Zona": "Tossal d'Orenga",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Valenciana",
+    "Provincia": "Castellón",
+    "Localidad": "Albocacer"
+  },
+  {
+    "Zona": "Mola d'Ares",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Valenciana",
+    "Provincia": "Castellón",
+    "Localidad": "Ares del Maestre"
+  },
+  {
+    "Zona": "Bartolo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Valenciana",
+    "Provincia": "Castellón",
+    "Localidad": "Benicassim"
+  },
+  {
+    "Zona": "Figueroles",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Valenciana",
+    "Provincia": "Castellón",
+    "Localidad": "Figueroles"
+  },
+  {
+    "Zona": "Museo Mina Sierra Espanegera",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Valenciana",
+    "Provincia": "Castellón",
+    "Localidad": "la torre d'en besora"
+  },
+  {
+    "Zona": "Olleria",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Valenciana",
+    "Provincia": "Valencia",
+    "Localidad": "L'Ollería"
+  },
+  {
+    "Zona": "El Castellet/Turis",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Valenciana",
+    "Provincia": "Valencia",
+    "Localidad": "Turis"
+  },
+  {
+    "Zona": "La Zafra - La Safra",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Comunidad Valenciana",
+    "Provincia": "Valencia",
+    "Localidad": "Fontanars dels Alforins"
+  },
+  {
+    "Zona": "Morro do Cascalho",
+    "País": "BRASIL",
+    "Comunidad/Región": "Conceição dos Correa",
+    "Provincia": "Paraná",
+    "Localidad": "Campo Magro"
+  },
+  {
+    "Zona": "Morro do Palha",
+    "País": "BRASIL",
+    "Comunidad/Región": "Conceição dos Correia",
+    "Provincia": "Paraná",
+    "Localidad": "Campo Magro"
+  },
+  {
+    "Zona": "Sopelana",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Euskadi",
+    "Provincia": "Bizkaia",
+    "Localidad": "Sopelana"
+  },
+  {
+    "Zona": "Cabo Villano",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Euskadi",
+    "Provincia": "Bizkaia",
+    "Localidad": "Fano-Górliz"
+  },
+  {
+    "Zona": "Orduña",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Euskadi",
+    "Provincia": "Bizkaia",
+    "Localidad": "Orduña"
+  },
+  {
+    "Zona": "Valderejo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Euskal Herria",
+    "Provincia": "Araba",
+    "Localidad": "Lalastra"
+  },
+  {
+    "Zona": "Santa Elena (Opacua)",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Euskal Herria",
+    "Provincia": "Araba",
+    "Localidad": "Alaiza"
+  },
+  {
+    "Zona": "Sierra de Badaya",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Euskal Herria",
+    "Provincia": "Araba",
+    "Localidad": "Hueto"
+  },
+  {
+    "Zona": "Santa Cruz de Campezo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Euskal Herria",
+    "Provincia": "Araba",
+    "Localidad": "Santa Cruz de Campezo"
+  },
+  {
+    "Zona": "Aldaia",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Euskal Herria",
+    "Provincia": "Araba",
+    "Localidad": "Etura"
+  },
+  {
+    "Zona": "Puerto de Herrera (Balcon de la Rioja)",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Euskal Herria",
+    "Provincia": "Araba",
+    "Localidad": "Peñacerrada"
+  },
+  {
+    "Zona": "Untzueta",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Euskal Herria",
+    "Provincia": "Bizkaia",
+    "Localidad": "Orozko"
+  },
+  {
+    "Zona": "Santa Marina de Arrola",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Euskal Herria",
+    "Provincia": "Bizkaia",
+    "Localidad": "Orozko"
+  },
+  {
+    "Zona": "Anboto",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Euskal Herria",
+    "Provincia": "Bizkaia",
+    "Localidad": "Durango"
+  },
+  {
+    "Zona": "Ubieta",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Euskal Herria",
+    "Provincia": "Bizkaia",
+    "Localidad": "Zalla"
+  },
+  {
+    "Zona": "Kukuarri",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Euskal Herria",
+    "Provincia": "Gipuzkoa",
+    "Localidad": "Orio"
+  },
+  {
+    "Zona": "Kurtzeberri",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Euskal Herria",
+    "Provincia": "Gipuzkoa",
+    "Localidad": "Aretxabaleta"
+  },
+  {
+    "Zona": "Jaizkibel",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Euskal Herria",
+    "Provincia": "Gipuzkoa",
+    "Localidad": "Hondarribia"
+  },
+  {
+    "Zona": "Hernio",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Euskal Herria",
+    "Provincia": "Gipuzkoa",
+    "Localidad": "Regil"
+  },
+  {
+    "Zona": "Zarautz",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Euskal Herria",
+    "Provincia": "Gipuzkoa",
+    "Localidad": "Zarautz"
+  },
+  {
+    "Zona": "Monte Ulia",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Euskal Herria",
+    "Provincia": "Gipuzkoa",
+    "Localidad": "Donostia"
+  },
+  {
+    "Zona": "Arburu",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Euskal Herria",
+    "Provincia": "Gipuzkoa",
+    "Localidad": "Irun"
+  },
+  {
+    "Zona": "Gorgomendi-Alona",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Euskal Herria",
+    "Provincia": "Gipuzkoa",
+    "Localidad": "Oñati"
+  },
+  {
+    "Zona": "Santa Marina",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Euskal Herria",
+    "Provincia": "Nafarroa",
+    "Localidad": "Iturmendi"
+  },
+  {
+    "Zona": "La Parra-La Morera",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Extremadura",
+    "Provincia": "Badajoz",
+    "Localidad": "La Parra"
+  },
+  {
+    "Zona": "Olivenza",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Extremadura",
+    "Provincia": "Badajoz",
+    "Localidad": "Sierra de Alor"
+  },
+  {
+    "Zona": "Barcarrota",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Extremadura",
+    "Provincia": "Badajoz",
+    "Localidad": "Sierra de Santa María"
+  },
+  {
+    "Zona": "La Parra-La Mina",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Extremadura",
+    "Provincia": "Badajoz",
+    "Localidad": "La Parra"
+  },
+  {
+    "Zona": "Sierra de las Poyatas",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Extremadura",
+    "Provincia": "Badajoz",
+    "Localidad": "Zarza Capilla"
+  },
+  {
+    "Zona": "Cabeza del Buey",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Extremadura",
+    "Provincia": "Badajoz",
+    "Localidad": "Cabeza del Buey"
+  },
+  {
+    "Zona": "La Parra - La Grande",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Extremadura",
+    "Provincia": "Badajoz",
+    "Localidad": "La Parra"
+  },
+  {
+    "Zona": "Cabezabellosa",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Extremadura",
+    "Provincia": "Cáceres",
+    "Localidad": "Cabezabellosa"
+  },
+  {
+    "Zona": "Pitolero",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Extremadura",
+    "Provincia": "Cáceres",
+    "Localidad": "Valle del Jerte - El Torno"
+  },
+  {
+    "Zona": "La Calamocha",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Extremadura",
+    "Provincia": "Cáceres",
+    "Localidad": "Valle del Jerte - El Torno"
+  },
+  {
+    "Zona": "Montánchez",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Extremadura",
+    "Provincia": "Cáceres",
+    "Localidad": "Sierra de Montánchez"
+  },
+  {
+    "Zona": "Cañaveral",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Extremadura",
+    "Provincia": "Cáceres",
+    "Localidad": "Sierra del Arco - Cañaveral"
+  },
+  {
+    "Zona": "Ambroz",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Extremadura",
+    "Provincia": "Cáceres",
+    "Localidad": "Valle del Jerte"
+  },
+  {
+    "Zona": "Jacarézinho",
+    "País": "BRASIL",
+    "Comunidad/Región": "Fazenda Santa Amélia",
+    "Provincia": "Paraná",
+    "Localidad": "Fazenda Santa Amélia"
+  },
+  {
+    "Zona": "a pedrosa",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "galicia",
+    "Provincia": "orense",
+    "Localidad": "casteligo"
+  },
+  {
+    "Zona": "Monte do Coto",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "A Coruña",
+    "Localidad": "Ferrol"
+  },
+  {
+    "Zona": "Vilarquinte",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "A Coruña",
+    "Localidad": "Ferrol"
+  },
+  {
+    "Zona": "Monte Ventoso",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "A Coruña",
+    "Localidad": "Ferrol-Doniños"
+  },
+  {
+    "Zona": "Enxa",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "A Coruña",
+    "Localidad": "Porto do Son"
+  },
+  {
+    "Zona": "Iroite",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "A Coruña",
+    "Localidad": "Porto do Son"
+  },
+  {
+    "Zona": "Razo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "A Coruña",
+    "Localidad": "Razo, Carballo"
+  },
+  {
+    "Zona": "Curota (Puebla Caramiñal)",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "A Coruña",
+    "Localidad": "Porto do Son"
+  },
+  {
+    "Zona": "Ladera de Carnota (Muros-Carnota)",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "A Coruña",
+    "Localidad": "Porto do Son"
+  },
+  {
+    "Zona": "Tremuzo, (Serra de Outes)",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "A Coruña",
+    "Localidad": "Porto do Son"
+  },
+  {
+    "Zona": "Monte Xalo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "A Coruña",
+    "Localidad": "Celas de Peiro"
+  },
+  {
+    "Zona": "Barrañan",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "A Coruña",
+    "Localidad": "Arteixo"
+  },
+  {
+    "Zona": "montouto",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "Lugo",
+    "Localidad": "Villalba"
+  },
+  {
+    "Zona": "A Moa",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "Lugo",
+    "Localidad": "Quiroga"
+  },
+  {
+    "Zona": "Rodelo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "Lugo",
+    "Localidad": "Quiroga"
+  },
+  {
+    "Zona": "Vilañan",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "Lugo",
+    "Localidad": "Quiroga"
+  },
+  {
+    "Zona": "Monte Oribio",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "Lugo",
+    "Localidad": "Triacastela"
+  },
+  {
+    "Zona": "Sierra de Oribio",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "Lugo",
+    "Localidad": "Triacastela"
+  },
+  {
+    "Zona": "Sierra de Lourenza",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "Lugo",
+    "Localidad": "Mondoñedo"
+  },
+  {
+    "Zona": "Pia Páxaro",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "Lugo",
+    "Localidad": "Folgoso de Caurel"
+  },
+  {
+    "Zona": "Barreiros",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "Lugo",
+    "Localidad": "San Miguel de Reinante"
+  },
+  {
+    "Zona": "As Arandeiras",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "Lugo",
+    "Localidad": "Quiroga"
+  },
+  {
+    "Zona": "Cobaluda",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "Lugo",
+    "Localidad": "Quiroga"
+  },
+  {
+    "Zona": "La Conchada",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "Lugo",
+    "Localidad": "Quiroga"
+  },
+  {
+    "Zona": "O Cerengo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "Lugo",
+    "Localidad": "Quiroga"
+  },
+  {
+    "Zona": "Serra do Larouco",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "Ourense",
+    "Localidad": "Baltar"
+  },
+  {
+    "Zona": "La Rua",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "Ourense",
+    "Localidad": "Petin"
+  },
+  {
+    "Zona": "Alto del Paraño",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "Ourense",
+    "Localidad": "Carballiño"
+  },
+  {
+    "Zona": "Irixo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "Ourense",
+    "Localidad": "Irixo"
+  },
+  {
+    "Zona": "Baltar",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "Ourense",
+    "Localidad": "Baltar"
+  },
+  {
+    "Zona": "Pico Larouco",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "Ourense",
+    "Localidad": "Baltar"
+  },
+  {
+    "Zona": "Alto do Rodicio",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "Ourense",
+    "Localidad": "Xunqueira de Espadañedo"
+  },
+  {
+    "Zona": "Montederramo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "Ourense",
+    "Localidad": "Montederramo"
+  },
+  {
+    "Zona": "Oia-Castro",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "Pontevedra",
+    "Localidad": "Sta Maria De Oia"
+  },
+  {
+    "Zona": "Xeiteiras",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "Pontevedra",
+    "Localidad": "Cuntis"
+  },
+  {
+    "Zona": "Oia-Corroubelo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "Pontevedra",
+    "Localidad": "Sta Maria De Oia"
+  },
+  {
+    "Zona": "Castrove",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "Pontevedra",
+    "Localidad": "Poio"
+  },
+  {
+    "Zona": "Lapamán - Cortado de Loira",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "Pontevedra",
+    "Localidad": "Loira"
+  },
+  {
+    "Zona": "Cerdedo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "Pontevedra",
+    "Localidad": "Cerdedo"
+  },
+  {
+    "Zona": "Monte Seixo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Galicia",
+    "Provincia": "Pontevedra",
+    "Localidad": "Cerdero"
+  },
+  {
+    "Zona": "Ilha do Mél Morro do Sabão",
+    "País": "BRASIL",
+    "Comunidad/Región": "Ilha do Mel",
+    "Provincia": "Paraná",
+    "Localidad": "Paranaguá"
+  },
+  {
+    "Zona": "Atalaia",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Illes Balears",
+    "Provincia": "Ibiza",
+    "Localidad": "Atalaia de San Josep"
+  },
+  {
+    "Zona": "Punta Jondal",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Illes Balears",
+    "Provincia": "Ibiza",
+    "Localidad": "Cala Jondal"
+  },
+  {
+    "Zona": "El Soto",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Illes Balears",
+    "Provincia": "Ibiza",
+    "Localidad": "El Soto Fosc"
+  },
+  {
+    "Zona": "Es Cubells",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Illes Balears",
+    "Provincia": "Ibiza",
+    "Localidad": "San Jose"
+  },
+  {
+    "Zona": "Puig de Sant Martí",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Illes Balears",
+    "Provincia": "Illes Balears",
+    "Localidad": "Alcudia"
+  },
+  {
+    "Zona": "Cabo Blanco",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Illes Balears",
+    "Provincia": "Illes Balears",
+    "Localidad": "Mallorca"
+  },
+  {
+    "Zona": "Alcudia - Puig Sant Martí",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Illes Balears",
+    "Provincia": "Illes Balears",
+    "Localidad": "Mallorca"
+  },
+  {
+    "Zona": "Na Franquesa",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Illes Balears",
+    "Provincia": "Illes Balears",
+    "Localidad": "Bunyola"
+  },
+  {
+    "Zona": "Ermita de Betlem",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Illes Balears",
+    "Provincia": "Mallorca",
+    "Localidad": ""
+  },
+  {
+    "Zona": "Vuelo Dos Hermanas",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "El Hierro",
+    "Localidad": "Frontera"
+  },
+  {
+    "Zona": "La Mérica",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "La Gomera",
+    "Localidad": "La Gomera"
+  },
+  {
+    "Zona": "Risco de la Concepcion",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "La Palma",
+    "Localidad": "Sta Cruz de la Palma"
+  },
+  {
+    "Zona": "Birigoyo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "La Palma",
+    "Localidad": "El Paso"
+  },
+  {
+    "Zona": "Jedey",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "La Palma",
+    "Localidad": "Los Llanos de Aridane"
+  },
+  {
+    "Zona": "Las Indias",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "La Palma",
+    "Localidad": "Fuencaliente"
+  },
+  {
+    "Zona": "Caldera de los Marteles",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "Las Palmas",
+    "Localidad": "Cazadores"
+  },
+  {
+    "Zona": "La laja",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "Las Palmas",
+    "Localidad": "Las Palmas de Gran Canaria"
+  },
+  {
+    "Zona": "Las Coloradas",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "Las Palmas",
+    "Localidad": "Isleta"
+  },
+  {
+    "Zona": "Pico de las Nieves",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "Las Palmas",
+    "Localidad": "Los Pechos"
+  },
+  {
+    "Zona": "Los Giles",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "Las Palmas",
+    "Localidad": "Isleta"
+  },
+  {
+    "Zona": "Pico Viento",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "Las Palmas",
+    "Localidad": "Isleta"
+  },
+  {
+    "Zona": "Giles-Gran Canaria",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "Las Palmas",
+    "Localidad": "Las Palmas de Gran Canaria"
+  },
+  {
+    "Zona": "El Tanque",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "Santa Cruz de Tenerife",
+    "Localidad": "Isla Baja"
+  },
+  {
+    "Zona": "La Corona",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "Santa Cruz de Tenerife",
+    "Localidad": "Los Realejos"
+  },
+  {
+    "Zona": "Cruz de la Lajita",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "Santa Cruz de Tenerife",
+    "Localidad": "La Orotava"
+  },
+  {
+    "Zona": "Izaña",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "Santa Cruz de Tenerife",
+    "Localidad": "La Orotava / Izaña"
+  },
+  {
+    "Zona": "Los Gigantes",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "Santa Cruz de Tenerife",
+    "Localidad": "Teno"
+  },
+  {
+    "Zona": "Radazul",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "Santa Cruz de Tenerife",
+    "Localidad": "Radazul"
+  },
+  {
+    "Zona": "Las Gaviotas",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "Santa Cruz de Tenerife",
+    "Localidad": "Las Teresitas"
+  },
+  {
+    "Zona": "Mesa Mota",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "Santa Cruz de Tenerife",
+    "Localidad": "La Laguna"
+  },
+  {
+    "Zona": "El Boqueron",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "Santa Cruz de Tenerife",
+    "Localidad": "Tejina"
+  },
+  {
+    "Zona": "Mesa del Mar",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "Santa Cruz de Tenerife",
+    "Localidad": "Tacoronte"
+  },
+  {
+    "Zona": "Los Patos",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "Santa Cruz de Tenerife",
+    "Localidad": "Santa Ursula"
+  },
+  {
+    "Zona": "La Corona",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "Santa Cruz de Tenerife",
+    "Localidad": "Los Realejos"
+  },
+  {
+    "Zona": "Tierra Del Trigo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "Santa Cruz de Tenerife",
+    "Localidad": "Los Silos"
+  },
+  {
+    "Zona": "Garachico",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "Santa Cruz de Tenerife",
+    "Localidad": "San Juan del Reparo"
+  },
+  {
+    "Zona": "Teno Alto",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "Santa Cruz de Tenerife",
+    "Localidad": "Teno Alto"
+  },
+  {
+    "Zona": "Ladera de Guimar",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "Santa Cruz de Tenerife",
+    "Localidad": "Guimar"
+  },
+  {
+    "Zona": "Barranco Hondo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "Santa Cruz de Tenerife",
+    "Localidad": "Barranco Hondo"
+  },
+  {
+    "Zona": "Arafo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "Santa Cruz de Tenerife",
+    "Localidad": "Arafo"
+  },
+  {
+    "Zona": "Fasnia",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "Santa Cruz de Tenerife",
+    "Localidad": "Fasnia"
+  },
+  {
+    "Zona": "Ifonche",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "Santa Cruz de Tenerife",
+    "Localidad": "Arona - Adeje"
+  },
+  {
+    "Zona": "Valle de San Lorenzo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "Santa Cruz de Tenerife",
+    "Localidad": "Roque de Jama"
+  },
+  {
+    "Zona": "Montaña de Guaza",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "Santa Cruz de Tenerife",
+    "Localidad": "Los Cristianos"
+  },
+  {
+    "Zona": "Barranco de Taucho",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "Santa Cruz de Tenerife",
+    "Localidad": "Arona - Adeje"
+  },
+  {
+    "Zona": "Tamaimo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "Santa Cruz de Tenerife",
+    "Localidad": "Tamaimo"
+  },
+  {
+    "Zona": "Taganana",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Islas Canarias",
+    "Provincia": "Santa Cruz de Tenerife",
+    "Localidad": "Taganana"
+  },
+  {
+    "Zona": "Morro do Pires",
+    "País": "BRASIL",
+    "Comunidad/Región": "Itaperuçu",
+    "Provincia": "Paraná",
+    "Localidad": "Morro do Pires"
+  },
+  {
+    "Zona": "Pico Paraná",
+    "País": "BRASIL",
+    "Comunidad/Región": "Jaguatirica / Bairro Alto",
+    "Provincia": "Paraná",
+    "Localidad": "Campina Grande do Sul / Antonina"
+  },
+  {
+    "Zona": "Jaraguá do Sul Morro das Antenas",
+    "País": "BRASIL",
+    "Comunidad/Región": "Jaraguá do Sul",
+    "Provincia": "Santa Catarina",
+    "Localidad": "Jaraguá do Sul"
+  },
+  {
+    "Zona": "Torre de Mir",
+    "País": "FRANCIA",
+    "Comunidad/Región": "Languedoc-Rousillon",
+    "Provincia": "Pyrénées-Orientales",
+    "Localidad": "Perpignan"
+  },
+  {
+    "Zona": "Lapa Rampa do Cristo",
+    "País": "BRASIL",
+    "Comunidad/Región": "Lapa",
+    "Provincia": "Paraná",
+    "Localidad": "Lapa"
+  },
+  {
+    "Zona": "JUPAPINA LA PAZ BOLIVIA",
+    "País": "BOLIVIA",
+    "Comunidad/Región": "La Paz",
+    "Provincia": "Murillo",
+    "Localidad": "Jupapina"
+  },
+  {
+    "Zona": "Turraguas",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "La Rioja",
+    "Provincia": "Córdoba",
+    "Localidad": "Ezcaray"
+  },
+  {
+    "Zona": "Bonicaparra",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "La Rioja",
+    "Provincia": "La Rioja",
+    "Localidad": "Ezcaray"
+  },
+  {
+    "Zona": "Cabeza Parda",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "La Rioja",
+    "Provincia": "La Rioja",
+    "Localidad": "Ezcaray"
+  },
+  {
+    "Zona": "El Fragosto",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "La Rioja",
+    "Provincia": "La Rioja",
+    "Localidad": "Ezcaray"
+  },
+  {
+    "Zona": "El Hombre",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "La Rioja",
+    "Provincia": "La Rioja",
+    "Localidad": ""
+  },
+  {
+    "Zona": "Los Bolos",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "La Rioja",
+    "Provincia": "La Rioja",
+    "Localidad": "Ezcaray"
+  },
+  {
+    "Zona": "Sagastia",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "La Rioja",
+    "Provincia": "La Rioja",
+    "Localidad": "Ezcaray"
+  },
+  {
+    "Zona": "San Lorenzo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "La Rioja",
+    "Provincia": "La Rioja",
+    "Localidad": "Ezcaray"
+  },
+  {
+    "Zona": "Tres Cruces",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "La Rioja",
+    "Provincia": "La Rioja",
+    "Localidad": "Ezcaray"
+  },
+  {
+    "Zona": "Murillo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "La Rioja",
+    "Provincia": "La Rioja",
+    "Localidad": "Murillo del Rio Leza"
+  },
+  {
+    "Zona": "Pradilla",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "La Rioja",
+    "Provincia": "La Rioja",
+    "Localidad": "San Millan"
+  },
+  {
+    "Zona": "Peña Isasa",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "La Rioja",
+    "Provincia": "La Rioja",
+    "Localidad": "Villarroya"
+  },
+  {
+    "Zona": "Zenzano",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "La Rioja",
+    "Provincia": "La Rioja",
+    "Localidad": "Ribafrecha"
+  },
+  {
+    "Zona": "Venta Blancas - Santa Engracia del Jubera",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "La Rioja",
+    "Provincia": "La Rioja",
+    "Localidad": "Ventas Blancas"
+  },
+  {
+    "Zona": "Sierra de la Demanda",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "La Rioja",
+    "Provincia": "La Rioja",
+    "Localidad": "Ezcaray"
+  },
+  {
+    "Zona": "Sta Barbara",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "La Rioja",
+    "Provincia": "La Rioja",
+    "Localidad": "Ezcaray"
+  },
+  {
+    "Zona": "Monte Mayor",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "La Rioja",
+    "Provincia": "La Rioja",
+    "Localidad": "Ezcaray"
+  },
+  {
+    "Zona": "Collado Sagastia",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "La Rioja",
+    "Provincia": "La Rioja",
+    "Localidad": "Collado Sagastia"
+  },
+  {
+    "Zona": "Cap de la Pene",
+    "País": "FRANCIA",
+    "Comunidad/Región": "Midi-Pyrenees",
+    "Provincia": "Ariège",
+    "Localidad": "Saint-Giron"
+  },
+  {
+    "Zona": "Cap de Bouirex",
+    "País": "FRANCIA",
+    "Comunidad/Región": "Midi-Pyrenees",
+    "Provincia": "Ariège",
+    "Localidad": "Coseran"
+  },
+  {
+    "Zona": "Sentenac",
+    "País": "FRANCIA",
+    "Comunidad/Región": "Midi-Pyrenees",
+    "Provincia": "Ariège",
+    "Localidad": "Coseran"
+  },
+  {
+    "Zona": "Pras D' Albis",
+    "País": "FRANCIA",
+    "Comunidad/Región": "Midi-Pyrenees",
+    "Provincia": "Ariège",
+    "Localidad": "Foix"
+  },
+  {
+    "Zona": "Oô",
+    "País": "FRANCIA",
+    "Comunidad/Región": "Midi-Pyrenees",
+    "Provincia": "Haute-Garonne",
+    "Localidad": "Valle de Luchon"
+  },
+  {
+    "Zona": "Superbagnères",
+    "País": "FRANCIA",
+    "Comunidad/Región": "Midi-Pyrenees",
+    "Provincia": "Haute-Garonne",
+    "Localidad": "Valle de Luchon"
+  },
+  {
+    "Zona": "Campan",
+    "País": "FRANCIA",
+    "Comunidad/Región": "Midi-Pyrenees",
+    "Provincia": "Hautes-Pyrénée",
+    "Localidad": "Campan"
+  },
+  {
+    "Zona": "Aucun",
+    "País": "FRANCIA",
+    "Comunidad/Región": "Midi-Pyrenees",
+    "Provincia": "Hautes-Pyrénée",
+    "Localidad": "Valle de Arrens"
+  },
+  {
+    "Zona": "St Lary Teleferico",
+    "País": "FRANCIA",
+    "Comunidad/Región": "Midi-Pyrenees",
+    "Provincia": "Hautes-Pyrénée",
+    "Localidad": "Valle de Aure"
+  },
+  {
+    "Zona": "Pic Midi de Bigorre",
+    "País": "FRANCIA",
+    "Comunidad/Región": "Midi-Pyrenees",
+    "Provincia": "Hautes-Pyrénées",
+    "Localidad": "Bigorre"
+  },
+  {
+    "Zona": "Col des Cascades",
+    "País": "FRANCIA",
+    "Comunidad/Región": "Midi-Pyrenees",
+    "Provincia": "Hautes-Pyrénées",
+    "Localidad": "Garvanie"
+  },
+  {
+    "Zona": "Troubat",
+    "País": "FRANCIA",
+    "Comunidad/Región": "Midi-Pyrenees",
+    "Provincia": "Hautes-Pyrénées",
+    "Localidad": "Montaña de Gert, Thèbe"
+  },
+  {
+    "Zona": "Peyragudes",
+    "País": "FRANCIA",
+    "Comunidad/Región": "Midi-Pyrenees",
+    "Provincia": "Hautes-Pyrénées",
+    "Localidad": "Val de Louron"
+  },
+  {
+    "Zona": "Val Louron",
+    "País": "FRANCIA",
+    "Comunidad/Región": "Midi-Pyrenees",
+    "Provincia": "Hautes-Pyrénées",
+    "Localidad": "Val Louron"
+  },
+  {
+    "Zona": "Grascoueou",
+    "País": "FRANCIA",
+    "Comunidad/Región": "Midi-Pyrenees",
+    "Provincia": "Hautes-Pyrénées",
+    "Localidad": "Valle de Aure"
+  },
+  {
+    "Zona": "San Cristóbal",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Navarra",
+    "Provincia": "Navarra",
+    "Localidad": "Artica"
+  },
+  {
+    "Zona": "El Hondon de las Nieves",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Pais Valencià",
+    "Provincia": "Alicante",
+    "Localidad": "Crevillent"
+  },
+  {
+    "Zona": "William Ramòn Ollarves Corrales",
+    "País": "VENEZUELA",
+    "Comunidad/Región": "PLACIVEL",
+    "Provincia": "venezuela",
+    "Localidad": "caracas"
+  },
+  {
+    "Zona": "Praia Mole Florianópolis",
+    "País": "BRASIL",
+    "Comunidad/Región": "Praia Mole",
+    "Provincia": "Santa Catarina",
+    "Localidad": "Praia Mole"
+  },
+  {
+    "Zona": "Peña la Vara",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Principado de Asturias",
+    "Provincia": "Asturias",
+    "Localidad": "Sierra del Aramo (Consejo de Morcin)"
+  },
+  {
+    "Zona": "Pico Roces",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Principado de Asturias",
+    "Provincia": "Asturias",
+    "Localidad": "Pico Roces (Consejo de Morcin)"
+  },
+  {
+    "Zona": "Xago",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Principado de Asturias",
+    "Provincia": "Asturias",
+    "Localidad": "Aviles"
+  },
+  {
+    "Zona": "Xivares",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Principado de Asturias",
+    "Provincia": "Asturias",
+    "Localidad": "Gijon"
+  },
+  {
+    "Zona": "Los Resquilones",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Principado de Asturias",
+    "Provincia": "Asturias",
+    "Localidad": "Llanes"
+  },
+  {
+    "Zona": "Peñablanca",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Principado de Asturias",
+    "Provincia": "Asturias",
+    "Localidad": "El Mazucu - Llanes"
+  },
+  {
+    "Zona": "La Muezca",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Principado de Asturias",
+    "Provincia": "Asturias",
+    "Localidad": "La Pereda - Llanes"
+  },
+  {
+    "Zona": "El Liño",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Principado de Asturias",
+    "Provincia": "Asturias",
+    "Localidad": "Pañamellera Alta - Alles"
+  },
+  {
+    "Zona": "Alevia",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Principado de Asturias",
+    "Provincia": "Asturias",
+    "Localidad": "Sierra de Cuera - Llanes"
+  },
+  {
+    "Zona": "Peña Sobia",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Principado de Asturias",
+    "Provincia": "Asturias",
+    "Localidad": "Sierra de Sobia - Consejo de Mieres"
+  },
+  {
+    "Zona": "Pico de Polio",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Principado de Asturias",
+    "Provincia": "Asturias",
+    "Localidad": "Montes de Polio - Consejo de Teverga"
+  },
+  {
+    "Zona": "Coto Bello",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Principado de Asturias",
+    "Provincia": "Asturias",
+    "Localidad": "Cabañaquinta/Piñeres - Consejo de Aller Cordal de Murias"
+  },
+  {
+    "Zona": "Estación de Ski de Pajares",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Principado de Asturias",
+    "Provincia": "Asturias",
+    "Localidad": "Puerto de Pajares"
+  },
+  {
+    "Zona": "Lagos de Saliencia",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Principado de Asturias",
+    "Provincia": "Asturias",
+    "Localidad": "Saliencia - Cornellana"
+  },
+  {
+    "Zona": "Gamoniteiro",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Principado de Asturias",
+    "Provincia": "Asturias",
+    "Localidad": "Sierra del Aramo - Oviedo"
+  },
+  {
+    "Zona": "La Gamonal",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Principado de Asturias",
+    "Provincia": "Asturias",
+    "Localidad": "Sierra del Aramo - Oviedo"
+  },
+  {
+    "Zona": "Cabo Video",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Principado de Asturias",
+    "Provincia": "Asturias",
+    "Localidad": "Aviles"
+  },
+  {
+    "Zona": "Naranco",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Principado de Asturias",
+    "Provincia": "Asturias",
+    "Localidad": "Oviedo"
+  },
+  {
+    "Zona": "Pedroreo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Principado de Asturias",
+    "Provincia": "Asturias",
+    "Localidad": "San Bartolome"
+  },
+  {
+    "Zona": "Campa Torres",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Principado de Asturias",
+    "Provincia": "Asturias",
+    "Localidad": "Musel-Gijon"
+  },
+  {
+    "Zona": "Sariego",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Principado de Asturias",
+    "Provincia": "Asturias",
+    "Localidad": "Sariego"
+  },
+  {
+    "Zona": "La colina del Cuervo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Principado de Asturias",
+    "Provincia": "Asturias",
+    "Localidad": "Gijón"
+  },
+  {
+    "Zona": "Peña Rubia",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Principado de Asturias",
+    "Provincia": "Asturias",
+    "Localidad": "Gijón"
+  },
+  {
+    "Zona": "Peña Mayor",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Principado de Asturias",
+    "Provincia": "Asturias",
+    "Localidad": "Pola de Laviana"
+  },
+  {
+    "Zona": "Gorfoli",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Principado de Asturias",
+    "Provincia": "Asturias",
+    "Localidad": "Illas - Avilés"
+  },
+  {
+    "Zona": "Courio",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Principado de Asturias",
+    "Provincia": "Asturias",
+    "Localidad": "Belmonte de Miranda"
+  },
+  {
+    "Zona": "Angliru",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Principado de Asturias",
+    "Provincia": "Asturias",
+    "Localidad": "Sierra del Aramo"
+  },
+  {
+    "Zona": "Mostayal",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Principado de Asturias",
+    "Provincia": "Asturias",
+    "Localidad": "Sierra del Aramo"
+  },
+  {
+    "Zona": "La Mostayal (Morcín)",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Principado de Asturias",
+    "Provincia": "Asturias",
+    "Localidad": "Santa Eulalia de Morcín - Oviedo"
+  },
+  {
+    "Zona": "Monte Deva",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Principado de Asturias",
+    "Provincia": "Asturias",
+    "Localidad": "Monte Deva - Gijón"
+  },
+  {
+    "Zona": "La Peral",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Principado de Asturias",
+    "Provincia": "Asturias",
+    "Localidad": "Pola de Lena"
+  },
+  {
+    "Zona": "La Cruz de Linares",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Principado de Asturias",
+    "Provincia": "Asturias",
+    "Localidad": "Proaza"
+  },
+  {
+    "Zona": "Verdicio",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Principado de Asturias",
+    "Provincia": "Asturias",
+    "Localidad": "Aviles"
+  },
+  {
+    "Zona": "Playa de Torimbia",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Principado de Asturias",
+    "Provincia": "Asturias",
+    "Localidad": "Niembro - Llanes"
+  },
+  {
+    "Zona": "San Martin o Pico el Sol",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Principado de Asturias",
+    "Provincia": "Gijón",
+    "Localidad": "Camocha / San Martin o Pico el Sol"
+  },
+  {
+    "Zona": "SAN ANTONIO",
+    "País": "COLOMBIA",
+    "Comunidad/Región": "PUTUMAYO",
+    "Provincia": "SAN ANTONIO",
+    "Localidad": "SAN ANTONIO"
+  },
+  {
+    "Zona": "Canigó",
+    "País": "FRANCIA",
+    "Comunidad/Región": "Pyrénées",
+    "Provincia": "",
+    "Localidad": "Canigó, El Conflent"
+  },
+  {
+    "Zona": "Pic dels Moros",
+    "País": "FRANCIA",
+    "Comunidad/Región": "Pyrénées",
+    "Provincia": "",
+    "Localidad": "Font Romeu, La Cerdanya"
+  },
+  {
+    "Zona": "Puig de Sant Pere",
+    "País": "FRANCIA",
+    "Comunidad/Región": "Pyrénées",
+    "Provincia": "",
+    "Localidad": "Canigo, El Vallespir"
+  },
+  {
+    "Zona": "Baygoura",
+    "País": "FRANCIA",
+    "Comunidad/Región": "Pyrénées",
+    "Provincia": "",
+    "Localidad": "Nafarroa Behera"
+  },
+  {
+    "Zona": "Castillo de San Julian",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Región de Murcia",
+    "Provincia": "Murcia",
+    "Localidad": "Cartagena"
+  },
+  {
+    "Zona": "El Carche",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Región de Murcia",
+    "Provincia": "Murcia",
+    "Localidad": "Jumilla"
+  },
+  {
+    "Zona": "La Pila",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Región de Murcia",
+    "Provincia": "Murcia",
+    "Localidad": "Hoya del Campo"
+  },
+  {
+    "Zona": "Peña Rubia",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Región de Murcia",
+    "Provincia": "Murcia",
+    "Localidad": "Lorca"
+  },
+  {
+    "Zona": "Carrascoy",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Región de Murcia",
+    "Provincia": "Murcia",
+    "Localidad": "Sangonera La Verde"
+  },
+  {
+    "Zona": "Sopalmo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Región de Murcia",
+    "Provincia": "Murcia",
+    "Localidad": "Jumilla"
+  },
+  {
+    "Zona": "Cabezo Gordo",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Región de Murcia",
+    "Provincia": "Murcia",
+    "Localidad": "Los Alcazares"
+  },
+  {
+    "Zona": "El Portus",
+    "País": "ESPAÑA",
+    "Comunidad/Región": "Región de Murcia",
+    "Provincia": "Murcia",
+    "Localidad": "Cartagena"
+  },
+  {
+    "Zona": "Grands Montets",
+    "País": "FRANCIA",
+    "Comunidad/Región": "Rhone-Alpes",
+    "Provincia": "Haute-Savoie",
+    "Localidad": "Chamonix"
+  },
+  {
+    "Zona": "Mieussy",
+    "País": "FRANCIA",
+    "Comunidad/Región": "Rhone-Alpes",
+    "Provincia": "Haute-Savoie",
+    "Localidad": "Mieussy"
+  },
+  {
+    "Zona": "Dormillouse",
+    "País": "FRANCIA",
+    "Comunidad/Región": "Rhone-Alpes",
+    "Provincia": "Haute-Savoie",
+    "Localidad": "St Jean de Montclar"
+  },
+  {
+    "Zona": "Saleve",
+    "País": "FRANCIA",
+    "Comunidad/Región": "Rhone-Alpes",
+    "Provincia": "Haute-Savoie",
+    "Localidad": "Veyrier"
+  },
+  {
+    "Zona": "Dent de Crolles",
+    "País": "FRANCIA",
+    "Comunidad/Región": "Rhone-Alpes",
+    "Provincia": "Isère",
+    "Localidad": "ST Hilaire"
+  },
+  {
+    "Zona": "ST Hilaire du Touvet",
+    "País": "FRANCIA",
+    "Comunidad/Región": "Rhone-Alpes",
+    "Provincia": "Isère",
+    "Localidad": "ST Hilaire"
+  },
+  {
+    "Zona": "Pico do Capivari",
+    "País": "BRASIL",
+    "Comunidad/Región": "Rio Pardo",
+    "Provincia": "Paraná",
+    "Localidad": "Capivari"
+  },
+  {
+    "Zona": "club vuelo libre",
+    "País": "COLOMBIA",
+    "Comunidad/Región": "ruitoque",
+    "Provincia": "santander",
+    "Localidad": "america del sur"
+  },
+  {
+    "Zona": "Piramide",
+    "País": "CHILE",
+    "Comunidad/Región": "Santiago, Chile",
+    "Provincia": "RM",
+    "Localidad": "Santiago"
+  },
+  {
+    "Zona": "Santuario de la Naturaleza, Santiago",
+    "País": "CHILE",
+    "Comunidad/Región": "Santiago, Chile",
+    "Provincia": "RM",
+    "Localidad": "Santiago"
+  },
+  {
+    "Zona": "Santo Amaro da Imperatriz Morro do Queimado",
+    "País": "BRASIL",
+    "Comunidad/Región": "Santo Amaro da Imperatriz",
+    "Provincia": "Santa Catarina",
+    "Localidad": "Santo Amaro da Imperatriz"
+  },
+  {
+    "Zona": "Las Lenguas",
+    "País": "ARGENTINA",
+    "Comunidad/Región": "Selva de Yungas",
+    "Provincia": "Tucuman",
+    "Localidad": "Concepción"
+  },
+  {
+    "Zona": "Terra Rica",
+    "País": "BRASIL",
+    "Comunidad/Región": "Terra Rica",
+    "Provincia": "Paraná",
+    "Localidad": "Terra Rica"
+  },
+  {
+    "Zona": "Copacabana",
+    "País": "BOLIVIA",
+    "Comunidad/Región": "Titikaka",
+    "Provincia": "Manco Kapac",
+    "Localidad": "Copacabana"
+  },
+  {
+    "Zona": "Torococo",
+    "País": "VENEZUELA",
+    "Comunidad/Región": "Torococo",
+    "Provincia": "Trujillo",
+    "Localidad": "Torococo"
+  },
+  {
+    "Zona": "Vale do Caldeirão - Cascavel- PR",
+    "País": "BRASIL",
+    "Comunidad/Región": "Vale do Caldeirão",
+    "Provincia": "Paraná",
+    "Localidad": "Juvinópolis"
+  }
+]
