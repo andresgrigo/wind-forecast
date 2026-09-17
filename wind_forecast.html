@@ -932,8 +932,6 @@ function switchSiteGroup(groupKey) {
     locations = SITE_GROUPS[key].map(function(loc) {
         return { ...loc, dirFilter: { ...loc.dirFilter }, selectedDay: 0 };
     });
-    wxCache.clear();
-    weatherStore.clear();
 
     document.querySelectorAll('.site-tab').forEach(function(tab) {
         tab.classList.toggle('active', tab.dataset.group === key);
