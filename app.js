@@ -27,8 +27,8 @@ const SITE_GROUPS = {
         { name: 'Matalascañas', lat: 37.0104, lon: -6.5731, dirFilter: { enabled: true, deg: 225, tol: 15 } }
     ],
     algarve: [
-        { name: 'Porto de Mós', lat: 37.0853, lon: -8.6837, dirFilter: { enabled: true, deg: 157.5, tol: 35 } },
-        { name: 'Praia da Cordoama', lat: 37.110035, lon: -8.936134, dirFilter: { enabled: true, deg: 292.5, tol: 35 } }
+        { name: 'Porto de Mós', lat: 37.0853, lon: -8.6837, dirFilter: { enabled: true, deg: 135, tol: 15 } },
+        { name: 'Praia da Cordoama', lat: 37.110035, lon: -8.936134, dirFilter: { enabled: true, deg: 315, tol: 35 } }
     ]
 };
 const EXTERNAL_SITES = [];
@@ -77,7 +77,10 @@ function buildSiteGroups(features) {
         if (!EXTERNAL_GROUPS[group]) EXTERNAL_GROUPS[group] = [];
         EXTERNAL_GROUPS[group].push(site);
     });
+    // Spanish regions first, Portuguese ones (incl. Algarve) at the bottom; alphabetical within each
+    const isPortugal = function(group) { return group.indexOf('PT-') === 0; };
     EXTERNAL_REGION_ORDER = Object.keys(EXTERNAL_GROUPS).sort(function(a, b) {
+        if (isPortugal(a) !== isPortugal(b)) return isPortugal(a) ? 1 : -1;
         return EXTERNAL_REGION_LABELS[a].localeCompare(EXTERNAL_REGION_LABELS[b], 'es');
     });
     activeExternalGroup = EXTERNAL_REGION_ORDER[0] || null;
