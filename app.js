@@ -54,6 +54,24 @@ function preferredDirection(properties) {
     return { enabled: true, deg: (weighted / total + 360) % 360, tol: specified.length === 1 ? 22.5 : 67.5 };
 }
 
+function normalizeName(name) {
+    return String(name).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+}
+
+// Core sites are hardcoded in SITE_GROUPS; borrow the descriptive fields from the matching JSON site
+function attachInfoToCoreSite(site) {
+    const jsonName = normalizeName(site.name);
+    Object.keys(SITE_GROUPS).forEach(function(group) {
+        SITE_GROUPS[group].forEach(function(core) {
+            const coreName = normalizeName(core.name);
+            if (core.goingThere !== undefined || (jsonName !== coreName && jsonName.indexOf(coreName) !== 0)) return;
+            core.altitude = site.altitude;
+            core.goingThere = site.goingThere;
+            core.comments = site.comments;
+        });
+    });
+}
+
 function buildSiteGroups(features) {
     features.forEach(function(feature) {
         const props = feature.properties;
@@ -62,7 +80,10 @@ function buildSiteGroups(features) {
             lat: feature.geometry.coordinates[1],
             lon: feature.geometry.coordinates[0],
             dirFilter: preferredDirection(props),
-            province: props.province || null
+            province: props.province || null,
+            altitude: props.takeoff_altitude || null,
+            goingThere: props.going_there || null,
+            comments: props.comments || null
         };
         const name = String(site.name).toLowerCase();
         const isCore = name === 'el bosque'
@@ -70,7 +91,10 @@ function buildSiteGroups(features) {
             || name.indexOf('matalascanas') === 0
             || name.indexOf('porto de mós') === 0
             || name.indexOf('praia da cordoama') === 0;
-        if (isCore) return;
+        if (isCore) {
+            attachInfoToCoreSite(site);
+            return;
+        }
         const group = props.regionCode || props.region || 'unknown';
         EXTERNAL_REGION_LABELS[group] = props.region || 'Sin región';
         EXTERNAL_SITES.push(site);
@@ -519,6 +543,31 @@ function scrollToDefaultCard(idx, h, scores, days, selDay) {
 /* ===========================================
    Render
 =========================================== */
+function buildNavLink(loc) {
+    const url = 'https://www.google.com/maps/dir/?api=1&destination=' + loc.lat + ',' + loc.lon + '&travelmode=driving';
+    return '<a class="nav-link" href="' + url + '" target="_blank" rel="noopener" title="Como llegar (Google Maps)" aria-label="Como llegar a ' + escHtml(loc.name) + ' en Google Maps">'
+        + '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 2 4.5 20.3l.7.7L12 18l6.8 3 .7-.7z" fill="currentColor"/></svg></a>';
+}
+
+// Free text from ParaglidingEarth: escape it, then turn bare URLs into links
+function formatInfoText(text) {
+    let t = String(text);
+    if (/[ÃÂ]/.test(t)) {
+        try { t = decodeURIComponent(escape(t)); } catch (e) { /* not mojibake after all */ }
+    }
+    return escHtml(t.replace(/\r\n?/g, '\n').trim()).replace(/(https?:\/\/[^\s<]+)/g, function(u) {
+        return '<a href="' + u + '" target="_blank" rel="noopener">' + u + '</a>';
+    });
+}
+
+function buildInfoPanel(loc) {
+    if (!loc.goingThere && !loc.comments) return '';
+    return '<details class="loc-info"><summary>ℹ Info del sitio</summary>'
+        + (loc.goingThere ? '<div class="info-block"><h4>Como llegar</h4><p>' + formatInfoText(loc.goingThere) + '</p></div>' : '')
+        + (loc.comments ? '<div class="info-block"><h4>Comentarios</h4><p>' + formatInfoText(loc.comments) + '</p></div>' : '')
+        + '</details>';
+}
+
 function createCard(idx) {
     const loc = locations[idx];
     if (!loc.dirFilter)            loc.dirFilter   = { enabled: false, deg: 270, tol: 45 };
@@ -529,7 +578,10 @@ function createCard(idx) {
     el.id = 'card-' + idx;
     el.innerHTML = ''
         + '<div class="loc-header">'
-        +   '<div><h2>' + escHtml(loc.name) + '</h2><div class="coord">' + formatCoordinateLabel(loc.lat, loc.lon) + '</div></div>'
+        +   '<div class="loc-title">'
+        +     '<div class="loc-name"><h2>' + escHtml(loc.name) + '</h2>' + buildNavLink(loc) + '</div>'
+        +     '<div class="coord">' + formatCoordinateLabel(loc.lat, loc.lon) + (loc.altitude ? ' · ' + escHtml(loc.altitude) + ' m' : '') + '</div>'
+        +   '</div>'
         +   '<div class="loc-actions">'
         +     '<button class="btn btn-ghost btn-sm" onclick="refreshCard(' + idx + ')">↻</button>'
         +     '<button class="btn btn-danger btn-sm" onclick="removeLocation(' + idx + ')">✕</button>'
@@ -545,6 +597,7 @@ function createCard(idx) {
         +     '<span class="df-label">°</span>'
         +   '</div>'
         + '</div>'
+        + buildInfoPanel(loc)
         + '<div class="loc-body"></div>';
     return el;
 }
