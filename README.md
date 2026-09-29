@@ -17,4 +17,8 @@ Single-page wind forecast tool for paragliding, showing a 72h/3-day outlook per 
 
 ## Running
 
-Just open `index.html` in a browser. It calls the Open-Meteo APIs directly (no backend, no API key required).
+The app loads `data/*.json` with `fetch`, so serve the folder over HTTP (e.g. `python3 -m http.server`) and open `http://localhost:8000`; `file://` won't work. It calls the Open-Meteo APIs directly (no backend, no API key required).
+
+## Regions
+
+`scripts/add_regions.py` adds `region`, `regionCode`, `province` and `provinceCode` to each site in `data/paraglidingEarth{Spain,Portugal}.json` via OpenStreetMap Nominatim reverse geocoding (≈1 req/s, cached in `scripts/.region-cache.json`). Spain gets comunidad autónoma + provincia; mainland Portugal gets its distrito; the Azores and Madeira are their own regions. Re-run with `--force` to recompute.
