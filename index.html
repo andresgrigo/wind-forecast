@@ -280,6 +280,7 @@
         .hour-card.score-2 { background: rgba(249,115,22,.11); border-color: rgba(249,115,22,.3); }
         .hour-card.score-3 { background: rgba(239,68,68,.12);  border-color: rgba(239,68,68,.38); }
         .hour-card.dir-filtered { opacity: 0.38; }
+        .hour-card.too-light { opacity: 0.45; }
         .hour-card.active-detail { box-shadow: 0 0 0 2px var(--accent) !important; border-color: var(--accent) !important; }
 
         .hc-time  { font-size: 0.68rem; font-weight: 700; color: var(--text); line-height: 1; }
@@ -452,9 +453,10 @@
         <div class="settings-grid">
             <div class="settings-group">
                 <h3>🌬️ Velocidad viento 10m</h3>
-                <div class="sf"><label>Limite Optimo / Moderado</label><input type="number" id="cfg-s1" min="1" max="100" step="1"><span class="unit">km/h</span></div>
-                <div class="sf"><label>Limite Moderado / Fuerte</label><input type="number" id="cfg-s2" min="1" max="100" step="1"><span class="unit">km/h</span></div>
-                <div class="sf"><label>Limite Fuerte / Peligroso</label><input type="number" id="cfg-s3" min="1" max="100" step="1"><span class="unit">km/h</span></div>
+                <div class="sf"><label>Minimo para volar (menos = sin viento)</label><input type="number" id="cfg-smin" min="0" max="100" step="1"><span class="unit">km/h</span></div>
+                <div class="sf"><label>Optimo hasta</label><input type="number" id="cfg-s1" min="1" max="100" step="1"><span class="unit">km/h</span></div>
+                <div class="sf"><label>Moderado hasta</label><input type="number" id="cfg-s2" min="1" max="100" step="1"><span class="unit">km/h</span></div>
+                <div class="sf"><label>Fuerte hasta (mas = Peligroso)</label><input type="number" id="cfg-s3" min="1" max="100" step="1"><span class="unit">km/h</span></div>
             </div>
             <div class="settings-group">
                 <h3>💨 Limite de rachas</h3>
@@ -484,7 +486,11 @@ const API_WX  = 'https://api.open-meteo.com/v1/forecast';
 const API_GEO = 'https://geocoding-api.open-meteo.com/v1/search';
 const PARAMS  = 'wind_speed_10m,wind_speed_80m,wind_speed_120m,wind_speed_180m,wind_direction_10m,wind_direction_80m,wind_direction_120m,wind_direction_180m,wind_gusts_10m,boundary_layer_height';
 
+const WINDOW_START_HOUR = 9;
+const DEFAULT_CARD_HOUR = 9;
+
 const CFG_DEFAULTS = {
+    speedMin: 10,
     speedOpt: 15,
     speedMod: 25,
     speedStr: 35,
@@ -712,14 +718,14 @@ function dirMatchesFilter(windDeg, filterDeg, tol) {
     return Math.abs(((windDeg - filterDeg) + 180) % 360 - 180) <= tol;
 }
 
-function bestWindows(idx, scores, times, dirs) {
+function bestWindows(idx, scores, times, dirs, speeds) {
     const df = locations[idx] && locations[idx].dirFilter;
     const days = {};
     times.forEach(function(t, i) {
         const day = t.split('T')[0];
         if (!days[day]) days[day] = [];
         const dirOk = !df || !df.enabled || dirMatchesFilter(dirs[i], df.deg, df.tol);
-        days[day].push({ t: t, s: scores[i], dirOk: dirOk });
+        days[day].push({ t: t, s: scores[i], dirOk: dirOk, speedOk: !speeds || speeds[i] >= CFG.speedMin });
     });
     return Object.entries(days).map(function(entry) {
         const date = entry[0]; const hrs = entry[1];
@@ -727,7 +733,7 @@ function bestWindows(idx, scores, times, dirs) {
         let curStart = null, curEnd = null, curLen = 0;
         hrs.forEach(function(h) {
             const hour = parseInt(h.t.split('T')[1].slice(0, 2), 10);
-            const favorable = h.s <= 2 && h.dirOk && hour >= 6;
+            const favorable = h.s <= 2 && h.dirOk && h.speedOk && hour >= WINDOW_START_HOUR;
             if (favorable) {
                 if (!curStart) curStart = h.t;
                 curEnd = h.t;
@@ -745,6 +751,8 @@ function bestWindows(idx, scores, times, dirs) {
         });
         return bestLen > 0
             ? {
+                date: date,
+                startIso: bestStart,
                 label: dayLabelShort(date),
                 start: bestStart.split('T')[1].slice(0, 5),
                 end: bestEnd.split('T')[1].slice(0, 5),
@@ -806,8 +814,8 @@ function onModelChange() {
 /* ===========================================
    Summary bar
 =========================================== */
-function buildSummary(idx, scores, times, dirs) {
-    const wins = bestWindows(idx, scores, times, dirs);
+function buildSummary(idx, scores, times, dirs, speeds) {
+    const wins = bestWindows(idx, scores, times, dirs, speeds);
     if (!wins.length) return '<span class="chip"><span class="chip-dot" style="background:var(--f3)"></span>Sin ventanas favorables</span>';
     return wins.slice(0, 3).map(function(w) {
         return '<span class="chip"><span class="chip-dot" style="background:var(--f0)"></span>' + escHtml(w.label) + ' · ' + escHtml(w.start) + '–' + escHtml(w.end) + ' (' + w.hours + 'h)</span>';
@@ -854,7 +862,7 @@ function buildHourCards(idx, h, scores, selDay) {
         const shear  = dirShear(dir10, dir120);
 
         const dirOk = !df || !df.enabled || dirMatchesFilter(dir10, df.deg, df.tol);
-        const cls   = dirOk ? 'score-' + s : 'dir-filtered';
+        const cls   = !dirOk ? 'dir-filtered' : ws10 < CFG.speedMin ? 'score-' + s + ' too-light' : 'score-' + s;
 
         const timeStr   = t.split('T')[1].slice(0, 5).replace(':00', 'h');
         const barH      = blh !== null ? Math.max(2, Math.round((Math.min(blh, maxBLH) / maxBLH) * 22)) : 2;
@@ -922,6 +930,7 @@ function showDetail(idx, hourIdx) {
     const reasons = [];
     if (df && df.enabled && !dirMatchesFilter(d10, df.deg, df.tol))
         reasons.push('Dir ' + compassDir(d10) + ' (' + d10 + '°) fuera del filtro');
+    if (ws10 < CFG.speedMin) reasons.push('Viento ' + ws10.toFixed(1) + ' km/h < minimo ' + CFG.speedMin + ' km/h');
     if (sSpeed > 0) reasons.push('Viento ' + ws10.toFixed(1) + ' km/h > limite ' + CFG.speedOpt + ' km/h');
     if (sGust  > 0) reasons.push('Rachas ' + gust.toFixed(1) + ' km/h > limite ' + CFG.gustOk + ' km/h');
     if (sShear > 0) reasons.push('Cizalladura ' + shear.toFixed(0) + '° > limite ' + CFG.shearOk + '°');
@@ -983,7 +992,7 @@ function rebuildHourly(idx, data) {
     const selDay = locations[idx].selectedDay != null ? locations[idx].selectedDay : 0;
 
     body.innerHTML = ''
-        + '<div class="summary-bar">' + buildSummary(idx, scores, h.time, h.wind_direction_10m) + '</div>'
+        + '<div class="summary-bar">' + buildSummary(idx, scores, h.time, h.wind_direction_10m, h.wind_speed_10m) + '</div>'
         + '<div class="day-tabs">' + buildDayTabs(idx, days, scores, h.time, selDay) + '</div>'
         + '<div class="hourly-section">'
         +   '<div class="hourly-hint">← desliza · toca para detalles</div>'
@@ -991,7 +1000,7 @@ function rebuildHourly(idx, data) {
         +   '<div class="detail-panel"></div>'
         + '</div>'
         + '<div class="loc-legend">'
-        +   '<span class="lgi"><span class="lgdot" style="background:var(--f0)"></span>Optimo &lt;' + CFG.speedOpt + 'km/h</span>'
+        +   '<span class="lgi"><span class="lgdot" style="background:var(--f0)"></span>Optimo ' + CFG.speedMin + '–' + CFG.speedOpt + ' km/h</span>'
         +   '<span class="lgi"><span class="lgdot" style="background:var(--f1)"></span>Moderado</span>'
         +   '<span class="lgi"><span class="lgdot" style="background:var(--f2)"></span>Fuerte</span>'
         +   '<span class="lgi"><span class="lgdot" style="background:var(--f3)"></span>Peligroso</span>'
@@ -999,6 +1008,22 @@ function rebuildHourly(idx, data) {
         +   '<span class="lgi"><span class="lgdot" style="background:#22c55e"></span>Term. activas</span>'
         +   '<span class="lgi"><span class="lgdot" style="background:#f59e0b"></span>Term. fuertes</span>'
         + '</div>';
+
+    scrollToDefaultCard(idx, h, scores, days, selDay);
+}
+
+function scrollToDefaultCard(idx, h, scores, days, selDay) {
+    const card = document.getElementById('card-' + idx);
+    const scroller = card && card.querySelector('.hourly-scroll');
+    if (!scroller) return;
+    const dayDate = days[selDay];
+    const win = bestWindows(idx, scores, h.time, h.wind_direction_10m, h.wind_speed_10m)
+        .find(function(w) { return w.date === dayDate; });
+    const targetTime = win ? win.startIso : dayDate + 'T' + String(DEFAULT_CARD_HOUR).padStart(2, '0') + ':00';
+    const i = h.time.indexOf(targetTime);
+    const el = i >= 0 && document.getElementById('hc-' + idx + '-' + i);
+    if (!el) return;
+    scroller.scrollLeft = el.getBoundingClientRect().left - scroller.getBoundingClientRect().left + scroller.scrollLeft - 12;
 }
 
 /* ===========================================
@@ -1210,6 +1235,7 @@ function toggleSettings() {
 }
 
 function populateSettingsInputs() {
+    document.getElementById('cfg-smin').value = CFG.speedMin;
     document.getElementById('cfg-s1').value  = CFG.speedOpt;
     document.getElementById('cfg-s2').value  = CFG.speedMod;
     document.getElementById('cfg-s3').value  = CFG.speedStr;
@@ -1222,7 +1248,7 @@ function populateSettingsInputs() {
 function readSettingsInputs() {
     const n = function(id) { return parseFloat(document.getElementById(id).value); };
     return {
-        speedOpt: n('cfg-s1'), speedMod: n('cfg-s2'), speedStr: n('cfg-s3'),
+        speedMin: n('cfg-smin'), speedOpt: n('cfg-s1'), speedMod: n('cfg-s2'), speedStr: n('cfg-s3'),
         gustOk: n('cfg-gf1'), gustMod: n('cfg-gf2'),
         shearOk: n('cfg-sh1'), shearMod: n('cfg-sh2'),
     };
@@ -1230,8 +1256,8 @@ function readSettingsInputs() {
 
 function applySettings() {
     const v = readSettingsInputs();
-    if (v.speedOpt >= v.speedMod || v.speedMod >= v.speedStr) {
-        alert('Los limites de velocidad deben ser ascendentes (Optimo < Moderado < Fuerte).');
+    if (v.speedMin >= v.speedOpt || v.speedOpt >= v.speedMod || v.speedMod >= v.speedStr) {
+        alert('Los limites de velocidad deben ser ascendentes (Minimo < Optimo < Moderado < Fuerte).');
         return;
     }
     if (v.gustOk >= v.gustMod) { alert('Los limites de rachas deben ser ascendentes.'); return; }
