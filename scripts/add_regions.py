@@ -1,23 +1,50 @@
 #!/usr/bin/env python3
-"""Add region (comunidad autonoma / region) and province to every site in the
-paraglidingEarth*.json files, using OpenStreetMap Nominatim reverse geocoding.
+"""Add region and province to every site in the paraglidingEarth*.json files,
+using OpenStreetMap Nominatim reverse geocoding (max 1 request/second).
 
-Nominatim's usage policy allows max 1 request/second, so this takes ~15 min for
-~780 sites. Progress is cached in scripts/.region-cache.json, so it can be
-interrupted and re-run. Sites already carrying `region` are skipped.
+Spain:    region = comunidad autonoma, province = provincia (null when the
+          comunidad is uniprovincial; provinces are never renamed to regions).
+Portugal: province = distrito, region = NUTS II (Norte, Centro, Area
+          Metropolitana de Lisboa, Alentejo, Algarve). Azores and Madeira have
+          no district: province is null and region is Azores / Madeira.
+
+Results are cached in scripts/.region-cache.json, so the script can be
+interrupted and re-run. Use --force to recompute sites that already have a region.
 """
 import json, os, sys, time, urllib.parse, urllib.request
 
-ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
+HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.join(HERE, '..')
 FILES = ['data/paraglidingEarthSpain.json', 'data/paraglidingEarthPortugal.json']
-CACHE = os.path.join(os.path.dirname(os.path.abspath(__file__)), '.region-cache.json')
+CACHE = os.path.join(HERE, '.region-cache.json')
 UA = 'wind-forecast-region-enrichment/1.0 (personal project)'
-
 FORCE = '--force' in sys.argv
+
+# NUTS II (2013 statistical regions) by district. Lisboa and Santarem districts
+# straddle two NUTS II regions and are resolved per municipality below.
+NUTS2_BY_DISTRICT = {
+    'Viana do Castelo': 'Norte', 'Braga': 'Norte', 'Oporto': 'Norte', 'Porto': 'Norte',
+    'Vila Real': 'Norte', 'Bragança': 'Norte',
+    'Aveiro': 'Centro', 'Viseu': 'Centro', 'Guarda': 'Centro', 'Coímbra': 'Centro',
+    'Castelo Branco': 'Centro', 'Leiria': 'Centro',
+    'Setúbal': 'Área Metropolitana de Lisboa',
+    'Beja': 'Alentejo', 'Évora': 'Alentejo', 'Portalegre': 'Alentejo',
+    'Faro': 'Algarve',
+}
+NUTS2_CODES = {'Norte': 'PT-NORTE', 'Centro': 'PT-CENTRO', 'Área Metropolitana de Lisboa': 'PT-AML',
+               'Alentejo': 'PT-ALENTEJO', 'Algarve': 'PT-ALGARVE'}
+# Municipalities of the Lisboa district that belong to NUTS II Centro (Oeste)
+LISBOA_CENTRO = {'Alenquer', 'Arruda dos Vinhos', 'Sobral de Monte Agraço', 'Torres Vedras', 'Lourinhã', 'Cadaval'}
+# Municipalities of the Santarem district that belong to NUTS II Alentejo (Lezíria do Tejo)
+SANTAREM_ALENTEJO = {'Almeirim', 'Alpiarça', 'Azambuja', 'Benavente', 'Cartaxo', 'Chamusca', 'Coruche',
+                     'Golegã', 'Rio Maior', 'Salvaterra de Magos', 'Santarém'}
+# Coastal takeoffs where Nominatim finds no boundary at all
+DISTRICT_OVERRIDES = {'Pombal Portugal': 'Leiria', 'V.N.Milfontes - Furnas': 'Beja', 'Almograve - PT': 'Beja'}
+
 cache = json.load(open(CACHE, encoding='utf-8')) if os.path.exists(CACHE) else {}
 
 def reverse(lat, lon, zoom=8):
-    key = '%.5f,%.5f' % (lat, lon)
+    key = '%.5f,%.5f,z%d' % (lat, lon, zoom)
     if key in cache:
         return cache[key]
     q = urllib.parse.urlencode({'format': 'jsonv2', 'zoom': zoom, 'addressdetails': 1,
@@ -27,20 +54,44 @@ def reverse(lat, lon, zoom=8):
         try:
             with urllib.request.urlopen(req, timeout=30) as r:
                 addr = json.load(r).get('address', {})
-            if not addr and zoom > 5:
-                return reverse(lat, lon, zoom - 3)
             break
         except Exception as e:
             print('  retry', attempt, e, file=sys.stderr)
             time.sleep(5 * (attempt + 1))
     else:
         return None
+    time.sleep(1.1)
     if not addr:
         return None
     cache[key] = addr
     json.dump(cache, open(CACHE, 'w', encoding='utf-8'))
-    time.sleep(1.1)
     return addr
+
+def municipality(lat, lon):
+    a = reverse(lat, lon, 10) or {}
+    return a.get('municipality') or a.get('city') or a.get('town') or a.get('village')
+
+def portugal(p, lat, lon, addr):
+    if addr.get('ISO3166-2-lvl4') in ('PT-20', 'PT-30'):
+        p['region'] = addr.get('archipelago') or addr.get('state')
+        p['regionCode'] = addr['ISO3166-2-lvl4']
+        p['province'] = p['provinceCode'] = None
+        return
+    district = addr.get('county')
+    p['province'], p['provinceCode'] = district, addr.get('ISO3166-2-lvl6')
+    nuts2 = NUTS2_BY_DISTRICT.get(district)
+    if district == 'Lisboa':
+        nuts2 = 'Centro' if municipality(lat, lon) in LISBOA_CENTRO else 'Área Metropolitana de Lisboa'
+    elif district == 'Santarém':
+        nuts2 = 'Alentejo' if municipality(lat, lon) in SANTAREM_ALENTEJO else 'Centro'
+    p['region'], p['regionCode'] = nuts2, NUTS2_CODES.get(nuts2)
+
+def spain(p, addr):
+    # state = comunidad autonoma, state_district/province = provincia (absent if uniprovincial)
+    p['region'] = addr.get('state')
+    p['regionCode'] = addr.get('ISO3166-2-lvl4')
+    p['province'] = addr.get('state_district') or addr.get('province')
+    p['provinceCode'] = addr.get('ISO3166-2-lvl6')
 
 for f in FILES:
     path = os.path.join(ROOT, f)
@@ -52,19 +103,18 @@ for f in FILES:
             continue
         lon, lat = ft['geometry']['coordinates'][:2]
         addr = reverse(lat, lon)
-        if not addr and p.get('landing_lat') and p.get('landing_lng'):
-            # takeoff falls outside any boundary (coast): use the landing point instead
-            addr = reverse(float(p['landing_lat']), float(p['landing_lng']))
+        if p['name'] in DISTRICT_OVERRIDES and not (addr or {}).get('county'):
+            addr = {'county': DISTRICT_OVERRIDES[p['name']], 'country_code': 'pt'}
+            addr['ISO3166-2-lvl6'] = next((v['ISO3166-2-lvl6'] for v in cache.values()
+                                           if v.get('county') == addr['county'] and v.get('ISO3166-2-lvl6')), None)
         if not addr:
-            print('FAILED', p.get('name'), file=sys.stderr)
+            print('FAILED', p['name'], file=sys.stderr)
             continue
-        # state = comunidad autonoma (ES) / region (PT); state_district or county = province/district
-        # ES: state = comunidad autonoma, state_district = provincia (absent when the comunidad is uniprovincial)
-        # PT mainland: only the district (county / ISO3166-2-lvl6) exists; islands: archipelago / lvl4
-        p['province'] = addr.get('state_district') or addr.get('county') or addr.get('state')
-        p['provinceCode'] = addr.get('ISO3166-2-lvl6') or addr.get('ISO3166-2-lvl4')
-        p['region'] = addr.get('state') or addr.get('archipelago') or addr.get('county')
-        p['regionCode'] = addr.get('ISO3166-2-lvl4') or addr.get('ISO3166-2-lvl6')
+        # country comes from the geocoder, not the file: some "Spain" sites are in Portugal and vice versa
+        if addr.get('country_code') == 'pt':
+            portugal(p, lat, lon, addr)
+        else:
+            spain(p, addr)
         print('%s %d/%d %s -> %s / %s' % (f, n, len(feats), p['name'], p['region'], p['province']), flush=True)
         if n % 25 == 0:
             json.dump(data, open(path, 'w', encoding='utf-8'), ensure_ascii=False, indent=4)

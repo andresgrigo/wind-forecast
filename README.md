@@ -21,4 +21,4 @@ The app loads `data/*.json` with `fetch`, so serve the folder over HTTP (e.g. `p
 
 ## Regions
 
-`scripts/add_regions.py` adds `region`, `regionCode`, `province` and `provinceCode` to each site in `data/paraglidingEarth{Spain,Portugal}.json` via OpenStreetMap Nominatim reverse geocoding (≈1 req/s, cached in `scripts/.region-cache.json`). Spain gets comunidad autónoma + provincia; mainland Portugal gets its distrito; the Azores and Madeira are their own regions. Re-run with `--force` to recompute.
+`scripts/add_regions.py` adds `region`, `regionCode`, `province` and `provinceCode` to each site in `data/paraglidingEarth{Spain,Portugal}.json` via OpenStreetMap Nominatim reverse geocoding (≈1 req/s, cached in `scripts/.region-cache.json`). Spain gets comunidad autónoma + provincia (provincia stays null for uniprovincial comunidades). Mainland Portugal gets its distrito as `province` and its NUTS II region (Norte, Centro, Área Metropolitana de Lisboa, Alentejo, Algarve) as `region`; Lisboa and Santarém districts are split per municipality. The Azores and Madeira have `province: null` and are their own regions. Re-run with `--force` to recompute.

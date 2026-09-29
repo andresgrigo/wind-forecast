@@ -46,8 +46,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Leiria",
-                "regionCode": "PT-10",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Leiria",
                 "provinceCode": "PT-10"
             }
@@ -97,8 +97,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Beja",
-                "regionCode": "PT-02",
+                "region": "Alentejo",
+                "regionCode": "PT-ALENTEJO",
                 "province": "Beja",
                 "provinceCode": "PT-02"
             }
@@ -148,8 +148,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Guarda",
-                "regionCode": "PT-09",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Guarda",
                 "provinceCode": "PT-09"
             }
@@ -199,8 +199,8 @@
                 "going_there": "IP2",
                 "comments": "",
                 "weather": "",
-                "region": "Bragança",
-                "regionCode": "PT-04",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Bragança",
                 "provinceCode": "PT-04"
             }
@@ -250,8 +250,8 @@
                 "going_there": "Through Freixo de Espada-Ã -Cinta",
                 "comments": "Fabulous Landscape",
                 "weather": "",
-                "region": "Bragança",
-                "regionCode": "PT-04",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Bragança",
                 "provinceCode": "PT-04"
             }
@@ -301,8 +301,8 @@
                 "going_there": "",
                 "comments": "This is the main take off. There are two. Great beach soaring site.",
                 "weather": "Do not land in the water",
-                "region": "Leiria",
-                "regionCode": "PT-10",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Leiria",
                 "provinceCode": "PT-10"
             }
@@ -360,8 +360,8 @@
                     "landing_altitude": "418",
                     "landing_description": "Major land site in local Football Stadium and some more small spots around."
                 },
-                "region": "Bragança",
-                "regionCode": "PT-04",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Bragança",
                 "provinceCode": "PT-04"
             }
@@ -411,8 +411,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Portalegre",
-                "regionCode": "PT-12",
+                "region": "Alentejo",
+                "regionCode": "PT-ALENTEJO",
                 "province": "Portalegre",
                 "provinceCode": "PT-12"
             }
@@ -462,8 +462,8 @@
                 "going_there": "From Porto: \r\nAbout 1,5h travel \r\n\r\nFollow A4 highway until the exit 'Lamas de OrelhÃ£o', then you will see several plates to takeoff and official landing. \r\n\r\nFrom Lisbon: \r\nAbout 4,5h travel \r\n\r\nFollow A1 highway to Porto, then you get A4 until the exit 'Lamas de OrelhÃ£o', then you will see several plates to takeoff and official landing.",
                 "comments": "The club has a van for local and Xc retrievalÂ´s.",
                 "weather": "",
-                "region": "Bragança",
-                "regionCode": "PT-04",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Bragança",
                 "provinceCode": "PT-04"
             }
@@ -521,8 +521,8 @@
                     "landing_altitude": "531",
                     "landing_description": "An ample field the valley by the river. Although ample and allowing for the approach to be done from virtually any direction, it has some tall trees delimiting the river. Attention is required to the electric cables that cross de valley."
                 },
-                "region": "Guarda",
-                "regionCode": "PT-09",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Guarda",
                 "provinceCode": "PT-09"
             }
@@ -580,8 +580,8 @@
                     "landing_altitude": "7",
                     "landing_description": "On the beach. !Forbidden from mid june to mid september!"
                 },
-                "region": "Setúbal",
-                "regionCode": "PT-15",
+                "region": "Área Metropolitana de Lisboa",
+                "regionCode": "PT-AML",
                 "province": "Setúbal",
                 "provinceCode": "PT-15"
             }
@@ -631,8 +631,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Vila Real",
-                "regionCode": "PT-17",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Vila Real",
                 "provinceCode": "PT-17"
             }
@@ -682,8 +682,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Coímbra",
-                "regionCode": "PT-06",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Coímbra",
                 "provinceCode": "PT-06"
             }
@@ -733,8 +733,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Leiria",
-                "regionCode": "PT-10",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Leiria",
                 "provinceCode": "PT-10"
             }
@@ -784,8 +784,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Setúbal",
-                "regionCode": "PT-15",
+                "region": "Área Metropolitana de Lisboa",
+                "regionCode": "PT-AML",
                 "province": "Setúbal",
                 "provinceCode": "PT-15"
             }
@@ -835,8 +835,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Guarda",
-                "regionCode": "PT-09",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Guarda",
                 "provinceCode": "PT-09"
             }
@@ -886,8 +886,8 @@
                 "going_there": "Estacionamento a 100m da decolagem ",
                 "comments": "",
                 "weather": "",
-                "region": "Setúbal",
-                "regionCode": "PT-15",
+                "region": "Área Metropolitana de Lisboa",
+                "regionCode": "PT-AML",
                 "province": "Setúbal",
                 "provinceCode": "PT-15"
             }
@@ -937,8 +937,8 @@
                 "going_there": "Vários estacionamentos pagos perto da decolagem, com caminhada de 1km",
                 "comments": "",
                 "weather": "",
-                "region": "Setúbal",
-                "regionCode": "PT-15",
+                "region": "Área Metropolitana de Lisboa",
+                "regionCode": "PT-AML",
                 "province": "Setúbal",
                 "provinceCode": "PT-15"
             }
@@ -988,8 +988,8 @@
                 "going_there": "Estrada asfaltada até próximo a entrada da decolagem aonde se estaciona os veiculos (estrada militar)",
                 "comments": "",
                 "weather": "",
-                "region": "Setúbal",
-                "regionCode": "PT-15",
+                "region": "Área Metropolitana de Lisboa",
+                "regionCode": "PT-AML",
                 "province": "Setúbal",
                 "provinceCode": "PT-15"
             }
@@ -1039,8 +1039,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Lisboa",
-                "regionCode": "PT-11",
+                "region": "Área Metropolitana de Lisboa",
+                "regionCode": "PT-AML",
                 "province": "Lisboa",
                 "provinceCode": "PT-11"
             }
@@ -1090,8 +1090,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Santarém",
-                "regionCode": "PT-14",
+                "region": "Alentejo",
+                "regionCode": "PT-ALENTEJO",
                 "province": "Santarém",
                 "provinceCode": "PT-14"
             }
@@ -1141,8 +1141,8 @@
                 "going_there": "",
                 "comments": "AIRSPACE\nLP-R42A SINTRA H24 SUA\nOft GND - 3000ft MSL\n~ Om AGL - 914m AMSL",
                 "weather": "",
-                "region": "Lisboa",
-                "regionCode": "PT-11",
+                "region": "Área Metropolitana de Lisboa",
+                "regionCode": "PT-AML",
                 "province": "Lisboa",
                 "provinceCode": "PT-11"
             }
@@ -1192,8 +1192,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Santarém",
-                "regionCode": "PT-14",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Santarém",
                 "provinceCode": "PT-14"
             }
@@ -1243,8 +1243,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Leiria",
-                "regionCode": "PT-10",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Leiria",
                 "provinceCode": "PT-10"
             }
@@ -1294,8 +1294,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Leiria",
-                "regionCode": "PT-10",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Leiria",
                 "provinceCode": "PT-10"
             }
@@ -1345,8 +1345,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Aveiro",
-                "regionCode": "PT-01",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Aveiro",
                 "provinceCode": "PT-01"
             }
@@ -1404,8 +1404,8 @@
                     "landing_altitude": "4",
                     "landing_description": "Directly on the beach (see map position) or on the grass just behind it in case there are too many people on the beach.\nThere are few grassy spots near the bar for folding the wing.\nThere is a nice bar at landing, where the local pilots usually have a beer after the flight,"
                 },
-                "region": "Setúbal",
-                "regionCode": "PT-15",
+                "region": "Área Metropolitana de Lisboa",
+                "regionCode": "PT-AML",
                 "province": "Setúbal",
                 "provinceCode": "PT-15"
             }
@@ -1455,8 +1455,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Leiria",
-                "regionCode": "PT-10",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Leiria",
                 "provinceCode": "PT-10"
             }
@@ -1506,8 +1506,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Lisboa",
-                "regionCode": "PT-11",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Lisboa",
                 "provinceCode": "PT-11"
             }
@@ -1557,8 +1557,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Lisboa",
-                "regionCode": "PT-11",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Lisboa",
                 "provinceCode": "PT-11"
             }
@@ -1608,8 +1608,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Lisboa",
-                "regionCode": "PT-11",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Lisboa",
                 "provinceCode": "PT-11"
             }
@@ -1667,8 +1667,8 @@
                     "landing_altitude": "531",
                     "landing_description": "An ample field the valley by the river. Although ample and allowing for the approach to be done from virtually any direction, it has some tall trees delimiting the river. Attention is required to the electric cables that cross de valley."
                 },
-                "region": "Guarda",
-                "regionCode": "PT-09",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Guarda",
                 "provinceCode": "PT-09"
             }
@@ -1726,8 +1726,8 @@
                     "landing_altitude": "147",
                     "landing_description": ""
                 },
-                "region": "Braga",
-                "regionCode": "PT-03",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Braga",
                 "provinceCode": "PT-03"
             }
@@ -1777,8 +1777,8 @@
                 "going_there": "",
                 "comments": "AIRSPACE\nLP-R42A SINTRA H24 SUA\nOft GND - 3000ft MSL\n~ Om AGL - 914m AMSL",
                 "weather": "",
-                "region": "Lisboa",
-                "regionCode": "PT-11",
+                "region": "Área Metropolitana de Lisboa",
+                "regionCode": "PT-AML",
                 "province": "Lisboa",
                 "provinceCode": "PT-11"
             }
@@ -1836,8 +1836,8 @@
                     "landing_altitude": "497",
                     "landing_description": "There are multiple large grass fields below right in front of the take-off. Note sure any of them is an official landing site. The largest field is surrounded by a barber wire. The smaller field on the left (where the landing position on the map is) has got an exit without a need to climb over the fence.\nA common sense would be landing on a spot where there is no livestock.. "
                 },
-                "region": "Portalegre",
-                "regionCode": "PT-12",
+                "region": "Alentejo",
+                "regionCode": "PT-ALENTEJO",
                 "province": "Portalegre",
                 "provinceCode": "PT-12"
             }
@@ -1895,8 +1895,8 @@
                     "landing_altitude": "194",
                     "landing_description": "Yes . Not so big but be careful there is a concrete zone just in the middle of the landing  , and a ravine just before the beginning of the ground ( in case of wind west )"
                 },
-                "region": "Viana do Castelo",
-                "regionCode": "PT-16",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Viana do Castelo",
                 "provinceCode": "PT-16"
             }
@@ -1946,8 +1946,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Castelo Branco",
-                "regionCode": "PT-05",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Castelo Branco",
                 "provinceCode": "PT-05"
             }
@@ -1997,8 +1997,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Coímbra",
-                "regionCode": "PT-06",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Coímbra",
                 "provinceCode": "PT-06"
             }
@@ -2048,8 +2048,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Lisboa",
-                "regionCode": "PT-11",
+                "region": "Área Metropolitana de Lisboa",
+                "regionCode": "PT-AML",
                 "province": "Lisboa",
                 "provinceCode": "PT-11"
             }
@@ -2099,8 +2099,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Coímbra",
-                "regionCode": "PT-06",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Coímbra",
                 "provinceCode": "PT-06"
             }
@@ -2150,8 +2150,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "watch out for the tide as it makes landing at the bottom difficult\nCuidado com ventos fortes e o rotor, se não conhece o local pergunte para quem conhece ",
-                "region": "Leiria",
-                "regionCode": "PT-10",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Leiria",
                 "provinceCode": "PT-10"
             }
@@ -2209,8 +2209,8 @@
                     "landing_altitude": "1004",
                     "landing_description": "Very easy to land"
                 },
-                "region": "Vila Real",
-                "regionCode": "PT-17",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Vila Real",
                 "provinceCode": "PT-17"
             }
@@ -2319,8 +2319,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Guarda",
-                "regionCode": "PT-09",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Guarda",
                 "provinceCode": "PT-09"
             }
@@ -2370,8 +2370,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Guarda",
-                "regionCode": "PT-09",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Guarda",
                 "provinceCode": "PT-09"
             }
@@ -2421,8 +2421,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Guarda",
-                "regionCode": "PT-09",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Guarda",
                 "provinceCode": "PT-09"
             }
@@ -2480,8 +2480,8 @@
                     "landing_altitude": "182",
                     "landing_description": ""
                 },
-                "region": "Coímbra",
-                "regionCode": "PT-06",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Coímbra",
                 "provinceCode": "PT-06"
             }
@@ -2539,8 +2539,8 @@
                     "landing_altitude": "939",
                     "landing_description": ""
                 },
-                "region": "Guarda",
-                "regionCode": "PT-09",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Guarda",
                 "provinceCode": "PT-09"
             }
@@ -2598,8 +2598,8 @@
                     "landing_altitude": "193",
                     "landing_description": "There is a very large landing field below on the left side (see position on the map). The landing field is part of the karst lakes bioreserve, in case of high groundwaters (spring, or after heavy rains) the whole area will get flooded. This normally does not happen in summer."
                 },
-                "region": "Santarém",
-                "regionCode": "PT-14",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Santarém",
                 "provinceCode": "PT-14"
             }
@@ -2649,8 +2649,8 @@
                 "going_there": "From Porto:\r\n\r\nAbout 1,5h travel\r\nFollow A4 highway until the exit 'Lamas de OrelhÃ£o', then you will see several plates to takeoff and official landing.\r\n\r\nFrom Lisbon:\r\n\r\nAbout 4,5h travel\r\nFollow A1 highway to Porto, then you get A4 until the exit 'Lamas de OrelhÃ£o', then you will see several plates to takeoff and official landing.",
                 "comments": "The club has a van for local and Xc retrievalÂ´s.",
                 "weather": "",
-                "region": "Bragança",
-                "regionCode": "PT-04",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Bragança",
                 "provinceCode": "PT-04"
             }
@@ -2700,8 +2700,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Vila Real",
-                "regionCode": "PT-17",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Vila Real",
                 "provinceCode": "PT-17"
             }
@@ -2751,8 +2751,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Lisboa",
-                "regionCode": "PT-11",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Lisboa",
                 "provinceCode": "PT-11"
             }
@@ -2802,8 +2802,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Leiria",
-                "regionCode": "PT-10",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Leiria",
                 "provinceCode": "PT-10"
             }
@@ -2853,8 +2853,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Coímbra",
-                "regionCode": "PT-06",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Coímbra",
                 "provinceCode": "PT-06"
             }
@@ -2904,8 +2904,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Setúbal",
-                "regionCode": "PT-15",
+                "region": "Área Metropolitana de Lisboa",
+                "regionCode": "PT-AML",
                 "province": "Setúbal",
                 "provinceCode": "PT-15"
             }
@@ -2955,8 +2955,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "Do not land in the water",
-                "region": "Leiria",
-                "regionCode": "PT-10",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Leiria",
                 "provinceCode": "PT-10"
             }
@@ -3006,8 +3006,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Beja",
-                "regionCode": "PT-02",
+                "region": "Alentejo",
+                "regionCode": "PT-ALENTEJO",
                 "province": "Beja",
                 "provinceCode": "PT-02"
             }
@@ -3057,8 +3057,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Beja",
-                "regionCode": "PT-02",
+                "region": "Alentejo",
+                "regionCode": "PT-ALENTEJO",
                 "province": "Beja",
                 "provinceCode": "PT-02"
             }
@@ -3108,8 +3108,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Beja",
-                "regionCode": "PT-02",
+                "region": "Alentejo",
+                "regionCode": "PT-ALENTEJO",
                 "province": "Beja",
                 "provinceCode": "PT-02"
             }
@@ -3159,8 +3159,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Portalegre",
-                "regionCode": "PT-12",
+                "region": "Alentejo",
+                "regionCode": "PT-ALENTEJO",
                 "province": "Portalegre",
                 "provinceCode": "PT-12"
             }
@@ -3210,8 +3210,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Leiria",
-                "regionCode": "PT-10",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Leiria",
                 "provinceCode": "PT-10"
             }
@@ -3269,8 +3269,8 @@
                     "landing_altitude": "0",
                     "landing_description": "on beach below"
                 },
-                "region": "Leiria",
-                "regionCode": "PT-10",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Leiria",
                 "provinceCode": "PT-10"
             }
@@ -3320,8 +3320,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Lisboa",
-                "regionCode": "PT-11",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Lisboa",
                 "provinceCode": "PT-11"
             }
@@ -3371,8 +3371,8 @@
                 "going_there": "Drivable almost to the top. Short walk from dirt road. Road may be muddy so park and walk up. ",
                 "comments": "Be careful with strong wind!!!",
                 "weather": "",
-                "region": "Coímbra",
-                "regionCode": "PT-06",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Coímbra",
                 "provinceCode": "PT-06"
             }
@@ -3422,8 +3422,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Leiria",
-                "regionCode": "PT-10",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Leiria",
                 "provinceCode": "PT-10"
             }
@@ -3473,8 +3473,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Leiria",
-                "regionCode": "PT-10",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Leiria",
                 "provinceCode": "PT-10"
             }
@@ -3532,8 +3532,8 @@
                     "landing_altitude": "475",
                     "landing_description": "Very large : 100m x 200m.\r\nNext to the Pilot's house."
                 },
-                "region": "Vila Real",
-                "regionCode": "PT-17",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Vila Real",
                 "provinceCode": "PT-17"
             }
@@ -3591,8 +3591,8 @@
                     "landing_altitude": "580",
                     "landing_description": "Near Small football field at Acoreira village"
                 },
-                "region": "Bragança",
-                "regionCode": "PT-04",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Bragança",
                 "provinceCode": "PT-04"
             }
@@ -3650,8 +3650,8 @@
                     "landing_altitude": "532",
                     "landing_description": "Football Camp"
                 },
-                "region": "Bragança",
-                "regionCode": "PT-04",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Bragança",
                 "provinceCode": "PT-04"
             }
@@ -3709,8 +3709,8 @@
                     "landing_altitude": "656",
                     "landing_description": "Lots of space - some avoidable wires"
                 },
-                "region": "Bragança",
-                "regionCode": "PT-04",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Bragança",
                 "provinceCode": "PT-04"
             }
@@ -3768,8 +3768,8 @@
                     "landing_altitude": "565",
                     "landing_description": "Large landing zone"
                 },
-                "region": "Bragança",
-                "regionCode": "PT-04",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Bragança",
                 "provinceCode": "PT-04"
             }
@@ -3827,8 +3827,8 @@
                     "landing_altitude": "109",
                     "landing_description": "Sabor River - Left River Bank"
                 },
-                "region": "Bragança",
-                "regionCode": "PT-04",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Bragança",
                 "provinceCode": "PT-04"
             }
@@ -3886,8 +3886,8 @@
                     "landing_altitude": "602",
                     "landing_description": "Large, no wires, safe."
                 },
-                "region": "Bragança",
-                "regionCode": "PT-04",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Bragança",
                 "provinceCode": "PT-04"
             }
@@ -3945,8 +3945,8 @@
                     "landing_altitude": "715",
                     "landing_description": ""
                 },
-                "region": "Bragança",
-                "regionCode": "PT-04",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Bragança",
                 "provinceCode": "PT-04"
             }
@@ -4004,8 +4004,8 @@
                     "landing_altitude": "116",
                     "landing_description": "Footbal camp in Eiras Village in 'Campo de Besteiros'. Open field and large."
                 },
-                "region": "Viseu",
-                "regionCode": "PT-18",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Viseu",
                 "provinceCode": "PT-18"
             }
@@ -4066,7 +4066,7 @@
                 "region": "Madeira",
                 "regionCode": "PT-30",
                 "province": null,
-                "provinceCode": "PT-30"
+                "provinceCode": null
             }
         },
         {
@@ -4125,7 +4125,7 @@
                 "region": "Azores",
                 "regionCode": "PT-20",
                 "province": null,
-                "provinceCode": "PT-20"
+                "provinceCode": null
             }
         },
         {
@@ -4184,7 +4184,7 @@
                 "region": "Azores",
                 "regionCode": "PT-20",
                 "province": null,
-                "provinceCode": "PT-20"
+                "provinceCode": null
             }
         },
         {
@@ -4243,7 +4243,7 @@
                 "region": "Azores",
                 "regionCode": "PT-20",
                 "province": null,
-                "provinceCode": "PT-20"
+                "provinceCode": null
             }
         },
         {
@@ -4302,7 +4302,7 @@
                 "region": "Azores",
                 "regionCode": "PT-20",
                 "province": null,
-                "provinceCode": "PT-20"
+                "provinceCode": null
             }
         },
         {
@@ -4361,7 +4361,7 @@
                 "region": "Azores",
                 "regionCode": "PT-20",
                 "province": null,
-                "provinceCode": "PT-20"
+                "provinceCode": null
             }
         },
         {
@@ -4420,7 +4420,7 @@
                 "region": "Azores",
                 "regionCode": "PT-20",
                 "province": null,
-                "provinceCode": "PT-20"
+                "provinceCode": null
             }
         },
         {
@@ -4479,7 +4479,7 @@
                 "region": "Azores",
                 "regionCode": "PT-20",
                 "province": null,
-                "provinceCode": "PT-20"
+                "provinceCode": null
             }
         },
         {
@@ -4538,7 +4538,7 @@
                 "region": "Azores",
                 "regionCode": "PT-20",
                 "province": null,
-                "provinceCode": "PT-20"
+                "provinceCode": null
             }
         },
         {
@@ -4597,7 +4597,7 @@
                 "region": "Azores",
                 "regionCode": "PT-20",
                 "province": null,
-                "provinceCode": "PT-20"
+                "provinceCode": null
             }
         },
         {
@@ -4656,7 +4656,7 @@
                 "region": "Azores",
                 "regionCode": "PT-20",
                 "province": null,
-                "provinceCode": "PT-20"
+                "provinceCode": null
             }
         },
         {
@@ -4715,7 +4715,7 @@
                 "region": "Madeira",
                 "regionCode": "PT-30",
                 "province": null,
-                "provinceCode": "PT-30"
+                "provinceCode": null
             }
         },
         {
@@ -4774,7 +4774,7 @@
                 "region": "Madeira",
                 "regionCode": "PT-30",
                 "province": null,
-                "provinceCode": "PT-30"
+                "provinceCode": null
             }
         },
         {
@@ -4833,7 +4833,7 @@
                 "region": "Madeira",
                 "regionCode": "PT-30",
                 "province": null,
-                "provinceCode": "PT-30"
+                "provinceCode": null
             }
         },
         {
@@ -4892,7 +4892,7 @@
                 "region": "Madeira",
                 "regionCode": "PT-30",
                 "province": null,
-                "provinceCode": "PT-30"
+                "provinceCode": null
             }
         },
         {
@@ -4951,7 +4951,7 @@
                 "region": "Madeira",
                 "regionCode": "PT-30",
                 "province": null,
-                "provinceCode": "PT-30"
+                "provinceCode": null
             }
         },
         {
@@ -5002,7 +5002,7 @@
                 "region": "Madeira",
                 "regionCode": "PT-30",
                 "province": null,
-                "provinceCode": "PT-30"
+                "provinceCode": null
             }
         },
         {
@@ -5061,7 +5061,7 @@
                 "region": "Madeira",
                 "regionCode": "PT-30",
                 "province": null,
-                "provinceCode": "PT-30"
+                "provinceCode": null
             }
         },
         {
@@ -5120,7 +5120,7 @@
                 "region": "Madeira",
                 "regionCode": "PT-30",
                 "province": null,
-                "provinceCode": "PT-30"
+                "provinceCode": null
             }
         },
         {
@@ -5179,7 +5179,7 @@
                 "region": "Madeira",
                 "regionCode": "PT-30",
                 "province": null,
-                "provinceCode": "PT-30"
+                "provinceCode": null
             }
         },
         {
@@ -5238,7 +5238,7 @@
                 "region": "Madeira",
                 "regionCode": "PT-30",
                 "province": null,
-                "provinceCode": "PT-30"
+                "provinceCode": null
             }
         },
         {
@@ -5297,7 +5297,7 @@
                 "region": "Madeira",
                 "regionCode": "PT-30",
                 "province": null,
-                "provinceCode": "PT-30"
+                "provinceCode": null
             }
         },
         {
@@ -5356,7 +5356,7 @@
                 "region": "Madeira",
                 "regionCode": "PT-30",
                 "province": null,
-                "provinceCode": "PT-30"
+                "provinceCode": null
             }
         },
         {
@@ -5415,7 +5415,7 @@
                 "region": "Madeira",
                 "regionCode": "PT-30",
                 "province": null,
-                "provinceCode": "PT-30"
+                "provinceCode": null
             }
         },
         {
@@ -5474,7 +5474,7 @@
                 "region": "Madeira",
                 "regionCode": "PT-30",
                 "province": null,
-                "provinceCode": "PT-30"
+                "provinceCode": null
             }
         },
         {
@@ -5533,7 +5533,7 @@
                 "region": "Madeira",
                 "regionCode": "PT-30",
                 "province": null,
-                "provinceCode": "PT-30"
+                "provinceCode": null
             }
         },
         {
@@ -5592,7 +5592,7 @@
                 "region": "Madeira",
                 "regionCode": "PT-30",
                 "province": null,
-                "provinceCode": "PT-30"
+                "provinceCode": null
             }
         },
         {
@@ -5651,7 +5651,7 @@
                 "region": "Madeira",
                 "regionCode": "PT-30",
                 "province": null,
-                "provinceCode": "PT-30"
+                "provinceCode": null
             }
         },
         {
@@ -5707,8 +5707,8 @@
                     "landing_altitude": "52",
                     "landing_description": ""
                 },
-                "region": "Faro",
-                "regionCode": "PT-08",
+                "region": "Algarve",
+                "regionCode": "PT-ALGARVE",
                 "province": "Faro",
                 "provinceCode": "PT-08"
             }
@@ -5766,8 +5766,8 @@
                     "landing_altitude": "5",
                     "landing_description": "at the beach; easy but don´t land close to the life guards!"
                 },
-                "region": "Faro",
-                "regionCode": "PT-08",
+                "region": "Algarve",
+                "regionCode": "PT-ALGARVE",
                 "province": "Faro",
                 "provinceCode": "PT-08"
             }
@@ -5825,8 +5825,8 @@
                     "landing_altitude": "800",
                     "landing_description": ""
                 },
-                "region": "Faro",
-                "regionCode": "PT-08",
+                "region": "Algarve",
+                "regionCode": "PT-ALGARVE",
                 "province": "Faro",
                 "provinceCode": "PT-08"
             }
@@ -5884,8 +5884,8 @@
                     "landing_altitude": "145",
                     "landing_description": ""
                 },
-                "region": "Faro",
-                "regionCode": "PT-08",
+                "region": "Algarve",
+                "regionCode": "PT-ALGARVE",
                 "province": "Faro",
                 "provinceCode": "PT-08"
             }
@@ -5935,8 +5935,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Beja",
-                "regionCode": "PT-02",
+                "region": "Alentejo",
+                "regionCode": "PT-ALENTEJO",
                 "province": "Beja",
                 "provinceCode": "PT-02"
             }
@@ -5994,8 +5994,8 @@
                     "landing_altitude": "0",
                     "landing_description": "same place"
                 },
-                "region": "Coímbra",
-                "regionCode": "PT-06",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Coímbra",
                 "provinceCode": "PT-06"
             }
@@ -6056,7 +6056,7 @@
                 "region": "Madeira",
                 "regionCode": "PT-30",
                 "province": null,
-                "provinceCode": "PT-30"
+                "provinceCode": null
             }
         },
         {
@@ -6104,8 +6104,8 @@
                 "going_there": "From Salvador north exit, turn right to off-road passing next to water treatment station, on top of mountain keep following ENE until reaching fire watch tower. Take-off is 100 meters before watch tower. You will need a 4x4 to use this road. You may be able to reach take off using another road",
                 "comments": "Not suitable for begginers",
                 "weather": "Unknown",
-                "region": "Castelo Branco",
-                "regionCode": "PT-05",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Castelo Branco",
                 "provinceCode": "PT-05"
             }
@@ -6163,8 +6163,8 @@
                     "landing_altitude": "203",
                     "landing_description": "A aterragem oficial fica situada num campo bastante amplo, Ã  face da estrada de acesso Ã¡ descolagem de Gomide (lateralmente possui oliveiras). No entanto a caminho do mesmo nÃ£o faltam campos com dimensÃµes considerÃ¡veis para se poder aterrar, necessitando ter apenas atenÃ§Ã£o aos campos cultivados\r\n\r\nThe official landing is located in a very broad field, in the face of the access road to Gomide take-off. However the path of the same fields abound with considerable size to be able to land, requiring only attention to cultivated fields"
                 },
-                "region": "Braga",
-                "regionCode": "PT-03",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Braga",
                 "provinceCode": "PT-03"
             }
@@ -6281,8 +6281,8 @@
                     "landing_altitude": "721",
                     "landing_description": ""
                 },
-                "region": "Oporto",
-                "regionCode": "PT-13",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Oporto",
                 "provinceCode": "PT-13"
             }
@@ -6340,8 +6340,8 @@
                     "landing_altitude": "458",
                     "landing_description": ""
                 },
-                "region": "Oporto",
-                "regionCode": "PT-13",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Oporto",
                 "provinceCode": "PT-13"
             }
@@ -6399,8 +6399,8 @@
                     "landing_altitude": "4",
                     "landing_description": "You have all beach to you..."
                 },
-                "region": "Leiria",
-                "regionCode": "PT-10",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Leiria",
                 "provinceCode": "PT-10"
             }
@@ -6450,8 +6450,8 @@
                 "going_there": "",
                 "comments": "initialy imported from Liga XC Portugal",
                 "weather": "",
-                "region": "Leiria",
-                "regionCode": "PT-10",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Leiria",
                 "provinceCode": "PT-10"
             }
@@ -6501,8 +6501,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Coímbra",
-                "regionCode": "PT-06",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Coímbra",
                 "provinceCode": "PT-06"
             }
@@ -6552,8 +6552,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Lisboa",
-                "regionCode": "PT-11",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Lisboa",
                 "provinceCode": "PT-11"
             }
@@ -6606,7 +6606,7 @@
                 "region": "Azores",
                 "regionCode": "PT-20",
                 "province": null,
-                "provinceCode": "PT-20"
+                "provinceCode": null
             }
         },
         {
@@ -6662,8 +6662,8 @@
                     "landing_altitude": "646",
                     "landing_description": ""
                 },
-                "region": "Aveiro",
-                "regionCode": "PT-01",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Aveiro",
                 "provinceCode": "PT-01"
             }
@@ -6713,8 +6713,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Faro",
-                "regionCode": "PT-08",
+                "region": "Algarve",
+                "regionCode": "PT-ALGARVE",
                 "province": "Faro",
                 "provinceCode": "PT-08"
             }
@@ -6764,8 +6764,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Beja",
-                "regionCode": "PT-02",
+                "region": "Alentejo",
+                "regionCode": "PT-ALENTEJO",
                 "province": "Beja",
                 "provinceCode": "PT-02"
             }
@@ -6815,8 +6815,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Faro",
-                "regionCode": "PT-08",
+                "region": "Algarve",
+                "regionCode": "PT-ALGARVE",
                 "province": "Faro",
                 "provinceCode": "PT-08"
             }
@@ -6869,7 +6869,7 @@
                 "region": "Azores",
                 "regionCode": "PT-20",
                 "province": null,
-                "provinceCode": "PT-20"
+                "provinceCode": null
             }
         },
         {
@@ -6920,7 +6920,7 @@
                 "region": "Azores",
                 "regionCode": "PT-20",
                 "province": null,
-                "provinceCode": "PT-20"
+                "provinceCode": null
             }
         },
         {
@@ -6968,8 +6968,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Portalegre",
-                "regionCode": "PT-12",
+                "region": "Alentejo",
+                "regionCode": "PT-ALENTEJO",
                 "province": "Portalegre",
                 "provinceCode": "PT-12"
             }
@@ -7022,7 +7022,7 @@
                 "region": "Azores",
                 "regionCode": "PT-20",
                 "province": null,
-                "provinceCode": "PT-20"
+                "provinceCode": null
             }
         },
         {
@@ -7070,8 +7070,8 @@
                 "going_there": "",
                 "comments": "initialy imported from DHV XC Contest Leonardo",
                 "weather": "",
-                "region": "Castelo Branco",
-                "regionCode": "PT-05",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Castelo Branco",
                 "provinceCode": "PT-05"
             }
@@ -7124,7 +7124,7 @@
                 "region": "Madeira",
                 "regionCode": "PT-30",
                 "province": null,
-                "provinceCode": "PT-30"
+                "provinceCode": null
             }
         },
         {
@@ -7172,8 +7172,8 @@
                 "going_there": "",
                 "comments": "initialy imported from Liga XC Portugal",
                 "weather": "",
-                "region": "Coímbra",
-                "regionCode": "PT-06",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Coímbra",
                 "provinceCode": "PT-06"
             }
@@ -7223,8 +7223,8 @@
                 "going_there": "",
                 "comments": "initialy imported from Liga XC Portugal",
                 "weather": "",
-                "region": "Faro",
-                "regionCode": "PT-08",
+                "region": "Algarve",
+                "regionCode": "PT-ALGARVE",
                 "province": "Faro",
                 "provinceCode": "PT-08"
             }
@@ -7277,7 +7277,7 @@
                 "region": "Azores",
                 "regionCode": "PT-20",
                 "province": null,
-                "provinceCode": "PT-20"
+                "provinceCode": null
             }
         },
         {
@@ -7325,8 +7325,8 @@
                 "going_there": "",
                 "comments": "initialy imported from Liga XC Portugal",
                 "weather": "",
-                "region": "Leiria",
-                "regionCode": "PT-10",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Leiria",
                 "provinceCode": "PT-10"
             }
@@ -7376,8 +7376,8 @@
                 "going_there": "",
                 "comments": "initialy imported from Liga XC Portugal",
                 "weather": "",
-                "region": "Leiria",
-                "regionCode": "PT-10",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Leiria",
                 "provinceCode": "PT-10"
             }
@@ -7427,8 +7427,8 @@
                 "going_there": "",
                 "comments": "initialy imported from Liga XC Portugal",
                 "weather": "",
-                "region": "Santarém",
-                "regionCode": "PT-14",
+                "region": "Alentejo",
+                "regionCode": "PT-ALENTEJO",
                 "province": "Santarém",
                 "provinceCode": "PT-14"
             }
@@ -7481,7 +7481,7 @@
                 "region": "Madeira",
                 "regionCode": "PT-30",
                 "province": null,
-                "provinceCode": "PT-30"
+                "provinceCode": null
             }
         },
         {
@@ -7532,7 +7532,7 @@
                 "region": "Azores",
                 "regionCode": "PT-20",
                 "province": null,
-                "provinceCode": "PT-20"
+                "provinceCode": null
             }
         },
         {
@@ -7631,8 +7631,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Leiria",
-                "regionCode": "PT-10",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Leiria",
                 "provinceCode": "PT-10"
             }
@@ -7682,8 +7682,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Braga",
-                "regionCode": "PT-03",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Braga",
                 "provinceCode": "PT-03"
             }
@@ -7733,8 +7733,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Leiria",
-                "regionCode": "PT-10",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Leiria",
                 "provinceCode": "PT-10"
             }
@@ -7787,7 +7787,7 @@
                 "region": "Azores",
                 "regionCode": "PT-20",
                 "province": null,
-                "provinceCode": "PT-20"
+                "provinceCode": null
             }
         },
         {
@@ -7838,7 +7838,7 @@
                 "region": "Azores",
                 "regionCode": "PT-20",
                 "province": null,
-                "provinceCode": "PT-20"
+                "provinceCode": null
             }
         },
         {
@@ -7886,8 +7886,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Leiria",
-                "regionCode": "PT-10",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Leiria",
                 "provinceCode": "PT-10"
             }
@@ -7937,8 +7937,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Guarda",
-                "regionCode": "PT-09",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Guarda",
                 "provinceCode": "PT-09"
             }
@@ -7991,7 +7991,7 @@
                 "region": "Madeira",
                 "regionCode": "PT-30",
                 "province": null,
-                "provinceCode": "PT-30"
+                "provinceCode": null
             }
         },
         {
@@ -8039,8 +8039,8 @@
                 "going_there": "",
                 "comments": "Leave the car on the beach and walkup toward the clift to west side.",
                 "weather": "",
-                "region": "Faro",
-                "regionCode": "PT-08",
+                "region": "Algarve",
+                "regionCode": "PT-ALGARVE",
                 "province": "Faro",
                 "provinceCode": "PT-08"
             }
@@ -8093,7 +8093,7 @@
                 "region": "Azores",
                 "regionCode": "PT-20",
                 "province": null,
-                "provinceCode": "PT-20"
+                "provinceCode": null
             }
         },
         {
@@ -8141,10 +8141,10 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": null,
-                "regionCode": null,
-                "province": null,
-                "provinceCode": null
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
+                "province": "Leiria",
+                "provinceCode": "PT-10"
             }
         },
         {
@@ -8192,8 +8192,8 @@
                 "going_there": "",
                 "comments": "initialy imported from DHV XC Contest Leonardo",
                 "weather": "",
-                "region": "Setúbal",
-                "regionCode": "PT-15",
+                "region": "Área Metropolitana de Lisboa",
+                "regionCode": "PT-AML",
                 "province": "Setúbal",
                 "provinceCode": "PT-15"
             }
@@ -8243,8 +8243,8 @@
                 "going_there": "",
                 "comments": "initialy imported from Liga XC Portugal",
                 "weather": "",
-                "region": "Leiria",
-                "regionCode": "PT-10",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Leiria",
                 "provinceCode": "PT-10"
             }
@@ -8294,8 +8294,8 @@
                 "going_there": "",
                 "comments": "initialy imported from Liga XC Portugal",
                 "weather": "",
-                "region": "Castelo Branco",
-                "regionCode": "PT-05",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Castelo Branco",
                 "provinceCode": "PT-05"
             }
@@ -8348,7 +8348,7 @@
                 "region": "Azores",
                 "regionCode": "PT-20",
                 "province": null,
-                "provinceCode": "PT-20"
+                "provinceCode": null
             }
         },
         {
@@ -8396,8 +8396,8 @@
                 "going_there": "",
                 "comments": "initialy imported from Liga XC Portugal",
                 "weather": "",
-                "region": "Setúbal",
-                "regionCode": "PT-15",
+                "region": "Área Metropolitana de Lisboa",
+                "regionCode": "PT-AML",
                 "province": "Setúbal",
                 "provinceCode": "PT-15"
             }
@@ -8447,8 +8447,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Leiria",
-                "regionCode": "PT-10",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Leiria",
                 "provinceCode": "PT-10"
             }
@@ -8509,7 +8509,7 @@
                 "region": "Madeira",
                 "regionCode": "PT-30",
                 "province": null,
-                "provinceCode": "PT-30"
+                "provinceCode": null
             }
         },
         {
@@ -8557,8 +8557,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Évora",
-                "regionCode": "PT-07",
+                "region": "Alentejo",
+                "regionCode": "PT-ALENTEJO",
                 "province": "Évora",
                 "provinceCode": "PT-07"
             }
@@ -8608,8 +8608,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Setúbal",
-                "regionCode": "PT-15",
+                "region": "Área Metropolitana de Lisboa",
+                "regionCode": "PT-AML",
                 "province": "Setúbal",
                 "provinceCode": "PT-15"
             }
@@ -8659,8 +8659,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Coímbra",
-                "regionCode": "PT-06",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Coímbra",
                 "provinceCode": "PT-06"
             }
@@ -8710,8 +8710,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Vila Real",
-                "regionCode": "PT-17",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Vila Real",
                 "provinceCode": "PT-17"
             }
@@ -8761,8 +8761,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Santarém",
-                "regionCode": "PT-14",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Santarém",
                 "provinceCode": "PT-14"
             }
@@ -8812,8 +8812,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Lisboa",
-                "regionCode": "PT-11",
+                "region": "Área Metropolitana de Lisboa",
+                "regionCode": "PT-AML",
                 "province": "Lisboa",
                 "provinceCode": "PT-11"
             }
@@ -8863,8 +8863,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Castelo Branco",
-                "regionCode": "PT-05",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Castelo Branco",
                 "provinceCode": "PT-05"
             }
@@ -8914,8 +8914,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Vila Real",
-                "regionCode": "PT-17",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Vila Real",
                 "provinceCode": "PT-17"
             }
@@ -8965,8 +8965,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Lisboa",
-                "regionCode": "PT-11",
+                "region": "Área Metropolitana de Lisboa",
+                "regionCode": "PT-AML",
                 "province": "Lisboa",
                 "provinceCode": "PT-11"
             }
@@ -9016,8 +9016,8 @@
                 "going_there": "...O acesso a descolagem é em terra batida mas qualquer viatura vai lá, o remonte é muito rápido e fácil",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Vila Real",
-                "regionCode": "PT-17",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Vila Real",
                 "provinceCode": "PT-17"
             }
@@ -9067,8 +9067,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Setúbal",
-                "regionCode": "PT-15",
+                "region": "Área Metropolitana de Lisboa",
+                "regionCode": "PT-AML",
                 "province": "Setúbal",
                 "provinceCode": "PT-15"
             }
@@ -9118,8 +9118,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Lisboa",
-                "regionCode": "PT-11",
+                "region": "Área Metropolitana de Lisboa",
+                "regionCode": "PT-AML",
                 "province": "Lisboa",
                 "provinceCode": "PT-11"
             }
@@ -9169,8 +9169,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Braga",
-                "regionCode": "PT-03",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Braga",
                 "provinceCode": "PT-03"
             }
@@ -9220,8 +9220,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Coímbra",
-                "regionCode": "PT-06",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Coímbra",
                 "provinceCode": "PT-06"
             }
@@ -9271,8 +9271,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Leiria",
-                "regionCode": "PT-10",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Leiria",
                 "provinceCode": "PT-10"
             }
@@ -9325,7 +9325,7 @@
                 "region": "Azores",
                 "regionCode": "PT-20",
                 "province": null,
-                "provinceCode": "PT-20"
+                "provinceCode": null
             }
         },
         {
@@ -9424,8 +9424,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Coímbra",
-                "regionCode": "PT-06",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Coímbra",
                 "provinceCode": "PT-06"
             }
@@ -9475,8 +9475,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Guarda",
-                "regionCode": "PT-09",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Guarda",
                 "provinceCode": "PT-09"
             }
@@ -9526,8 +9526,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Leiria",
-                "regionCode": "PT-10",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Leiria",
                 "provinceCode": "PT-10"
             }
@@ -9577,8 +9577,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Lisboa",
-                "regionCode": "PT-11",
+                "region": "Área Metropolitana de Lisboa",
+                "regionCode": "PT-AML",
                 "province": "Lisboa",
                 "provinceCode": "PT-11"
             }
@@ -9628,8 +9628,8 @@
                 "going_there": "Easy drive all the way to the top. Good road. ",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Viana do Castelo",
-                "regionCode": "PT-16",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Viana do Castelo",
                 "provinceCode": "PT-16"
             }
@@ -9679,8 +9679,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Vila Real",
-                "regionCode": "PT-17",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Vila Real",
                 "provinceCode": "PT-17"
             }
@@ -9730,8 +9730,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Guarda",
-                "regionCode": "PT-09",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Guarda",
                 "provinceCode": "PT-09"
             }
@@ -9781,8 +9781,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Oporto",
-                "regionCode": "PT-13",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Oporto",
                 "provinceCode": "PT-13"
             }
@@ -9832,8 +9832,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Castelo Branco",
-                "regionCode": "PT-05",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Castelo Branco",
                 "provinceCode": "PT-05"
             }
@@ -9883,8 +9883,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Setúbal",
-                "regionCode": "PT-15",
+                "region": "Área Metropolitana de Lisboa",
+                "regionCode": "PT-AML",
                 "province": "Setúbal",
                 "provinceCode": "PT-15"
             }
@@ -9934,8 +9934,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Faro",
-                "regionCode": "PT-08",
+                "region": "Algarve",
+                "regionCode": "PT-ALGARVE",
                 "province": "Faro",
                 "provinceCode": "PT-08"
             }
@@ -9985,8 +9985,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Setúbal",
-                "regionCode": "PT-15",
+                "region": "Área Metropolitana de Lisboa",
+                "regionCode": "PT-AML",
                 "province": "Setúbal",
                 "provinceCode": "PT-15"
             }
@@ -10036,8 +10036,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Évora",
-                "regionCode": "PT-07",
+                "region": "Alentejo",
+                "regionCode": "PT-ALENTEJO",
                 "province": "Évora",
                 "provinceCode": "PT-07"
             }
@@ -10087,8 +10087,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Évora",
-                "regionCode": "PT-07",
+                "region": "Alentejo",
+                "regionCode": "PT-ALENTEJO",
                 "province": "Évora",
                 "provinceCode": "PT-07"
             }
@@ -10138,10 +10138,10 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": null,
-                "regionCode": null,
-                "province": null,
-                "provinceCode": null
+                "region": "Alentejo",
+                "regionCode": "PT-ALENTEJO",
+                "province": "Beja",
+                "provinceCode": "PT-02"
             }
         },
         {
@@ -10189,8 +10189,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Coímbra",
-                "regionCode": "PT-06",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Coímbra",
                 "provinceCode": "PT-06"
             }
@@ -10240,8 +10240,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Leiria",
-                "regionCode": "PT-10",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Leiria",
                 "provinceCode": "PT-10"
             }
@@ -10294,7 +10294,7 @@
                 "region": "Madeira",
                 "regionCode": "PT-30",
                 "province": null,
-                "provinceCode": "PT-30"
+                "provinceCode": null
             }
         },
         {
@@ -10345,7 +10345,7 @@
                 "region": "Madeira",
                 "regionCode": "PT-30",
                 "province": null,
-                "provinceCode": "PT-30"
+                "provinceCode": null
             }
         },
         {
@@ -10396,7 +10396,7 @@
                 "region": "Madeira",
                 "regionCode": "PT-30",
                 "province": null,
-                "provinceCode": "PT-30"
+                "provinceCode": null
             }
         },
         {
@@ -10444,8 +10444,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Lisboa",
-                "regionCode": "PT-11",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Lisboa",
                 "provinceCode": "PT-11"
             }
@@ -10495,8 +10495,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Coímbra",
-                "regionCode": "PT-06",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Coímbra",
                 "provinceCode": "PT-06"
             }
@@ -10546,8 +10546,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Castelo Branco",
-                "regionCode": "PT-05",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Castelo Branco",
                 "provinceCode": "PT-05"
             }
@@ -10600,7 +10600,7 @@
                 "region": "Madeira",
                 "regionCode": "PT-30",
                 "province": null,
-                "provinceCode": "PT-30"
+                "provinceCode": null
             }
         },
         {
@@ -10648,8 +10648,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Setúbal",
-                "regionCode": "PT-15",
+                "region": "Área Metropolitana de Lisboa",
+                "regionCode": "PT-AML",
                 "province": "Setúbal",
                 "provinceCode": "PT-15"
             }
@@ -10699,8 +10699,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Portalegre",
-                "regionCode": "PT-12",
+                "region": "Alentejo",
+                "regionCode": "PT-ALENTEJO",
                 "province": "Portalegre",
                 "provinceCode": "PT-12"
             }
@@ -10750,8 +10750,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Coímbra",
-                "regionCode": "PT-06",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Coímbra",
                 "provinceCode": "PT-06"
             }
@@ -10801,8 +10801,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Leiria",
-                "regionCode": "PT-10",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Leiria",
                 "provinceCode": "PT-10"
             }
@@ -10855,7 +10855,7 @@
                 "region": "Azores",
                 "regionCode": "PT-20",
                 "province": null,
-                "provinceCode": "PT-20"
+                "provinceCode": null
             }
         },
         {
@@ -10903,8 +10903,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Castelo Branco",
-                "regionCode": "PT-05",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Castelo Branco",
                 "provinceCode": "PT-05"
             }
@@ -10954,8 +10954,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Leiria",
-                "regionCode": "PT-10",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Leiria",
                 "provinceCode": "PT-10"
             }
@@ -11005,8 +11005,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Setúbal",
-                "regionCode": "PT-15",
+                "region": "Área Metropolitana de Lisboa",
+                "regionCode": "PT-AML",
                 "province": "Setúbal",
                 "provinceCode": "PT-15"
             }
@@ -11056,8 +11056,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Leiria",
-                "regionCode": "PT-10",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Leiria",
                 "provinceCode": "PT-10"
             }
@@ -11107,8 +11107,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Lisboa",
-                "regionCode": "PT-11",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Lisboa",
                 "provinceCode": "PT-11"
             }
@@ -11158,8 +11158,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Guarda",
-                "regionCode": "PT-09",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Guarda",
                 "provinceCode": "PT-09"
             }
@@ -11209,8 +11209,8 @@
                 "going_there": "",
                 "comments": "initialy imported from Liga XC Portugal",
                 "weather": "",
-                "region": "Coímbra",
-                "regionCode": "PT-06",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Coímbra",
                 "provinceCode": "PT-06"
             }
@@ -11260,10 +11260,10 @@
                 "going_there": "",
                 "comments": "initialy imported from Liga XC Portugal",
                 "weather": "",
-                "region": null,
-                "regionCode": null,
-                "province": null,
-                "provinceCode": null
+                "region": "Alentejo",
+                "regionCode": "PT-ALENTEJO",
+                "province": "Beja",
+                "provinceCode": "PT-02"
             }
         },
         {
@@ -11311,8 +11311,8 @@
                 "going_there": "Easy drive by car 5-10 minutes from the town of Caminha.",
                 "comments": "",
                 "weather": "",
-                "region": "Viana do Castelo",
-                "regionCode": "PT-16",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Viana do Castelo",
                 "provinceCode": "PT-16"
             }
@@ -11373,7 +11373,7 @@
                 "region": "Madeira",
                 "regionCode": "PT-30",
                 "province": null,
-                "provinceCode": "PT-30"
+                "provinceCode": null
             }
         },
         {
@@ -11421,8 +11421,8 @@
                 "going_there": "",
                 "comments": "initialy imported from Liga XC Portugal",
                 "weather": "",
-                "region": "Viseu",
-                "regionCode": "PT-18",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Viseu",
                 "provinceCode": "PT-18"
             }
@@ -11472,8 +11472,8 @@
                 "going_there": "",
                 "comments": "initialy imported from Liga XC Portugal",
                 "weather": "",
-                "region": "Leiria",
-                "regionCode": "PT-10",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Leiria",
                 "provinceCode": "PT-10"
             }
@@ -11523,8 +11523,8 @@
                 "going_there": "",
                 "comments": "initialy imported from Liga XC Portugal",
                 "weather": "",
-                "region": "Coímbra",
-                "regionCode": "PT-06",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Coímbra",
                 "provinceCode": "PT-06"
             }
@@ -11574,8 +11574,8 @@
                 "going_there": "",
                 "comments": "initialy imported from Liga XC Portugal",
                 "weather": "",
-                "region": "Coímbra",
-                "regionCode": "PT-06",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Coímbra",
                 "provinceCode": "PT-06"
             }
@@ -11625,8 +11625,8 @@
                 "going_there": "",
                 "comments": "initialy imported from Liga XC Portugal",
                 "weather": "",
-                "region": "Portalegre",
-                "regionCode": "PT-12",
+                "region": "Alentejo",
+                "regionCode": "PT-ALENTEJO",
                 "province": "Portalegre",
                 "provinceCode": "PT-12"
             }
@@ -11679,7 +11679,7 @@
                 "region": "Azores",
                 "regionCode": "PT-20",
                 "province": null,
-                "provinceCode": "PT-20"
+                "provinceCode": null
             }
         },
         {
@@ -11730,7 +11730,7 @@
                 "region": "Azores",
                 "regionCode": "PT-20",
                 "province": null,
-                "provinceCode": "PT-20"
+                "provinceCode": null
             }
         },
         {
@@ -11781,7 +11781,7 @@
                 "region": "Azores",
                 "regionCode": "PT-20",
                 "province": null,
-                "provinceCode": "PT-20"
+                "provinceCode": null
             }
         },
         {
@@ -11829,8 +11829,8 @@
                 "going_there": "",
                 "comments": "initialy imported from Liga XC Portugal",
                 "weather": "",
-                "region": "Viana do Castelo",
-                "regionCode": "PT-16",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Viana do Castelo",
                 "provinceCode": "PT-16"
             }
@@ -11880,8 +11880,8 @@
                 "going_there": "",
                 "comments": "initialy imported from Liga XC Portugal",
                 "weather": "",
-                "region": "Viana do Castelo",
-                "regionCode": "PT-16",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Viana do Castelo",
                 "provinceCode": "PT-16"
             }
@@ -11931,8 +11931,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Leiria",
-                "regionCode": "PT-10",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Leiria",
                 "provinceCode": "PT-10"
             }
@@ -11982,8 +11982,8 @@
                 "going_there": "",
                 "comments": "initialy imported from Liga XC Portugal",
                 "weather": "",
-                "region": "Setúbal",
-                "regionCode": "PT-15",
+                "region": "Área Metropolitana de Lisboa",
+                "regionCode": "PT-AML",
                 "province": "Setúbal",
                 "provinceCode": "PT-15"
             }
@@ -12033,8 +12033,8 @@
                 "going_there": "",
                 "comments": "initialy imported from Liga XC Portugal",
                 "weather": "",
-                "region": "Coímbra",
-                "regionCode": "PT-06",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Coímbra",
                 "provinceCode": "PT-06"
             }
@@ -12084,8 +12084,8 @@
                 "going_there": "",
                 "comments": "initialy imported from Liga XC Portugal",
                 "weather": "",
-                "region": "Leiria",
-                "regionCode": "PT-10",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Leiria",
                 "provinceCode": "PT-10"
             }
@@ -12135,8 +12135,8 @@
                 "going_there": "",
                 "comments": "initialy imported from Liga XC Portugal",
                 "weather": "",
-                "region": "Setúbal",
-                "regionCode": "PT-15",
+                "region": "Área Metropolitana de Lisboa",
+                "regionCode": "PT-AML",
                 "province": "Setúbal",
                 "provinceCode": "PT-15"
             }
@@ -12186,8 +12186,8 @@
                 "going_there": "",
                 "comments": "initialy imported from Liga XC Portugal",
                 "weather": "",
-                "region": "Castelo Branco",
-                "regionCode": "PT-05",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Castelo Branco",
                 "provinceCode": "PT-05"
             }
@@ -12237,8 +12237,8 @@
                 "going_there": "",
                 "comments": "initialy imported from Liga XC Portugal",
                 "weather": "",
-                "region": "Lisboa",
-                "regionCode": "PT-11",
+                "region": "Área Metropolitana de Lisboa",
+                "regionCode": "PT-AML",
                 "province": "Lisboa",
                 "provinceCode": "PT-11"
             }
@@ -12288,8 +12288,8 @@
                 "going_there": "",
                 "comments": "initialy imported from Liga XC Portugal",
                 "weather": "",
-                "region": "Viana do Castelo",
-                "regionCode": "PT-16",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Viana do Castelo",
                 "provinceCode": "PT-16"
             }
@@ -12339,8 +12339,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Santarém",
-                "regionCode": "PT-14",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Santarém",
                 "provinceCode": "PT-14"
             }
@@ -12390,8 +12390,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Bragança",
-                "regionCode": "PT-04",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Bragança",
                 "provinceCode": "PT-04"
             }
@@ -12441,8 +12441,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Lisboa",
-                "regionCode": "PT-11",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Lisboa",
                 "provinceCode": "PT-11"
             }
@@ -12492,8 +12492,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Bragança",
-                "regionCode": "PT-04",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Bragança",
                 "provinceCode": "PT-04"
             }
@@ -12543,8 +12543,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Viseu",
-                "regionCode": "PT-18",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Viseu",
                 "provinceCode": "PT-18"
             }
@@ -12594,8 +12594,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Santarém",
-                "regionCode": "PT-14",
+                "region": "Alentejo",
+                "regionCode": "PT-ALENTEJO",
                 "province": "Santarém",
                 "provinceCode": "PT-14"
             }
@@ -12645,8 +12645,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Lisboa",
-                "regionCode": "PT-11",
+                "region": "Área Metropolitana de Lisboa",
+                "regionCode": "PT-AML",
                 "province": "Lisboa",
                 "provinceCode": "PT-11"
             }
@@ -12696,8 +12696,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Lisboa",
-                "regionCode": "PT-11",
+                "region": "Área Metropolitana de Lisboa",
+                "regionCode": "PT-AML",
                 "province": "Lisboa",
                 "provinceCode": "PT-11"
             }
@@ -12747,8 +12747,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Coímbra",
-                "regionCode": "PT-06",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Coímbra",
                 "provinceCode": "PT-06"
             }
@@ -12806,8 +12806,8 @@
                     "landing_altitude": "544",
                     "landing_description": "he official landing field is very technical, specially in the spring/summer with thermal activity. Not enough space to Hang-Gliders. \r\n\r\nOn the other hand, you have lotÂ´s of 'unofficial' landing fields nearby."
                 },
-                "region": "Bragança",
-                "regionCode": "PT-04",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Bragança",
                 "provinceCode": "PT-04"
             }
@@ -12865,8 +12865,8 @@
                     "landing_altitude": "521",
                     "landing_description": "N 40Âº 07' 53';W 07Âº 29' 02';\r\nAlt 520m;\r\n3.2km away NNE from takeoff;\r\nBy main road access to the city of FundÃ£o (2km away), near roundabout;\r\nFlat field 350m long by 120 meters wide (notice that in the last picture available in Google Earth one can see several buildings - warehouses - which are not there anymore; the field is completely leveled and flat)."
                 },
-                "region": "Castelo Branco",
-                "regionCode": "PT-05",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Castelo Branco",
                 "provinceCode": "PT-05"
             }
@@ -12916,8 +12916,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Castelo Branco",
-                "regionCode": "PT-05",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Castelo Branco",
                 "provinceCode": "PT-05"
             }
@@ -12967,8 +12967,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Lisboa",
-                "regionCode": "PT-11",
+                "region": "Área Metropolitana de Lisboa",
+                "regionCode": "PT-AML",
                 "province": "Lisboa",
                 "provinceCode": "PT-11"
             }
@@ -13021,7 +13021,7 @@
                 "region": "Madeira",
                 "regionCode": "PT-30",
                 "province": null,
-                "provinceCode": "PT-30"
+                "provinceCode": null
             }
         },
         {
@@ -13069,8 +13069,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Castelo Branco",
-                "regionCode": "PT-05",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Castelo Branco",
                 "provinceCode": "PT-05"
             }
@@ -13128,8 +13128,8 @@
                     "landing_altitude": "0",
                     "landing_description": "on the beach"
                 },
-                "region": "Leiria",
-                "regionCode": "PT-10",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Leiria",
                 "provinceCode": "PT-10"
             }
@@ -13179,8 +13179,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Braga",
-                "regionCode": "PT-03",
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Braga",
                 "provinceCode": "PT-03"
             }
@@ -13230,8 +13230,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Leiria",
-                "regionCode": "PT-10",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Leiria",
                 "provinceCode": "PT-10"
             }
@@ -13284,7 +13284,7 @@
                 "region": "Azores",
                 "regionCode": "PT-20",
                 "province": null,
-                "provinceCode": "PT-20"
+                "provinceCode": null
             }
         },
         {
@@ -13332,8 +13332,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Coímbra",
-                "regionCode": "PT-06",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Coímbra",
                 "provinceCode": "PT-06"
             }
@@ -13383,8 +13383,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": "Guarda",
-                "regionCode": "PT-09",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Guarda",
                 "provinceCode": "PT-09"
             }
@@ -13434,8 +13434,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "Always good before the rain!",
-                "region": "Portalegre",
-                "regionCode": "PT-12",
+                "region": "Alentejo",
+                "regionCode": "PT-ALENTEJO",
                 "province": "Portalegre",
                 "provinceCode": "PT-12"
             }
@@ -13485,8 +13485,8 @@
                 "going_there": "",
                 "comments": "",
                 "weather": "",
-                "region": "Lisboa",
-                "regionCode": "PT-11",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Lisboa",
                 "provinceCode": "PT-11"
             }
@@ -13536,8 +13536,8 @@
                 "going_there": "Easy",
                 "comments": "Acro Spot, winchtowing training, tandems, Xc cross Country, Skydive\"base jump\" .\n\nAnd perfect to improve your skills.",
                 "weather": "North, Northwest, West, South, Southest South west",
-                "region": "Faro",
-                "regionCode": "PT-08",
+                "region": "Algarve",
+                "regionCode": "PT-ALGARVE",
                 "province": "Faro",
                 "provinceCode": "PT-08"
             }
@@ -13587,8 +13587,8 @@
                 "going_there": "",
                 "comments": "XC cross Coutry",
                 "weather": "",
-                "region": "Beja",
-                "regionCode": "PT-02",
+                "region": "Alentejo",
+                "regionCode": "PT-ALENTEJO",
                 "province": "Beja",
                 "provinceCode": "PT-02"
             }
@@ -13641,7 +13641,7 @@
                 "region": "Madeira",
                 "regionCode": "PT-30",
                 "province": null,
-                "provinceCode": "PT-30"
+                "provinceCode": null
             }
         },
         {
@@ -13697,8 +13697,8 @@
                     "landing_altitude": "521",
                     "landing_description": "Technically the best option is the large grass field just in front of the takeoff. It is surrounded by a fence, which is quite low at few places (near the parking at landing) and can be easily climbed over. Since it is not an official landing, a common sense would be not landing there if livestock is present. Also, after the landing, leave the field and then fold the wing in one of the parkings around.\nIn alternative, there are other fields further ahead, including golf course, and a rather large car parking, which is typically empty in low season."
                 },
-                "region": "Portalegre",
-                "regionCode": "PT-12",
+                "region": "Alentejo",
+                "regionCode": "PT-ALENTEJO",
                 "province": "Portalegre",
                 "provinceCode": "PT-12"
             }
@@ -13756,8 +13756,8 @@
                     "landing_altitude": "4",
                     "landing_description": ""
                 },
-                "region": "Setúbal",
-                "regionCode": "PT-15",
+                "region": "Área Metropolitana de Lisboa",
+                "regionCode": "PT-AML",
                 "province": "Setúbal",
                 "provinceCode": "PT-15"
             }
@@ -13807,8 +13807,8 @@
                 "going_there": null,
                 "comments": null,
                 "weather": null,
-                "region": "Castelo Branco",
-                "regionCode": "PT-05",
+                "region": "Centro",
+                "regionCode": "PT-CENTRO",
                 "province": "Castelo Branco",
                 "provinceCode": "PT-05"
             }

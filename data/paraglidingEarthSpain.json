@@ -10657,7 +10657,7 @@
                 "weather": "",
                 "region": "Navarra",
                 "regionCode": "ES-NC",
-                "province": "Comarca de Sangüesa",
+                "province": null,
                 "provinceCode": "ES-NA"
             }
         },
@@ -13627,7 +13627,7 @@
                 },
                 "region": "Navarra",
                 "regionCode": "ES-NC",
-                "province": "Pirineo",
+                "province": null,
                 "provinceCode": "ES-NA"
             }
         },
@@ -14711,7 +14711,7 @@
                 "weather": "",
                 "region": "Navarra",
                 "regionCode": "ES-NC",
-                "province": "Tierra Estella",
+                "province": null,
                 "provinceCode": "ES-NA"
             }
         },
@@ -17679,7 +17679,7 @@
                 "weather": "Volar con componentes norte no muy fuertes y techos por encima de 1300m. Vigilar posible subida del viento a partir de media tarde.",
                 "region": "Navarra",
                 "regionCode": "ES-NC",
-                "province": "Tierra Estella",
+                "province": null,
                 "provinceCode": "ES-NA"
             }
         },
@@ -18924,7 +18924,7 @@
                 "weather": "",
                 "region": "Navarra",
                 "regionCode": "ES-NC",
-                "province": "Pirineo",
+                "province": null,
                 "provinceCode": "ES-NA"
             }
         },
@@ -19329,7 +19329,7 @@
                 },
                 "region": "Navarra",
                 "regionCode": "ES-NC",
-                "province": "Tierra Estella",
+                "province": null,
                 "provinceCode": "ES-NA"
             }
         },
@@ -21033,8 +21033,8 @@
                 "going_there": "",
                 "comments": "initialy imported from International Leonardo",
                 "weather": "",
-                "region": null,
-                "regionCode": null,
+                "region": "Norte",
+                "regionCode": "PT-NORTE",
                 "province": "Viana do Castelo",
                 "provinceCode": "PT-16"
             }
@@ -21188,7 +21188,7 @@
                 "weather": "",
                 "region": "Navarra",
                 "regionCode": "ES-NC",
-                "province": "Pirineo",
+                "province": null,
                 "provinceCode": "ES-NA"
             }
         },
@@ -22135,7 +22135,7 @@
                 "weather": "",
                 "region": "Navarra",
                 "regionCode": "ES-NC",
-                "province": "Comarca de Pamplona",
+                "province": null,
                 "provinceCode": "ES-NA"
             }
         },
@@ -26466,7 +26466,7 @@
                 "weather": null,
                 "region": "Navarra",
                 "regionCode": "ES-NC",
-                "province": "Tierra Estella",
+                "province": null,
                 "provinceCode": "ES-NA"
             }
         },
@@ -27075,7 +27075,7 @@
                 },
                 "region": "Navarra",
                 "regionCode": "ES-NC",
-                "province": "Sakana",
+                "province": null,
                 "provinceCode": "ES-NA"
             }
         },
@@ -27126,7 +27126,7 @@
                 "weather": null,
                 "region": "Navarra",
                 "regionCode": "ES-NC",
-                "province": "Sakana",
+                "province": null,
                 "provinceCode": "ES-NA"
             }
         },
@@ -28347,7 +28347,7 @@
                 "weather": null,
                 "region": "Navarra",
                 "regionCode": "ES-NC",
-                "province": "Ribera",
+                "province": null,
                 "provinceCode": "ES-NA"
             }
         },
