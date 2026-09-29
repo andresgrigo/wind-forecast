@@ -54,6 +54,15 @@ function preferredDirection(properties) {
     return { enabled: true, deg: (weighted / total + 360) % 360, tol: specified.length === 1 ? 22.5 : 67.5 };
 }
 
+// Free-text ParaglidingEarth fields shown in the card's info panel, in display order
+const SITE_INFO_FIELDS = [
+    { key: 'takeoff_description', title: 'Despegue' },
+    { key: 'going_there',         title: 'Como llegar' },
+    { key: 'flight_rules',        title: 'Normas de vuelo' },
+    { key: 'weather',             title: 'Meteo local' },
+    { key: 'comments',            title: 'Comentarios' }
+];
+
 function normalizeName(name) {
     return String(name).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 }
@@ -64,10 +73,9 @@ function attachInfoToCoreSite(site) {
     Object.keys(SITE_GROUPS).forEach(function(group) {
         SITE_GROUPS[group].forEach(function(core) {
             const coreName = normalizeName(core.name);
-            if (core.goingThere !== undefined || (jsonName !== coreName && jsonName.indexOf(coreName) !== 0)) return;
+            if (core.info !== undefined || (jsonName !== coreName && jsonName.indexOf(coreName) !== 0)) return;
             core.altitude = site.altitude;
-            core.goingThere = site.goingThere;
-            core.comments = site.comments;
+            core.info = site.info;
         });
     });
 }
@@ -82,9 +90,11 @@ function buildSiteGroups(features) {
             dirFilter: preferredDirection(props),
             province: props.province || null,
             altitude: props.takeoff_altitude || null,
-            goingThere: props.going_there || null,
-            comments: props.comments || null
+            info: {}
         };
+        SITE_INFO_FIELDS.forEach(function(field) {
+            if (props[field.key]) site.info[field.key] = props[field.key];
+        });
         const name = String(site.name).toLowerCase();
         const isCore = name === 'el bosque'
             || name.indexOf('algodonales - levante') === 0
@@ -561,11 +571,12 @@ function formatInfoText(text) {
 }
 
 function buildInfoPanel(loc) {
-    if (!loc.goingThere && !loc.comments) return '';
-    return '<details class="loc-info"><summary>ℹ Info del sitio</summary>'
-        + (loc.goingThere ? '<div class="info-block"><h4>Como llegar</h4><p>' + formatInfoText(loc.goingThere) + '</p></div>' : '')
-        + (loc.comments ? '<div class="info-block"><h4>Comentarios</h4><p>' + formatInfoText(loc.comments) + '</p></div>' : '')
-        + '</details>';
+    const info = loc.info || {};
+    const blocks = SITE_INFO_FIELDS.filter(function(f) { return info[f.key]; }).map(function(f) {
+        return '<div class="info-block"><h4>' + f.title + '</h4><p>' + formatInfoText(info[f.key]) + '</p></div>';
+    });
+    if (!blocks.length) return '';
+    return '<details class="loc-info"><summary>ℹ Info del sitio</summary>' + blocks.join('') + '</details>';
 }
 
 function createCard(idx) {
