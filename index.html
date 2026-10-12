@@ -784,21 +784,73 @@ function cblShortLabel(blh) {
 /* ===========================================
    API
 =========================================== */
+const WX_TTL_MS    = 60 * 60 * 1000;
+const WX_LS_PREFIX = 'wx:';
+
+function wxKey(loc) {
+    return loc.lat + ',' + loc.lon + ',' + currentModel;
+}
+
+function wxCacheGet(key) {
+    let entry = wxCache.get(key);
+    if (!entry) {
+        try { entry = JSON.parse(localStorage.getItem(WX_LS_PREFIX + key)); } catch (e) { entry = null; }
+        if (entry) wxCache.set(key, entry);
+    }
+    if (!entry || !entry.data || Date.now() - entry.ts > WX_TTL_MS) return null;
+    return entry.data;
+}
+
+function wxCacheSet(key, data) {
+    const entry = { ts: Date.now(), data: data };
+    wxCache.set(key, entry);
+    const json = JSON.stringify(entry);
+    try {
+        localStorage.setItem(WX_LS_PREFIX + key, json);
+    } catch (e) {
+        // Storage full or unavailable: drop stored forecasts and retry once
+        pruneWxStorage(true);
+        try { localStorage.setItem(WX_LS_PREFIX + key, json); } catch (e2) {}
+    }
+}
+
+function wxCacheDelete(key) {
+    wxCache.delete(key);
+    try { localStorage.removeItem(WX_LS_PREFIX + key); } catch (e) {}
+}
+
+function pruneWxStorage(all) {
+    try {
+        const stale = [];
+        for (let i = 0; i < localStorage.length; i++) {
+            const k = localStorage.key(i);
+            if (!k || k.indexOf(WX_LS_PREFIX) !== 0) continue;
+            let expired = all;
+            if (!expired) {
+                try { expired = Date.now() - JSON.parse(localStorage.getItem(k)).ts > WX_TTL_MS; } catch (e) { expired = true; }
+            }
+            if (expired) stale.push(k);
+        }
+        stale.forEach(function(k) { localStorage.removeItem(k); });
+    } catch (e) {}
+}
+pruneWxStorage(false);
+
 async function fetchWeather(loc) {
-    const key = loc.lat + ',' + loc.lon + ',' + currentModel;
-    if (wxCache.has(key)) return wxCache.get(key);
+    const key = wxKey(loc);
+    const cached = wxCacheGet(key);
+    if (cached) return cached;
     const modelParam = currentModel ? '&models=' + encodeURIComponent(currentModel) : '';
     const url = API_WX + '?latitude=' + loc.lat + '&longitude=' + loc.lon + '&hourly=' + PARAMS + '&timezone=auto&forecast_days=3' + modelParam;
     const r = await fetch(url);
     if (!r.ok) throw new Error('HTTP ' + r.status);
     const data = await r.json();
-    wxCache.set(key, data);
+    wxCacheSet(key, data);
     return data;
 }
 
 function onModelChange() {
     currentModel = document.getElementById('modelSelect').value;
-    wxCache.clear();
     weatherStore.clear();
     renderAll();
 }
@@ -1084,36 +1136,37 @@ function renderAll() {
         main.innerHTML = '<div class="empty-state">Sin ubicaciones. Anade una con el buscador.</div>';
         return;
     }
-    const manualFetchRequired = locations.length > 3;
+    // Cached forecasts render straight away; only uncached places count towards the manual-fetch limit
+    const cached = locations.map(function(loc) { return wxCacheGet(wxKey(loc)); });
+    const pending = cached.filter(function(data) { return !data; }).length;
+    const manualFetchRequired = pending > 3;
     if (manualFetchRequired) {
-        main.innerHTML = '<div class="manual-fetch"><span>Hay ' + locations.length + ' lugares seleccionados. Pulsa para solicitar sus previsiones.</span><button class="btn btn-accent btn-sm" onclick="fetchSelectedLocations()">Solicitar previsiones</button></div>';
+        main.innerHTML = '<div class="manual-fetch"><span>Hay ' + pending + ' lugares sin previsiones recientes. Pulsa para solicitarlas.</span><button class="btn btn-accent btn-sm" onclick="fetchSelectedLocations()">Solicitar previsiones</button></div>';
     }
     locations.forEach(function(_, i) {
         main.appendChild(createCard(i));
-        if (!manualFetchRequired) renderLocation(i);
+        if (cached[i]) {
+            weatherStore.set(i, cached[i]);
+            rebuildHourly(i, cached[i]);
+        } else if (!manualFetchRequired) {
+            renderLocation(i);
+        }
     });
 }
 
 function fetchSelectedLocations() {
-    const button = document.querySelector('.manual-fetch button');
-    if (button) {
-        button.disabled = true;
-        button.textContent = 'Solicitando…';
-    }
-    locations.forEach(function(_, i) { renderLocation(i); });
+    const banner = document.querySelector('.manual-fetch');
+    if (banner) banner.remove();
+    locations.forEach(function(_, i) { if (!weatherStore.has(i)) renderLocation(i); });
 }
 
 function removeLocation(idx) {
-    const key = locations[idx].lat + ',' + locations[idx].lon + ',' + currentModel;
-    wxCache.delete(key);
-    weatherStore.delete(idx);
     locations.splice(idx, 1);
     renderAll();
 }
 
 async function refreshCard(idx) {
-    const key = locations[idx].lat + ',' + locations[idx].lon + ',' + currentModel;
-    wxCache.delete(key);
+    wxCacheDelete(wxKey(locations[idx]));
     weatherStore.delete(idx);
     await renderLocation(idx);
 }
