@@ -3,7 +3,7 @@
 =========================================== */
 const API_WX  = 'https://api.open-meteo.com/v1/forecast';
 const API_GEO = 'https://geocoding-api.open-meteo.com/v1/search';
-const PARAMS  = 'wind_speed_10m,wind_speed_80m,wind_speed_120m,wind_speed_180m,wind_direction_10m,wind_direction_80m,wind_direction_120m,wind_direction_180m,wind_gusts_10m,boundary_layer_height';
+const PARAMS  = 'wind_speed_10m,wind_speed_80m,wind_speed_120m,wind_speed_180m,wind_direction_10m,wind_direction_80m,wind_direction_120m,wind_direction_180m,wind_gusts_10m,boundary_layer_height,precipitation,precipitation_probability,cape,weather_code';
 
 const WINDOW_START_HOUR = 9;
 const DEFAULT_CARD_HOUR = 9;
@@ -318,9 +318,10 @@ function cblShortLabel(blh) {
 =========================================== */
 const WX_TTL_MS    = 60 * 60 * 1000;
 const WX_LS_PREFIX = 'wx:';
+const FORECAST_DAYS = 7;
 
 function wxKey(loc) {
-    return loc.lat + ',' + loc.lon + ',' + currentModel;
+    return loc.lat + ',' + loc.lon + ',' + currentModel + ',' + FORECAST_DAYS + ',v2';
 }
 
 function wxCacheGet(key) {
@@ -368,15 +369,36 @@ function pruneWxStorage(all) {
 }
 pruneWxStorage(false);
 
+/* ===========================================
+   Rain / storm hazard: 0 none, 1 rain, 2 storm
+=========================================== */
+function hourVal(h, k, i) { return (h[k] && h[k][i] != null) ? h[k][i] : null; }
+function wxHazard(h, i) {
+    const code = hourVal(h, 'weather_code', i), cape = hourVal(h, 'cape', i);
+    const precip = hourVal(h, 'precipitation', i), prob = hourVal(h, 'precipitation_probability', i);
+    if ((code !== null && code >= 95) || (cape !== null && cape >= 1500 && ((precip || 0) > 0 || (prob || 0) >= 30))) return 2;
+    if ((code !== null && code >= 51 && code <= 86) || (precip !== null && precip >= 0.2) || (prob !== null && prob >= 60)) return 1;
+    return 0;
+}
+const HAZ_ICON = ['', '🌧', '⛈'];
+const HAZ_LABEL = ['Sin lluvia', 'Lluvia', 'Tormenta'];
+
 async function fetchWeather(loc) {
     const key = wxKey(loc);
     const cached = wxCacheGet(key);
     if (cached) return cached;
     const modelParam = currentModel ? '&models=' + encodeURIComponent(currentModel) : '';
-    const url = API_WX + '?latitude=' + loc.lat + '&longitude=' + loc.lon + '&hourly=' + PARAMS + '&timezone=auto&forecast_days=3' + modelParam;
+    const url = API_WX + '?latitude=' + loc.lat + '&longitude=' + loc.lon + '&hourly=' + PARAMS + '&timezone=auto&forecast_days=' + FORECAST_DAYS + modelParam;
     const r = await fetch(url);
     if (!r.ok) throw new Error('HTTP ' + r.status);
     const data = await r.json();
+    // Short-range models return nulls past their horizon: trim them off.
+    const hr = data.hourly;
+    if (hr && hr.wind_speed_10m) {
+        let n = hr.time.length;
+        while (n > 0 && (hr.wind_speed_10m[n - 1] == null || hr.wind_gusts_10m[n - 1] == null)) n--;
+        if (n < hr.time.length) Object.keys(hr).forEach(function(k) { if (Array.isArray(hr[k])) hr[k] = hr[k].slice(0, n); });
+    }
     wxCacheSet(key, data);
     return data;
 }
@@ -401,7 +423,7 @@ function buildSummary(idx, scores, times, dirs, speeds) {
 /* ===========================================
    Day tabs
 =========================================== */
-function buildDayTabs(idx, days, scores, times, selDay) {
+function buildDayTabs(idx, days, scores, times, selDay, hData) {
     return days.map(function(d, i) {
         const dayHourIndices = [];
         times.forEach(function(t, hi) { if (t.startsWith(d)) dayHourIndices.push(hi); });
@@ -410,8 +432,10 @@ function buildDayTabs(idx, days, scores, times, selDay) {
         const dots = sample.map(function(hi) {
             return '<span class="day-tab-dot" style="background:' + FLY_COLORS[scores[hi]] + '"></span>';
         }).join('');
+        let dayHaz = 0;
+        dayHourIndices.forEach(function(hi) { dayHaz = Math.max(dayHaz, wxHazard(hData, hi)); });
         return '<button class="day-tab ' + (i === selDay ? 'active' : '') + '" onclick="selectDay(' + idx + ', ' + i + ')">'
-            + '<span>' + dayLabelShort(d) + '</span>'
+            + '<span>' + dayLabelShort(d) + (dayHaz ? ' <span class="day-haz" title="' + HAZ_LABEL[dayHaz] + '">' + HAZ_ICON[dayHaz] + '</span>' : '') + '</span>'
             + '<div class="day-tab-dots">' + dots + '</div>'
             + '</button>';
     }).join('');
@@ -453,6 +477,7 @@ function buildHourCards(idx, h, scores, selDay) {
             +   '<span class="hc-arr10"  style="display:inline-block;transform:rotate(' + arrowRotationDeg(dir10) + 'deg)">↑</span>'
             +   '<span class="hc-arr120" style="display:inline-block;transform:rotate(' + arrowRotationDeg(dir120) + 'deg)">↑</span>'
             + '</div>'
+            + (wxHazard(h, i) ? '<div class="hc-haz haz-' + wxHazard(h, i) + '" title="' + HAZ_LABEL[wxHazard(h, i)] + '">' + HAZ_ICON[wxHazard(h, i)] + (hourVal(h, 'precipitation', i) ? '<small>' + hourVal(h, 'precipitation', i).toFixed(1) + '</small>' : '') + '</div>' : '')
             + '<div class="hc-spd">' + ws10.toFixed(0) + '<small>km/h</small></div>'
             + '<div class="hc-gust' + (gustHigh ? ' warn' : '') + '">↗' + gust.toFixed(0) + '</div>'
             + (shearWarn ? '<div class="hc-shear">⚡' + shear.toFixed(0) + '°</div>' : '')
@@ -511,6 +536,11 @@ function showDetail(idx, hourIdx) {
     if (sGust  > 0) reasons.push('Rachas ' + gust.toFixed(1) + ' km/h > limite ' + CFG.gustOk + ' km/h');
     if (sShear > 0) reasons.push('Cizalladura ' + shear.toFixed(0) + '° > limite ' + CFG.shearOk + '°');
 
+    const haz = wxHazard(h, hourIdx);
+    const precip = hourVal(h, 'precipitation', hourIdx), prob = hourVal(h, 'precipitation_probability', hourIdx), cape = hourVal(h, 'cape', hourIdx);
+    if (haz === 2) reasons.push('Tormenta prevista (CAPE ' + (cape !== null ? Math.round(cape) : '-') + ' J/kg)');
+    else if (haz === 1) reasons.push('Lluvia prevista' + (precip !== null ? ' (' + precip.toFixed(1) + ' mm)' : ''));
+
     const cblTxt = blh !== null ? Math.round(blh) + ' m' : '-';
 
     dp.innerHTML = ''
@@ -527,6 +557,8 @@ function showDetail(idx, hourIdx) {
         +   '<div class="dp-row"><span class="dp-key">Cizalladura</span><span class="dp-val ' + (sShear >= 1 ? 'warn' : '') + '">' + shear.toFixed(0) + '°</span></div>'
         +   '<div class="dp-row"><span class="dp-key">Techo CBL</span><span class="dp-val" style="color:' + cblColor(blh) + '">' + cblTxt + '</span></div>'
         +   '<div class="dp-row"><span class="dp-key">Termicas</span><span class="dp-val" style="color:' + cblColor(blh) + '">' + cblStrength(blh) + '</span></div>'
+        +   '<div class="dp-row"><span class="dp-key">Lluvia</span><span class="dp-val ' + (haz === 2 ? 'danger' : haz === 1 ? 'warn' : '') + '">' + (HAZ_ICON[haz] ? HAZ_ICON[haz] + ' ' : '') + HAZ_LABEL[haz] + (precip !== null ? ' · ' + precip.toFixed(1) + ' mm' : '') + '</span></div>'
+        +   '<div class="dp-row"><span class="dp-key">Prob. lluvia / CAPE</span><span class="dp-val">' + (prob !== null ? prob + '%' : '-') + ' / ' + (cape !== null ? Math.round(cape) + ' J/kg' : '-') + '</span></div>'
         + '</div>'
         + '<div class="dp-dirs">'
         +   '<div class="dp-dir-item"><span class="dp-dir-arr" style="color:#7dd3fc;display:inline-block;transform:rotate(' + arrowRotationDeg(d10) + 'deg)">↑</span><div class="dp-dir-name">' + compassDir(d10) + '</div><div class="dp-dir-alt">10m · ' + d10 + '°</div></div>'
@@ -569,7 +601,7 @@ function rebuildHourly(idx, data) {
 
     body.innerHTML = ''
         + '<div class="summary-bar">' + buildSummary(idx, scores, h.time, h.wind_direction_10m, h.wind_speed_10m) + '</div>'
-        + '<div class="day-tabs">' + buildDayTabs(idx, days, scores, h.time, selDay) + '</div>'
+        + '<div class="day-tabs">' + buildDayTabs(idx, days, scores, h.time, selDay, h) + '</div>'
         + '<div class="hourly-section">'
         +   '<div class="hourly-hint">← desliza · toca para detalles</div>'
         +   '<div class="hourly-scroll">' + buildHourCards(idx, h, scores, selDay) + '</div>'

@@ -370,3 +370,8 @@ main { padding: 0.65rem; display: flex; flex-direction: column; gap: 0.65rem; ma
     .hour-card { width: 80px; }
     .hc-arr10 { font-size: 1.4rem; }
 }
+
+.hc-haz { font-size: 0.7rem; line-height: 1; text-align: center; }
+.hc-haz small { display: block; font-size: 0.55rem; color: var(--sub); }
+.hc-haz.haz-2 small { color: var(--f3); }
+.day-haz { font-size: 0.7rem; }

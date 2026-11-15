@@ -1,6 +1,6 @@
 # Viento Parapente
 
-Single-page wind forecast tool for paragliding, showing a 72h/3-day outlook per flying site.
+Single-page wind forecast tool for paragliding, showing a 7-day outlook per flying site.
 
 ## What it does
 
