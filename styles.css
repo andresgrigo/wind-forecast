@@ -375,3 +375,46 @@ main { padding: 0.65rem; display: flex; flex-direction: column; gap: 0.65rem; ma
 .hc-haz small { display: block; font-size: 0.55rem; color: var(--sub); }
 .hc-haz.haz-2 small { color: var(--f3); }
 .day-haz { font-size: 0.7rem; }
+
+/* == Mobile == */
+.loc-title { min-width: 0; flex: 1; }
+.loc-name h2 { overflow-wrap: anywhere; }
+.site-tabs { -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.site-tabs::-webkit-scrollbar { display: none; }
+body { overflow-x: hidden; }
+
+@media (max-width: 520px) {
+    header { padding: 0.5rem 0.65rem; }
+    .hdr-title h1 { font-size: 0.92rem; }
+    .hdr-right { gap: 0.3rem; }
+    .hdr-right .btn { padding: 0.4rem 0.5rem; }
+
+    /* 16px inputs stop iOS from zooming on focus; larger tap targets */
+    .search-wrap input, .model-select, .external-select, .df-select, .df-input,
+    .sf input[type=number] { font-size: 16px; }
+    .btn { min-height: 38px; }
+    .btn-sm { min-height: 34px; padding: 0.3rem 0.65rem; }
+    .model-bar { flex-wrap: wrap; }
+    .model-select { flex: 1 1 100%; padding: 0.4rem 0.5rem; }
+    .site-tab { min-width: 6rem; padding: 0.55rem 0.5rem; }
+
+    .loc-header { padding: 0.5rem 0.65rem; }
+    .loc-actions .btn { min-width: 38px; }
+    .dir-filter-bar { gap: 0.4rem 0.75rem; }
+    .df-toggle input { width: 20px; height: 20px; }
+    .df-input { width: 56px; padding: 0.3rem; }
+    .df-select { padding: 0.3rem; }
+
+    .summary-bar { padding: 0.4rem 0.65rem; }
+    .day-tab { padding: 0.55rem 0.1rem; font-size: 0.66rem; min-width: 0; }
+    .hourly-scroll { padding-left: 0.6rem; padding-right: 0.6rem; }
+    .hour-card { width: 62px; }
+
+    .detail-panel { margin: 0 0.5rem 0.6rem; padding: 0.65rem; }
+    .dp-grid { grid-template-columns: 1fr; }
+    .dp-dirs { flex-wrap: wrap; row-gap: 0.5rem; }
+    .info-inner, .settings-grid { grid-template-columns: 1fr; }
+    .info-panel.open { max-height: 3000px; overflow-y: auto; }
+    .settings-panel.open { max-height: 1600px; }
+    .manual-fetch { flex-direction: column; align-items: stretch; text-align: center; }
+}

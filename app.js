@@ -6,6 +6,22 @@ const API_GEO = 'https://geocoding-api.open-meteo.com/v1/search';
 const PARAMS  = 'wind_speed_10m,wind_speed_80m,wind_speed_120m,wind_speed_180m,wind_direction_10m,wind_direction_80m,wind_direction_120m,wind_direction_180m,wind_gusts_10m,boundary_layer_height,precipitation,precipitation_probability,cape,weather_code';
 
 const WINDOW_START_HOUR = 9;
+const WINDOW_END_HOUR = 20;   // fallback when sunrise/sunset data is missing
+const SUN_OFFSET_HOURS = 1;   // flying window = sunrise + 1h .. sunset + 1h
+
+// Flying window for a date as decimal local hours, from Open-Meteo daily sunrise/sunset
+function flyWindow(daily, date) {
+    const i = daily && daily.time ? daily.time.indexOf(date) : -1;
+    if (i < 0 || !daily.sunrise || !daily.sunset || !daily.sunrise[i] || !daily.sunset[i]) {
+        return { start: WINDOW_START_HOUR, end: WINDOW_END_HOUR };
+    }
+    function dec(iso) { const t = iso.split('T')[1].split(':'); return parseInt(t[0], 10) + parseInt(t[1], 10) / 60; }
+    return { start: dec(daily.sunrise[i]) + SUN_OFFSET_HOURS, end: dec(daily.sunset[i]) + SUN_OFFSET_HOURS };
+}
+function inFlyWindow(win, isoTime) {
+    const hour = parseInt(isoTime.split('T')[1].slice(0, 2), 10);
+    return hour >= win.start && hour <= win.end;
+}
 const DEFAULT_CARD_HOUR = 9;
 
 const CFG_DEFAULTS = {
@@ -24,7 +40,8 @@ const SITE_GROUPS = {
     andalusia: [
         { name: 'Algodonales', lat: 36.8976, lon: -5.3935, dirFilter: { enabled: true, deg: 270, tol: 15 } },
         { name: 'El Bosque', lat: 36.7541, lon: -5.4891, dirFilter: { enabled: true, deg: 270, tol: 15 } },
-        { name: 'Matalascañas', lat: 37.0104, lon: -6.5731, dirFilter: { enabled: true, deg: 225, tol: 15 } }
+        { name: 'Matalascañas', lat: 37.0104, lon: -6.5731, dirFilter: { enabled: true, deg: 225, tol: 15 } },
+        { name: 'Montellano', lat: 37.0054, lon: -5.54693, dirFilter: { enabled: true, deg: 45, tol: 15 } }
     ],
     algarve: [
         { name: 'Porto de Mós', lat: 37.0853, lon: -8.6837, dirFilter: { enabled: true, deg: 135, tol: 15 } },
@@ -242,7 +259,7 @@ function dirMatchesFilter(windDeg, filterDeg, tol) {
     return Math.abs(((windDeg - filterDeg) + 180) % 360 - 180) <= tol;
 }
 
-function bestWindows(idx, scores, times, dirs, speeds) {
+function bestWindows(idx, scores, times, dirs, speeds, daily) {
     const df = locations[idx] && locations[idx].dirFilter;
     const days = {};
     times.forEach(function(t, i) {
@@ -253,11 +270,11 @@ function bestWindows(idx, scores, times, dirs, speeds) {
     });
     return Object.entries(days).map(function(entry) {
         const date = entry[0]; const hrs = entry[1];
+        const fw = flyWindow(daily, date);
         let bestStart = null, bestEnd = null, bestLen = 0;
         let curStart = null, curEnd = null, curLen = 0;
         hrs.forEach(function(h) {
-            const hour = parseInt(h.t.split('T')[1].slice(0, 2), 10);
-            const favorable = h.s <= 2 && h.dirOk && h.speedOk && hour >= WINDOW_START_HOUR;
+            const favorable = h.s <= 2 && h.dirOk && h.speedOk && inFlyWindow(fw, h.t);
             if (favorable) {
                 if (!curStart) curStart = h.t;
                 curEnd = h.t;
@@ -321,7 +338,7 @@ const WX_LS_PREFIX = 'wx:';
 const FORECAST_DAYS = 7;
 
 function wxKey(loc) {
-    return loc.lat + ',' + loc.lon + ',' + currentModel + ',' + FORECAST_DAYS + ',v2';
+    return loc.lat + ',' + loc.lon + ',' + currentModel + ',' + FORECAST_DAYS + ',v3';
 }
 
 function wxCacheGet(key) {
@@ -388,7 +405,7 @@ async function fetchWeather(loc) {
     const cached = wxCacheGet(key);
     if (cached) return cached;
     const modelParam = currentModel ? '&models=' + encodeURIComponent(currentModel) : '';
-    const url = API_WX + '?latitude=' + loc.lat + '&longitude=' + loc.lon + '&hourly=' + PARAMS + '&timezone=auto&forecast_days=' + FORECAST_DAYS + modelParam;
+    const url = API_WX + '?latitude=' + loc.lat + '&longitude=' + loc.lon + '&hourly=' + PARAMS + '&daily=sunrise,sunset&timezone=auto&forecast_days=' + FORECAST_DAYS + modelParam;
     const r = await fetch(url);
     if (!r.ok) throw new Error('HTTP ' + r.status);
     const data = await r.json();
@@ -412,8 +429,8 @@ function onModelChange() {
 /* ===========================================
    Summary bar
 =========================================== */
-function buildSummary(idx, scores, times, dirs, speeds) {
-    const wins = bestWindows(idx, scores, times, dirs, speeds);
+function buildSummary(idx, scores, times, dirs, speeds, daily) {
+    const wins = bestWindows(idx, scores, times, dirs, speeds, daily);
     if (!wins.length) return '<span class="chip"><span class="chip-dot" style="background:var(--f3)"></span>Sin ventanas favorables</span>';
     return wins.slice(0, 3).map(function(w) {
         return '<span class="chip"><span class="chip-dot" style="background:var(--f0)"></span>' + escHtml(w.label) + ' · ' + escHtml(w.start) + '–' + escHtml(w.end) + ' (' + w.hours + 'h)</span>';
@@ -423,7 +440,7 @@ function buildSummary(idx, scores, times, dirs, speeds) {
 /* ===========================================
    Day tabs
 =========================================== */
-function buildDayTabs(idx, days, scores, times, selDay, hData) {
+function buildDayTabs(idx, days, scores, times, selDay, hData, daily) {
     return days.map(function(d, i) {
         const dayHourIndices = [];
         times.forEach(function(t, hi) { if (t.startsWith(d)) dayHourIndices.push(hi); });
@@ -433,7 +450,10 @@ function buildDayTabs(idx, days, scores, times, selDay, hData) {
             return '<span class="day-tab-dot" style="background:' + FLY_COLORS[scores[hi]] + '"></span>';
         }).join('');
         let dayHaz = 0;
-        dayHourIndices.forEach(function(hi) { dayHaz = Math.max(dayHaz, wxHazard(hData, hi)); });
+        const fw = flyWindow(daily, d);
+        dayHourIndices.forEach(function(hi) {
+            if (inFlyWindow(fw, times[hi])) dayHaz = Math.max(dayHaz, wxHazard(hData, hi));
+        });
         return '<button class="day-tab ' + (i === selDay ? 'active' : '') + '" onclick="selectDay(' + idx + ', ' + i + ')">'
             + '<span>' + dayLabelShort(d) + (dayHaz ? ' <span class="day-haz" title="' + HAZ_LABEL[dayHaz] + '">' + HAZ_ICON[dayHaz] + '</span>' : '') + '</span>'
             + '<div class="day-tab-dots">' + dots + '</div>'
@@ -600,8 +620,8 @@ function rebuildHourly(idx, data) {
     const selDay = locations[idx].selectedDay != null ? locations[idx].selectedDay : 0;
 
     body.innerHTML = ''
-        + '<div class="summary-bar">' + buildSummary(idx, scores, h.time, h.wind_direction_10m, h.wind_speed_10m) + '</div>'
-        + '<div class="day-tabs">' + buildDayTabs(idx, days, scores, h.time, selDay, h) + '</div>'
+        + '<div class="summary-bar">' + buildSummary(idx, scores, h.time, h.wind_direction_10m, h.wind_speed_10m, data.daily) + '</div>'
+        + '<div class="day-tabs">' + buildDayTabs(idx, days, scores, h.time, selDay, h, data.daily) + '</div>'
         + '<div class="hourly-section">'
         +   '<div class="hourly-hint">← desliza · toca para detalles</div>'
         +   '<div class="hourly-scroll">' + buildHourCards(idx, h, scores, selDay) + '</div>'
@@ -617,15 +637,15 @@ function rebuildHourly(idx, data) {
         +   '<span class="lgi"><span class="lgdot" style="background:#f59e0b"></span>Term. fuertes</span>'
         + '</div>';
 
-    scrollToDefaultCard(idx, h, scores, days, selDay);
+    scrollToDefaultCard(idx, h, scores, days, selDay, data.daily);
 }
 
-function scrollToDefaultCard(idx, h, scores, days, selDay) {
+function scrollToDefaultCard(idx, h, scores, days, selDay, daily) {
     const card = document.getElementById('card-' + idx);
     const scroller = card && card.querySelector('.hourly-scroll');
     if (!scroller) return;
     const dayDate = days[selDay];
-    const win = bestWindows(idx, scores, h.time, h.wind_direction_10m, h.wind_speed_10m)
+    const win = bestWindows(idx, scores, h.time, h.wind_direction_10m, h.wind_speed_10m, daily)
         .find(function(w) { return w.date === dayDate; });
     const targetTime = win ? win.startIso : dayDate + 'T' + String(DEFAULT_CARD_HOUR).padStart(2, '0') + ':00';
     const i = h.time.indexOf(targetTime);
@@ -750,7 +770,9 @@ function renderAll() {
     // Cached forecasts render straight away; only uncached places count towards the manual-fetch limit
     const cached = locations.map(function(loc) { return wxCacheGet(wxKey(loc)); });
     const pending = cached.filter(function(data) { return !data; }).length;
-    const manualFetchRequired = pending > 3;
+    // Built-in default groups always auto-load, whatever their size
+    const isDefaultGroup = !!SITE_GROUPS[activeSiteGroup] && locations.length <= SITE_GROUPS[activeSiteGroup].length;
+    const manualFetchRequired = !isDefaultGroup && pending > 3;
     if (manualFetchRequired) {
         main.innerHTML = '<div class="manual-fetch"><span>Hay ' + pending + ' lugares sin previsiones recientes. Pulsa para solicitarlas.</span><button class="btn btn-accent btn-sm" onclick="fetchSelectedLocations()">Solicitar previsiones</button></div>';
     }
