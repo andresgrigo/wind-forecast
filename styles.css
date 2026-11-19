@@ -407,6 +407,9 @@ body { overflow-x: hidden; }
 
     .summary-bar { padding: 0.4rem 0.65rem; }
     .day-tab { padding: 0.55rem 0.1rem; font-size: 0.66rem; min-width: 0; }
+    .day-tab { overflow: hidden; }
+    .day-tab-dots { gap: 1px; }
+    .day-tab-dot { width: 5px; height: 5px; }
     .hourly-scroll { padding-left: 0.6rem; padding-right: 0.6rem; }
     .hour-card { width: 62px; }
 

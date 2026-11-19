@@ -40,8 +40,8 @@ const SITE_GROUPS = {
     andalusia: [
         { name: 'Algodonales', lat: 36.8976, lon: -5.3935, dirFilter: { enabled: true, deg: 270, tol: 15 } },
         { name: 'El Bosque', lat: 36.7541, lon: -5.4891, dirFilter: { enabled: true, deg: 270, tol: 15 } },
-        { name: 'Matalascañas', lat: 37.0104, lon: -6.5731, dirFilter: { enabled: true, deg: 225, tol: 15 } },
-        { name: 'Montellano', lat: 37.0054, lon: -5.54693, dirFilter: { enabled: true, deg: 45, tol: 15 } }
+        { name: 'Montellano', lat: 37.0054, lon: -5.54693, dirFilter: { enabled: true, deg: 45, tol: 15 } },
+        { name: 'Matalascañas', lat: 37.0104, lon: -6.5731, dirFilter: { enabled: true, deg: 225, tol: 15 } }
     ],
     algarve: [
         { name: 'Porto de Mós', lat: 37.0853, lon: -8.6837, dirFilter: { enabled: true, deg: 135, tol: 15 } },
